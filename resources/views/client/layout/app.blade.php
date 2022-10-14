@@ -108,7 +108,7 @@
   <section class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-12 mb-5">
+        <div class="col-lg-4 col-12 mb-5">
           <h4>Denti<span class="text-pink">Care</span></h4>
           <div class="separator"></div>
           <p>{{ __('A team of dentists working ot ensure you receive the best treatment.') }}</p>
@@ -118,7 +118,7 @@
             <li><i class="fa fa-globe"></i> <a href="https://www.denticare.com">https://www.denticare.com</a></li>
           </ul>
         </div>
-        <div class="col-md-3 col-12 mb-5">
+        <div class="col-lg-3 col-12 mb-5">
           <h4>{{__('About')}}</h4>
           <div class="separator"></div>
           <ul>

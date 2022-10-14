@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-repeat: no-repeat;
 
   h1 {
     color: #BA5E9C;
@@ -171,9 +172,9 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   #hero {
-    background-position: -35% 50%;
+    background-position: center;
   }
 
   .apply-col {
@@ -184,9 +185,7 @@
     padding: 50px 0;
 
     .circle-wrapper .circle {
-      width: auto;
-      background-image: url(/images/circle-with-content-mobile.png) !important;
-      background-size: 100%;
+      background-image: url(/images/circle-with-content.png) !important;
       background-repeat: no-repeat;
       background-position: center;
     }
@@ -247,6 +246,28 @@
 
     img {
       width: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #hero {
+    background-position: 90% center;
+  }
+
+  #form-wrapper {
+    padding: 50px 0;
+
+    .circle-wrapper .circle {
+      width: auto;
+      background-image: url(/images/circle-with-content-mobile.png) !important;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .apply-wrapper {
+      padding: 40px 20px;
     }
   }
 }
