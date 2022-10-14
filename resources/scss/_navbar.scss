@@ -26,3 +26,29 @@
     }
   }
 }
+
+#navbar-mobile {
+  display: none;
+  justify-content: space-between;
+  padding: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #header {
+    display: none;
+  }
+
+  #navbar-mobile {
+    display: flex;
+  }
+
+  .languages-selector-wrapper {
+    display: none;
+  }
+}

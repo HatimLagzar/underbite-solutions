@@ -170,3 +170,83 @@
     margin: 0 auto 20px;
   }
 }
+
+@media screen and (max-width: 425px) {
+  #hero {
+    background-position: -35% 50%;
+  }
+
+  .apply-col {
+    margin-top: 0 !important;
+  }
+
+  #form-wrapper {
+    padding: 50px 0;
+
+    .circle-wrapper .circle {
+      width: auto;
+      background-image: url(/images/circle-with-content-mobile.png) !important;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .apply-wrapper {
+      padding: 40px 20px;
+    }
+  }
+
+  #specialized-team {
+    padding: 50px 0;
+
+    h2 {
+      font-size: 30px;
+    }
+
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .quote {
+      margin-top: 20px;
+      font-size: 22px;
+      padding: 0 20px;
+    }
+  }
+
+  #international-program {
+    padding: 50px 0;
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      padding: 0 45px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  #our-dental-service {
+    padding: 50px 0;
+
+    p {
+      width: 100% !important;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 80px;
+    }
+  }
+}

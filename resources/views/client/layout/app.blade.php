@@ -16,6 +16,46 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+<nav id="navbar-mobile" class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Logo" width="180"></a>
+    <button class="navbar-toggler ms-auto d-inline-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="/" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            English
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <header id="header">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
@@ -68,7 +108,7 @@
   <section class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-12 mb-5">
           <h4>Denti<span class="text-pink">Care</span></h4>
           <div class="separator"></div>
           <p>{{ __('A team of dentists working ot ensure you receive the best treatment.') }}</p>
@@ -78,7 +118,7 @@
             <li><i class="fa fa-globe"></i> <a href="https://www.denticare.com">https://www.denticare.com</a></li>
           </ul>
         </div>
-        <div class="col-3">
+        <div class="col-md-3 col-12 mb-5">
           <h4>{{__('About')}}</h4>
           <div class="separator"></div>
           <ul>
