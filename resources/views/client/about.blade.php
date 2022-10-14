@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  Home
+  About Us
 @endsection
 @section('content')
   <section id="about-us">

@@ -19,7 +19,8 @@
 <nav id="navbar-mobile" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Logo" width="180"></a>
-    <button class="navbar-toggler ms-auto d-inline-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <button class="navbar-toggler ms-auto d-inline-block" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,7 +48,9 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
@@ -90,7 +93,7 @@
             <a href="{{ route('pages.about') }}" class="nav-link">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">FAQ</a>
+            <a href="{{ route('pages.faq') }}" class="nav-link">FAQ</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Blog</a>
