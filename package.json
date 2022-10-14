@@ -18,7 +18,9 @@
         "sass": "^1.55.0"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.2",
+        "font-awesome": "^4.7.0",
         "sass-loader": "^13.1.0"
     }
 }

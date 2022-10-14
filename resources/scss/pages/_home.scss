@@ -1,0 +1,172 @@
+#hero {
+  background-image: url("/images/hero.jpeg");
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    color: #BA5E9C;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .apply {
+    font-size: 18px;
+  }
+}
+
+#form-wrapper {
+  width: 100%;
+  background: #0E54AE;
+  color: white;
+  padding: 100px 0;
+
+  .circle-wrapper {
+    .circle {
+      width: 400px;
+      height: 400px;
+      background-image: url(/images/circle-with-content.png);
+      background-size: 400px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .apply-wrapper {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+
+    form {
+      label {
+        color: #0E54AE;
+        font-size: 16px;
+      }
+
+      .uploads {
+        img {
+          width: 100%;
+          outline: 2px dashed #DDD;
+        }
+
+        label {
+          cursor: pointer;
+        }
+
+        .add-icon-wrapper {
+          width: 18px;
+          height: 18px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+
+          i {
+            color: #BA5E9C;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#specialized-team {
+  width: 100%;
+  padding: 100px 0;
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .quote {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .author {
+    font-style: italic;
+    font-size: 16px;
+  }
+}
+
+#international-program {
+  width: 100%;
+  padding: 100px 0;
+  background: #0E54AE;
+  color: white;
+
+  img {
+    max-width: 470px;
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+
+  p {
+    padding: 0 85px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      list-style-type: none;
+      margin-right: 15px;
+
+      img {
+        width: 70px;
+      }
+    }
+  }
+}
+
+#our-dental-service {
+  width: 100%;
+  padding: 100px 0;
+
+  h2 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+
+  img {
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
+  }
+}

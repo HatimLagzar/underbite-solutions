@@ -1,0 +1,28 @@
+#navbar {
+  padding-bottom: 0;
+  border-top: 1px solid #BABABA;
+
+  li {
+    &:first-of-type {
+      a {
+        margin-left: 0;
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+      text-align: center;
+      color: black;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 15px;
+      margin-right: 15px;
+
+
+      &.active,
+      &:hover {
+        border-bottom: 2px solid #BA5E9C;
+      }
+    }
+  }
+}
