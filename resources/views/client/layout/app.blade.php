@@ -96,7 +96,7 @@
             <a href="{{ route('pages.faq') }}" class="nav-link">FAQ</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Blog</a>
+            <a href="{{ route('pages.blog') }}" class="nav-link">Blog</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Contact Us</a>

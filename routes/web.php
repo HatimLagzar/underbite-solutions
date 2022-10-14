@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\FAQ\FAQController;
 use App\Http\Controllers\Home\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,5 @@ Route::name('pages.')->group(function () {
     Route::get('/', HomeController::class)->name('home');
     Route::get('/about-us', AboutController::class)->name('about');
     Route::get('/faq', FAQController::class)->name('faq');
+    Route::get('/blog', BlogController::class)->name('blog');
 });
