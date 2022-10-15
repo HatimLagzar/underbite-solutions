@@ -240,3 +240,10 @@
     </div>
   </section>
 @endsection
+@push('scripts')
+  <script>
+    const input = document.querySelector("#phoneInput");
+    intlTelInput(input, {
+    });
+  </script>
+@endpush

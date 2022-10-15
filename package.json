@@ -21,6 +21,7 @@
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.2",
         "font-awesome": "^4.7.0",
+        "intl-tel-input": "^17.0.19",
         "sass-loader": "^13.1.0"
     }
 }
