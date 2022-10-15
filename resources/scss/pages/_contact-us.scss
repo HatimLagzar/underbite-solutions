@@ -1,0 +1,52 @@
+#contact-us-header {
+  background-color: #0a53be;
+  color: white;
+  padding: 100px 0;
+}
+
+#contact-us-section {
+  padding: 40px 0;
+  background-image: url(/images/doctor-holding-teeth.jpeg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 70%;
+  background-color: #eee;
+}
+
+#contact-us-form {
+  padding: 40px 35px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  h1 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  label {
+    color: #0a53be;
+  }
+
+  button {
+    padding: 8px 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #contact-us-section {
+    padding: 50px 0;
+    background-image: none;
+    background-color: white;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  #contact-us-form {
+    box-shadow: none;
+    padding: 0;
+  }
+}
