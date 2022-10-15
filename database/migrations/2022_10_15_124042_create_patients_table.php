@@ -25,7 +25,7 @@ class CreatePatientsTable extends Migration
             $table->unsignedBigInteger('country_id');
             $table->string('phone_code');
             $table->string('phone_number');
-            $table->string('social_network_note');
+            $table->string('social_network_note')->nullable();
             $table->boolean('is_qualified')->default(null)->nullable();
             $table->timestamps();
 

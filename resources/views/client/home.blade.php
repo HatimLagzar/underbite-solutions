@@ -27,17 +27,16 @@
         <div class="col-lg-6 col-12 apply-col" style="margin-top: -350px;">
           <div class="apply-wrapper">
             <form method="POST" action="#">
-              @csrf
               <h3 class="d-inline text-pink me-1">{{ __('Book your visit at') }}</h3>
               <h3 class="d-inline text-blue">{{ __('Denistry Care') }}</h3>
               <div class="row mt-3">
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="firstNameInput">First Name</label>
-                  <input id="firstNameInput" type="text" class="form-control">
+                  <input id="firstNameInput" type="text" class="form-control" name="first_name">
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="lastNameInput">Last Name</label>
-                  <input id="lastNameInput" type="text" class="form-control">
+                  <input id="lastNameInput" type="text" class="form-control" name="last_name">
                 </div>
               </div>
               <div class="row">
@@ -52,7 +51,7 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="ageInput">Your Age</label>
-                  <select id="ageInput" type="text" class="form-select">
+                  <select id="ageInput" type="text" class="form-select" name="age">
                     <option value="">Select Age</option>
                     @for($i = 10; $i <= 80; $i++)
                       <option value="{{ $i }}">{{ $i }}</option>
@@ -63,7 +62,7 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="heightInput">Your Height</label>
-                  <select id="heightInput" type="text" class="form-select">
+                  <select id="heightInput" type="text" class="form-select" name="height">
                     <option value="">Select Height</option>
                     @for($i = 150; $i <= 200; $i++)
                       <option value="{{ $i }}">{{ $i }} cm</option>
@@ -72,7 +71,7 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="weightInput">Your Weight</label>
-                  <select id="weightInput" type="text" class="form-select">
+                  <select id="weightInput" type="text" class="form-select" name="weight">
                     <option value="">Select Age</option>
                     @for($i = 40; $i <= 150; $i++)
                       <option value="{{ $i }}">{{ $i }} Kg</option>
@@ -83,11 +82,11 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="emailInput">Your Email</label>
-                  <input id="emailInput" type="text" class="form-control">
+                  <input id="emailInput" type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="countryInput">Your Origin/Country</label>
-                  <select id="countryInput" type="text" class="form-select">
+                  <select id="countryInput" type="text" class="form-select" name="country">
                     <option value="">Select Country</option>
                     @foreach(\App\Models\Country::all() as $country)
                       <option value="{{ $country->getId() }}">{{ $country->getNiceName() }}</option>
@@ -99,13 +98,13 @@
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="phoneInput">Phone Number <span class="text-muted"
                                                                                 style="font-size: 12px">(Whatsapp Preferred)</span></label>
-                  <input id="phoneInput" type="tel" class="form-control">
+                  <input id="phoneInput" type="tel" class="form-control" name="phone_number">
                 </div>
 
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="socialNetworkInput">Facebook / Instagram <span class="text-muted"
                                                                                                 style="font-size: 12px">(Optional)</span></label>
-                  <input id="socialNetworkInput" type="text" class="form-control">
+                  <input id="socialNetworkInput" type="text" class="form-control" name="social_network_note">
                 </div>
               </div>
 
@@ -115,7 +114,7 @@
 
               <div class="row uploads">
                 <div class="col">
-                  <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*">
+                  <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*" required>
                   <label for="frontSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -125,7 +124,7 @@
                   <p class="text-black text-center mt-1">{{ __('Front View') }}</p>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_side" id="leftSideInput" class="d-none" accept="image/*">
+                  <input type="file" name="left_side" id="leftSideInput" class="d-none" accept="image/*" required>
                   <label for="leftSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -135,7 +134,7 @@
                   <p class="text-black text-center mt-1">{{ __('Left View') }}</p>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_side" id="rightSideInput" class="d-none" accept="image/*">
+                  <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
                   <label for="rightSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -241,9 +240,5 @@
   </section>
 @endsection
 @push('scripts')
-  <script>
-    const input = document.querySelector("#phoneInput");
-    intlTelInput(input, {
-    });
-  </script>
+  <script src="{{ asset('js/pages/home.js') }}"></script>
 @endpush
