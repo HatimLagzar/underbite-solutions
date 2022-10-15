@@ -27,31 +27,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="/" class="nav-link active">Home</a>
+          <a href="{{ route('pages.home') }}" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">About Us</a>
+          <a href="{{ route('pages.about') }}" class="nav-link">About Us</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">FAQ</a>
+          <a href="{{ route('pages.faq') }}" class="nav-link">FAQ</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Blog</a>
+          <a href="{{ route('pages.blog') }}" class="nav-link">Blog</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Contact Us</a>
+          <a href="{{ route('pages.contact-us') }}" class="nav-link">Contact Us</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             English
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Arabic</a></li>
+            <li><a class="dropdown-item" href="#">Francais</a></li>
+            <li><a class="dropdown-item" href="#">Deutsch</a></li>
           </ul>
         </li>
       </ul>
@@ -71,9 +68,9 @@
             English
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Arabic</a></li>
+            <li><a class="dropdown-item" href="#">Francais</a></li>
+            <li><a class="dropdown-item" href="#">Deutsch</a></li>
           </ul>
         </div>
       </div>
@@ -87,19 +84,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="/" class="nav-link active">Home</a>
+            <a href="{{ route('pages.home') }}" class="nav-link {{ request()->route()->getName() === 'pages.home' ? 'active' : '' }}">Home</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.about') }}" class="nav-link">About Us</a>
+            <a href="{{ route('pages.about') }}" class="nav-link {{ request()->route()->getName() === 'pages.about' ? 'active' : '' }}">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.faq') }}" class="nav-link">FAQ</a>
+            <a href="{{ route('pages.faq') }}" class="nav-link {{ request()->route()->getName() === 'pages.faq' ? 'active' : '' }}">FAQ</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.blog') }}" class="nav-link">Blog</a>
+            <a href="{{ route('pages.blog') }}" class="nav-link {{ request()->route()->getName() === 'pages.blog' ? 'active' : '' }}">Blog</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.contact-us') }}" class="nav-link">Contact Us</a>
+            <a href="{{ route('pages.contact-us') }}" class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact Us</a>
           </li>
         </ul>
       </div>
