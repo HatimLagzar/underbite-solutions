@@ -115,7 +115,7 @@
 
               <div class="row uploads">
                 <div class="col">
-                  <input type="file" name="front_side" id="frontSideInput" class="d-none">
+                  <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*">
                   <label for="frontSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -125,7 +125,7 @@
                   <p class="text-black text-center mt-1">{{ __('Front View') }}</p>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_side" id="leftSideInput" class="d-none">
+                  <input type="file" name="front_side" id="leftSideInput" class="d-none" accept="image/*">
                   <label for="leftSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -135,7 +135,7 @@
                   <p class="text-black text-center mt-1">{{ __('Left View') }}</p>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_side" id="rightSideInput" class="d-none">
+                  <input type="file" name="front_side" id="rightSideInput" class="d-none" accept="image/*">
                   <label for="rightSideInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -145,7 +145,7 @@
                   <p class="text-black text-center mt-1">{{ __('Right View') }}</p>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_side" id="bigSmileInput" class="d-none">
+                  <input type="file" name="front_side" id="bigSmileInput" class="d-none" accept="image/*">
                   <label for="bigSmileInput" class="position-relative">
                     <img src="/images/underbite.jpeg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
