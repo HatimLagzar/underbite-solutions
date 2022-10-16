@@ -83,3 +83,6 @@
     </div>
   </section>
 @endsection
+@push('scripts')
+  <script src="{{ asset('js/pages/contact-us.js') }}"></script>
+@endpush

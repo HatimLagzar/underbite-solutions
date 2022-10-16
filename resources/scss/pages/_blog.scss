@@ -1,5 +1,5 @@
 #blog-header {
-  background-color: #0a53be;
+  background-color: $blue;
   color: white;
   padding: 100px 0;
 }
@@ -64,9 +64,9 @@
 
       &:hover,
       &.active {
-        background-color: #0a53be;
+        background-color: $blue;
         color: white;
-        border: 1px solid #0a53be;
+        border: 1px solid $blue;
       }
     }
   }

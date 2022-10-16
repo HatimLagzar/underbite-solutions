@@ -28,7 +28,7 @@
 
 #form-wrapper {
   width: 100%;
-  background: #0E54AE;
+  background: $blue;
   color: white;
   padding: 100px 0;
 
@@ -51,7 +51,7 @@
 
     form {
       label {
-        color: #0E54AE;
+        color: $blue;
         font-size: 16px;
       }
 
@@ -114,7 +114,7 @@
 #international-program {
   width: 100%;
   padding: 100px 0;
-  background: #0E54AE;
+  background: $blue;
   color: white;
 
   img {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Contact\ContactUsController;
 use App\Http\Controllers\Api\Patient\ApplyController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('apply', ApplyController::class);
+Route::post('contact-us', ContactUsController::class);
