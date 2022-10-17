@@ -365,6 +365,10 @@
 
       .text {
         line-height: 0.8;
+
+        span {
+          text-align: left !important;
+        }
       }
 
       .top {

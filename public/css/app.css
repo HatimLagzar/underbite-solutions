@@ -4631,6 +4631,9 @@ button.toast-close-button {
   #form-wrapper #circle .text {
     line-height: 0.8;
   }
+  #form-wrapper #circle .text span {
+    text-align: left !important;
+  }
   #form-wrapper #circle .top {
     top: 30px;
   }

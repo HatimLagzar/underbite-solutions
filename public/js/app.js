@@ -5317,6 +5317,7 @@ window.addEventListener('scroll', function () {
       navbar.style.position = 'fixed';
       navbar.style.left = 0;
       navbar.style.top = 0;
+      navbar.style.paddingBottom = '0.5rem';
     }
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'fixed';
@@ -5326,6 +5327,8 @@ window.addEventListener('scroll', function () {
     if (navbar instanceof HTMLElement) {
       navbar.style.position = 'static';
       navbar.style.top = 'auto';
+      navbar.style.left = 'auto';
+      navbar.style.paddingBottom = '0';
     }
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'static';
