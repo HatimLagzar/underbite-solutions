@@ -37,7 +37,7 @@
                 <div class="right">
                   <i class="fa fa-plane"></i>
                   <div class="text">
-                    <span class="d-block">{{__('Travel costs covered')}}</span>
+                    <span class="d-block">{{__('Travel')}}</span>
                     <span style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
                   </div>
                 </div>

@@ -18,32 +18,32 @@
   <section id="contact-us-section">
     <div class="container">
       <div class="row">
-        <div class="col-7"></div>
-        <div class="col-lg-5 col-12">
+        <div class="col-6"></div>
+        <div class="col-lg-6 col-12">
           <form id="contact-us-form" action="#" method="post">
             <h1 class="mb-3">{{ __('Get in touch with us') }}</h1>
             <div class="row">
-              <div class="form-group col-12 col-lg-6 mb-2">
+              <div class="form-group col-12 col-lg-6 mb-3">
                 <label class="form-label" for="firstNameInput">First Name</label>
                 <input id="firstNameInput" type="text" class="form-control">
               </div>
-              <div class="form-group col-12 col-lg-6 mb-2">
+              <div class="form-group col-12 col-lg-6 mb-3">
                 <label class="form-label" for="lastNameInput">Last Name</label>
                 <input id="lastNameInput" type="text" class="form-control">
               </div>
             </div>
             <div class="row">
-              <div class="form-group col-12 col-lg-6 mb-2">
+              <div class="form-group col-12 col-lg-6 mb-3">
                 <label class="form-label" for="subjectInput">Subject</label>
                 <input id="subjectInput" type="text" class="form-control">
               </div>
-              <div class="form-group col-12 col-lg-6 mb-2">
+              <div class="form-group col-12 col-lg-6 mb-3">
                 <label class="form-label" for="emailAddress">Email Address</label>
                 <input id="emailAddress" type="email" class="form-control">
               </div>
             </div>
             <div class="row">
-              <div class="form-group col-12 mb-2">
+              <div class="form-group col-12 mb-3">
                 <label class="form-label" for="messageInput">Message</label>
                 <textarea id="messageInput" type="text" class="form-control"></textarea>
               </div>
