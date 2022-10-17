@@ -86,7 +86,11 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="ageInput">Your Age</label>
-                  <select id="ageInput" type="text" class="form-select" name="age">
+                  <select onfocus='this.size=6;'
+                          onblur='this.size=6;'
+                          onfocusout='this.size=null;'
+                          onchange='this.size=6; this.blur();'
+                          id="ageInput" type="text" class="form-select" name="age">
                     <option value="">Select Age</option>
                     @for($i = 10; $i <= 80; $i++)
                       <option value="{{ $i }}">{{ $i }}</option>
@@ -97,7 +101,14 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="heightInput">Your Height</label>
-                  <select id="heightInput" type="text" class="form-select" name="height">
+                  <select onfocus='this.size=6;'
+                          onblur='this.size=6;'
+                          onfocusout='this.size=null;'
+                          onchange='this.size=6; this.blur();'
+                          id="heightInput"
+                          type="text"
+                          class="form-select"
+                          name="height">
                     <option value="">Select Height</option>
                     @for($i = 150; $i <= 200; $i++)
                       <option value="{{ $i }}">{{ $i }} cm ({{ turnCentimeterToFoot($i) }} ft)</option>
@@ -106,7 +117,14 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="weightInput">Your Weight</label>
-                  <select onfocus='this.size=6;' onblur='this.size=6;' onfocusout='this.size=null;' onchange='this.size=6; this.blur();' id="weightInput" type="text" class="form-select" name="weight">
+                  <select onfocus='this.size=6;'
+                          onblur='this.size=6;'
+                          onfocusout='this.size=null;'
+                          onchange='this.size=6; this.blur();'
+                          id="weightInput"
+                          type="text"
+                          class="form-select"
+                          name="weight">
                     <option value="">Select Weight</option>
                     @for($i = 40; $i <= 150; $i++)
                       <option value="{{ $i }}">{{ $i }} Kg ({{ turnKilogramToLbs($i) }} lbs)</option>
@@ -121,7 +139,11 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="countryInput">Your Origin/Country</label>
-                  <select id="countryInput" type="text" class="form-select" name="country">
+                  <select onfocus='this.size=6;'
+                          onblur='this.size=6;'
+                          onfocusout='this.size=null;'
+                          onchange='this.size=6; this.blur();'
+                          id="countryInput" type="text" class="form-select" name="country">
                     <option value="">Select Country</option>
                     @foreach(\App\Models\Country::all() as $country)
                       <option value="{{ $country->getId() }}">{{ $country->getNiceName() }}</option>
