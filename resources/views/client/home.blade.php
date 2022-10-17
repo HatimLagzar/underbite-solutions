@@ -92,7 +92,7 @@
                           onchange='this.size=5; this.blur();'
                           id="ageInput" type="text" class="form-select" name="age">
                     <option value="">Select Age</option>
-                    @for($i = 10; $i <= 80; $i++)
+                    @for($i = 16; $i <= 50; $i++)
                       <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
                   </select>
@@ -126,7 +126,7 @@
                           class="form-select"
                           name="weight">
                     <option value="">Select Weight</option>
-                    @for($i = 40; $i <= 150; $i++)
+                    @for($i = 40; $i <= 200; $i++)
                       <option value="{{ $i }}">{{ $i }} Kg ({{ turnKilogramToLbs($i) }} lbs)</option>
                     @endfor
                   </select>
