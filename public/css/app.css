@@ -4448,7 +4448,7 @@ form label {
 }
 #form-wrapper .apply-wrapper {
   background-color: white;
-  padding: 40px;
+  padding: 20px 25px;
   border-radius: 10px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 }
