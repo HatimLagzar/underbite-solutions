@@ -1,3 +1,16 @@
+#flags-dowpdown-list {
+  img {
+    height: 20px;
+    width: 20px;
+    margin-right: .5rem;
+  }
+
+  a.dropdown-item {
+    color: black !important;
+    font-size: 16px !important;
+  }
+}
+
 #navbar {
   padding-bottom: 0;
   border-top: 1px solid #BABABA;
