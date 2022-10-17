@@ -4209,6 +4209,7 @@ button.toast-close-button {
 
 #header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 #navbar {
@@ -4334,13 +4335,82 @@ button.toast-close-button {
   color: white;
   padding: 100px 0;
 }
-#form-wrapper .circle-wrapper .circle {
-  width: 400px;
-  height: 400px;
-  background-image: url(/images/circle-with-content.png);
-  background-size: 400px;
-  background-repeat: no-repeat;
-  background-position: center;
+#form-wrapper .circle-wrapper {
+  padding: 120px;
+}
+#form-wrapper #circle {
+  position: relative;
+}
+#form-wrapper #circle #free-of-charges {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+#form-wrapper #circle i {
+  font-size: 60px;
+}
+#form-wrapper #circle span {
+  text-align: center;
+}
+#form-wrapper #circle .top {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+}
+#form-wrapper #circle .top .left,
+#form-wrapper #circle .top .right,
+#form-wrapper #circle .bottom .left,
+#form-wrapper #circle .bottom .right {
+  background-color: #0E54AE;
+  display: inline-flex;
+}
+#form-wrapper #circle .bottom {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+}
+#form-wrapper #circle .left,
+#form-wrapper #circle .right {
+  display: inline-flex;
+  align-items: center;
+}
+#form-wrapper #circle .left,
+#form-wrapper #circle .right,
+#form-wrapper #circle .center {
+  padding: 5px;
+}
+#form-wrapper #circle .left {
+  margin-left: -100px;
+  padding: 10px;
+  align-items: center;
+}
+#form-wrapper #circle .left span {
+  margin-right: 10px;
+}
+#form-wrapper #circle .right {
+  margin-right: -100px;
+  padding: 10px;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+#form-wrapper #circle .right span {
+  margin-left: 10px;
+}
+#form-wrapper #circle .top .center {
+  position: absolute;
+  left: 50%;
+  top: -130px;
+  transform: translateX(-50%);
+  background-color: #0E54AE;
+}
+#form-wrapper #circle .bottom .center {
+  position: absolute;
+  left: 50%;
+  bottom: -110px;
+  transform: translateX(-50%);
+  background-color: #0E54AE;
 }
 #form-wrapper .apply-wrapper {
   background-color: white;
@@ -4519,12 +4589,51 @@ button.toast-close-button {
   #form-wrapper {
     padding: 50px 0;
   }
-  #form-wrapper .circle-wrapper .circle {
-    width: auto;
-    background-image: url(/images/circle-with-content-mobile.png) !important;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+  #form-wrapper .circle-wrapper {
+    padding: 70px;
+  }
+  #form-wrapper #circle i {
+    font-size: 35px;
+  }
+  #form-wrapper #circle .top .center {
+    top: -70px;
+  }
+  #form-wrapper #circle .bottom .center {
+    bottom: -70px;
+  }
+  #form-wrapper #circle .text {
+    line-height: 0.8;
+  }
+  #form-wrapper #circle .top {
+    top: 30px;
+  }
+  #form-wrapper #circle .bottom {
+    bottom: 50px;
+  }
+  #form-wrapper #circle .left,
+#form-wrapper #circle .right {
+    display: flex;
+    flex-direction: column;
+  }
+  #form-wrapper #circle .left {
+    flex-direction: column-reverse;
+    margin-left: 0;
+    transform: translateX(-40%);
+  }
+  #form-wrapper #circle .right {
+    margin-right: 0;
+    transform: translateX(40%);
+  }
+  #form-wrapper #circle .top .right {
+    transform: translateX(40%);
+  }
+  #form-wrapper #circle span {
+    font-size: 14px;
+  }
+  #form-wrapper #circle img {
+    width: 35px;
+    display: block;
+    margin: 0 auto;
   }
   #form-wrapper .apply-wrapper {
     padding: 40px 20px;

@@ -8,7 +8,7 @@
       <h1>{{ __('Care for your smile') }}</h1>
       <div class="col-lg-5 col-12">
         <p>{{ __('Your smile is one of the important things for your and we care about this, that’s why we gathered to help you fix this problem and make your life easier.') }}</p>
-        <button class="btn btn-primary rounded-5 apply">{{ __('Apply & Meet Us') }}</button>
+        <a href="/#form-wrapper" class="btn btn-primary rounded-5 apply">{{ __('Apply & Meet Us') }}</a>
       </div>
     </div>
   </section>
@@ -20,12 +20,47 @@
           <h2 class="text-center">{{ __('Fully sponsored by us') }}</h2>
           <p class="text-center">{{ __('For all nationalities and countries') }}</p>
           <div class="circle-wrapper">
-            <div class="circle mx-auto">
+            <div id="circle">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="49" fill="none" stroke="white" stroke-width="1" stroke-dasharray="10 10"/>
+              </svg>
+              <p id="free-of-charges" class="text-center position-absolute top-50">{{ __('100% free of charges') }}</p>
+              <div class="top">
+                <div class="left">
+                  <span class="">{{__('Follow-ups')}}</span>
+                  <i class="fa fa-calendar-check-o"></i>
+                </div>
+                <div class="center">
+                  <span class="d-block">{{__('Medication')}}</span>
+                  <i class="fa fa-medkit text-center d-block"></i>
+                </div>
+                <div class="right">
+                  <i class="fa fa-plane"></i>
+                  <div class="text">
+                    <span class="d-block">{{__('Travel costs covered')}}</span>
+                    <span style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="left">
+                  <span class="">{{__('Surgery')}}</span>
+                  <i class="fa fa-medkit"></i>
+                </div>
+                <div class="center">
+                  <span class="">{{__('Braces')}}</span>
+                  <img src="{{ asset('images/icons/braces.svg') }}" alt="braces">
+                </div>
+                <div class="right">
+                  <i class="fa fa-heart"></i>
+                  <span class="">{{__('Consultation')}}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12 apply-col" style="margin-top: -350px;">
-          <div class="apply-wrapper">
+        <div class="col-lg-6 col-12 apply-col" style="margin-top: -160px;">
+          <div id="apply-now" class="apply-wrapper">
             <form method="POST" action="#">
               <h3 class="d-inline text-pink me-1">{{ __('Book your visit at') }}</h3>
               <h3 class="d-inline text-blue">{{ __('Denistry Care') }}</h3>
@@ -65,16 +100,16 @@
                   <select id="heightInput" type="text" class="form-select" name="height">
                     <option value="">Select Height</option>
                     @for($i = 150; $i <= 200; $i++)
-                      <option value="{{ $i }}">{{ $i }} cm</option>
+                      <option value="{{ $i }}">{{ $i }} cm ({{ turnCentimeterToFoot($i) }} ft)</option>
                     @endfor
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="weightInput">Your Weight</label>
-                  <select id="weightInput" type="text" class="form-select" name="weight">
-                    <option value="">Select Age</option>
+                  <select onfocus='this.size=6;' onblur='this.size=6;' onfocusout='this.size=null;' onchange='this.size=6; this.blur();' id="weightInput" type="text" class="form-select" name="weight">
+                    <option value="">Select Weight</option>
                     @for($i = 40; $i <= 150; $i++)
-                      <option value="{{ $i }}">{{ $i }} Kg</option>
+                      <option value="{{ $i }}">{{ $i }} Kg ({{ turnKilogramToLbs($i) }} lbs)</option>
                     @endfor
                   </select>
                 </div>
@@ -170,14 +205,14 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-1 d-none d-lg-block"></div>
-        <div class="col-12 col-lg-3">
-          <img class="img-thumbnail" src="/images/img-service.jpeg" alt="Image Service">
-        </div>
         <div class="col-12 col-lg-6">
           <p class="quote text-center text-lg-start">
             "{{__('We are a team or dentists, hygienists and receptionists who work togetner to ensure that you receive the best treatment that you require at a very time that suits you.')}}
             "</p>
           <p class="text-muted author text-center text-lg-start">Mikael Makarov</p>
+        </div>
+        <div class="col-12 col-lg-4">
+          <img class="img-thumbnail" src="/images/img-service.jpeg" alt="Image Service">
         </div>
       </div>
     </div>
