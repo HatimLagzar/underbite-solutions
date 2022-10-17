@@ -4207,6 +4207,14 @@ button.toast-close-button {
   width: 100%;
 }
 
+.form-control,
+.form-select {
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  border: 0;
+  padding: 1.125rem 1.5rem;
+}
+
 #header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   background-color: #fff;

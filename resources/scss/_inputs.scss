@@ -5,3 +5,11 @@
     width: 100%;
   }
 }
+
+.form-control,
+.form-select {
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 20%);
+  border: 0;
+  padding: 1.125rem 1.5rem;
+}
