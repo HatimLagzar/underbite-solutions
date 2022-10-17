@@ -4442,8 +4442,9 @@ button.toast-close-button {
 }
 #form-wrapper .apply-wrapper {
   background-color: white;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.15);
-  padding: 20px 25px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
 }
 #form-wrapper .apply-wrapper form label {
   color: #0E54AE;
