@@ -4210,6 +4210,8 @@ button.toast-close-button {
 #header {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  width: 100%;
+  z-index: 100;
 }
 
 #navbar {
@@ -4227,6 +4229,7 @@ button.toast-close-button {
   padding-right: 10px;
   margin-left: 15px;
   margin-right: 15px;
+  font-size: 15px;
 }
 #navbar li a.active, #navbar li a:hover {
   border-bottom: 2px solid #BA5E9C;
@@ -4237,6 +4240,9 @@ button.toast-close-button {
   justify-content: space-between;
   padding: 0;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
 }
 #navbar-mobile .navbar-brand {
   margin: 0;

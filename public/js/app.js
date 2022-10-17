@@ -5309,6 +5309,29 @@ module.exports = {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+window.addEventListener('scroll', function () {
+  var header = document.querySelector('#header');
+  var navbarMobile = document.querySelector('#navbar-mobile');
+  if (window.scrollY > 50) {
+    if (header instanceof HTMLElement) {
+      header.style.position = 'fixed';
+      header.style.top = 0;
+    }
+    if (navbarMobile instanceof HTMLElement) {
+      navbarMobile.style.position = 'fixed';
+      navbarMobile.style.top = 0;
+    }
+  } else {
+    if (header instanceof HTMLElement) {
+      header.style.position = 'static';
+      header.style.top = 'auto';
+    }
+    if (navbarMobile instanceof HTMLElement) {
+      navbarMobile.style.position = 'static';
+      navbarMobile.style.top = 'auto';
+    }
+  }
+});
 
 /***/ }),
 
