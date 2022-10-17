@@ -65,17 +65,17 @@
               <h3 class="d-inline text-pink me-1">{{ __('Book your visit at') }}</h3>
               <h3 class="d-inline text-blue">{{ __('Denistry Care') }}</h3>
               <div class="row mt-3">
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="firstNameInput">First Name</label>
                   <input id="firstNameInput" type="text" class="form-control" name="first_name">
                 </div>
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="lastNameInput">Last Name</label>
                   <input id="lastNameInput" type="text" class="form-control" name="last_name">
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="genderInput">Your Gender</label>
                   <select id="genderInput" class="form-select" name="gender">
                     <option value="">Select Age</option>
@@ -83,7 +83,7 @@
                     <option value="2">Female</option>
                   </select>
                 </div>
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="ageInput">Your Age</label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
@@ -98,7 +98,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="heightInput">Your Height</label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
@@ -114,7 +114,7 @@
                     @endfor
                   </select>
                 </div>
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="weightInput">Your Weight</label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
@@ -132,11 +132,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="emailInput">Your Email</label>
                   <input id="emailInput" type="text" class="form-control" name="email">
                 </div>
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="countryInput">Your Origin/Country</label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
@@ -151,13 +151,13 @@
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="phoneInput">Phone Number <span class="text-muted"
                                                                                 style="font-size: 12px">(Whatsapp Preferred)</span></label>
                   <input id="phoneInput" type="tel" class="form-control" name="phone_number">
                 </div>
 
-                <div class="form-group col-12 col-lg-6 mb-2">
+                <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="socialNetworkInput">Facebook / Instagram <span class="text-muted"
                                                                                                 style="font-size: 12px">(Optional)</span></label>
                   <input id="socialNetworkInput" type="text" class="form-control" name="social_network_note">

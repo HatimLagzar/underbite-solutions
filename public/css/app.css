@@ -4449,6 +4449,7 @@ button.toast-close-button {
 #form-wrapper .apply-wrapper form label {
   color: #0E54AE;
   font-size: 16px;
+  margin-bottom: 0 !important;
 }
 #form-wrapper .apply-wrapper form .uploads img {
   width: 100%;
