@@ -5310,21 +5310,22 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.addEventListener('scroll', function () {
-  var header = document.querySelector('#header');
+  var navbar = document.querySelector('#navbar');
   var navbarMobile = document.querySelector('#navbar-mobile');
   if (window.scrollY > 50) {
-    if (header instanceof HTMLElement) {
-      header.style.position = 'fixed';
-      header.style.top = 0;
+    if (navbar instanceof HTMLElement) {
+      navbar.style.position = 'fixed';
+      navbar.style.left = 0;
+      navbar.style.top = 0;
     }
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'fixed';
       navbarMobile.style.top = 0;
     }
   } else {
-    if (header instanceof HTMLElement) {
-      header.style.position = 'static';
-      header.style.top = 'auto';
+    if (navbar instanceof HTMLElement) {
+      navbar.style.position = 'static';
+      navbar.style.top = 'auto';
     }
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'static';

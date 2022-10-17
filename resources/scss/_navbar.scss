@@ -13,7 +13,10 @@
 
 #navbar {
   padding-bottom: 0;
-  border-top: 1px solid #BABABA;
+  background-color: #fff;
+  width: 100vw;
+  z-index: 100;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
   li {
     &:first-of-type {

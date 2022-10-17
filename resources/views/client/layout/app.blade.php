@@ -57,7 +57,7 @@
 </nav>
 
 <header id="header">
-  <div class="container">
+  <div class="container border-bottom">
     <div class="d-flex justify-content-between align-items-center">
       <div class="logo-wrapper">
         <img src="/images/logo.png" alt="Logo" width="180">
@@ -68,17 +68,23 @@
             <img width="20" src="/images/flags-languages/en.svg" alt="English"> English
           </button>
           <ul class="dropdown-menu" aria-labelledby="flags-dropdown" id="flags-dowpdown-list">
-            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/en.svg" alt="English">English</a></li>
+            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/en.svg" alt="English">English</a>
+            </li>
             <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/fr.svg" alt="French">French</a></li>
-            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/es.svg" alt="Spanish">Spanish</a></li>
-            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/it.svg" alt="Italian">Italian</a></li>
-            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/de.svg" alt="Deutsch">Deutsch</a></li>
+            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/es.svg" alt="Spanish">Spanish</a>
+            </li>
+            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/it.svg" alt="Italian">Italian</a>
+            </li>
+            <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/de.svg" alt="Deutsch">Deutsch</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
+  </div>
 
-    <nav id="navbar" class="navbar navbar-expand-lg">
+  <nav id="navbar" class="navbar navbar-expand-lg">
+    <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -86,24 +92,29 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a href="{{ route('pages.home') }}" class="nav-link {{ request()->route()->getName() === 'pages.home' ? 'active' : '' }}">Home</a>
+            <a href="{{ route('pages.home') }}"
+               class="nav-link {{ request()->route()->getName() === 'pages.home' ? 'active' : '' }}">Home</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.about') }}" class="nav-link {{ request()->route()->getName() === 'pages.about' ? 'active' : '' }}">About Us</a>
+            <a href="{{ route('pages.about') }}"
+               class="nav-link {{ request()->route()->getName() === 'pages.about' ? 'active' : '' }}">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.faq') }}" class="nav-link {{ request()->route()->getName() === 'pages.faq' ? 'active' : '' }}">FAQ</a>
+            <a href="{{ route('pages.faq') }}"
+               class="nav-link {{ request()->route()->getName() === 'pages.faq' ? 'active' : '' }}">FAQ</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.blog') }}" class="nav-link {{ request()->route()->getName() === 'pages.blog' ? 'active' : '' }}">Blog</a>
+            <a href="{{ route('pages.blog') }}"
+               class="nav-link {{ request()->route()->getName() === 'pages.blog' ? 'active' : '' }}">Blog</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('pages.contact-us') }}" class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact Us</a>
+            <a href="{{ route('pages.contact-us') }}"
+               class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact Us</a>
           </li>
         </ul>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 @yield('content')
 <footer id="footer">
