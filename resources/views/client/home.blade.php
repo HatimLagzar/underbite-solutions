@@ -76,13 +76,12 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-2">
-                  <label class="form-label" for="">Your Gender</label>
-                  <div class="">
-                    <input id="maleInput" type="radio" value="1" name="gender" required>
-                    <label for="maleInput" class="me-3 text-black">Male</label>
-                    <input id="femaleInput" type="radio" value="2" name="gender" required>
-                    <label for="femaleInput" class="text-black">Female</label>
-                  </div>
+                  <label class="form-label" for="genderInput">Your Gender</label>
+                  <select id="genderInput" class="form-select" name="gender">
+                    <option value="">Select Age</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                  </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="ageInput">Your Age</label>
