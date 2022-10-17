@@ -86,10 +86,10 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="ageInput">Your Age</label>
-                  <select onfocus='this.size=6;'
-                          onblur='this.size=6;'
+                  <select onfocus='this.size=5;'
+                          onblur='this.size=5;'
                           onfocusout='this.size=null;'
-                          onchange='this.size=6; this.blur();'
+                          onchange='this.size=5; this.blur();'
                           id="ageInput" type="text" class="form-select" name="age">
                     <option value="">Select Age</option>
                     @for($i = 10; $i <= 80; $i++)
@@ -101,10 +101,10 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="heightInput">Your Height</label>
-                  <select onfocus='this.size=6;'
-                          onblur='this.size=6;'
+                  <select onfocus='this.size=5;'
+                          onblur='this.size=5;'
                           onfocusout='this.size=null;'
-                          onchange='this.size=6; this.blur();'
+                          onchange='this.size=5; this.blur();'
                           id="heightInput"
                           type="text"
                           class="form-select"
@@ -117,10 +117,10 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="weightInput">Your Weight</label>
-                  <select onfocus='this.size=6;'
-                          onblur='this.size=6;'
+                  <select onfocus='this.size=5;'
+                          onblur='this.size=5;'
                           onfocusout='this.size=null;'
-                          onchange='this.size=6; this.blur();'
+                          onchange='this.size=5; this.blur();'
                           id="weightInput"
                           type="text"
                           class="form-select"
@@ -139,10 +139,10 @@
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-2">
                   <label class="form-label" for="countryInput">Your Origin/Country</label>
-                  <select onfocus='this.size=6;'
-                          onblur='this.size=6;'
+                  <select onfocus='this.size=5;'
+                          onblur='this.size=5;'
                           onfocusout='this.size=null;'
-                          onchange='this.size=6; this.blur();'
+                          onchange='this.size=5; this.blur();'
                           id="countryInput" type="text" class="form-select" name="country">
                     <option value="">Select Country</option>
                     @foreach(\App\Models\Country::all() as $country)
