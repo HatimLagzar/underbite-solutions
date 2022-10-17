@@ -88,7 +88,28 @@
         </div>
         <div class="col-lg d-none d-lg-block"></div>
         <div class="col-lg-5 col-12">
-          <img class="img-thumbnail" src="/images/about_us.jpeg" alt="Doctors">
+          <div class="row mb-3">
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+            <div class="col">
+              <img src="/images/about_us.jpeg" alt="Doctors">
+            </div>
+          </div>
         </div>
       </div>
     </div>
