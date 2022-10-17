@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-12 apply-col" style="margin-top: -160px;">
+        <div class="col-lg-6 col-12 apply-col" style="margin-top: -200px;">
           <div id="apply-now" class="apply-wrapper">
             <form method="POST" action="#">
               <h3 class="d-inline text-pink me-1">{{ __('Book your visit at') }}</h3>
