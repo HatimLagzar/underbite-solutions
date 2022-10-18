@@ -291,18 +291,22 @@
       <div class="row px-lg-5">
         <div class="col-lg-3 col-6">
           <img src="/images/icons/thumbs-up.png" alt="Thumbs up">
+          <p class="fw-bold text-center fs-4 mb-0">95%</p>
           <p class="fw-semibold text-center">{{__('Patient Satisfaction')}}</p>
         </div>
         <div class="col-lg-3 col-6">
           <img src="/images/icons/check-up.png" alt="Check Up">
+          <p class="fw-bold text-center fs-4 mb-0">97%</p>
           <p class="fw-semibold text-center">{{__('Dental Success')}}</p>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-6 d-flex flex-column justify-content-end">
           <img src="/images/icons/plane.png" alt="Plane">
+          <p class="fw-bold text-center fs-4 mb-0">100%</p>
           <p class="fw-semibold text-center">{{__('Travel Satisfaction')}}</p>
         </div>
         <div class="col-lg-3 col-6">
           <img src="/images/icons/recovery.png" alt="Recovery">
+          <p class="fw-bold text-center fs-4 mb-0">96%</p>
           <p class="fw-semibold text-center">{{__('Quick Recovery')}}</p>
         </div>
       </div>
