@@ -4384,7 +4384,7 @@ form label {
   padding: 100px 0;
 }
 #form-wrapper .circle-wrapper {
-  padding: 120px;
+  padding: 130px;
 }
 #form-wrapper #circle {
   position: relative;
@@ -4393,10 +4393,10 @@ form label {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 22px;
 }
 #form-wrapper #circle i {
-  font-size: 60px;
+  font-size: 50px;
 }
 #form-wrapper #circle span {
   text-align: center;
@@ -4650,6 +4650,15 @@ form label {
   #form-wrapper .circle-wrapper {
     padding: 70px;
   }
+  #form-wrapper .travel-text {
+    line-height: normal !important;
+    text-align: center !important;
+  }
+  #form-wrapper .travel-text span {
+    text-align: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
   #form-wrapper #circle i {
     font-size: 35px;
   }
@@ -4658,12 +4667,6 @@ form label {
   }
   #form-wrapper #circle .bottom .center {
     bottom: -70px;
-  }
-  #form-wrapper #circle .text {
-    line-height: 0.8;
-  }
-  #form-wrapper #circle .text span {
-    text-align: left !important;
   }
   #form-wrapper #circle .top {
     top: 30px;
@@ -4682,7 +4685,7 @@ form label {
     transform: translateX(-40%);
   }
   #form-wrapper #circle .right {
-    margin-right: 0;
+    margin-right: 0 !important;
     transform: translateX(40%);
   }
   #form-wrapper #circle .top .right {

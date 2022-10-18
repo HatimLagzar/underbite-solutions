@@ -36,7 +36,7 @@
           <div class="circle-wrapper">
             <div id="circle">
               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="49" fill="none" stroke="white" stroke-width="1" stroke-dasharray="10 10"/>
+                <circle cx="50" cy="50" r="49" fill="none" stroke="white" stroke-width="1" stroke-dasharray="5 5"/>
               </svg>
               <p id="free-of-charges" class="text-center position-absolute top-50">{{ __('100% free of charges') }}</p>
               <div class="top">
@@ -48,11 +48,11 @@
                   <span class="d-block">{{__('Medication')}}</span>
                   <i class="fa fa-medkit text-center d-block"></i>
                 </div>
-                <div class="right">
+                <div class="right" style="margin-right: -150px">
                   <i class="fa fa-plane"></i>
-                  <div class="text">
-                    <span class="d-block">{{__('Travel')}}</span>
-                    <span style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
+                  <div class="travel-text lh-1">
+                    <span class="d-block text-start">{{__('Travel')}}</span>
+                    <span class="text-start lh-sm w-75 d-block" style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
                   </div>
                 </div>
               </div>

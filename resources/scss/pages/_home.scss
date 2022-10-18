@@ -41,7 +41,7 @@
   padding: 100px 0;
 
   .circle-wrapper {
-    padding: 120px;
+    padding: 130px;
   }
 
   #circle {
@@ -51,11 +51,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 18px;
+      font-size: 22px;
     }
 
     i {
-      font-size: 60px;
+      font-size: 50px;
     }
 
     span {
@@ -377,6 +377,18 @@
       padding: 70px;
     }
 
+    .travel-text {
+      line-height: normal !important;
+      text-align: center !important;
+
+      span {
+        text-align: center !important;
+        //width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+    }
+
     #circle {
       i {
         font-size: 35px;
@@ -388,14 +400,6 @@
 
       .bottom .center {
         bottom: -70px;
-      }
-
-      .text {
-        line-height: 0.8;
-
-        span {
-          text-align: left !important;
-        }
       }
 
       .top {
@@ -419,7 +423,7 @@
       }
 
       .right {
-        margin-right: 0;
+        margin-right: 0 !important;
         transform: translateX(40%);
       }
 
