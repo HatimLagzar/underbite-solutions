@@ -4236,10 +4236,13 @@ form label {
 }
 
 #header {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   background-color: #fff;
   width: 100%;
   z-index: 100;
+}
+#header .logo-wrapper img {
+  height: 90px;
+  width: auto;
 }
 
 #flags-dowpdown-list img {
@@ -4253,11 +4256,18 @@ form label {
 }
 
 #navbar {
-  padding-bottom: 0;
+  padding: 0;
   background-color: #fff;
   width: 100vw;
   z-index: 100;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+#navbar li {
+  padding: 0.5rem 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#navbar li:hover {
+  box-shadow: 0 2px 7px rgba(34, 34, 34, 0.35) !important;
 }
 #navbar li:first-of-type a {
   margin-left: 0;
@@ -4266,14 +4276,22 @@ form label {
   text-transform: uppercase;
   text-align: center;
   color: black;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: 15px;
-  margin-right: 15px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
   font-size: 14px;
 }
-#navbar li a.active, #navbar li a:hover {
+#navbar li a.active {
   border-bottom: 2px solid #BA5E9C;
+  color: #0e54ae;
+  font-weight: normal;
+}
+#navbar li a:hover {
+  border-bottom: 2px solid #BA5E9C;
+  background: rgba(34, 34, 34, 0);
+  color: #0e54ae;
+  font-weight: normal;
+  text-decoration: none;
 }
 
 #navbar-mobile {

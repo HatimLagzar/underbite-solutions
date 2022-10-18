@@ -5312,6 +5312,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.addEventListener('scroll', function () {
   var navbar = document.querySelector('#navbar');
   var navbarMobile = document.querySelector('#navbar-mobile');
+  var languageSelectorNavbar = document.querySelector('.languages-selector-wrapper-navbar');
   if (window.scrollY > 50) {
     if (navbar instanceof HTMLElement) {
       navbar.style.position = 'fixed';
@@ -5319,11 +5320,17 @@ window.addEventListener('scroll', function () {
       navbar.style.top = 0;
       navbar.style.paddingBottom = '0.5rem';
     }
+    if (languageSelectorNavbar instanceof HTMLElement) {
+      languageSelectorNavbar.style.display = 'block';
+    }
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'fixed';
       navbarMobile.style.top = 0;
     }
   } else {
+    if (languageSelectorNavbar instanceof HTMLElement) {
+      languageSelectorNavbar.style.display = 'none';
+    }
     if (navbar instanceof HTMLElement) {
       navbar.style.position = 'static';
       navbar.style.top = 'auto';

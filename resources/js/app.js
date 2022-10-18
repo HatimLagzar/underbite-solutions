@@ -3,6 +3,8 @@ require('./bootstrap');
 window.addEventListener('scroll', () => {
   const navbar = document.querySelector('#navbar');
   const navbarMobile = document.querySelector('#navbar-mobile');
+  const languageSelectorNavbar = document.querySelector('.languages-selector-wrapper-navbar');
+
   if (window.scrollY > 50) {
     if (navbar instanceof HTMLElement) {
       navbar.style.position = 'fixed';
@@ -11,11 +13,19 @@ window.addEventListener('scroll', () => {
       navbar.style.paddingBottom = '0.5rem';
     }
 
+    if (languageSelectorNavbar instanceof HTMLElement) {
+      languageSelectorNavbar.style.display = 'block';
+    }
+
     if (navbarMobile instanceof HTMLElement) {
       navbarMobile.style.position = 'fixed';
       navbarMobile.style.top = 0;
     }
   } else {
+    if (languageSelectorNavbar instanceof HTMLElement) {
+      languageSelectorNavbar.style.display = 'none';
+    }
+
     if (navbar instanceof HTMLElement) {
       navbar.style.position = 'static';
       navbar.style.top = 'auto';
