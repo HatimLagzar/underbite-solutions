@@ -4,6 +4,20 @@
 @endsection
 @section('content')
   <section id="hero">
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel"
+         data-bs-config='{"interval":3500}'>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/images/hero.jpeg" class="d-block" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img src="/images/about_us.jpeg" class="d-block" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+          <img src="/images/img-service.jpeg" class="d-block" alt="Slide 3">
+        </div>
+      </div>
+    </div>
     <div class="container">
       <h1>{{ __('Care for your smile') }}</h1>
       <div class="col-lg-5 col-12">

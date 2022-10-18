@@ -4339,13 +4339,14 @@ form label {
 }
 
 #hero {
-  background-image: url("/images/hero.jpeg");
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 600px;
+  overflow: hidden;
+}
+#hero .container {
+  position: absolute;
+  left: 6%;
+  top: 40%;
+  z-index: 1;
 }
 #hero h1 {
   color: #BA5E9C;
@@ -4451,6 +4452,8 @@ form label {
   padding: 20px 25px;
   border-radius: 10px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 99;
 }
 #form-wrapper .apply-wrapper form label {
   color: black;

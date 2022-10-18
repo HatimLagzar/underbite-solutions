@@ -1,11 +1,19 @@
 #hero {
-  background-image: url("/images/hero.jpeg");
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-position: center;
+  //background-image: url("/images/hero.jpeg");
+  height: 600px;
+  overflow: hidden;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //background-repeat: no-repeat;
+  //background-position: center;
+
+  .container {
+    position: absolute;
+    left: 6%;
+    top: 40%;
+    z-index: 1;
+  }
 
   h1 {
     color: #BA5E9C;
@@ -131,6 +139,8 @@
     padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.20);
+    position: relative;
+    z-index: 99;
 
     form {
       label {
