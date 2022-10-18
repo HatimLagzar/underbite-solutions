@@ -179,14 +179,14 @@
               </div>
 
 
-              <h4 class="text-center text-blue mb-0 mt-4">{{__('Upload photos of your underbite')}}</h4>
+              <h4 class="text-center mb-0 mt-4">{{__('Upload photos of your underbite')}}</h4>
               <p class="text-danger text-center">{{ __('Please make sure your teeth are fully visible in all photos') }}</p>
 
               <div class="row uploads">
                 <div class="col">
                   <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*" required>
-                  <label for="frontSideInput" class="position-relative">
-                    <img src="/images/underbite.jpeg" alt="Front View">
+                  <label for="frontSideInput" class="position-relative w-100">
+                    <img class="d-block mx-auto" src="/images/icons/front.png" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -195,8 +195,8 @@
                 </div>
                 <div class="col">
                   <input type="file" name="left_side" id="leftSideInput" class="d-none" accept="image/*" required>
-                  <label for="leftSideInput" class="position-relative">
-                    <img src="/images/underbite.jpeg" alt="Front View">
+                  <label for="leftSideInput" class="position-relative w-100">
+                    <img class="d-block mx-auto" src="/images/icons/left.png" alt="Left View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -205,8 +205,8 @@
                 </div>
                 <div class="col">
                   <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
-                  <label for="rightSideInput" class="position-relative">
-                    <img src="/images/underbite.jpeg" alt="Front View">
+                  <label for="rightSideInput" class="position-relative w-100">
+                    <img class="d-block mx-auto" src="/images/icons/right.png" alt="Right View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -215,8 +215,8 @@
                 </div>
                 <div class="col">
                   <input type="file" name="front_side" id="bigSmileInput" class="d-none" accept="image/*">
-                  <label for="bigSmileInput" class="position-relative">
-                    <img src="/images/underbite.jpeg" alt="Front View">
+                  <label for="bigSmileInput" class="position-relative w-100">
+                    <img class="d-block mx-auto" src="/images/icons/big-smile.png" alt="Big smile">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
