@@ -236,18 +236,41 @@
   </section>
 
   <section id="specialized-team">
-    <h2 class="text-center text-blue">{{__('Specialized Team')}}</h2>
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-1 d-none d-lg-block"></div>
-        <div class="col-12 col-lg-6">
-          <p class="quote text-center text-lg-start">
-            "{{__('We are a team or dentists, hygienists and receptionists who work togetner to ensure that you receive the best treatment that you require at a very time that suits you.')}}
-            "</p>
-          <p class="text-muted author text-center text-lg-start">Mikael Makarov</p>
-        </div>
-        <div class="col-12 col-lg-4">
-          <img class="img-thumbnail" src="/images/img-service.jpeg" alt="Image Service">
+      <div class="row">
+        <div class="col-12">
+          <div class="bg-white pt-4 pt-md-0" style="background: #fff !important;">
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-sm-12 col-12 py-md-5">
+                <div class="section-title text-center" style="visibility: visible; animation-name: fadeInDown;">
+                  <h6>Denistry Care</h6>
+                  <h3>Specialized Team</h3>
+                </div>
+                <div class="specialized-description text-center wow  fadeInUp animated"
+                     style="visibility: visible; animation-name: fadeInUp;">
+                  <blockquote>
+                    <p><i style="font-size:24px" class="fa"></i>&nbsp;&nbsp;We are a team of dentists,
+                      hygienists and receptionists who work together to ensure that you receive the best treatment that
+                      you require at a very time that suits you.&nbsp;&nbsp;<i style="font-size:24px" class="fa"></i>
+                    </p>
+                  </blockquote>
+                  <img
+                      src="/images/img-signature.png"
+                      class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-12 col-12">
+                <div class="ps-md-5 pt-md-5 pb -md-5 pr-md-5 p-2 p-2">
+                  <div class="" style="postion:relative;border-radius:5px;overflow:hidden;">
+                    <img src="/images/big-right-side.png"
+                         class="img-fluid w-100 wow  zoomIn animated"
+                         style="visibility: visible; animation-name: zoomIn;">
+                  </div>
+                  <h4 class="text-center mt-1 pb-4" style="font-size: 1.2rem;">Malocclusion class 3 <span
+                        class="d-block">(Or Underbite)</span></h4></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

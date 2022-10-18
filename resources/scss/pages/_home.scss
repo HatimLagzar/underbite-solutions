@@ -184,26 +184,42 @@
 #specialized-team {
   width: 100%;
   padding: 100px 0;
+  background-image: linear-gradient(#f2f2f2 0, #f2f2f2 50%, #EED6E6 50%);
 
-  img {
-    width: 100%;
+  blockquote {
+    font-size: 1.45rem !important;
+
+    p {
+      font-size: 1.45rem !important;
+    }
+
+    &:before,
+    &:after {
+      background: #bc74a5;
+      opacity: 1;
+      height: 2px;
+      width: 7.2em;
+      content: "";
+      display: block;
+      margin: 1.2em auto;
+    }
   }
 
-  h2 {
-    font-size: 50px;
-    font-weight: 500;
-    margin-bottom: 30px;
+  h6 {
+    color: #bc74a5;
+    font-size: 26px;
+    margin-bottom: 0;
   }
 
-  .quote {
-    font-size: 24px;
-    margin-bottom: 10px;
+  h3 {
+    color: #0e54ae;
+    font-size: 48px;
+    font-weight: 700;
   }
 
-  .author {
-    font-style: italic;
-    font-size: 16px;
-  }
+  //img {
+  //  width: 100%;
+  //}
 }
 
 #international-program {
@@ -298,20 +314,19 @@
   #specialized-team {
     padding: 50px 0;
 
-    h2 {
-      font-size: 30px;
+    h6 {
+      font-size: 26px;
     }
 
-    img {
-      width: 80%;
-      display: block;
-      margin: 0 auto;
+    h3 {
+      font-size: 40px;
     }
 
-    .quote {
-      margin-top: 20px;
-      font-size: 22px;
-      padding: 0 20px;
+    blockquote {
+      p {
+        font-size: 23px;
+        padding: 20px 0px;
+      }
     }
   }
 
