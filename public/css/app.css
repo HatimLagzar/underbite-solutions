@@ -4235,6 +4235,40 @@ form label {
   margin-bottom: 0 !important;
 }
 
+:root {
+  --val: 0;
+}
+
+svg.progress-bar-svg {
+  transform: rotate(-90deg);
+  position: relative;
+}
+
+.percent {
+  stroke-dasharray: 100;
+  stroke-dashoffset: calc(100 - var(--val));
+}
+
+.p-95 {
+  --val: 95;
+}
+
+.p-100 {
+  --val: 100;
+}
+
+.p-90 {
+  --val: 90;
+}
+
+.p-96 {
+  --val: 96;
+}
+
+.p-97 {
+  --val: 97;
+}
+
 #header {
   background-color: #fff;
   width: 100%;
@@ -4611,7 +4645,7 @@ form label {
   margin-right: 15px;
 }
 #international-program ul li img {
-  width: 70px;
+  width: 80px;
 }
 #international-program .border-end {
   border-right-color: white !important;
@@ -4620,6 +4654,15 @@ form label {
 #our-dental-service {
   width: 100%;
   padding: 100px 0;
+}
+#our-dental-service .item {
+  position: relative;
+}
+#our-dental-service .item .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #our-dental-service h2 {
   font-size: 50px;
@@ -4631,9 +4674,12 @@ form label {
   margin-bottom: 15px;
 }
 #our-dental-service img {
-  width: 120px;
+  width: 70px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
+}
+#our-dental-service p:last-of-type {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -4690,7 +4736,10 @@ form label {
     margin-bottom: 20px;
   }
   #our-dental-service img {
-    width: 80px;
+    width: 40px;
+  }
+  #our-dental-service p:last-of-type {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 425px) {

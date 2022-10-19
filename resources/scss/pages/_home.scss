@@ -291,7 +291,7 @@
       margin-right: 15px;
 
       img {
-        width: 70px;
+        width: 80px;
       }
     }
   }
@@ -305,6 +305,17 @@
   width: 100%;
   padding: 100px 0;
 
+  .item {
+    position: relative;
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   h2 {
     font-size: 50px;
     font-weight: 500;
@@ -317,9 +328,13 @@
   }
 
   img {
-    width: 120px;
+    width: 70px;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -394,7 +409,11 @@
     }
 
     img {
-      width: 80px;
+      width: 40px;
+    }
+
+    p:last-of-type {
+      font-size: 14px;
     }
   }
 }

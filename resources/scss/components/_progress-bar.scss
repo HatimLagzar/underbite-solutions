@@ -1,0 +1,33 @@
+:root {
+  --val: 0;
+}
+
+svg.progress-bar-svg {
+  transform: rotate(-90deg);
+  position: relative;
+}
+
+.percent {
+  stroke-dasharray: 100;
+  stroke-dashoffset: calc(100 - var(--val));
+}
+
+.p-95 {
+  --val: 95;
+}
+
+.p-100 {
+  --val: 100;
+}
+
+.p-90 {
+  --val: 90;
+}
+
+.p-96 {
+  --val: 96;
+}
+
+.p-97 {
+  --val: 97;
+}

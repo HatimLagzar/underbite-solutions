@@ -39,14 +39,16 @@
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="circleGradient" gradientTransform="rotate(90)">
-                      <stop offset="0%" stop-color="white" />
-                      <stop offset="50%" stop-color="#ffffff40" />
-                      <stop offset="100%" stop-color="white" />
+                      <stop offset="0%" stop-color="white"/>
+                      <stop offset="50%" stop-color="#ffffff40"/>
+                      <stop offset="100%" stop-color="white"/>
                     </linearGradient>
                   </defs>
-                  <circle cx="50" cy="50" r="49" fill="none" stroke="url(#circleGradient)" stroke-width="0.3" stroke-dasharray="2 1.5"/>
+                  <circle cx="50" cy="50" r="49" fill="none" stroke="url(#circleGradient)" stroke-width="0.3"
+                          stroke-dasharray="2 1.5"/>
                 </svg>
-                <p id="free-of-charges" class="text-center position-absolute top-50">{!! __('100% <br> free of charges') !!}</p>
+                <p id="free-of-charges"
+                   class="text-center position-absolute top-50">{!! __('100% <br> free of charges') !!}</p>
                 <div class="top">
                   <div class="left">
                     <span class="">{{__('Follow-ups')}}</span>
@@ -262,7 +264,8 @@
         <div class="col-12 col-sm-5 mt-5">
           <figure>
             <img class="w-100" src="/images/img-service.jpeg" alt="Image Service">
-            <figcaption class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br>(Underbite or double jaw)') !!}</figcaption>
+            <figcaption
+                class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br>(Underbite or double jaw)') !!}</figcaption>
           </figure>
         </div>
       </div>
@@ -306,24 +309,60 @@
     <div class="container">
       <div class="row px-lg-5">
         <div class="col-lg-3 col-6">
-          <img src="/images/icons/thumbs-up.png" alt="Thumbs up">
-          <p class="fw-bold text-center fs-4 mb-0">95%</p>
-          <p class="fw-semibold text-center">{{__('Patient Satisfaction')}}</p>
+          <div class="item">
+            <svg class="progress-bar-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
+              <circle class="percent p-95" cx="50" cy="50" r="44" fill="none" stroke="#0E54AE" stroke-width="3"
+                      pathLength="100"/>
+            </svg>
+            <div class="content">
+              <img src="/images/icons/thumbs-up.png" alt="Thumbs up">
+              <p class="fw-bold text-center fs-4 mb-0">95%</p>
+              <p class="fw-semibold text-center">{{__('Patient Satisfaction')}}</p>
+            </div>
+          </div>
         </div>
         <div class="col-lg-3 col-6">
-          <img src="/images/icons/check-up.png" alt="Check Up">
-          <p class="fw-bold text-center fs-4 mb-0">97%</p>
-          <p class="fw-semibold text-center">{{__('Dental Success')}}</p>
+          <div class="item">
+            <svg class="progress-bar-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
+              <circle class="percent p-97" cx="50" cy="50" r="44" fill="none" stroke="#0E54AE" stroke-width="3"
+                      pathLength="100"/>
+            </svg>
+            <div class="content">
+              <img src="/images/icons/check-up.png" alt="Check Up">
+              <p class="fw-bold text-center fs-4 mb-0">97%</p>
+              <p class="fw-semibold text-center">{{__('Dental Success')}}</p>
+            </div>
+          </div>
         </div>
         <div class="col-lg-3 col-6 d-flex flex-column justify-content-end">
-          <img src="/images/icons/plane.png" alt="Plane">
-          <p class="fw-bold text-center fs-4 mb-0">100%</p>
-          <p class="fw-semibold text-center">{{__('Travel Satisfaction')}}</p>
+          <div class="item">
+            <svg class="progress-bar-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
+              <circle class="percent p-100" cx="50" cy="50" r="44" fill="none" stroke="#0E54AE" stroke-width="3"
+                      pathLength="100"/>
+            </svg>
+            <div class="content">
+              <img src="/images/icons/plane.png" alt="Plane">
+              <p class="fw-bold text-center fs-4 mb-0">100%</p>
+              <p class="fw-semibold text-center">{{__('Travel Satisfaction')}}</p>
+            </div>
+          </div>
         </div>
         <div class="col-lg-3 col-6">
-          <img src="/images/icons/recovery.png" alt="Recovery">
-          <p class="fw-bold text-center fs-4 mb-0">96%</p>
-          <p class="fw-semibold text-center">{{__('Quick Recovery')}}</p>
+          <div class="item">
+            <svg class="progress-bar-svg" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
+              <circle class="percent p-96" cx="50" cy="50" r="44" fill="none" stroke="#0E54AE" stroke-width="3"
+                      pathLength="100"/>
+            </svg>
+            <div class="content">
+              <img src="/images/icons/recovery.png" alt="Recovery">
+              <p class="fw-bold text-center fs-4 mb-0">96%</p>
+              <p class="fw-semibold text-center">{{__('Quick Recovery')}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
