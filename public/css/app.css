@@ -4260,12 +4260,13 @@ form label {
   background-color: #fff;
   width: 100vw;
   z-index: 100;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 #navbar li {
   padding: 0.5rem 20px;
 }
 #navbar li:hover {
-  box-shadow: 0 2px 7px rgba(34, 34, 34, 0.35) !important;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;
 }
 #navbar li:hover a {
   border-bottom: 2px solid #BA5E9C;
