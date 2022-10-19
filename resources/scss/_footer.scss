@@ -60,5 +60,24 @@
     p {
       margin-bottom: 0;
     }
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    li {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    a {
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+    }
   }
 }

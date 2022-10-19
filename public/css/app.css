@@ -4408,6 +4408,21 @@ svg.progress-bar-svg {
 #footer .copyright p {
   margin-bottom: 0;
 }
+#footer .copyright ul {
+  display: flex;
+  justify-content: flex-end;
+}
+#footer .copyright li {
+  margin-right: 15px;
+}
+#footer .copyright li:last-of-type {
+  margin-right: 0;
+}
+#footer .copyright a {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
 
 #hero {
   height: 600px;

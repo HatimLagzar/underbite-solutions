@@ -194,7 +194,27 @@
   </section>
   <section class="copyright">
     <div class="container">
-      <p>All rights reserved &copy; {{ date('Y') }}</p>
+      <div class="row">
+        <div class="col-12 col-md-6 mb-lg-0 mb-3">
+          <p>All rights reserved &copy; {{ date('Y') }}</p>
+        </div>
+        <div class="col-12 col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#">{{__('Accessibility')}}</a>
+            </li>
+            <li>
+              <a href="#">{{__('Disclaimer')}}</a>
+            </li>
+            <li>
+              <a href="#">{{__('Terms and Conditions')}}</a>
+            </li>
+            <li>
+              <a href="#">{{__('Privacy Policy')}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </footer>
