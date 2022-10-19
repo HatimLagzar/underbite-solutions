@@ -4616,6 +4616,16 @@ svg.progress-bar-svg {
   padding: 100px 0;
   background: #0E54AE;
   color: white;
+  position: relative;
+}
+#international-program .separator-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 3px;
+  background-color: #fff;
 }
 #international-program img {
   max-width: 470px;
@@ -4674,7 +4684,7 @@ svg.progress-bar-svg {
   margin-bottom: 15px;
 }
 #our-dental-service img {
-  width: 70px;
+  width: 90px;
   display: block;
   margin: 0 auto 10px;
 }
@@ -4736,7 +4746,8 @@ svg.progress-bar-svg {
     margin-bottom: 20px;
   }
   #our-dental-service img {
-    width: 40px;
+    width: 70px;
+    margin-bottom: 0;
   }
   #our-dental-service p:last-of-type {
     font-size: 14px;

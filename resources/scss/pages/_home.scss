@@ -258,6 +258,17 @@
   padding: 100px 0;
   background: $blue;
   color: white;
+  position: relative;
+
+  .separator-line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 3px;
+    background-color: #fff;
+  }
 
   img {
     max-width: 470px;
@@ -328,7 +339,7 @@
   }
 
   img {
-    width: 70px;
+    width: 90px;
     display: block;
     margin: 0 auto 10px;
   }
@@ -409,7 +420,8 @@
     }
 
     img {
-      width: 40px;
+      width: 70px;
+      margin-bottom: 0;
     }
 
     p:last-of-type {

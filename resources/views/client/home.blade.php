@@ -273,12 +273,14 @@
   </section>
 
   <section id="international-program">
+    <div class="separator-line"></div>
     <h2 class="text-center">{{__('International Program')}}</h2>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6 border-end">
+        <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries from all countries accepted')}}</h4>
           <img class="mx-auto d-block mt-2 mb-4" src="/images/world.png" alt="World Map">
+          <p class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
         </div>
         <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries We Operate In')}}</h4>
@@ -308,7 +310,7 @@
 
     <div class="container">
       <div class="row px-lg-5">
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-6 mb-3">
           <div class="item">
             <svg class="progress-bar-svg" viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
@@ -317,12 +319,12 @@
             </svg>
             <div class="content">
               <img src="/images/icons/thumbs-up.png" alt="Thumbs up">
-              <p class="fw-bold text-center fs-4 mb-0">95%</p>
-              <p class="fw-semibold text-center">{{__('Patient Satisfaction')}}</p>
             </div>
           </div>
+          <p class="fw-bold text-center fs-4 mb-0">95%</p>
+          <p class="fw-semibold text-center">{{__('Patient Satisfaction')}}</p>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-6 mb-3">
           <div class="item">
             <svg class="progress-bar-svg" viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
@@ -331,12 +333,12 @@
             </svg>
             <div class="content">
               <img src="/images/icons/check-up.png" alt="Check Up">
-              <p class="fw-bold text-center fs-4 mb-0">97%</p>
-              <p class="fw-semibold text-center">{{__('Dental Success')}}</p>
             </div>
           </div>
+          <p class="fw-bold text-center fs-4 mb-0">97%</p>
+          <p class="fw-semibold text-center">{{__('Dental Success')}}</p>
         </div>
-        <div class="col-lg-3 col-6 d-flex flex-column justify-content-end">
+        <div class="col-lg-3 col-6 mb-3 d-flex flex-column justify-content-end">
           <div class="item">
             <svg class="progress-bar-svg" viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
@@ -345,12 +347,12 @@
             </svg>
             <div class="content">
               <img src="/images/icons/plane.png" alt="Plane">
-              <p class="fw-bold text-center fs-4 mb-0">100%</p>
-              <p class="fw-semibold text-center">{{__('Travel Satisfaction')}}</p>
             </div>
           </div>
+          <p class="fw-bold text-center fs-4 mb-0">100%</p>
+          <p class="fw-semibold text-center">{{__('Travel Satisfaction')}}</p>
         </div>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-3 col-6 mb-3">
           <div class="item">
             <svg class="progress-bar-svg" viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="44" fill="none" stroke="#eee" stroke-width="3"/>
@@ -359,10 +361,10 @@
             </svg>
             <div class="content">
               <img src="/images/icons/recovery.png" alt="Recovery">
-              <p class="fw-bold text-center fs-4 mb-0">96%</p>
-              <p class="fw-semibold text-center">{{__('Quick Recovery')}}</p>
             </div>
           </div>
+          <p class="fw-bold text-center fs-4 mb-0">96%</p>
+          <p class="fw-semibold text-center">{{__('Quick Recovery')}}</p>
         </div>
       </div>
     </div>
