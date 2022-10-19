@@ -4407,7 +4407,7 @@ form label {
   width: 100%;
   background: #0E54AE;
   color: white;
-  padding: 100px 0;
+  padding: 100px 0 20px;
 }
 #form-wrapper .circle-wrapper {
   padding: 130px;
@@ -4488,11 +4488,21 @@ form label {
 }
 #form-wrapper .apply-wrapper {
   background-color: white;
-  padding: 20px 25px;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 99;
   color: black;
+  padding: 20px 25px;
+  border-radius: 10px;
+}
+#form-wrapper .apply-wrapper form h4 {
+  font-size: 26px;
+}
+#form-wrapper .apply-wrapper form h3 {
+  font-size: 48px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 #form-wrapper .apply-wrapper form label {
   color: black;

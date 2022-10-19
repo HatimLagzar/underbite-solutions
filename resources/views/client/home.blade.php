@@ -76,9 +76,9 @@
         <div class="col-lg-6 col-12 apply-col" style="margin-top: -200px;">
           <div id="apply-now" class="apply-wrapper">
             <form method="POST" action="#">
-              <h3 class="d-inline text-pink me-1">{{ __('Book your visit at') }}</h3>
-              <h3 class="d-inline text-blue">{{ __('Denistry Care') }}</h3>
-              <div class="row mt-3">
+              <h4 class="text-pink mb-0">{{ __('Book your visit at') }}</h4>
+              <h3 class="text-blue border-bottom">{{ __('Denistry Care') }}</h3>
+              <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="firstNameInput">First Name</label>
                   <input id="firstNameInput" type="text" class="form-control" name="first_name">

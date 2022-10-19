@@ -42,7 +42,7 @@
   width: 100%;
   background: $blue;
   color: white;
-  padding: 100px 0;
+  padding: 100px 0 20px;
 
   .circle-wrapper {
     padding: 130px;
@@ -140,14 +140,25 @@
 
   .apply-wrapper {
     background-color: white;
-    padding: 20px 25px;
-    //border-radius: 10px;
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 99;
     color: black;
+    padding: 20px 25px;
+    border-radius: 10px;
 
     form {
+      h4 {
+        font-size: 26px;
+      }
+
+      h3 {
+        font-size: 48px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
       label {
         color: black;
         font-size: 16px;
