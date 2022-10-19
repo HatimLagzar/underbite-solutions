@@ -31,46 +31,58 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-12">
-          <h2 class="text-center">{{ __('Fully sponsored by us') }}</h2>
-          <p class="text-center">{{ __('For all nationalities and countries') }}</p>
-          <div class="circle-wrapper">
-            <div id="circle">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="49" fill="none" stroke="white" stroke-width="1" stroke-dasharray="5 5"/>
-              </svg>
-              <p id="free-of-charges" class="text-center position-absolute top-50">{{ __('100% free of charges') }}</p>
-              <div class="top">
-                <div class="left">
-                  <span class="">{{__('Follow-ups')}}</span>
-                  <i class="fa fa-calendar-check-o"></i>
+          <div class="d-flex flex-column justify-content-between">
+            <h2 class="title text-center">{{ __('Fully sponsored by us') }}</h2>
+            <p class="text-center">{{ __('For all nationalities and countries') }}</p>
+            <div class="circle-wrapper">
+              <div id="circle">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="circleGradient" gradientTransform="rotate(90)">
+                      <stop offset="0%" stop-color="white" />
+                      <stop offset="50%" stop-color="#ffffff40" />
+                      <stop offset="100%" stop-color="white" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="49" fill="none" stroke="url(#circleGradient)" stroke-width="0.3" stroke-dasharray="2 1.5"/>
+                </svg>
+                <p id="free-of-charges" class="text-center position-absolute top-50">{!! __('100% <br> free of charges') !!}</p>
+                <div class="top">
+                  <div class="left">
+                    <span class="">{{__('Follow-ups')}}</span>
+                    <i class="fa fa-calendar-check-o"></i>
+                  </div>
+                  <div class="center">
+                    <span class="d-block">{{__('Medication')}}</span>
+                    <i class="fa fa-medkit text-center d-block"></i>
+                  </div>
+                  <div class="right travel-area">
+                    <i class="fa fa-plane"></i>
+                    <div class="travel-text lh-1">
+                      <span class="d-md-block text-start">{{__('Travel')}}</span>
+                      <span class="text-start lh-sm w-75 d-block"
+                            style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="center">
-                  <span class="d-block">{{__('Medication')}}</span>
-                  <i class="fa fa-medkit text-center d-block"></i>
-                </div>
-                <div class="right" style="margin-right: -150px">
-                  <i class="fa fa-plane"></i>
-                  <div class="travel-text lh-1">
-                    <span class="d-block text-start">{{__('Travel')}}</span>
-                    <span class="text-start lh-sm w-75 d-block" style="font-size: 10px">{{ __('Flights, Hotel, food and medical visa') }}</span>
+                <div class="bottom">
+                  <div class="left">
+                    <span class="">{{__('Surgery')}}</span>
+                    <i class="fa fa-medkit"></i>
+                  </div>
+                  <div class="center">
+                    <span class="">{{__('Braces')}}</span>
+                    <img src="{{ asset('images/icons/braces.svg') }}" alt="braces">
+                  </div>
+                  <div class="right">
+                    <i class="fa fa-heart"></i>
+                    <span class="">{{__('Consultation')}}</span>
                   </div>
                 </div>
               </div>
-              <div class="bottom">
-                <div class="left">
-                  <span class="">{{__('Surgery')}}</span>
-                  <i class="fa fa-medkit"></i>
-                </div>
-                <div class="center">
-                  <span class="">{{__('Braces')}}</span>
-                  <img src="{{ asset('images/icons/braces.svg') }}" alt="braces">
-                </div>
-                <div class="right">
-                  <i class="fa fa-heart"></i>
-                  <span class="">{{__('Consultation')}}</span>
-                </div>
-              </div>
             </div>
+            <p class="fs-3 text-center mb-2">{{__('No Insurance Required')}}</p>
+            <p class="text-center mb-0">{{__('for 95% of cases')}}</p>
           </div>
         </div>
         <div class="col-lg-6 col-12 apply-col" style="margin-top: -200px;">
@@ -280,7 +292,7 @@
     <h2 class="text-center">{{__('International Program')}}</h2>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 border-end">
           <h4 class="text-center">{{__('Countries from all countries accepted')}}</h4>
           <img class="mx-auto d-block mt-2 mb-4" src="/images/world.png" alt="World Map">
         </div>

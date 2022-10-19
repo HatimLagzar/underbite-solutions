@@ -4409,27 +4409,41 @@ form label {
   color: white;
   padding: 100px 0 20px;
 }
+#form-wrapper .title {
+  font-size: 35px;
+}
 #form-wrapper .circle-wrapper {
-  padding: 130px;
+  padding: 80px 0 50px;
 }
 #form-wrapper #circle {
   position: relative;
+  width: 300px;
+  margin: 0 auto;
 }
 #form-wrapper #circle #free-of-charges {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 22px;
+  line-height: 1;
+}
+#form-wrapper #circle span {
+  font-size: 17px;
 }
 #form-wrapper #circle i {
-  font-size: 50px;
+  font-size: 45px;
+}
+#form-wrapper #circle img {
+  display: block;
+  margin: 0 auto;
+  width: 45px;
 }
 #form-wrapper #circle span {
   text-align: center;
 }
 #form-wrapper #circle .top {
   position: absolute;
-  top: 80px;
+  top: 30px;
   width: 100%;
 }
 #form-wrapper #circle .top .left,
@@ -4441,7 +4455,7 @@ form label {
 }
 #form-wrapper #circle .bottom {
   position: absolute;
-  bottom: 80px;
+  bottom: 30px;
   width: 100%;
 }
 #form-wrapper #circle .left,
@@ -4455,34 +4469,38 @@ form label {
   padding: 5px;
 }
 #form-wrapper #circle .left {
-  margin-left: -100px;
   padding: 10px;
   align-items: center;
+  left: 0;
+  transform: translateX(-60%);
 }
 #form-wrapper #circle .left span {
   margin-right: 10px;
 }
 #form-wrapper #circle .right {
-  margin-right: -100px;
   padding: 10px;
   align-items: center;
   position: absolute;
   right: 0;
+  transform: translateX(60%);
 }
 #form-wrapper #circle .right span {
   margin-left: 10px;
 }
+#form-wrapper #circle .travel-area {
+  transform: translateX(70%);
+}
 #form-wrapper #circle .top .center {
   position: absolute;
   left: 50%;
-  top: -130px;
+  top: -80px;
   transform: translateX(-50%);
   background-color: #0E54AE;
 }
 #form-wrapper #circle .bottom .center {
   position: absolute;
   left: 50%;
-  bottom: -110px;
+  bottom: -60px;
   transform: translateX(-50%);
   background-color: #0E54AE;
 }
@@ -4598,6 +4616,9 @@ form label {
 #international-program ul li img {
   width: 70px;
 }
+#international-program .border-end {
+  border-right-color: white !important;
+}
 
 #our-dental-service {
   width: 100%;
@@ -4627,15 +4648,10 @@ form label {
     min-width: 100%;
   }
   .apply-col {
-    margin-top: 0 !important;
+    margin-top: 50px !important;
   }
   #form-wrapper {
     padding: 50px 0;
-  }
-  #form-wrapper .circle-wrapper .circle {
-    background-image: url(/images/circle-with-content.png) !important;
-    background-repeat: no-repeat;
-    background-position: center;
   }
   #form-wrapper .apply-wrapper {
     padding: 40px 20px;
@@ -4688,7 +4704,7 @@ form label {
     padding: 50px 0;
   }
   #form-wrapper .circle-wrapper {
-    padding: 70px;
+    padding: 50px 0 40px;
   }
   #form-wrapper .travel-text {
     line-height: normal !important;
@@ -4696,8 +4712,12 @@ form label {
   }
   #form-wrapper .travel-text span {
     text-align: center !important;
-    display: block !important;
     margin: 0 auto !important;
+  }
+  #form-wrapper #circle .right,
+#form-wrapper #circle .left,
+#form-wrapper #circle .center {
+    padding: 0;
   }
   #form-wrapper #circle i {
     font-size: 35px;
@@ -4719,17 +4739,17 @@ form label {
     display: flex;
     flex-direction: column;
   }
+  #form-wrapper #circle .left span,
+#form-wrapper #circle .right span {
+    margin-right: 0;
+    margin-left: 0;
+  }
   #form-wrapper #circle .left {
     flex-direction: column-reverse;
-    margin-left: 0;
-    transform: translateX(-40%);
+    transform: translateX(0%);
   }
   #form-wrapper #circle .right {
-    margin-right: 0 !important;
-    transform: translateX(40%);
-  }
-  #form-wrapper #circle .top .right {
-    transform: translateX(40%);
+    transform: translateX(25%);
   }
   #form-wrapper #circle span {
     font-size: 14px;

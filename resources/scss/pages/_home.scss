@@ -44,22 +44,39 @@
   color: white;
   padding: 100px 0 20px;
 
+  .title {
+    font-size: 35px;
+  }
+
   .circle-wrapper {
-    padding: 130px;
+    padding: 80px 0 50px;
   }
 
   #circle {
     position: relative;
+    width: 300px;
+    margin: 0 auto;
 
     #free-of-charges {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 22px;
+      line-height: 1;
+    }
+
+    span {
+      font-size: 17px;
     }
 
     i {
-      font-size: 50px;
+      font-size: 45px;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 45px;
     }
 
     span {
@@ -68,7 +85,7 @@
 
     .top {
       position: absolute;
-      top: 80px;
+      top: 30px;
       width: 100%;
     }
 
@@ -83,7 +100,7 @@
 
     .bottom {
       position: absolute;
-      bottom: 80px;
+      bottom: 30px;
       width: 100%;
     }
 
@@ -100,9 +117,10 @@
     }
 
     .left {
-      margin-left: -100px;
       padding: 10px;
       align-items: center;
+      left: 0;
+      transform: translateX(-60%);
 
       span {
         margin-right: 10px;
@@ -110,21 +128,25 @@
     }
 
     .right {
-      margin-right: -100px;
       padding: 10px;
       align-items: center;
       position: absolute;
       right: 0;
+      transform: translateX(60%);
 
       span {
         margin-left: 10px;
       }
     }
 
+    .travel-area {
+      transform: translateX(70%);
+    }
+
     .top .center {
       position: absolute;
       left: 50%;
-      top: -130px;
+      top: -80px;
       transform: translateX(-50%);
       background-color: #0E54AE;
     }
@@ -132,7 +154,7 @@
     .bottom .center {
       position: absolute;
       left: 50%;
-      bottom: -110px;
+      bottom: -60px;
       transform: translateX(-50%);
       background-color: #0E54AE;
     }
@@ -279,6 +301,10 @@
       }
     }
   }
+
+  .border-end {
+    border-right-color: white !important;
+  }
 }
 
 #our-dental-service {
@@ -314,17 +340,11 @@
   }
 
   .apply-col {
-    margin-top: 0 !important;
+    margin-top: 50px !important;
   }
 
   #form-wrapper {
     padding: 50px 0;
-
-    .circle-wrapper .circle {
-      background-image: url(/images/circle-with-content.png) !important;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
 
     .apply-wrapper {
       padding: 40px 20px;
@@ -394,7 +414,7 @@
     padding: 50px 0;
 
     .circle-wrapper {
-      padding: 70px;
+      padding: 50px 0 40px;
     }
 
     .travel-text {
@@ -404,12 +424,18 @@
       span {
         text-align: center !important;
         //width: 100% !important;
-        display: block !important;
+        //display: block !important;
         margin: 0 auto !important;
       }
     }
 
     #circle {
+      .right,
+      .left,
+      .center {
+        padding: 0;
+      }
+
       i {
         font-size: 35px;
       }
@@ -434,22 +460,24 @@
       .right {
         display: flex;
         flex-direction: column;
+
+        span {
+          margin-right: 0;
+          margin-left: 0;
+        }
       }
 
       .left {
         flex-direction: column-reverse;
-        margin-left: 0;
-        transform: translateX(-40%);
+        transform: translateX(0%);
       }
 
       .right {
-        margin-right: 0 !important;
-        transform: translateX(40%);
+        transform: translateX(25%);
       }
 
       .top .right {
-        //margin-right: 0;
-        transform: translateX(40%);
+        //transform: translateX(40%);
       }
 
       span {
