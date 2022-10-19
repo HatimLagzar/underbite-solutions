@@ -4552,32 +4552,28 @@ form label {
 #specialized-team {
   width: 100%;
   padding: 100px 0;
-  background-image: linear-gradient(#f2f2f2 0, #f2f2f2 50%, #EED6E6 50%);
 }
-#specialized-team blockquote {
-  font-size: 1.45rem !important;
-}
-#specialized-team blockquote p {
-  font-size: 1.45rem !important;
-}
-#specialized-team blockquote:before, #specialized-team blockquote:after {
-  background: #bc74a5;
-  opacity: 1;
-  height: 2px;
-  width: 7.2em;
-  content: "";
-  display: block;
-  margin: 1.2em auto;
+#specialized-team p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 #specialized-team h6 {
   color: #bc74a5;
   font-size: 26px;
   margin-bottom: 0;
 }
-#specialized-team h3 {
-  color: #0e54ae;
-  font-size: 48px;
-  font-weight: 700;
+#specialized-team h2 {
+  color: #0E54AE;
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+#specialized-team .separator {
+  width: 170px;
+  height: 4px;
+  background-color: #BA5E9C;
+  margin: 0 auto 30px;
 }
 
 #international-program {
