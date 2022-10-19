@@ -250,7 +250,7 @@
   <section id="specialized-team">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <h2 class="text-center text-blue">{{__('Specialized Team')}}</h2>
           <div class="separator"></div>
           <p class="quote">
@@ -258,8 +258,8 @@
             "</p>
           <img class="mx-auto d-block" src="/images/img-signature.png" alt="Signature">
         </div>
-        <div class="col-1"></div>
-        <div class="col-5">
+        <div class="col-1 d-none d-sm-block"></div>
+        <div class="col-12 col-sm-5 mt-5">
           <figure>
             <img class="w-100" src="/images/img-service.jpeg" alt="Image Service">
             <figcaption class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br>(Underbite or double jaw)') !!}</figcaption>

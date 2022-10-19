@@ -4659,8 +4659,8 @@ form label {
   #specialized-team h6 {
     font-size: 26px;
   }
-  #specialized-team h3 {
-    font-size: 40px;
+  #specialized-team h2 {
+    font-size: 30px;
   }
   #specialized-team blockquote p {
     font-size: 23px;
@@ -4699,6 +4699,9 @@ form label {
   }
   #form-wrapper {
     padding: 50px 0;
+  }
+  #form-wrapper .title {
+    font-size: 30px;
   }
   #form-wrapper .circle-wrapper {
     padding: 50px 0 40px;
