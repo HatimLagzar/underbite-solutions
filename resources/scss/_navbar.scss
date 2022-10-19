@@ -19,12 +19,18 @@
   //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
   li {
-    padding: .5rem 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: .5rem 20px;
 
     &:hover {
       box-shadow: 0 2px 7px rgb(34 34 34 / 35%) !important;
+
+      a {
+        border-bottom: 2px solid #BA5E9C;
+        background: rgba(34, 34, 34, 0);
+        color: #0e54ae;
+        font-weight: normal;
+        text-decoration: none;
+      }
     }
 
     &:first-of-type {
