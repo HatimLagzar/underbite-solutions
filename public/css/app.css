@@ -4725,6 +4725,9 @@ svg.progress-bar-svg {
   #international-program {
     padding: 50px 0;
   }
+  #international-program .separator-line {
+    display: none;
+  }
   #international-program h2 {
     font-size: 30px;
     margin-bottom: 20px;
