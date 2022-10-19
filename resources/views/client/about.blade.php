@@ -14,7 +14,7 @@
             <p class="col-6">{{__('To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root.')}}</p>
             <p class="col-6">{{__('Such as the temperomandibular structure and other supporting structures. In turn, dental surgery procedures don’t only cover root canals and removal of wisdom teeth that are impacted. Dentists are the practitioners of dentistry.')}}</p>
           </div>
-          <a href="/#form-wrapper" class="btn btn-light px-5 shadow rounded-5 apply">{{ __('Apply & Meet Us') }}</a>
+          <a href="/#form-wrapper" class="btn btn-light px-5 shadow rounded-5 apply mt-4">{{ __('Apply & Meet Us') }}</a>
         </div>
       </div>
     </div>
