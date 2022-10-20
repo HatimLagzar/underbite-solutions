@@ -12,6 +12,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const EMAIL_COLUMN = 'email';
+    public const PASSWORD_COLUMN = 'password';
+
     /**
      * The attributes that are mass assignable.
      *
