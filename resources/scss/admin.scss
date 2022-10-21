@@ -1,3 +1,17 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "font-awesome";
 @import "~toastr/toastr";
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+@import "admin/navbar";
+
+.admin-wrapper {
+  display: flex;
+
+  & > .container {
+    width: 70%;
+  }
+}

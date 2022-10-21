@@ -14,37 +14,42 @@
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+<div class="admin-wrapper">
+  <div class="nav-wrapper">
+    <nav id="navbar">
+      <a class="navbar-brand" href="{{ route('admin.home') }}">Admin Panel</a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('admin.home') }}">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-home me-2 fs-5"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-users me-2 fs-5"></i>Applications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-bell me-2 fs-5"></i>Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('admin.posts.index') }}"><i class="fa fa-edit me-2 fs-5"></i>Blog</a>
         </li>
       </ul>
-    </div>
+    </nav>
   </div>
-</nav>
 
-<div class="container">
-  @if (session('success'))
-    <div class="alert alert-success my-5" role="alert">
-      {{ session('success') }}
-    </div>
-  @endif
+  <div class="container py-5">
+    @if (session('success'))
+      <div class="alert alert-success mb-5" role="alert">
+        {{ session('success') }}
+      </div>
+    @endif
 
-  @if (session('error'))
-    <div class="alert alert-danger my-5" role="alert">
-      {{ session('error') }}
-    </div>
-  @endif
+    @if (session('error'))
+      <div class="alert alert-danger mb-5" role="alert">
+        {{ session('error') }}
+      </div>
+    @endif
 
-  @yield('content')
+    @yield('content')
+  </div>
 </div>
 
 @yield('scripts')

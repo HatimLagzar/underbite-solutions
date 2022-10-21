@@ -4,6 +4,12 @@ use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ShowLoginPageController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Post\CreatePostController;
+use App\Http\Controllers\Admin\Post\DeletePostController;
+use App\Http\Controllers\Admin\Post\EditPostController;
+use App\Http\Controllers\Admin\Post\ListPostsController;
+use App\Http\Controllers\Admin\Post\StorePostController;
+use App\Http\Controllers\Admin\Post\UpdatePostController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Contact\ContactUsPageController;
 use App\Http\Controllers\FAQ\FAQController;
@@ -36,5 +42,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('login')->group(function () {
         Route::get('/', ShowLoginPageController::class)->name('login');
         Route::post('/', LoginController::class)->name('authenticate');
+    });
+
+    Route::prefix('blog')->name('posts.')->group(function () {
+        Route::get('/', ListPostsController::class)->name('index');
+        Route::get('create', CreatePostController::class)->name('create');
+        Route::post('/', StorePostController::class)->name('store');
+        Route::get('{post}', EditPostController::class)->name('edit');
+        Route::post('{post}', UpdatePostController::class)->name('update');
+        Route::delete('{post}', DeletePostController::class)->name('delete');
     });
 });

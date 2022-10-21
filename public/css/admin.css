@@ -3247,3 +3247,45 @@ button.toast-close-button {
     width: 25em;
   }
 }
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-wrapper {
+  width: 25%;
+}
+
+#navbar {
+  background-color: #0E54AE;
+  color: white;
+  height: 100vh;
+  width: 25%;
+  padding: 40px 0;
+  position: fixed;
+  z-index: 10;
+}
+#navbar .navbar-brand {
+  font-size: 26px;
+  margin-bottom: 30px;
+  display: block;
+  padding: 0 30px;
+}
+#navbar ul li {
+  margin-bottom: 5px;
+}
+#navbar ul a {
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 10px 30px;
+}
+#navbar ul a:hover {
+  background-color: #eee;
+  color: #0E54AE;
+}
+
+.admin-wrapper {
+  display: flex;
+}
+.admin-wrapper > .container {
+  width: 70%;
+}

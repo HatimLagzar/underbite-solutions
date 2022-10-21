@@ -1,0 +1,37 @@
+.nav-wrapper {
+  width: 25%;
+}
+
+#navbar {
+  background-color: #0E54AE;
+  color: white;
+  height: 100vh;
+  width: 25%;
+  padding: 40px 0;
+  position: fixed;
+  z-index: 10;
+
+  .navbar-brand {
+    font-size: 26px;
+    margin-bottom: 30px;
+    display: block;
+    padding: 0 30px;
+  }
+
+  ul {
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 10px 30px;
+
+      &:hover {
+        background-color: #eee;
+        color: #0E54AE;
+      }
+    }
+  }
+}
