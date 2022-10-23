@@ -7,6 +7,7 @@ use App\Models\PatientImage;
 use App\Repositories\Country\CountryRepository;
 use App\Repositories\Patient\PatientRepository;
 use App\Repositories\PatientImage\PatientImageRepository;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 class PatientService
@@ -70,5 +71,10 @@ class PatientService
     public function update(Patient $patient, array $attributes): bool
     {
         return $this->patientRepository->update($patient->getId(), $attributes);
+    }
+
+    public function getQuery(): Builder
+    {
+        return $this->patientRepository->getQueryBuilder();
     }
 }

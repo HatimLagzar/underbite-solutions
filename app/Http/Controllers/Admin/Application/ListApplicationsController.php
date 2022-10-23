@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Application;
 
 use App\Http\Controllers\Controller;
 use App\Services\Core\Patient\PatientService;
+use App\Services\Domain\Patient\FilterService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Throwable;
@@ -11,16 +12,18 @@ use Throwable;
 class ListApplicationsController extends Controller
 {
     private PatientService $patientService;
+    private FilterService $filterService;
 
-    public function __construct(PatientService $patientService)
+    public function __construct(PatientService $patientService, FilterService $filterService)
     {
         $this->patientService = $patientService;
+        $this->filterService = $filterService;
     }
 
     public function __invoke()
     {
         try {
-            $applications = $this->patientService->getAll();
+            $applications = $this->filterService->filter();
 
             return view('admin.applications.index')
                 ->with('applications', $applications);
