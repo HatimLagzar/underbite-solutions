@@ -7,11 +7,4 @@ body {
 }
 
 @import "admin/navbar";
-
-.admin-wrapper {
-  display: flex;
-
-  & > .container {
-    width: 70%;
-  }
-}
+@import "admin/layout";

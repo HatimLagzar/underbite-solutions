@@ -23,7 +23,7 @@
           <a class="nav-link active" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-home me-2 fs-5"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-users me-2 fs-5"></i>Applications</a>
+          <a class="nav-link" aria-current="page" href="{{ route('admin.applications.index') }}"><i class="fa fa-users me-2 fs-5"></i>Applications</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{ route('admin.home') }}"><i class="fa fa-bell me-2 fs-5"></i>Notifications</a>

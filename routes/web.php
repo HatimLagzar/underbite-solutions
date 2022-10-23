@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Admin\Application\ListApplicationsController;
+use App\Http\Controllers\Admin\Application\QualifyController;
+use App\Http\Controllers\Admin\Application\UnqualifyController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ShowLoginPageController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
@@ -51,5 +54,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('{post}', EditPostController::class)->name('edit');
         Route::post('{post}', UpdatePostController::class)->name('update');
         Route::delete('{post}', DeletePostController::class)->name('delete');
+    });
+
+    Route::prefix('applications')->name('applications.')->group(function () {
+        Route::get('/', ListApplicationsController::class)->name('index');
+        Route::post('{id}/qualify', QualifyController::class)->name('qualify');
+        Route::post('{id}/unqualify', UnqualifyController::class)->name('unqualify');
     });
 });

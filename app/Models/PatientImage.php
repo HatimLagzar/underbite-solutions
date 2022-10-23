@@ -27,4 +27,14 @@ class PatientImage extends Model
         self::FILE_NAME_COLUMN,
         self::POSITION_COLUMN,
     ];
+
+    public function getPosition(): string
+    {
+        return $this->getAttribute(self::POSITION_COLUMN);
+    }
+
+    public function getFileName(): string
+    {
+        return $this->getAttribute(self::FILE_NAME_COLUMN);
+    }
 }

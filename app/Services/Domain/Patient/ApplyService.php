@@ -34,7 +34,7 @@ class ApplyService
         int $age,
         int $height,
         int $weight,
-        int $phoneNumber,
+        string $phoneNumber,
         int $phoneCode,
         ?string $socialNetworkNote,
         string $countryId,

@@ -1,0 +1,7 @@
+.admin-wrapper {
+  display: flex;
+
+  & > .container {
+    width: 75%;
+  }
+}
