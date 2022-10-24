@@ -41,3 +41,21 @@ if (!document.location.pathname.startsWith('/admin')) {
     }
   })
 }
+
+function checkModalTriggerBtn() {
+  document.querySelector('#send-mail-btn').disabled = document.querySelectorAll('.select-patient:checked').length === 0;
+}
+
+if (document.location.pathname.startsWith('/admin/applications')) {
+  checkModalTriggerBtn()
+
+  document.querySelectorAll('.select-patient').forEach(inputElement => {
+    inputElement.addEventListener('change', e => {
+      checkModalTriggerBtn()
+
+      document.querySelectorAll('.select-patient:checked').forEach(checkedInputElement => {
+        document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', `<input type="hidden" name="emails[]" value="${checkedInputElement.value}" />`)
+      })
+    })
+  })
+}

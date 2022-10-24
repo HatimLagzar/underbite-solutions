@@ -7,6 +7,47 @@
   Applications
 @endsection
 @section('content')
+
+  @error('message')
+    <div class="alert alert-danger">
+      {{ $message }}
+    </div>
+  @enderror
+
+  @error('emails')
+    <div class="alert alert-danger">
+      {{ $message }}
+    </div>
+  @enderror
+
+  <button class="btn btn-danger btn-lg rounded-5 position-fixed d-block shadow-lg"
+          type="button"
+          id="send-mail-btn"
+          data-bs-toggle="modal" data-bs-target="#emailModal"
+          style="bottom: 25px;z-index: 12; right: 25px">
+    <i class="fa fa-paper-plane me-2"></i>Email Patients
+  </button>
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="emailModalLabel">Send Email to Selected Patients</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="send-mail-form" method="post" action="{{ route('admin.applications.mail') }}">
+            @csrf
+            <label class="form-label" for="message">Message</label>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control w-100"></textarea>
+            <button class="btn btn-sm btn-primary mt-2"><i class="fa fa-paper-plane me-1"></i>Send</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row mb-3">
     <div class="col-9">
       <div class="card">
@@ -109,6 +150,12 @@
     @foreach($applications as $application)
       <div class="col-3 mb-3">
         <div class="card shadow-sm">
+          <div class="card-header">
+            <label class="text-sm">
+              Select Patient
+              <input class="select-patient" type="checkbox" name="email[]" value="{{ $application->getEmail() }}">
+            </label>
+          </div>
           <div class="card-body">
             <button type="button" class="btn p-0 d-block mx-auto mb-2" data-bs-toggle="modal"
                     data-bs-target="#application-{{$application->getId()}}">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Admin\Application\ListApplicationsController;
 use App\Http\Controllers\Admin\Application\QualifyController;
+use App\Http\Controllers\Admin\Application\SendEmailController;
 use App\Http\Controllers\Admin\Application\UnqualifyController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ShowLoginPageController;
@@ -60,5 +61,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', ListApplicationsController::class)->name('index');
         Route::post('{id}/qualify', QualifyController::class)->name('qualify');
         Route::post('{id}/unqualify', UnqualifyController::class)->name('unqualify');
+        Route::post('send-email', SendEmailController::class)->name('mail');
     });
 });
