@@ -24,6 +24,17 @@ class CountryRepository extends AbstractEloquentRepository
                     ->first();
     }
 
+    /**
+     * @param string $continent
+     * @return Country[]|Collection
+     */
+    public function getAllByContinent(string $continent): Collection
+    {
+        return $this->getQueryBuilder()
+            ->where(Country::CONTINENT_CODE_COLUMN, $continent)
+            ->get();
+    }
+
     protected function getModelClass(): string
     {
         return Country::class;

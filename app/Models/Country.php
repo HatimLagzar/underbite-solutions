@@ -12,6 +12,7 @@ class Country extends Model
     public const TABLE = 'countries';
     public const CODE_COLUMN = 'code';
     public const NAME_COLUMN = 'name';
+    public const CONTINENT_CODE_COLUMN = 'continent_code';
 
     protected $table = self::TABLE;
 

@@ -77,6 +77,16 @@
                 @endforeach
               </select>
             </div>
+            <div class="form-group d-inline-block w-25 me-1 mt-2">
+              <label for="continent">Continent</label>
+              <select name="continent" id="continent" class="form-select form-select-sm w-50 d-inline-block">
+                <option value>All</option>
+                @foreach(\App\Models\Continent::all() as $continent)
+                  <option
+                      value="{{ $continent->getCode() }}" {{ request()->get('continent') === $continent->getCode() ? 'selected' : '' }}>{{ $continent->getName() }}</option>
+                @endforeach
+              </select>
+            </div>
 
             <div class="form-group d-inline-block me-1 mt-2">
               <button class="btn btn-sm btn-primary"><i class="fa fa-search me-1"></i>Filter</button>

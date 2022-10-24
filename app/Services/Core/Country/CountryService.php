@@ -22,4 +22,13 @@ class CountryService
     {
         return $this->countryRepository->getAll();
     }
+
+    /**
+     * @param string $continent
+     * @return Country[]|Collection
+     */
+    public function getAllByContinent(string $continent): Collection
+    {
+        return $this->countryRepository->getAllByContinent($continent);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Services\Domain\Patient;
 
 use App\Filters\Patient\AgeFilter;
+use App\Filters\Patient\ContinentFilter;
 use App\Filters\Patient\CountryFilter;
 use App\Filters\Patient\GenderFilter;
 use App\Filters\Patient\HeightFilter;
@@ -35,7 +36,8 @@ class FilterService
                 AgeFilter::class,
                 GenderFilter::class,
                 CountryFilter::class,
-                QualifiedFilter::class
+                QualifiedFilter::class,
+                ContinentFilter::class
             ])
             ->thenReturn()
             ->get();
