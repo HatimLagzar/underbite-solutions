@@ -71,7 +71,7 @@
             </div>
 
             <div class="form-group d-inline-block me-1">
-              <h6>Height</h6>
+              <h6>Height (cm)</h6>
               <label class="text-sm">
                 From <input name="min_height" type="number" min="0" max="300"
                             class="form-control form-control-sm w-auto d-inline-block"
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group d-inline-block me-1">
-              <h6>Weight</h6>
+              <h6>Weight (kg)</h6>
               <label class="text-sm">
                 From <input name="min_weight" type="number" min="0" max="300"
                             class="form-control form-control-sm w-auto d-inline-block"
