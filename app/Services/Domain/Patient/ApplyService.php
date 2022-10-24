@@ -2,25 +2,36 @@
 
 namespace App\Services\Domain\Patient;
 
+use App\Mail\NotificationPatientMail;
+use App\Models\NotificationPatient;
 use App\Models\Patient;
 use App\Models\PatientImage;
+use App\Services\Core\Notification\NotificationService;
+use App\Services\Core\NotificationPatient\NotificationPatientService;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\PatientImage\PatientImageService;
 use App\Services\Domain\Patient\Exceptions\InvalidEmailException;
 use App\Services\Domain\Patient\Exceptions\PatientAlreadyExistsException;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Mail;
 
 class ApplyService
 {
     private PatientService $patientService;
     private PatientImageService $patientImageService;
+    private NotificationService $notificationService;
+    private NotificationPatientService $notificationPatientService;
 
     public function __construct(
         PatientService $patientService,
-        PatientImageService $patientImageService
+        PatientImageService $patientImageService,
+        NotificationService $notificationService,
+        NotificationPatientService $notificationPatientService
     ) {
         $this->patientService = $patientService;
         $this->patientImageService = $patientImageService;
+        $this->notificationService = $notificationService;
+        $this->notificationPatientService = $notificationPatientService;
     }
 
     /**
@@ -88,6 +99,70 @@ class ApplyService
             PatientImage::POSITION_COLUMN   => PatientImage::RIGHT_VIEW,
         ]);
 
+        $this->checkNotifications($patient);
+
         return $patient;
+    }
+
+    private function checkNotifications(Patient $patient): void
+    {
+        $notifications = $this->notificationService->getAll();
+        foreach ($notifications as $notification) {
+            if ($notification->getMinAge() !== null) {
+                if ($notification->getMinAge() > $patient->getAge()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getMaxAge() !== null) {
+                if ($notification->getMaxAge() < $patient->getAge()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getMinHeight() !== null) {
+                if ($notification->getMinHeight() > $patient->getHeight()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getMaxHeight() !== null) {
+                if ($notification->getMaxHeight() < $patient->getHeight()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getMinWeight() !== null) {
+                if ($notification->getMinWeight() > $patient->getWeight()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getMaxWeight() !== null) {
+                if ($notification->getMaxWeight() < $patient->getWeight()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getGender() !== null) {
+                if ($notification->getGender() !== $patient->getGender()) {
+                    continue;
+                }
+            }
+
+            if ($notification->getCountryCode() !== null) {
+                if ($notification->getCountryCode() !== $patient->getCountryCode()) {
+                    continue;
+                }
+            }
+
+            $this->notificationPatientService->create([
+                NotificationPatient::NOTIFICATION_ID_COLUMN => $notification->getId(),
+                NotificationPatient::PATIENT_ID_COLUMN      => $patient->getId(),
+            ]);
+
+            Mail::to(env('MAIL_FROM_ADDRESS'))
+                ->queue(new NotificationPatientMail($notification, $patient));
+        }
     }
 }

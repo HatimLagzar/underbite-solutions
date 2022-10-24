@@ -13,6 +13,8 @@ class NotificationPatientRepository extends AbstractEloquentRepository
 
     public function create(array $attributes): NotificationPatient
     {
+        return $this->getQueryBuilder()
+            ->create($attributes);
     }
 
     protected function getModelClass(): string

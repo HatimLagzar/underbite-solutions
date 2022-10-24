@@ -40,7 +40,7 @@ class Notification extends Model
         return $this->getAttribute(self::ID_COLUMN);
     }
 
-    public function getGender(): int
+    public function getGender(): ?int
     {
         return $this->getAttribute(self::GENDER_COLUMN);
     }
@@ -50,37 +50,37 @@ class Notification extends Model
         return $this->getAttribute(self::NAME_COLUMN);
     }
 
-    public function getMinAge(): int
+    public function getMinAge(): ?int
     {
         return $this->getAttribute(self::MIN_AGE_COLUMN);
     }
 
-    public function getMaxAge(): int
+    public function getMaxAge(): ?int
     {
         return $this->getAttribute(self::MAX_AGE_COLUMN);
     }
 
-    public function getMinHeight(): int
+    public function getMinHeight(): ?int
     {
         return $this->getAttribute(self::MIN_HEIGHT_COLUMN);
     }
 
-    public function getMaxHeight(): int
+    public function getMaxHeight(): ?int
     {
         return $this->getAttribute(self::MAX_HEIGHT_COLUMN);
     }
 
-    public function getMinWeight(): int
+    public function getMinWeight(): ?int
     {
         return $this->getAttribute(self::MIN_WEIGHT_COLUMN);
     }
 
-    public function getMaxWeight(): int
+    public function getMaxWeight(): ?int
     {
         return $this->getAttribute(self::MAX_WEIGHT_COLUMN);
     }
 
-    public function getCountryCode(): string
+    public function getCountryCode(): ?string
     {
         return $this->getAttribute(self::COUNTRY_CODE_COLUMN);
     }
