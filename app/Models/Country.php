@@ -10,18 +10,18 @@ class Country extends Model
     use HasFactory;
 
     public const TABLE = 'countries';
-    public const ID_COLUMN = 'id';
-    public const NICE_NAME_COLUMN = 'nicename';
+    public const CODE_COLUMN = 'code';
+    public const NAME_COLUMN = 'name';
 
     protected $table = self::TABLE;
 
-    public function getId(): int
+    public function getCode(): string
     {
-        return $this->getAttribute(self::ID_COLUMN);
+        return $this->getAttribute(self::CODE_COLUMN);
     }
 
-    public function getNiceName(): string
+    public function getName(): string
     {
-        return $this->getAttribute(self::NICE_NAME_COLUMN);
+        return $this->getAttribute(self::NAME_COLUMN);
     }
 }

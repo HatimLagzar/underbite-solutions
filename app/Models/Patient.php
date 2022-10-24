@@ -20,7 +20,7 @@ class Patient extends Model
     public const AGE_COLUMN = 'age';
     public const HEIGHT_COLUMN = 'height';
     public const WEIGHT_COLUMN = 'weight';
-    public const COUNTRY_ID_COLUMN = 'country_id';
+    public const COUNTRY_CODE_COLUMN = 'country_code';
     public const PHONE_CODE_COLUMN = 'phone_code';
     public const PHONE_NUMBER_COLUMN = 'phone_number';
     public const SOCIAL_NETWORK_NOTE_COLUMN = 'social_network_note';
@@ -43,7 +43,7 @@ class Patient extends Model
         self::AGE_COLUMN,
         self::HEIGHT_COLUMN,
         self::WEIGHT_COLUMN,
-        self::COUNTRY_ID_COLUMN,
+        self::COUNTRY_CODE_COLUMN,
         self::PHONE_CODE_COLUMN,
         self::PHONE_NUMBER_COLUMN,
         self::SOCIAL_NETWORK_NOTE_COLUMN,
@@ -137,9 +137,9 @@ class Patient extends Model
         return $this;
     }
 
-    public function getCountryId(): int
+    public function getCountryCode(): string
     {
-        return $this->getAttribute(self::COUNTRY_ID_COLUMN);
+        return $this->getAttribute(self::COUNTRY_CODE_COLUMN);
     }
 
     public function getCountry(): ?Country

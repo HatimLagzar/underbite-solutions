@@ -72,14 +72,16 @@
               <select name="country" id="country" class="form-select form-select-sm w-50 d-inline-block">
                 <option value>All</option>
                 @foreach(\App\Models\Country::all() as $country)
-                  <option value="{{ $country->getId() }}" {{ request()->get('country') && intval(request()->get('country')) === $country->getId() ? 'selected' : '' }}>{{ $country->getNiceName() }}</option>
+                  <option
+                      value="{{ $country->getCode() }}" {{ request()->get('country') && intval(request()->get('country')) === $country->getCode() ? 'selected' : '' }}>{{ $country->getName() }}</option>
                 @endforeach
               </select>
             </div>
 
             <div class="form-group d-inline-block me-1 mt-2">
               <button class="btn btn-sm btn-primary"><i class="fa fa-search me-1"></i>Filter</button>
-              <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-eraser me-1"></i>Clear</a>
+              <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-secondary"><i
+                    class="fa fa-eraser me-1"></i>Clear</a>
             </div>
           </form>
         </div>
@@ -110,7 +112,7 @@
               <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
               <li>Height: {{ $application->getHeight() }} cm</li>
               <li>Weight: {{ $application->getWeight() }} Kg</li>
-              <li>Country: {{ $application->getCountry()->getNiceName() }}</li>
+              <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Qualified: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>
@@ -167,7 +169,7 @@
               <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
               <li>Height: {{ $application->getHeight() }} cm</li>
               <li>Weight: {{ $application->getWeight() }} Kg</li>
-              <li>Country: {{ $application->getCountry()->getNiceName() }}</li>
+              <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Qualified: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>

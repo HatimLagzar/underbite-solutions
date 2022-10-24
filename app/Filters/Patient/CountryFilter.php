@@ -14,7 +14,7 @@ class CountryFilter
         }
 
         return $next($request)->where(
-            sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_ID_COLUMN),
+            sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
             intval(request()->get('country'))
         );
     }

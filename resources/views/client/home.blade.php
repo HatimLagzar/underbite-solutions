@@ -173,7 +173,7 @@
                           id="countryInput" type="text" class="form-select" name="country">
                     <option value="">Select Country</option>
                     @foreach(\App\Models\Country::all() as $country)
-                      <option value="{{ $country->getId() }}">{{ $country->getNiceName() }}</option>
+                      <option value="{{ $country->getCode() }}">{{ $country->getName() }}</option>
                     @endforeach
                   </select>
                 </div>

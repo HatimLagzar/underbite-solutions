@@ -20,13 +20,8 @@ class CreateNotificationsTable extends Migration
             $table->smallInteger('age')->nullable();
             $table->smallInteger('height')->nullable();
             $table->smallInteger('weight')->nullable();
-            $table->unsignedBigInteger('country_id')->nullable();
+            $table->char('country_code', 2)->nullable();
             $table->timestamps();
-
-
-            $table->foreign('country_id')
-                ->references('id')
-                ->on('countries');
         });
     }
 

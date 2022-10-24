@@ -20,7 +20,7 @@ class ApplyRequest extends FormRequest
             'height'              => ['required', 'integer', 'max:300'],
             'phone_number'        => ['required', 'string', 'max:30'],
             'social_network_note' => ['nullable', 'string', 'max:255'],
-            'country_id'          => ['required', 'integer'],
+            'country_id'          => ['required', 'string', 'size:2'],
         ];
     }
 }

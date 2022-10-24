@@ -57,7 +57,7 @@ class PatientService
 
         $patient->setRightSideImage($rightSideImage);
 
-        $country = $this->countryRepository->findById($patient->getCountryId());
+        $country = $this->countryRepository->findByCode($patient->getCountryCode());
         $patient->setCountry($country);
 
         return $patient;

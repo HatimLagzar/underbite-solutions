@@ -17,10 +17,10 @@ class CountryRepository extends AbstractEloquentRepository
                     ->get();
     }
 
-    public function findById(int $countryId): ?Country
+    public function findByCode(string $countryCode): ?Country
     {
         return $this->getQueryBuilder()
-                    ->where(Country::ID_COLUMN, $countryId)
+                    ->where(Country::CODE_COLUMN, $countryCode)
                     ->first();
     }
 

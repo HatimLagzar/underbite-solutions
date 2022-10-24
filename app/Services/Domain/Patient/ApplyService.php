@@ -55,7 +55,7 @@ class ApplyService
             Patient::AGE_COLUMN                 => $age,
             Patient::HEIGHT_COLUMN              => $height,
             Patient::WEIGHT_COLUMN              => $weight,
-            Patient::COUNTRY_ID_COLUMN          => $countryId,
+            Patient::COUNTRY_CODE_COLUMN        => $countryId,
             Patient::PHONE_CODE_COLUMN          => $phoneCode,
             Patient::PHONE_NUMBER_COLUMN        => $phoneNumber,
             Patient::SOCIAL_NETWORK_NOTE_COLUMN => $socialNetworkNote,

@@ -22,16 +22,12 @@ class CreatePatientsTable extends Migration
             $table->smallInteger('age');
             $table->smallInteger('height');
             $table->smallInteger('weight');
-            $table->unsignedBigInteger('country_id');
+            $table->char('country_code', 2);
             $table->string('phone_code');
             $table->string('phone_number');
             $table->string('social_network_note')->nullable();
             $table->boolean('is_qualified')->default(null)->nullable();
             $table->timestamps();
-
-            $table->foreign('country_id')
-                ->references('id')
-                ->on('countries');
         });
     }
 
