@@ -73,7 +73,7 @@
                 <option value>All</option>
                 @foreach(\App\Models\Country::all() as $country)
                   <option
-                      value="{{ $country->getCode() }}" {{ request()->get('country') && intval(request()->get('country')) === $country->getCode() ? 'selected' : '' }}>{{ $country->getName() }}</option>
+                      value="{{ $country->getCode() }}" {{ request()->get('country') === $country->getCode() ? 'selected' : '' }}>{{ $country->getName() }}</option>
                 @endforeach
               </select>
             </div>
@@ -124,7 +124,7 @@
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Qualified: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify', ['id' => $application->getId()]) }}" method="post"
@@ -181,7 +181,7 @@
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Qualified: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify', ['id' => $application->getId()]) }}" method="post"
