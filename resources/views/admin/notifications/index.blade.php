@@ -35,11 +35,11 @@
         <td>{{ $notification->getMinHeight() . '-' . $notification->getMaxHeight() }}</td>
         <td>{{ $notification->getMinWeight() . '-' . $notification->getMaxWeight() }}</td>
         <td>
-          <a href="{{ route('admin.notifications.edit', ['notification' => $notification]) }}" class="btn badge text-bg-light"><i class="fa fa-pencil me-1"></i>Edit</a>
+          <a href="{{ route('admin.notifications.edit', ['notification' => $notification]) }}" class="btn btn-sm btn-secondary"><i class="fa fa-pencil me-1"></i>Edit</a>
           <form class="d-inline-block" action="{{ route('admin.notifications.delete', ['notification' => $notification]) }}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn badge text-bg-danger"><i class="fa fa-trash me-1"></i> Delete</button>
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash me-1"></i> Delete</button>
           </form>
         </td>
       </tr>
