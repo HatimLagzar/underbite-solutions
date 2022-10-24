@@ -8,6 +8,12 @@ use App\Http\Controllers\Admin\Application\UnqualifyController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ShowLoginPageController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Notification\CreateNotificationController;
+use App\Http\Controllers\Admin\Notification\DeleteNotificationController;
+use App\Http\Controllers\Admin\Notification\EditNotificationController;
+use App\Http\Controllers\Admin\Notification\ListNotificationsController;
+use App\Http\Controllers\Admin\Notification\StoreNotificationController;
+use App\Http\Controllers\Admin\Notification\UpdateNotificationController;
 use App\Http\Controllers\Admin\Post\CreatePostController;
 use App\Http\Controllers\Admin\Post\DeletePostController;
 use App\Http\Controllers\Admin\Post\EditPostController;
@@ -55,6 +61,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('{post}', EditPostController::class)->name('edit');
         Route::post('{post}', UpdatePostController::class)->name('update');
         Route::delete('{post}', DeletePostController::class)->name('delete');
+    });
+
+    Route::prefix('notifications')->name('notifications.')->group(function () {
+        Route::get('/', ListNotificationsController::class)->name('index');
+        Route::get('create', CreateNotificationController::class)->name('create');
+        Route::post('/', StoreNotificationController::class)->name('store');
+        Route::get('{notification}', EditNotificationController::class)->name('edit');
+        Route::post('{notification}', UpdateNotificationController::class)->name('update');
+        Route::delete('{notification}', DeleteNotificationController::class)->name('delete');
     });
 
     Route::prefix('applications')->name('applications.')->group(function () {

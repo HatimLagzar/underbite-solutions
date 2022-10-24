@@ -20,7 +20,7 @@
     </div>
   @enderror
 
-  <button class="btn btn-danger btn-lg rounded-5 position-fixed d-block shadow-lg"
+  <button class="btn btn-dark btn-lg rounded-5 position-fixed d-block shadow-lg"
           type="button"
           id="send-mail-btn"
           data-bs-toggle="modal" data-bs-target="#emailModal"

@@ -17,9 +17,12 @@ class CreateNotificationsTable extends Migration
             $table->id();
             $table->string('name')->comment('name of the notification filter');
             $table->smallInteger('gender')->nullable();
-            $table->smallInteger('age')->nullable();
-            $table->smallInteger('height')->nullable();
-            $table->smallInteger('weight')->nullable();
+            $table->smallInteger('min_age')->nullable();
+            $table->smallInteger('max_age')->nullable();
+            $table->smallInteger('min_height')->nullable();
+            $table->smallInteger('max_height')->nullable();
+            $table->smallInteger('min_weight')->nullable();
+            $table->smallInteger('max_weight')->nullable();
             $table->char('country_code', 2)->nullable();
             $table->timestamps();
         });
