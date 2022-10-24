@@ -200,7 +200,7 @@
                 <div class="col">
                   <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*" required>
                   <label for="frontSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-view.png" alt="Front View">
+                    <img class="d-block mx-auto" src="/images/icons/front.svg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -210,7 +210,7 @@
                 <div class="col">
                   <input type="file" name="left_side" id="leftSideInput" class="d-none" accept="image/*" required>
                   <label for="leftSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-view.png" alt="Left View">
+                    <img class="d-block mx-auto" src="/images/icons/right.svg" alt="Left View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -220,7 +220,7 @@
                 <div class="col">
                   <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
                   <label for="rightSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-view.png" alt="Right View">
+                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg" alt="Right View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
@@ -230,7 +230,7 @@
                 <div class="col">
                   <input type="file" name="front_side" id="bigSmileInput" class="d-none" accept="image/*">
                   <label for="bigSmileInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-view.png" alt="Big smile">
+                    <img class="d-block mx-auto" src="/images/icons/perspective-closed.svg" alt="Big smile">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
