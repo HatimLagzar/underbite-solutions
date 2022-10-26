@@ -13,6 +13,7 @@ class Country extends Model
     public const CODE_COLUMN = 'code';
     public const NAME_COLUMN = 'name';
     public const CONTINENT_CODE_COLUMN = 'continent_code';
+    public const ISO3_COLUMN = 'iso3';
 
     protected $table = self::TABLE;
 
@@ -24,5 +25,10 @@ class Country extends Model
     public function getName(): string
     {
         return $this->getAttribute(self::NAME_COLUMN);
+    }
+
+    public function getIso3(): string
+    {
+        return $this->getAttribute(self::ISO3_COLUMN);
     }
 }

@@ -215,7 +215,7 @@
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Right View') }}</p>
+                  <p class="text-black text-center mt-1">{{ __('Right Side') }}</p>
                 </div>
                 <div class="col">
                   <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
@@ -230,12 +230,12 @@
                 <div class="col">
                   <input type="file" name="front_side" id="bigSmileInput" class="d-none" accept="image/*">
                   <label for="bigSmileInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/perspective-closed.svg" alt="Perspective View">
+                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg" alt="Perspective View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Perspective View') }}</p>
+                  <p class="text-black text-center mt-1">{{ __('Front Closed') }}</p>
                 </div>
               </div>
 

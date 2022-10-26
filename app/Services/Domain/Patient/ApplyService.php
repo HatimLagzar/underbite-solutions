@@ -10,7 +10,6 @@ use App\Services\Core\Notification\NotificationService;
 use App\Services\Core\NotificationPatient\NotificationPatientService;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\PatientImage\PatientImageService;
-use App\Services\Domain\Patient\Exceptions\InvalidEmailException;
 use App\Services\Domain\Patient\Exceptions\PatientAlreadyExistsException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;

@@ -24,6 +24,7 @@ use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Contact\ContactUsPageController;
 use App\Http\Controllers\FAQ\FAQController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Middleware\SaveRequestMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::name('pages.')->group(function () {
+Route::middleware(SaveRequestMiddleware::class)->name('pages.')->group(function () {
     Route::get('/', HomeController::class)->name('home');
     Route::get('/about-us', AboutController::class)->name('about');
     Route::get('/faq', FAQController::class)->name('faq');

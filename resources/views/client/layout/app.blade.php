@@ -16,6 +16,11 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+@if(session()->has('error'))
+  <div class="alert bg-danger text-white rounded-0">
+    {{ session('error') }}
+  </div>
+@endif
 <nav id="navbar-mobile" class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="Logo" width="180"></a>
@@ -110,7 +115,8 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('pages.contact-us') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact Us</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact
+              Us</a>
           </li>
         </ul>
 
@@ -122,7 +128,8 @@
             <ul class="dropdown-menu" aria-labelledby="flags-dropdown" id="flags-dowpdown-list">
               <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/en.svg" alt="English">English</a>
               </li>
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/fr.svg" alt="French">French</a></li>
+              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/fr.svg" alt="French">French</a>
+              </li>
               <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/es.svg" alt="Spanish">Spanish</a>
               </li>
               <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/it.svg" alt="Italian">Italian</a>

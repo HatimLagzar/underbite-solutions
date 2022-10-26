@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Contact\ContactUsController;
 use App\Http\Controllers\Api\Patient\ApplyController;
+use App\Http\Middleware\SaveRequestMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('apply', ApplyController::class);
+Route::post('apply', ApplyController::class)->middleware(SaveRequestMiddleware::class)->name('apply');
 Route::post('contact-us', ContactUsController::class);

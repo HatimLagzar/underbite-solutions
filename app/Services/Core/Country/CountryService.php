@@ -31,4 +31,9 @@ class CountryService
     {
         return $this->countryRepository->getAllByContinent($continent);
     }
+
+    public function findByCountryCode(string $countryCode): ?Country
+    {
+        return $this->countryRepository->findByCountryCode($countryCode);
+    }
 }

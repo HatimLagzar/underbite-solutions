@@ -44,6 +44,32 @@ class PatientRepository extends AbstractEloquentRepository
             ->update($attributes) > 0;
     }
 
+    public function getMalesCount(): int
+    {
+        return $this->getQueryBuilder()
+            ->where(Patient::GENDER_COLUMN, Patient::MALE_GENDER)
+            ->count();
+    }
+
+    public function getFemalesCount(): int
+    {
+        return $this->getQueryBuilder()
+            ->where(Patient::GENDER_COLUMN, Patient::FEMALE_GENDER)
+            ->count();
+    }
+
+    /**
+     * @param int $limit
+     * @return Patient[]|Collection
+     */
+    public function getRecentApplications(int $limit): Collection
+    {
+        return $this->getQueryBuilder()
+            ->latest()
+            ->limit($limit)
+            ->get();
+    }
+
     protected function getModelClass(): string
     {
         return Patient::class;

@@ -77,4 +77,26 @@ class PatientService
     {
         return $this->patientRepository->getQueryBuilder();
     }
+
+    public function getMalesCount(): int
+    {
+        return $this->patientRepository->getMalesCount();
+    }
+
+    public function getFemalesCount(): int
+    {
+        return $this->patientRepository->getFemalesCount();
+    }
+
+    /**
+     * @param int $limit
+     * @return Patient[]|Collection
+     */
+    public function getRecentApplications(int $limit): Collection
+    {
+        return $this->patientRepository->getRecentApplications($limit)
+            ->transform(function (Patient $patient) {
+                return $this->hydrate($patient);
+            });
+    }
 }

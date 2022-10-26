@@ -18,6 +18,11 @@ class RequestHistory extends Model
     public const IP_COLUMN = 'ip';
     public const METHOD_COLUMN = 'method';
     public const TIMESTAMP_COLUMN = 'timestamp';
+    public const COUNTRY_CODE_COLUMN = 'country_code';
+
+    public const TABLET_DEVICE = 'TABLET';
+    public const MOBILE_DEVICE = 'MOBILE';
+    public const DESKTOP_DEVICE = 'DESKTOP';
 
     protected $table = self::TABLE;
 
@@ -29,6 +34,7 @@ class RequestHistory extends Model
         self::IP_COLUMN,
         self::METHOD_COLUMN,
         self::TIMESTAMP_COLUMN,
+        self::COUNTRY_CODE_COLUMN,
     ];
 
     public $timestamps = false;

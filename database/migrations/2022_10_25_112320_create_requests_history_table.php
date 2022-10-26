@@ -20,6 +20,7 @@ class CreateRequestsHistoryTable extends Migration
             $table->string('device');
             $table->string('url');
             $table->string('ip');
+            $table->string('country_code');
             $table->string('method')->comment('GET|POST');
             $table->integer('timestamp');
         });

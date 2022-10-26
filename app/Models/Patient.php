@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,6 +26,7 @@ class Patient extends Model
     public const PHONE_NUMBER_COLUMN = 'phone_number';
     public const SOCIAL_NETWORK_NOTE_COLUMN = 'social_network_note';
     public const IS_QUALIFIED_COLUMN = 'is_qualified';
+    public const CREATED_AT_COLUMN = 'created_at';
 
     public const MALE_GENDER = 1;
     public const FEMALE_GENDER = 2;
@@ -32,7 +34,8 @@ class Patient extends Model
     protected $table = self::TABLE;
 
     protected $casts = [
-        self::IS_QUALIFIED_COLUMN => 'boolean'
+        self::IS_QUALIFIED_COLUMN => 'boolean',
+        self::CREATED_AT_COLUMN => 'datetime'
     ];
 
     protected $fillable = [
@@ -85,6 +88,11 @@ class Patient extends Model
     public function getGender(): int
     {
         return $this->getAttribute(self::GENDER_COLUMN);
+    }
+
+    public function getCreatedAt(): Carbon
+    {
+        return $this->getAttribute(self::CREATED_AT_COLUMN);
     }
 
     public function getFirstName(): string
