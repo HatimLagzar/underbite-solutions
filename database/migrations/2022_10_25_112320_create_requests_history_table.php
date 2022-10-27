@@ -18,7 +18,8 @@ class CreateRequestsHistoryTable extends Migration
             $table->string('session_id');
             $table->string('browser');
             $table->string('device');
-            $table->string('url');
+            $table->string('from');
+            $table->string('to');
             $table->string('ip');
             $table->string('country_code');
             $table->string('method')->comment('GET|POST');

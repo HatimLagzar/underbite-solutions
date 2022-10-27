@@ -14,7 +14,8 @@ class RequestHistory extends Model
     public const SESSION_ID_COLUMN = 'session_id';
     public const BROWSER_COLUMN = 'browser';
     public const DEVICE_COLUMN = 'device';
-    public const URL_COLUMN = 'url';
+    public const TO_COLUMN = 'to';
+    public const FROM_COLUMN = 'from';
     public const IP_COLUMN = 'ip';
     public const METHOD_COLUMN = 'method';
     public const TIMESTAMP_COLUMN = 'timestamp';
@@ -30,7 +31,8 @@ class RequestHistory extends Model
         self::SESSION_ID_COLUMN,
         self::BROWSER_COLUMN,
         self::DEVICE_COLUMN,
-        self::URL_COLUMN,
+        self::TO_COLUMN,
+        self::FROM_COLUMN,
         self::IP_COLUMN,
         self::METHOD_COLUMN,
         self::TIMESTAMP_COLUMN,

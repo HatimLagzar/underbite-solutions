@@ -47,7 +47,8 @@ class SaveRequestMiddleware
             RequestHistory::DEVICE_COLUMN       => $device,
             RequestHistory::IP_COLUMN           => request()->ip(),
             RequestHistory::COUNTRY_CODE_COLUMN => $iso3,
-            RequestHistory::URL_COLUMN          => route($request->route()->getName(), [], false),
+            RequestHistory::FROM_COLUMN         => url()->previous(),
+            RequestHistory::TO_COLUMN           => url()->current(),
             RequestHistory::METHOD_COLUMN       => request()->method(),
             RequestHistory::TIMESTAMP_COLUMN    => Carbon::now()->timestamp,
         ]);

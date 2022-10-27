@@ -26,7 +26,7 @@ class RequestHistoryRepository extends AbstractEloquentRepository
     {
         return $this->getQueryBuilder()
             ->where(RequestHistory::METHOD_COLUMN, 'GET')
-            ->where(RequestHistory::URL_COLUMN, $url)
+            ->where(RequestHistory::TO_COLUMN, $url)
             ->count();
     }
 
@@ -34,7 +34,7 @@ class RequestHistoryRepository extends AbstractEloquentRepository
     {
         return $this->getQueryBuilder()
             ->where(RequestHistory::METHOD_COLUMN, 'POST')
-            ->where(RequestHistory::URL_COLUMN, $url)
+            ->where(RequestHistory::TO_COLUMN, $url)
             ->count();
     }
 

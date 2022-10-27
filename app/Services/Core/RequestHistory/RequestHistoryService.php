@@ -26,8 +26,8 @@ class RequestHistoryService
 
     public function getConversion(): float
     {
-        $visits = $this->requestHistoryRepository->getVisitorsByPage(route('pages.home', [], false));
-        $submits = $this->requestHistoryRepository->getSubmitsByPage(route('apply', [], false));
+        $visits = $this->requestHistoryRepository->getVisitorsByPage(route('pages.home'));
+        $submits = $this->requestHistoryRepository->getSubmitsByPage(route('apply'));
 
         return round(($submits * 100) / $visits, 2);
     }

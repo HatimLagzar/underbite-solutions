@@ -27,7 +27,7 @@ class RequestHistorySeeder extends Seeder
             ->create([
                 RequestHistory::SESSION_ID_COLUMN => $sessionId,
                 RequestHistory::METHOD_COLUMN     => 'POST',
-                RequestHistory::URL_COLUMN        => route('apply', [], false)
+                RequestHistory::TO_COLUMN        => route('apply')
             ]);
 
         $sessionId = Str::uuid()->toString();
@@ -49,7 +49,7 @@ class RequestHistorySeeder extends Seeder
             ->create([
                 RequestHistory::SESSION_ID_COLUMN => $sessionId,
                 RequestHistory::METHOD_COLUMN     => 'POST',
-                RequestHistory::URL_COLUMN        => route('apply', [], false)
+                RequestHistory::TO_COLUMN        => route('apply')
             ]);
 
         $sessionId = Str::uuid()->toString();
@@ -64,7 +64,7 @@ class RequestHistorySeeder extends Seeder
             ->create([
                 RequestHistory::SESSION_ID_COLUMN => $sessionId,
                 RequestHistory::METHOD_COLUMN     => 'POST',
-                RequestHistory::URL_COLUMN        => route('apply', [], false)
+                RequestHistory::TO_COLUMN        => route('apply')
             ]);
 
         $sessionId = Str::uuid()->toString();
