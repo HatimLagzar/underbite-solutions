@@ -74,5 +74,26 @@ class RequestHistorySeeder extends Seeder
                 RequestHistory::SESSION_ID_COLUMN   => $sessionId,
                 RequestHistory::COUNTRY_CODE_COLUMN => 'USA',
             ]);
+
+        $sessionId = Str::uuid()->toString();
+        RequestHistory::factory()
+            ->create([
+                RequestHistory::SESSION_ID_COLUMN   => $sessionId,
+                RequestHistory::COUNTRY_CODE_COLUMN => 'FRA',
+            ]);
+
+        $sessionId = Str::uuid()->toString();
+        RequestHistory::factory()
+            ->create([
+                RequestHistory::SESSION_ID_COLUMN   => $sessionId,
+                RequestHistory::COUNTRY_CODE_COLUMN => 'ITA',
+            ]);
+
+        $sessionId = Str::uuid()->toString();
+        RequestHistory::factory()
+            ->create([
+                RequestHistory::SESSION_ID_COLUMN   => $sessionId,
+                RequestHistory::COUNTRY_CODE_COLUMN => 'ITA',
+            ]);
     }
 }
