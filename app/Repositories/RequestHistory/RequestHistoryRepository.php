@@ -5,6 +5,7 @@ namespace App\Repositories\RequestHistory;
 use App\Repositories\AbstractEloquentRepository;
 use App\Models\RequestHistory;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class RequestHistoryRepository extends AbstractEloquentRepository
 {
@@ -74,6 +75,26 @@ class RequestHistoryRepository extends AbstractEloquentRepository
             ->where(RequestHistory::METHOD_COLUMN, 'GET')
             ->where(RequestHistory::DEVICE_COLUMN, RequestHistory::MOBILE_DEVICE)
             ->count();
+    }
+
+    /**
+     * @param string $url
+     * @return Collection
+     */
+    public function getTopUrlsFromUrl(string $url): Collection
+    {
+        return $this->getQueryBuilder()
+            ->select([
+                RequestHistory::FROM_COLUMN,
+                RequestHistory::TO_COLUMN,
+                DB::raw(sprintf('count(`%s`) as visits', RequestHistory::TO_COLUMN))
+            ])
+            ->where(RequestHistory::METHOD_COLUMN, RequestHistory::GET_METHOD)
+            ->where(RequestHistory::FROM_COLUMN, $url)
+            ->where(RequestHistory::TO_COLUMN, '!=', $url)
+            ->groupBy(RequestHistory::TO_COLUMN)
+            ->orderBy('visits', 'DESC')
+            ->get();
     }
 
     protected function getModelClass(): string

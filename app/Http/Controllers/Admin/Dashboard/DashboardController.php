@@ -7,6 +7,7 @@ use App\Services\Core\Patient\PatientService;
 use App\Services\Core\RequestHistory\RequestHistoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Throwable;
 
 class DashboardController extends Controller
@@ -22,7 +23,7 @@ class DashboardController extends Controller
         $this->patientService = $patientService;
     }
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         try {
             $visitors = $this->requestHistoryService->getVisitors();
@@ -37,8 +38,10 @@ class DashboardController extends Controller
             $recentApplications = $this->patientService->getRecentApplications(6);
             $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits(), 0,
                 7);
+            $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
 
             return view('admin.dashboard')
+                ->with('topUrls', $topUrls)
                 ->with('visitorsByCountry', json_encode($visitorsByCountry))
                 ->with('recentApplications', $recentApplications)
                 ->with('topTenCountriesWithVisits', $topTenCountriesWithVisits)

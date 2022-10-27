@@ -25,6 +25,8 @@ class RequestHistory extends Model
     public const MOBILE_DEVICE = 'MOBILE';
     public const DESKTOP_DEVICE = 'DESKTOP';
 
+    public const GET_METHOD = 'GET';
+
     protected $table = self::TABLE;
 
     protected $fillable = [

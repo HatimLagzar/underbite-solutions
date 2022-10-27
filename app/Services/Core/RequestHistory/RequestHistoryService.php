@@ -4,6 +4,7 @@ namespace App\Services\Core\RequestHistory;
 
 use App\Models\RequestHistory;
 use App\Repositories\RequestHistory\RequestHistoryRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class RequestHistoryService
 {
@@ -89,5 +90,10 @@ class RequestHistoryService
     public function countTabletRequests(): int
     {
         return $this->requestHistoryRepository->countTabletRequests();
+    }
+
+    public function getTopUrlsFromUrl(string $url): Collection
+    {
+        return $this->requestHistoryRepository->getTopUrlsFromUrl($url);
     }
 }

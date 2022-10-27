@@ -1,5 +1,5 @@
 @php
-/** @var \App\Models\Patient[]|\Illuminate\Database\Eloquent\Collection $recentApplications */
+  /** @var \App\Models\Patient[]|\Illuminate\Database\Eloquent\Collection $recentApplications */
 @endphp
 
 @extends('admin.layout.auth-template')
@@ -142,6 +142,46 @@
         </div>
         <div class="card-body">
           <canvas id="devices-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="mb-0">Top Navigation Flows</h6>
+        </div>
+        <div class="card-body">
+          <div class="form-group mb-3">
+            <label class="form-label" for="from-url">From Page:</label>
+            <select name="from_url" id="from-url" class="form-select">
+              <option value="{{ route('pages.home') }}">Home</option>
+              <option value="{{ route('pages.about') }}">About Us</option>
+              <option value="{{ route('pages.faq') }}">FAQ</option>
+              <option value="{{ route('pages.contact-us') }}">Contact Us</option>
+              <option value="{{ route('pages.blog') }}">Blog</option>
+            </select>
+          </div>
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Url</th>
+              <th># times visited</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($topUrls as $key => $url)
+              <tr>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $url->to }}</td>
+                <td>{{ $url->visits }}</td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
