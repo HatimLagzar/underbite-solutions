@@ -62,7 +62,7 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-8">
+    <div class="col-12 col-lg-8">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Visitors Repartition</h6>
@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-lg-4">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Gender Ratio</h6>
@@ -96,7 +96,7 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-8">
+    <div class="col-12 col-lg-8">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">
@@ -135,7 +135,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-lg-4">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Devices</h6>
@@ -148,22 +148,24 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col">
+    <div class="col-12 col-lg-8">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Top Navigation Flows</h6>
         </div>
         <div class="card-body">
-          <div class="form-group mb-3">
-            <label class="form-label" for="from-url">From Page:</label>
-            <select name="from_url" id="from-url" class="form-select">
-              <option value="{{ route('pages.home') }}">Home</option>
-              <option value="{{ route('pages.about') }}">About Us</option>
-              <option value="{{ route('pages.faq') }}">FAQ</option>
-              <option value="{{ route('pages.contact-us') }}">Contact Us</option>
-              <option value="{{ route('pages.blog') }}">Blog</option>
-            </select>
-          </div>
+          <form action="{{ route('admin.home') }}">
+            <div class="form-group mb-3">
+              <label class="form-label" for="from-url">From Page:</label>
+              <select name="from_url" id="from-url" class="form-select" onchange="this.form.submit()">
+                <option {{ request()->get('from_url') === route('pages.home') ? 'selected' : ''}} value="{{ route('pages.home') }}">Home</option>
+                <option {{ request()->get('from_url') === route('pages.about') ? 'selected' : ''}} value="{{ route('pages.about') }}">About Us</option>
+                <option {{ request()->get('from_url') === route('pages.faq') ? 'selected' : ''}} value="{{ route('pages.faq') }}">FAQ</option>
+                <option {{ request()->get('from_url') === route('pages.contact-us') ? 'selected' : ''}} value="{{ route('pages.contact-us') }}">Contact Us</option>
+                <option {{ request()->get('from_url') === route('pages.blog') ? 'selected' : ''}} value="{{ route('pages.blog') }}">Blog</option>
+              </select>
+            </div>
+          </form>
           <table class="table table-hover">
             <thead>
             <tr>
