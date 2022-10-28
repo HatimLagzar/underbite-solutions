@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\RequestHistory\RequestHistoryService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
@@ -26,22 +27,52 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         try {
-            $visitors = $this->requestHistoryService->getVisitors();
-            $submits = $this->requestHistoryService->getSubmits();
-            $conversion = $this->requestHistoryService->getConversion();
+            $startDate = null;
+            $endDate = null;
+            $dateFilter = $request->get('date_filter');
+            if ($dateFilter === 'today') {
+                $startDate = Carbon::now();
+                $endDate = Carbon::now()->subtract('1 days');
+            }
+
+            if ($dateFilter === 'week') {
+                $startDate = Carbon::now();
+                $endDate = Carbon::now()->subtract('1 weeks');
+            }
+
+            if ($dateFilter === 'month') {
+                $startDate = Carbon::now();
+                $endDate = Carbon::now()->subtract('1 months');
+            }
+
+            if ($dateFilter === 'year') {
+                $startDate = Carbon::now();
+                $endDate = Carbon::now()->subtract('1 years');
+            }
+
+            $visitors = $this->requestHistoryService->getVisitors($startDate, $endDate);
+            $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
+            $submits = $this->requestHistoryService->getSubmits($startDate, $endDate);
+            $submitsFromTopCountry = $this->patientService->getTopCountryPatients($startDate, $endDate);
+            $conversion = $this->requestHistoryService->getConversion($startDate, $endDate);
+            $conversionFromTopCountry = $this->requestHistoryService->getConversionOfTopCountry($startDate, $endDate);
+
             $males = $this->patientService->getMalesCount();
             $females = $this->patientService->getFemalesCount();
             $desktop = $this->requestHistoryService->countDektopRequests();
             $tablet = $this->requestHistoryService->countTabletRequests();
             $mobile = $this->requestHistoryService->countMobileRequests();
-            $visitorsByCountry = $this->requestHistoryService->getVisitorsByCountry();
+            $visitorsByCountry = $this->requestHistoryService->getVisitorsByCountry($startDate, $endDate);
             $recentApplications = $this->patientService->getRecentApplications(6);
-            $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits(), 0,
+            $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits($startDate, $endDate), 0,
                 7);
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
 
             return view('admin.dashboard')
                 ->with('topUrls', $topUrls)
+                ->with('submitsFromTopCountry', $submitsFromTopCountry)
+                ->with('conversionFromTopCountry', $conversionFromTopCountry)
+                ->with('bounceRate', $bounceRate)
                 ->with('visitorsByCountry', json_encode($visitorsByCountry))
                 ->with('recentApplications', $recentApplications)
                 ->with('topTenCountriesWithVisits', $topTenCountriesWithVisits)
@@ -54,6 +85,7 @@ class DashboardController extends Controller
                 ->with('submits', $submits)
                 ->with('visitors', $visitors);
         } catch (Throwable $e) {
+            dd($e);
             Log::error('failed to show dashboard page', [
                 'error_message' => $e->getMessage(),
             ]);

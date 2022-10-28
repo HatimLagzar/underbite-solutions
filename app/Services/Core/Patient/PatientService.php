@@ -7,6 +7,7 @@ use App\Models\PatientImage;
 use App\Repositories\Country\CountryRepository;
 use App\Repositories\Patient\PatientRepository;
 use App\Repositories\PatientImage\PatientImageRepository;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -98,5 +99,16 @@ class PatientService
             ->transform(function (Patient $patient) {
                 return $this->hydrate($patient);
             });
+    }
+
+    public function getTopCountryPatients(?Carbon $startDate, ?Carbon $endDate)
+    {
+        $result = $this->patientRepository->getTopCountryPatients($startDate, $endDate);
+        if ($result !== null) {
+            $result->country = $this->countryRepository->findByCode($result->country_code);
+        }
+
+
+        return $result;
     }
 }

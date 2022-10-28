@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\RequestHistory;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 

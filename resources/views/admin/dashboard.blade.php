@@ -11,14 +11,17 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Visitors</h6>
             <ul class="list-unstyled mb-0">
-              <li class="d-inline-block"><a class="text-sm" href="#">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
             <strong>{{ number_format($visitors) }} Visits</strong>
+            <p class="mb-0">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }} From {{ array_key_first($topTenCountriesWithVisits) }}</p>
+            <p class="mb-0">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
           </div>
         </div>
       </section>
@@ -29,14 +32,18 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Submits</h6>
             <ul class="list-unstyled mb-0">
-              <li class="d-inline-block"><a class="text-sm" href="#">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
             <strong>{{ number_format($submits) }} Submits</strong>
+            @if($submitsFromTopCountry)
+            <p class="mb-0">{{ number_format($submitsFromTopCountry->counter) }} From {{ $submitsFromTopCountry->country->name }}</p>
+            @endif
           </div>
         </div>
       </section>
@@ -47,14 +54,18 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Conversion</h6>
             <ul class="list-unstyled mb-0">
-              <li class="d-inline-block"><a class="text-sm" href="#">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm" href="#">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
             <strong>{{ $conversion }}%</strong>
+            @if($conversionFromTopCountry)
+            <p class="mb-0">{{ $conversionFromTopCountry }}</p>
+            @endif
           </div>
         </div>
       </section>
@@ -124,8 +135,8 @@
                 <td>{{ $application->getFullName() }}</td>
                 <td>{{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</td>
                 <td>{{ $application->getAge() }}</td>
-                <td>{{ $application->getHeight() }}</td>
-                <td>{{ $application->getWeight() }}</td>
+                <td>{{ turnCentimeterToFoot($application->getHeight()) . ' ft' }}</td>
+                <td>{{ turnKilogramToLbs($application->getWeight()) . ' lbs' }}</td>
                 <td>{{ $application->getCountry()->getName() }}</td>
                 <td>{{ $application->getCreatedAt()->diffForHumans() }}</td>
               </tr>

@@ -9,8 +9,6 @@ class RequestHistoryFactory extends Factory
 {
     public function definition(): array
     {
-        $ip = $this->faker->ipv4;
-
         return [
             RequestHistory::SESSION_ID_COLUMN => $this->faker->uuid,
             RequestHistory::BROWSER_COLUMN => $this->faker->userAgent,
@@ -33,7 +31,7 @@ class RequestHistoryFactory extends Factory
                 route('pages.blog'),
                 route('pages.about'),
             ]),
-            RequestHistory::IP_COLUMN => $ip,
+            RequestHistory::IP_COLUMN => $this->faker->ipv4,
             RequestHistory::COUNTRY_CODE_COLUMN => $this->faker->randomElement([
                 'USA',
                 'FRA',
@@ -46,7 +44,7 @@ class RequestHistoryFactory extends Factory
                 'ARG'
             ]),
             RequestHistory::METHOD_COLUMN => 'GET',
-            RequestHistory::TIMESTAMP_COLUMN => $this->faker->dateTimeBetween('-1 years', 'now')->getTimestamp(),
+            RequestHistory::TIMESTAMP_COLUMN => $this->faker->dateTimeBetween('-2 years')->getTimestamp(),
         ];
     }
 }

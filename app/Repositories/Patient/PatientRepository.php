@@ -4,7 +4,9 @@ namespace App\Repositories\Patient;
 
 use App\Models\Patient;
 use App\Repositories\AbstractEloquentRepository;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class PatientRepository extends AbstractEloquentRepository
 {
@@ -40,8 +42,8 @@ class PatientRepository extends AbstractEloquentRepository
     public function update(int $id, array $attributes): bool
     {
         return $this->getQueryBuilder()
-            ->where(Patient::ID_COLUMN, $id)
-            ->update($attributes) > 0;
+                ->where(Patient::ID_COLUMN, $id)
+                ->update($attributes) > 0;
     }
 
     public function getMalesCount(): int
@@ -68,6 +70,20 @@ class PatientRepository extends AbstractEloquentRepository
             ->latest()
             ->limit($limit)
             ->get();
+    }
+
+    public function getTopCountryPatients(?Carbon $startDate, ?Carbon $endDate)
+    {
+        if ($startDate === null && $endDate === null) {
+            return $this->getQueryBuilder()
+                ->select([
+                    Patient::COUNTRY_CODE_COLUMN,
+                    DB::raw('count(`' . Patient::COUNTRY_CODE_COLUMN . '`) as counter')
+                ])
+                ->groupBy(Patient::COUNTRY_CODE_COLUMN)
+                ->orderBy('counter', 'DESC')
+                ->first();
+        }
     }
 
     protected function getModelClass(): string

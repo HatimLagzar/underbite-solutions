@@ -20,6 +20,7 @@ class RequestHistory extends Model
     public const METHOD_COLUMN = 'method';
     public const TIMESTAMP_COLUMN = 'timestamp';
     public const COUNTRY_CODE_COLUMN = 'country_code';
+    public const CREATED_AT_COLUMN = 'created_at';
 
     public const TABLET_DEVICE = 'TABLET';
     public const MOBILE_DEVICE = 'MOBILE';
