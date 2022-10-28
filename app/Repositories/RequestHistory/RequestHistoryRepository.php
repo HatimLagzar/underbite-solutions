@@ -20,6 +20,7 @@ class RequestHistoryRepository extends AbstractEloquentRepository
 
         return $this->getQueryBuilder()
             ->where(RequestHistory::METHOD_COLUMN, 'GET')
+            ->where(RequestHistory::TIMESTAMP_COLUMN, '<', $startDate->getTimestamp())
             ->where(RequestHistory::TIMESTAMP_COLUMN, '>', $endDate->getTimestamp())
             ->count();
     }

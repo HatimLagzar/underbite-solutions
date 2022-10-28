@@ -20,8 +20,15 @@
           </div>
           <div class="card-body">
             <strong>{{ number_format($visitors) }} Visits</strong>
-            <p class="mb-0">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }} From {{ array_key_first($topTenCountriesWithVisits) }}</p>
-            <p class="mb-0">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
+            @if (request()->has('date_filter'))
+              @if($visitors < $visitorsRelative)
+                <p class="mb-1 text-sm text-danger">- {{ number_format(round($visitorsRelative * 100 / $visitors, 2) - 100, 2) }}% ({{ number_format($visitorsRelative) }} Visits)</p>
+              @else
+                <p class="mb-1 text-sm text-success">+ {{ number_format(round($visitors * 100 / $visitorsRelative, 2) - 100, 2) }}% ({{ number_format($visitorsRelative) }} Visits)</p>
+              @endif
+            @endif
+            <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }} From {{ array_key_first($topTenCountriesWithVisits) }}</p>
+            <p class="mb-0 text-sm">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
           </div>
         </div>
       </section>
@@ -63,7 +70,16 @@
           </div>
           <div class="card-body">
             <strong>{{ $conversion }}%</strong>
-            @if($conversionFromTopCountry)
+            @if (request()->has('date_filter'))
+              @if($conversion < $conversionRelative)
+                <p class="mb-1 text-sm text-danger">- {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}% ({{ number_format($conversionRelative, 2) }}%)</p>
+              @elseif($conversionRelative > 0)
+                <p class="mb-1 text-sm text-success">+ {{ number_format(round($conversion * 100 / $conversionRelative, 2) - 100, 2) }}% ({{ number_format($conversionRelative, 2) }}%)</p>
+              @else
+                <p class="mb-1 text-sm">+0% compared to previous cycle</p>
+              @endif
+            @endif
+          @if($conversionFromTopCountry)
             <p class="mb-0">{{ $conversionFromTopCountry }}</p>
             @endif
           </div>
