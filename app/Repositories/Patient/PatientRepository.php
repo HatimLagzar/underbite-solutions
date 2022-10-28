@@ -84,6 +84,16 @@ class PatientRepository extends AbstractEloquentRepository
                 ->orderBy('counter', 'DESC')
                 ->first();
         }
+
+        return $this->getQueryBuilder()
+            ->select([
+                Patient::COUNTRY_CODE_COLUMN,
+                DB::raw('count(`' . Patient::COUNTRY_CODE_COLUMN . '`) as counter')
+            ])
+            ->whereDate(Patient::CREATED_AT_COLUMN, '>', $endDate)
+            ->groupBy(Patient::COUNTRY_CODE_COLUMN)
+            ->orderBy('counter', 'DESC')
+            ->first();
     }
 
     protected function getModelClass(): string
