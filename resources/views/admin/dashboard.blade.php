@@ -22,12 +22,17 @@
             <strong>{{ number_format($visitors) }} Visits</strong>
             @if (request()->has('date_filter'))
               @if($visitors < $visitorsRelative)
-                <p class="mb-1 text-sm text-danger">- {{ number_format(round($visitorsRelative * 100 / $visitors, 2) - 100, 2) }}% ({{ number_format($visitorsRelative) }} Visits)</p>
+                <p class="mb-1 text-sm text-danger">
+                  - {{ number_format(round($visitorsRelative * 100 / $visitors, 2) - 100, 2) }}%
+                  ({{ number_format($visitorsRelative) }} Visits)</p>
               @else
-                <p class="mb-1 text-sm text-success">+ {{ number_format(round($visitors * 100 / $visitorsRelative, 2) - 100, 2) }}% ({{ number_format($visitorsRelative) }} Visits)</p>
+                <p class="mb-1 text-sm text-success">
+                  + {{ number_format(round($visitors * 100 / $visitorsRelative, 2) - 100, 2) }}%
+                  ({{ number_format($visitorsRelative) }} Visits)</p>
               @endif
             @endif
-            <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }} From {{ array_key_first($topTenCountriesWithVisits) }}</p>
+            <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }}
+              From {{ array_key_first($topTenCountriesWithVisits) }}</p>
             <p class="mb-0 text-sm">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
           </div>
         </div>
@@ -49,7 +54,8 @@
           <div class="card-body">
             <strong>{{ number_format($submits) }} Submits</strong>
             @if($submitsFromTopCountry)
-            <p class="mb-0">{{ number_format($submitsFromTopCountry->counter) }} From {{ $submitsFromTopCountry->country->name }}</p>
+              <p class="mb-0">{{ number_format($submitsFromTopCountry->counter) }}
+                From {{ $submitsFromTopCountry->country->name }}</p>
             @endif
           </div>
         </div>
@@ -72,15 +78,19 @@
             <strong>{{ $conversion }}%</strong>
             @if (request()->has('date_filter'))
               @if($conversion < $conversionRelative)
-                <p class="mb-1 text-sm text-danger">- {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}% ({{ number_format($conversionRelative, 2) }}%)</p>
+                <p class="mb-1 text-sm text-danger">
+                  - {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}%
+                  ({{ number_format($conversionRelative, 2) }}%)</p>
               @elseif($conversionRelative > 0)
-                <p class="mb-1 text-sm text-success">+ {{ number_format(round($conversion * 100 / $conversionRelative, 2) - 100, 2) }}% ({{ number_format($conversionRelative, 2) }}%)</p>
+                <p class="mb-1 text-sm text-success">
+                  + {{ number_format(round($conversion * 100 / $conversionRelative, 2) - 100, 2) }}%
+                  ({{ number_format($conversionRelative, 2) }}%)</p>
               @else
                 <p class="mb-1 text-sm">+0% compared to previous cycle</p>
               @endif
             @endif
-          @if($conversionFromTopCountry)
-            <p class="mb-0">{{ $conversionFromTopCountry }}</p>
+            @if($conversionFromTopCountry)
+              <p class="mb-0">{{ $conversionFromTopCountry }}</p>
             @endif
           </div>
         </div>
@@ -185,11 +195,26 @@
             <div class="form-group mb-3">
               <label class="form-label" for="from-url">From Page:</label>
               <select name="from_url" id="from-url" class="form-select" onchange="this.form.submit()">
-                <option {{ request()->get('from_url') === route('pages.home') ? 'selected' : ''}} value="{{ route('pages.home') }}">Home</option>
-                <option {{ request()->get('from_url') === route('pages.about') ? 'selected' : ''}} value="{{ route('pages.about') }}">About Us</option>
-                <option {{ request()->get('from_url') === route('pages.faq') ? 'selected' : ''}} value="{{ route('pages.faq') }}">FAQ</option>
-                <option {{ request()->get('from_url') === route('pages.contact-us') ? 'selected' : ''}} value="{{ route('pages.contact-us') }}">Contact Us</option>
-                <option {{ request()->get('from_url') === route('pages.blog') ? 'selected' : ''}} value="{{ route('pages.blog') }}">Blog</option>
+                <option
+                    {{ request()->get('from_url') === route('pages.home') ? 'selected' : ''}} value="{{ route('pages.home') }}">
+                  Home
+                </option>
+                <option
+                    {{ request()->get('from_url') === route('pages.about') ? 'selected' : ''}} value="{{ route('pages.about') }}">
+                  About Us
+                </option>
+                <option
+                    {{ request()->get('from_url') === route('pages.faq') ? 'selected' : ''}} value="{{ route('pages.faq') }}">
+                  FAQ
+                </option>
+                <option
+                    {{ request()->get('from_url') === route('pages.contact-us') ? 'selected' : ''}} value="{{ route('pages.contact-us') }}">
+                  Contact Us
+                </option>
+                <option
+                    {{ request()->get('from_url') === route('pages.blog') ? 'selected' : ''}} value="{{ route('pages.blog') }}">
+                  Blog
+                </option>
               </select>
             </div>
           </form>
