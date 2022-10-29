@@ -110,6 +110,37 @@ class PatientRepository extends AbstractEloquentRepository
             ->first();
     }
 
+    /**
+     * @param int $gender
+     * @return Patient[]|Collection
+     */
+    public function getSubmitsGroupedByCountryAndGender(int $gender): Collection
+    {
+        return $this->getQueryBuilder()
+            ->select([
+                Patient::COUNTRY_CODE_COLUMN,
+                DB::raw(sprintf('count(%s) as counter', Patient::COUNTRY_CODE_COLUMN)),
+            ])
+            ->where(Patient::GENDER_COLUMN, $gender)
+            ->groupBy(Patient::COUNTRY_CODE_COLUMN)
+            ->orderBy('counter', 'DESC')
+            ->get();
+    }
+
+    public function countAgeBelow(int $number): int
+    {
+        return $this->getQueryBuilder()
+            ->where(Patient::AGE_COLUMN, '<=', $number)
+            ->count();
+    }
+
+    public function countAgeAbove(int $number): int
+    {
+        return $this->getQueryBuilder()
+            ->where(Patient::AGE_COLUMN, '>=', $number)
+            ->count();
+    }
+
     protected function getModelClass(): string
     {
         return Patient::class;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\RequestHistory\RequestHistoryService;
 use Carbon\Carbon;
@@ -65,6 +66,16 @@ class SubmitsDashboardController extends Controller
             $males = $this->patientService->getMalesCount($startDate, $endDate);
             $females = $this->patientService->getFemalesCount($startDate, $endDate);
 
+            $maleSubmitsGroupedByCountries = $this->patientService->getSubmitsGroupedByCountryAndGender(Patient::MALE_GENDER);
+            $femaleSubmitsGroupedByCountries = $this->patientService->getSubmitsGroupedByCountryAndGender(Patient::FEMALE_GENDER);
+
+            $below25 = $this->patientService->countAgeBelow(25);
+            $below30 = $this->patientService->countAgeBelow(30);
+            $below40 = $this->patientService->countAgeBelow(40);
+            $below50 = $this->patientService->countAgeBelow(50);
+            $below60 = $this->patientService->countAgeBelow(60);
+            $above60 = $this->patientService->countAgeAbove(60);
+
             //$submits = $this->requestHistoryService->getSubmits($startDate, $endDate);
             $submits = $females + $males;
             $submitsFromTopCountry = $this->patientService->getTopCountryPatients($startDate, $endDate);
@@ -78,11 +89,19 @@ class SubmitsDashboardController extends Controller
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
 
             return view('admin.dashboard.submits')
+                ->with('below25', $below25)
+                ->with('below30', $below30)
+                ->with('below40', $below40)
+                ->with('below50', $below50)
+                ->with('below60', $below60)
+                ->with('above60', $above60)
                 ->with('topUrls', $topUrls)
                 ->with('submitsFromTopCountry', $submitsFromTopCountry)
                 ->with('conversionFromTopCountry', $conversionFromTopCountry)
                 ->with('bounceRate', $bounceRate)
                 ->with('submitsByCountry', $submitsByCountry)
+                ->with('maleSubmitsGroupedByCountries', $maleSubmitsGroupedByCountries)
+                ->with('femaleSubmitsGroupedByCountries', $femaleSubmitsGroupedByCountries)
                 ->with('recentApplications', $recentApplications)
                 ->with('topTenCountriesWithSubmits', $topTenCountriesWithSubmits)
                 ->with('males', $males)

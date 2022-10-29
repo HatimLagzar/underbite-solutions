@@ -111,4 +111,27 @@ class PatientService
 
         return $result;
     }
+
+    /**
+     * @param int $gender
+     * @return Patient[]|Collection
+     */
+    public function getSubmitsGroupedByCountryAndGender(int $gender): Collection
+    {
+        return $this->patientRepository->getSubmitsGroupedByCountryAndGender($gender)
+            ->transform(function ($result) {
+                $result->country = $this->countryRepository->findByCode($result->country_code);
+                return $result;
+            });
+    }
+
+    public function countAgeBelow(int $number): int
+    {
+        return $this->patientRepository->countAgeBelow($number);
+    }
+
+    public function countAgeAbove(int $number): int
+    {
+        return $this->patientRepository->countAgeAbove($number);
+    }
 }
