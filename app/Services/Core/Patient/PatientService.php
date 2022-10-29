@@ -79,14 +79,14 @@ class PatientService
         return $this->patientRepository->getQueryBuilder();
     }
 
-    public function getMalesCount(): int
+    public function getMalesCount(?Carbon $startDate, ?Carbon $endDate): int
     {
-        return $this->patientRepository->getMalesCount();
+        return $this->patientRepository->getMalesCount($startDate, $endDate);
     }
 
-    public function getFemalesCount(): int
+    public function getFemalesCount(?Carbon $startDate, ?Carbon $endDate): int
     {
-        return $this->patientRepository->getFemalesCount();
+        return $this->patientRepository->getFemalesCount($startDate, $endDate);
     }
 
     /**

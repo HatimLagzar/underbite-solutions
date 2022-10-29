@@ -46,17 +46,31 @@ class PatientRepository extends AbstractEloquentRepository
                 ->update($attributes) > 0;
     }
 
-    public function getMalesCount(): int
+    public function getMalesCount(?Carbon $startDate, ?Carbon $endDate): int
     {
+        if ($startDate === null && $endDate === null) {
+            return $this->getQueryBuilder()
+                ->where(Patient::GENDER_COLUMN, Patient::MALE_GENDER)
+                ->count();
+        }
+
         return $this->getQueryBuilder()
             ->where(Patient::GENDER_COLUMN, Patient::MALE_GENDER)
+            ->whereDate(Patient::CREATED_AT_COLUMN, '>', $endDate)
             ->count();
     }
 
-    public function getFemalesCount(): int
+    public function getFemalesCount(?Carbon $startDate, ?Carbon $endDate): int
     {
+        if ($startDate === null && $endDate === null) {
+            return $this->getQueryBuilder()
+                ->where(Patient::GENDER_COLUMN, Patient::FEMALE_GENDER)
+                ->count();
+        }
+
         return $this->getQueryBuilder()
             ->where(Patient::GENDER_COLUMN, Patient::FEMALE_GENDER)
+            ->whereDate(Patient::CREATED_AT_COLUMN, '>', $endDate)
             ->count();
     }
 

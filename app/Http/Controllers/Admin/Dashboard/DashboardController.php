@@ -62,15 +62,16 @@ class DashboardController extends Controller
             $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits($startDate, $endDate), 0,
                 7);
 
-            $submits = $this->requestHistoryService->getSubmits($startDate, $endDate);
+            $males = $this->patientService->getMalesCount($startDate, $endDate);
+            $females = $this->patientService->getFemalesCount($startDate, $endDate);
+
+            //$submits = $this->requestHistoryService->getSubmits($startDate, $endDate);
+            $submits = $females + $males;
             $submitsFromTopCountry = $this->patientService->getTopCountryPatients($startDate, $endDate);
 
             $conversion = $this->requestHistoryService->getConversion($startDate, $endDate);
             $conversionRelative = $this->requestHistoryService->getConversion($endDate, $relativeDate);
             $conversionFromTopCountry = $this->requestHistoryService->getConversionOfTopCountry($startDate, $endDate);
-
-            $males = $this->patientService->getMalesCount();
-            $females = $this->patientService->getFemalesCount();
 
             $desktop = $this->requestHistoryService->countDektopRequests();
             $tablet = $this->requestHistoryService->countTabletRequests();

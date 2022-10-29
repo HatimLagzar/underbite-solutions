@@ -59,3 +59,14 @@ if (!function_exists('turnKilogramToLbs')) {
         return round($kg * 2.2046244202);
     }
 }
+
+if (!function_exists('getPercentage')) {
+    function getPercentage(float $full, $number): float
+    {
+        if ($full > 0) {
+            return round($number * 100 / $full, 2);
+        }
+
+        return 0;
+    }
+}

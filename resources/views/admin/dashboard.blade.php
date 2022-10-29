@@ -54,9 +54,13 @@
           <div class="card-body">
             <strong>{{ number_format($submits) }} Submits</strong>
             @if($submitsFromTopCountry)
-              <p class="mb-0">{{ number_format($submitsFromTopCountry->counter) }}
-                From {{ $submitsFromTopCountry->country->name }}</p>
+              <p class="mb-1 text-sm">
+                {{ getPercentage($submits, $submitsFromTopCountry->counter) }}% ({{ number_format($submitsFromTopCountry->counter) }})
+                From {{ $submitsFromTopCountry->country->name }}
+              </p>
             @endif
+            <p class="mb-0 text-sm">{{ getPercentage($males + $females, $males) }}% Males</p>
+            <p class="mb-0 text-sm">{{ getPercentage($males + $females, $females) }}% Females</p>
           </div>
         </div>
       </section>
@@ -90,7 +94,7 @@
               @endif
             @endif
             @if($conversionFromTopCountry)
-              <p class="mb-0">{{ $conversionFromTopCountry }}</p>
+              <p class="mb-0 text-sm">{{ $conversionFromTopCountry }}</p>
             @endif
           </div>
         </div>
