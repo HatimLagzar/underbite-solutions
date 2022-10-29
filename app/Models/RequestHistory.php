@@ -27,6 +27,7 @@ class RequestHistory extends Model
     public const DESKTOP_DEVICE = 'DESKTOP';
 
     public const GET_METHOD = 'GET';
+    public const POST_METHOD = 'POST';
 
     protected $table = self::TABLE;
 

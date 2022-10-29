@@ -48,7 +48,7 @@ class RequestHistoryService
         $allVisitors = $this->getVisitors(null, null);
         $tenth = $allVisitors / 10;
 
-        return $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
+        $associativeArray = $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
             ->transform(
                 function ($item) use ($allVisitors, $tenth) {
                     $fillKey = 'LOW';
@@ -60,18 +60,76 @@ class RequestHistoryService
                         $fillKey = 'HIGH';
                     }
 
-                    return [
-                        'numberOfThings' => $item->count(),
-                        'fillKey'        => $fillKey
-                    ];
+//                    return [
+//                        'numberOfThings' => $item->count(),
+//                        'fillKey'        => $fillKey
+//                    ];
+                    return $item->count();
                 }
             )
             ->toArray();
+
+        $result = [];
+
+        foreach (array_keys($associativeArray) as $key => $countryCode) {
+            $result[] = [$countryCode, array_values($associativeArray)[$key]];
+        }
+
+        return $result;
+
+    }
+
+    public function getSubmitsByCountry(?Carbon $startDate, ?Carbon $endDate): array
+    {
+        $allSubmits = $this->getSubmits(null, null);
+        $tenth = $allSubmits / 10;
+
+        $associativeArray = $this->requestHistoryRepository->getSubmitsByCountry($startDate, $endDate)
+            ->transform(
+                function ($item) use ($allSubmits, $tenth) {
+                    $fillKey = 'LOW';
+                    if ($item->count() > ($allSubmits / 2) - $tenth) {
+                        $fillKey = 'MEDIUM';
+                    }
+
+                    if ($item->count() > ($allSubmits / 2) + $tenth) {
+                        $fillKey = 'HIGH';
+                    }
+
+//                    return [
+//                        'numberOfThings' => $item->count(),
+//                        'fillKey'        => $fillKey
+//                    ];
+                    return $item->count();
+                }
+            )
+            ->toArray();
+
+        $result = [];
+
+        foreach (array_keys($associativeArray) as $key => $countryCode) {
+            $result[] = [$countryCode, array_values($associativeArray)[$key]];
+        }
+
+        return $result;
     }
 
     public function getTopTenCountriesWithVisits(?Carbon $startDate, ?Carbon $endDate): array
     {
         return $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
+            ->transform(
+                function ($item) {
+                    return $item->count();
+                }
+            )
+            ->sort()
+            ->reverse()
+            ->toArray();
+    }
+
+    public function getTopTenCountriesWithSubmits(?Carbon $startDate, ?Carbon $endDate): array
+    {
+        return $this->requestHistoryRepository->getSubmitsByCountry($startDate, $endDate)
             ->transform(
                 function ($item) {
                     return $item->count();

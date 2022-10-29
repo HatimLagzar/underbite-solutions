@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Application\UnqualifyController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\ShowLoginPageController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Dashboard\SubmitsDashboardController;
 use App\Http\Controllers\Admin\Notification\CreateNotificationController;
 use App\Http\Controllers\Admin\Notification\DeleteNotificationController;
 use App\Http\Controllers\Admin\Notification\EditNotificationController;
@@ -48,7 +49,10 @@ Route::middleware(SaveRequestMiddleware::class)->name('pages.')->group(function 
 
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', DashboardController::class)->name('home');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', DashboardController::class)->name('home');
+        Route::get('submits', SubmitsDashboardController::class)->name('submits');
+    });
 
     Route::prefix('login')->group(function () {
         Route::get('/', ShowLoginPageController::class)->name('login');

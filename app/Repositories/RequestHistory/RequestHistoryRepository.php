@@ -93,6 +93,22 @@ class RequestHistoryRepository extends AbstractEloquentRepository
             ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN);
     }
 
+    public function getSubmitsByCountry(?Carbon $startDate, ?Carbon $endDate): Collection
+    {
+        if ($startDate === null && $endDate === null) {
+            return $this->getQueryBuilder()
+                ->where(RequestHistory::METHOD_COLUMN, RequestHistory::POST_METHOD)
+                ->get()
+                ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN);
+        }
+
+        return $this->getQueryBuilder()
+            ->where(RequestHistory::METHOD_COLUMN, RequestHistory::POST_METHOD)
+            ->where(RequestHistory::TIMESTAMP_COLUMN, '>', $endDate->getTimestamp())
+            ->get()
+            ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN);
+    }
+
     public function countDektopRequests(): int
     {
         return $this->getQueryBuilder()

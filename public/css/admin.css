@@ -3315,3 +3315,18 @@ blockquote {
 .admin-wrapper > .container {
   width: 75%;
 }
+
+.filter-range-list li {
+  border-right: 1px solid #888;
+  padding-right: 5px;
+}
+.filter-range-list li:last-of-type {
+  border-right: none;
+  padding-right: 0;
+}
+.filter-range-list li a {
+  line-height: 1;
+}
+.filter-range-list li a:hover {
+  text-decoration: underline;
+}

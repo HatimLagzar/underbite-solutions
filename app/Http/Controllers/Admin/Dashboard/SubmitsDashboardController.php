@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Throwable;
 
-class DashboardController extends Controller
+class SubmitsDashboardController extends Controller
 {
     private RequestHistoryService $requestHistoryService;
     private PatientService $patientService;
@@ -58,8 +58,8 @@ class DashboardController extends Controller
             $visitors = $this->requestHistoryService->getVisitors($startDate, $endDate);
             $visitorsRelative = $this->requestHistoryService->getVisitors($endDate, $relativeDate);
             $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
-            $visitorsByCountry = $this->requestHistoryService->getVisitorsByCountry($startDate, $endDate);
-            $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits($startDate, $endDate), 0,
+            $submitsByCountry = $this->requestHistoryService->getSubmitsByCountry($startDate, $endDate);
+            $topTenCountriesWithSubmits = array_slice($this->requestHistoryService->getTopTenCountriesWithSubmits($startDate, $endDate), 0,
                 7);
 
             $males = $this->patientService->getMalesCount($startDate, $endDate);
@@ -81,14 +81,14 @@ class DashboardController extends Controller
 
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
 
-            return view('admin.dashboard.dashboard')
+            return view('admin.dashboard.submits')
                 ->with('topUrls', $topUrls)
                 ->with('submitsFromTopCountry', $submitsFromTopCountry)
                 ->with('conversionFromTopCountry', $conversionFromTopCountry)
                 ->with('bounceRate', $bounceRate)
-                ->with('visitorsByCountry', $visitorsByCountry)
+                ->with('submitsByCountry', $submitsByCountry)
                 ->with('recentApplications', $recentApplications)
-                ->with('topTenCountriesWithVisits', $topTenCountriesWithVisits)
+                ->with('topTenCountriesWithSubmits', $topTenCountriesWithSubmits)
                 ->with('desktop', $desktop)
                 ->with('mobile', $mobile)
                 ->with('tablet', $tablet)
