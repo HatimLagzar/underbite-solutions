@@ -42,6 +42,13 @@ class CountryRepository extends AbstractEloquentRepository
             ->first();
     }
 
+    public function findByISO3(string $code): ?Country
+    {
+        return $this->getQueryBuilder()
+            ->where(Country::ISO3_COLUMN, $code)
+            ->first();
+    }
+
     protected function getModelClass(): string
     {
         return Country::class;

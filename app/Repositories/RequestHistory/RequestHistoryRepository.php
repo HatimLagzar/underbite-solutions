@@ -242,6 +242,30 @@ class RequestHistoryRepository extends AbstractEloquentRepository
 
     }
 
+    public function getVisitsGroupedByCountry(?Carbon $startDate, ?Carbon $endDate)
+    {
+        if ($startDate === null && $endDate === null) {
+            return $this->getQueryBuilder()
+                ->select([
+                    RequestHistory::COUNTRY_CODE_COLUMN,
+                    DB::raw(sprintf('count(%s) as counter', RequestHistory::COUNTRY_CODE_COLUMN)),
+                ])
+                ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN)
+                ->orderBy('counter', 'DESC')
+                ->get();
+        }
+
+        return $this->getQueryBuilder()
+            ->select([
+                RequestHistory::COUNTRY_CODE_COLUMN,
+                DB::raw(sprintf('count(%s) as counter', RequestHistory::COUNTRY_CODE_COLUMN)),
+            ])
+            ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN)
+            ->orderBy('counter', 'DESC')
+            ->where(RequestHistory::TIMESTAMP_COLUMN, '>', $endDate->getTimestamp())
+            ->get();
+    }
+
     protected function getModelClass(): string
     {
         return RequestHistory::class;

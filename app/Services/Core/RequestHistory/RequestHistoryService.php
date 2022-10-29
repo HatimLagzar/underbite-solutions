@@ -3,6 +3,7 @@
 namespace App\Services\Core\RequestHistory;
 
 use App\Models\RequestHistory;
+use App\Repositories\Country\CountryRepository;
 use App\Repositories\RequestHistory\RequestHistoryRepository;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
@@ -10,10 +11,12 @@ use Illuminate\Database\Eloquent\Collection;
 class RequestHistoryService
 {
     private RequestHistoryRepository $requestHistoryRepository;
+    private CountryRepository $countryRepository;
 
-    public function __construct(RequestHistoryRepository $requestHistoryRepository)
+    public function __construct(RequestHistoryRepository $requestHistoryRepository, CountryRepository $countryRepository)
     {
         $this->requestHistoryRepository = $requestHistoryRepository;
+        $this->countryRepository = $countryRepository;
     }
 
     public function getVisitors(?Carbon $startDate, ?Carbon $endDate): int
@@ -45,28 +48,8 @@ class RequestHistoryService
 
     public function getVisitorsByCountry(?Carbon $startDate, ?Carbon $endDate): array
     {
-        $allVisitors = $this->getVisitors(null, null);
-        $tenth = $allVisitors / 10;
-
         $associativeArray = $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
-            ->transform(
-                function ($item) use ($allVisitors, $tenth) {
-                    $fillKey = 'LOW';
-                    if ($item->count() > ($allVisitors / 2) - $tenth) {
-                        $fillKey = 'MEDIUM';
-                    }
-
-                    if ($item->count() > ($allVisitors / 2) + $tenth) {
-                        $fillKey = 'HIGH';
-                    }
-
-//                    return [
-//                        'numberOfThings' => $item->count(),
-//                        'fillKey'        => $fillKey
-//                    ];
-                    return $item->count();
-                }
-            )
+            ->transform(fn ($item) =>  $item->count())
             ->toArray();
 
         $result = [];
@@ -81,28 +64,8 @@ class RequestHistoryService
 
     public function getSubmitsByCountry(?Carbon $startDate, ?Carbon $endDate): array
     {
-        $allSubmits = $this->getSubmits(null, null);
-        $tenth = $allSubmits / 10;
-
         $associativeArray = $this->requestHistoryRepository->getSubmitsByCountry($startDate, $endDate)
-            ->transform(
-                function ($item) use ($allSubmits, $tenth) {
-                    $fillKey = 'LOW';
-                    if ($item->count() > ($allSubmits / 2) - $tenth) {
-                        $fillKey = 'MEDIUM';
-                    }
-
-                    if ($item->count() > ($allSubmits / 2) + $tenth) {
-                        $fillKey = 'HIGH';
-                    }
-
-//                    return [
-//                        'numberOfThings' => $item->count(),
-//                        'fillKey'        => $fillKey
-//                    ];
-                    return $item->count();
-                }
-            )
+            ->transform(fn ($item) =>  $item->count())
             ->toArray();
 
         $result = [];
@@ -197,5 +160,15 @@ class RequestHistoryService
         }
 
         return number_format(round(($submits->counter * 100) / $visits->counter, 2), 2) . '% From ' . $submits->country_code;
+    }
+
+    public function getVisitsGroupedByCountry(?Carbon $startDate, ?Carbon $endDate)
+    {
+        return $this->requestHistoryRepository->getVisitsGroupedByCountry($startDate, $endDate)
+            ->transform(function ($request) {
+                $request->country = $this->countryRepository->findByISO3($request->country_code);
+
+                return $request;
+            });
     }
 }

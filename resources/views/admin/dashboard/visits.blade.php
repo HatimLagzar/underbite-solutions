@@ -4,6 +4,7 @@
 
 @extends('admin.layout.auth-template')
 @section('content')
+  <a href="{{ route('admin.home') }}" class="btn btn-dark mb-3"><i class="fa fa-arrow-left me-1"></i>Back</a>
   <div class="row">
     <div class="col">
       <section id="visitors">
@@ -11,7 +12,7 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Visitors</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.visits') }}">All</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
@@ -34,35 +35,6 @@
             <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }}
               From {{ array_key_first($topTenCountriesWithVisits) }}</p>
             <p class="mb-0 text-sm">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
-            <a href="{{ route('admin.visits') }}" class="d-block text-end text-sm text-black">More ></a>
-          </div>
-        </div>
-      </section>
-    </div>
-    <div class="col">
-      <section id="submits">
-        <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h6 class="mb-0">Submits</h6>
-            <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <strong>{{ number_format($submits) }} Submits</strong>
-            @if($submitsFromTopCountry)
-              <p class="mb-1 text-sm">
-                {{ getPercentage($submits, $submitsFromTopCountry->counter) }}% ({{ number_format($submitsFromTopCountry->counter) }})
-                From {{ $submitsFromTopCountry->country->name }}
-              </p>
-            @endif
-            <p class="mb-0 text-sm">{{ getPercentage($males + $females, $males) }}% Males</p>
-            <p class="mb-0 text-sm">{{ getPercentage($males + $females, $females) }}% Females</p>
-            <a href="{{ route('admin.submits') }}" class="d-block text-end text-sm text-black">More ></a>
           </div>
         </div>
       </section>
@@ -73,7 +45,7 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Conversion</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.visits') }}">All</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
               <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
@@ -129,58 +101,6 @@
     <div class="col-12 col-lg-4">
       <div class="card">
         <div class="card-header">
-          <h6 class="mb-0">Gender Ratio</h6>
-        </div>
-        <div class="card-body">
-          <canvas id="gender-canvas"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-12 col-lg-8">
-      <div class="card">
-        <div class="card-header">
-          <h6 class="mb-0">
-            Latest Applications
-          </h6>
-        </div>
-        <div class="card-body">
-          <table class="table table-hover">
-            <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Gender</th>
-              <th>Age</th>
-              <th>Height</th>
-              <th>Weight</th>
-              <th>Country</th>
-              <th>Submitted At</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($recentApplications as $key => $application)
-              <tr>
-                <td>{{ $key+1 }}</td>
-                <td>{{ $application->getFullName() }}</td>
-                <td>{{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</td>
-                <td>{{ $application->getAge() }}</td>
-                <td>{{ turnCentimeterToFoot($application->getHeight()) . ' ft' }}</td>
-                <td>{{ turnKilogramToLbs($application->getWeight()) . ' lbs' }}</td>
-                <td>{{ $application->getCountry()->getName() }}</td>
-                <td>{{ $application->getCreatedAt()->diffForHumans() }}</td>
-              </tr>
-            @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-lg-4">
-      <div class="card">
-        <div class="card-header">
           <h6 class="mb-0">Devices</h6>
         </div>
         <div class="card-body">
@@ -191,7 +111,34 @@
   </div>
 
   <div class="row mt-3">
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="mb-0">Visits grouped by countries</h6>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Country</th>
+              <th>Visits</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($visitsGroupedByCountryCode as $key => $item)
+              <tr>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $item->country ? $item->country->name : 'Unknown' }}</td>
+                <td>{{ number_format($item->counter) }}</td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Top Navigation Flows</h6>
@@ -254,7 +201,6 @@
   <script>
     // example data from server
     var series = @json($visitorsByCountry);
-    console.log(series)
 
 
     // Datamaps expect data in format:
@@ -265,22 +211,24 @@
     // We need to colorize every country based on "numberOfWhatever"
     // colors should be uniq for every value.
     // For this purpose we create palette(using min/max series-value)
-    var onlyValues = series.map(function(obj){ return obj[1]; });
+    var onlyValues = series.map(function (obj) {
+      return obj[1];
+    });
     var minValue = Math.min.apply(null, onlyValues),
       maxValue = Math.max.apply(null, onlyValues);
 
     // create color palette function
     // color can be whatever you wish
     var paletteScale = d3.scale.linear()
-      .domain([minValue,maxValue])
-      .range(["#EFEFFF","#02386F"]); // blue color
+      .domain([minValue, maxValue])
+      .range(["#EFEFFF", "#02386F"]); // blue color
 
     // fill dataset in appropriate format
-    series.forEach(function(item){ //
+    series.forEach(function (item) { //
       // item example value ["USA", 70]
       var iso = item[0],
         value = item[1];
-      dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
+      dataset[iso] = {numberOfThings: value, fillColor: paletteScale(value)};
     });
 
     // render map
@@ -288,21 +236,23 @@
       element: document.getElementById('map-container'),
       // projection: 'mercator', // big world map
       // countries don't listed in dataset will be painted with this color
-      fills: { defaultFill: '#F5F5F5' },
+      fills: {defaultFill: '#F5F5F5'},
       data: dataset,
       geographyConfig: {
         borderColor: '#DEDEDE',
         highlightBorderWidth: 2,
         // don't change color on mouse hover
-        highlightFillColor: function(geo) {
+        highlightFillColor: function (geo) {
           return geo['fillColor'] || '#F5F5F5';
         },
         // only change border
         highlightBorderColor: '#B7B7B7',
         // show desired information in tooltip
-        popupTemplate: function(geo, data) {
+        popupTemplate: function (geo, data) {
           // don't show tooltip if country don't present in dataset
-          if (!data) { return ; }
+          if (!data) {
+            return;
+          }
           // tooltip content
           return ['<div class="hoverinfo">',
             '<strong>', geo.properties.name, '</strong>',
@@ -317,21 +267,6 @@
           integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    const ctx = document.getElementById('gender-canvas').getContext('2d');
-    const genderCanvas = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Male', 'Female'],
-        datasets: [{
-          data: [{{ $males }}, {{ $females }}],
-          backgroundColor: [
-            'rgb(54,162,235)',
-            'rgb(255,128,128)',
-          ],
-        }]
-      },
-    });
-
     const ctxDevices = document.getElementById('devices-canvas').getContext('2d');
     const devicesCanvas = new Chart(ctxDevices, {
       type: 'doughnut',
