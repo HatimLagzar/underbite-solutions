@@ -145,7 +145,7 @@
     // render map
     new Datamap({
       element: document.getElementById('map-container'),
-      projection: 'mercator', // big world map
+      // projection: 'mercator', // big world map
       // countries don't listed in dataset will be painted with this color
       fills: { defaultFill: '#F5F5F5' },
       data: dataset,

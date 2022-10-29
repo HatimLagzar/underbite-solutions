@@ -34,7 +34,6 @@
             <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }}
               From {{ array_key_first($topTenCountriesWithVisits) }}</p>
             <p class="mb-0 text-sm">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
-            <a href="{{ route('admin.submits') }}" class="d-block text-end text-sm text-black">More ></a>
           </div>
         </div>
       </section>
@@ -62,6 +61,7 @@
             @endif
             <p class="mb-0 text-sm">{{ getPercentage($males + $females, $males) }}% Males</p>
             <p class="mb-0 text-sm">{{ getPercentage($males + $females, $females) }}% Females</p>
+            <a href="{{ route('admin.submits') }}" class="d-block text-end text-sm text-black">More ></a>
           </div>
         </div>
       </section>
@@ -285,7 +285,7 @@
     // render map
     new Datamap({
       element: document.getElementById('map-container'),
-      projection: 'mercator', // big world map
+      // projection: 'mercator', // big world map
       // countries don't listed in dataset will be painted with this color
       fills: { defaultFill: '#F5F5F5' },
       data: dataset,
