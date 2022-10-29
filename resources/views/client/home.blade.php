@@ -137,9 +137,15 @@
                           class="form-select"
                           name="height">
                     <option value="">Select Height</option>
-                    @for($i = 150; $i <= 200; $i++)
-                      <option value="{{ $i }}">{{ $i }} cm ({{ turnCentimeterToFoot($i) }} ft)</option>
-                    @endfor
+                    @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
+                      @for($i = 120; $i <= 230; $i++)
+                        <option value="{{ $i }}">{{ turnCentimeterToFoot($i) }} ft</option>
+                      @endfor
+                    @else
+                      @for($i = 120; $i <= 230; $i++)
+                        <option value="{{ $i }}">{{ $i }} cm</option>
+                      @endfor
+                    @endif
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
@@ -153,9 +159,15 @@
                           class="form-select"
                           name="weight">
                     <option value="">Select Weight</option>
-                    @for($i = 40; $i <= 200; $i++)
-                      <option value="{{ $i }}">{{ $i }} Kg ({{ turnKilogramToLbs($i) }} lbs)</option>
-                    @endfor
+                    @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
+                      @for($i = 30; $i <= 250; $i++)
+                        <option value="{{ $i }}">{{ turnKilogramToLbs($i) }} lbs</option>
+                      @endfor
+                    @else
+                      @for($i = 30; $i <= 250; $i++)
+                        <option value="{{ $i }}">{{ $i }} Kg</option>
+                      @endfor
+                    @endif
                   </select>
                 </div>
               </div>
