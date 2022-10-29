@@ -73,10 +73,6 @@ class SubmitsDashboardController extends Controller
             $conversionRelative = $this->requestHistoryService->getConversion($endDate, $relativeDate);
             $conversionFromTopCountry = $this->requestHistoryService->getConversionOfTopCountry($startDate, $endDate);
 
-            $desktop = $this->requestHistoryService->countDektopRequests();
-            $tablet = $this->requestHistoryService->countTabletRequests();
-            $mobile = $this->requestHistoryService->countMobileRequests();
-
             $recentApplications = $this->patientService->getRecentApplications(6);
 
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
@@ -89,9 +85,6 @@ class SubmitsDashboardController extends Controller
                 ->with('submitsByCountry', $submitsByCountry)
                 ->with('recentApplications', $recentApplications)
                 ->with('topTenCountriesWithSubmits', $topTenCountriesWithSubmits)
-                ->with('desktop', $desktop)
-                ->with('mobile', $mobile)
-                ->with('tablet', $tablet)
                 ->with('males', $males)
                 ->with('females', $females)
                 ->with('conversion', $conversion)
