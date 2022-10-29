@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
-use App\Services\Core\Country\CountryService;
 use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
