@@ -152,8 +152,8 @@
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
+              <input class="select-patient form-check-inline me-1" type="checkbox" name="email[]" value="{{ $application->getEmail() }}">
               Select Patient
-              <input class="select-patient" type="checkbox" name="email[]" value="{{ $application->getEmail() }}">
             </label>
           </div>
           <div class="card-body">
@@ -174,14 +174,16 @@
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>
 
-            <form action="{{ route('admin.applications.unqualify', ['id' => $application->getId()]) }}" method="post"
+            <form action="{{ route('admin.applications.unqualify') }}" method="post"
                   class="d-inline-block">
               @csrf
+              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
               <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
             </form>
-            <form action="{{ route('admin.applications.qualify', ['id' => $application->getId()]) }}" method="post"
+            <form action="{{ route('admin.applications.qualify') }}" method="post"
                   class="d-inline-block">
               @csrf
+              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
               <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
             </form>
           </div>
@@ -231,14 +233,16 @@
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
             </ul>
 
-            <form action="{{ route('admin.applications.unqualify', ['id' => $application->getId()]) }}" method="post"
+            <form action="{{ route('admin.applications.unqualify') }}" method="post"
                   class="d-inline-block">
               @csrf
+              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
               <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
             </form>
-            <form action="{{ route('admin.applications.qualify', ['id' => $application->getId()]) }}" method="post"
+            <form action="{{ route('admin.applications.qualify') }}" method="post"
                   class="d-inline-block">
               @csrf
+              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
               <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
             </form>
           </div>

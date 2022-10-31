@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Application;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Application\UnqualifyRequest;
 use App\Models\Patient;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Domain\Patient\QualifyPatientService;
@@ -25,21 +26,23 @@ class UnqualifyController extends Controller
         $this->unqualifyPatientService = $unqualifyPatientService;
     }
 
-    public function __invoke(int $id): RedirectResponse
+    public function __invoke(UnqualifyRequest $request): RedirectResponse
     {
         try {
-            $patient = $this->patientService->findById($id);
-            if (!$patient instanceof Patient) {
-                return redirect()
-                    ->back()
-                    ->with('error', 'Patient not found!');
-            }
+            foreach ($request->get('ids') as $id) {
+                $patient = $this->patientService->findById($id);
+                if (!$patient instanceof Patient) {
+                    return redirect()
+                        ->back()
+                        ->with('error', 'Patient not found!');
+                }
 
-            $this->unqualifyPatientService->unqualify($patient);
+                $this->unqualifyPatientService->unqualify($patient);
+            }
 
             return redirect()
                 ->back()
-                ->with('success', sprintf('Patient %s marked as non-qualified successfully.', $patient->getFullName()));
+                ->with('success', 'Patient marked as non-qualified successfully.');
         } catch (Throwable $e) {
             Log::error('failed to unqualify', [
                 'error_message' => $e->getMessage(),

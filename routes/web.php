@@ -81,8 +81,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('applications')->name('applications.')->group(function () {
         Route::get('/', ListApplicationsController::class)->name('index');
-        Route::post('{id}/qualify', QualifyController::class)->name('qualify');
-        Route::post('{id}/unqualify', UnqualifyController::class)->name('unqualify');
+        Route::post('qualify', QualifyController::class)->name('qualify');
+        Route::post('unqualify', UnqualifyController::class)->name('unqualify');
         Route::post('send-email', SendEmailController::class)->name('mail');
     });
 });
