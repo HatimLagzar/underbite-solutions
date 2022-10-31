@@ -63,6 +63,22 @@
       }
     }
   }
+
+  .dropdown {
+    li {
+      padding: 0.25rem 20px;
+
+      &:hover {
+        box-shadow: none !important;
+
+        a {
+          border-bottom: none;
+          background: none;
+          color: black;
+        }
+      }
+    }
+  }
 }
 
 #navbar-mobile {

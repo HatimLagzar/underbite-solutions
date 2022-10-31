@@ -4333,6 +4333,17 @@ svg.progress-bar-svg {
   font-weight: normal;
   text-decoration: none;
 }
+#navbar .dropdown li {
+  padding: 0.25rem 20px;
+}
+#navbar .dropdown li:hover {
+  box-shadow: none !important;
+}
+#navbar .dropdown li:hover a {
+  border-bottom: none;
+  background: none;
+  color: black;
+}
 
 #navbar-mobile {
   display: none;
