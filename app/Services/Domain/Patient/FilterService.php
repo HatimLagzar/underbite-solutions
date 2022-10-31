@@ -28,6 +28,7 @@ class FilterService
      */
     public function filter($query = null): Collection
     {
+        dd($query);
         if (!$query) {
             $query = $this->patientService->getQuery();
         }
