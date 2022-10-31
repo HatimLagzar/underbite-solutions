@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Admin\Application\ListApplicationsController;
+use App\Http\Controllers\Admin\Application\ListQualifiedApplicationsController;
+use App\Http\Controllers\Admin\Application\ListUnqualifiedApplicationsController;
 use App\Http\Controllers\Admin\Application\QualifyController;
 use App\Http\Controllers\Admin\Application\SendEmailController;
 use App\Http\Controllers\Admin\Application\UnqualifyController;
@@ -81,6 +83,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::prefix('applications')->name('applications.')->group(function () {
         Route::get('/', ListApplicationsController::class)->name('index');
+        Route::get('qualified', ListQualifiedApplicationsController::class)->name('qualified');
+        Route::get('unqualified', ListUnQualifiedApplicationsController::class)->name('unqualified');
         Route::post('qualify', QualifyController::class)->name('qualify');
         Route::post('unqualify', UnqualifyController::class)->name('unqualify');
         Route::post('send-email', SendEmailController::class)->name('mail');

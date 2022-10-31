@@ -26,17 +26,20 @@ class FilterService
     /**
      * @return Collection|Patient[]
      */
-    public function filter(): Collection
+    public function filter($query = null): Collection
     {
+        if (!$query) {
+            $query = $this->patientService->getQuery();
+        }
+
         $applications = app(Pipeline::class)
-            ->send($this->patientService->getQuery())
+            ->send($query)
             ->through([
                 HeightFilter::class,
                 WeightFilter::class,
                 AgeFilter::class,
                 GenderFilter::class,
                 CountryFilter::class,
-                QualifiedFilter::class,
                 ContinentFilter::class
             ])
             ->thenReturn()
