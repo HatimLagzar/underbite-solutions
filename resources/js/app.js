@@ -54,7 +54,17 @@ if (document.location.pathname.startsWith('/admin/applications')) {
       checkModalTriggerBtn()
 
       document.querySelectorAll('.select-patient:checked').forEach(checkedInputElement => {
-        document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', `<input type="hidden" name="emails[]" value="${checkedInputElement.value}" />`)
+        document.querySelector('#send-mail-form')
+          .insertAdjacentHTML(
+            'beforeend',
+            `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+          )
+
+        document.querySelector('#qualify-mass, #unqualify-mass')
+          .insertAdjacentHTML(
+            'beforeend',
+            `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+          )
       })
     })
   })

@@ -5356,7 +5356,8 @@ if (document.location.pathname.startsWith('/admin/applications')) {
     inputElement.addEventListener('change', function (e) {
       checkModalTriggerBtn();
       document.querySelectorAll('.select-patient:checked').forEach(function (checkedInputElement) {
-        document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"emails[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+        document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+        document.querySelector('#qualify-mass, #unqualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
       });
     });
   });

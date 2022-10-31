@@ -9,15 +9,15 @@
 @section('content')
 
   @error('message')
-    <div class="alert alert-danger">
-      {{ $message }}
-    </div>
+  <div class="alert alert-danger">
+    {{ $message }}
+  </div>
   @enderror
 
   @error('emails')
-    <div class="alert alert-danger">
-      {{ $message }}
-    </div>
+  <div class="alert alert-danger">
+    {{ $message }}
+  </div>
   @enderror
 
   <button class="btn btn-dark btn-lg rounded-5 position-fixed d-block shadow-lg"
@@ -146,13 +146,29 @@
       </form>
     </div>
   </div>
+
+  <div class="actions-wrapper mb-3">
+    <h6>Actions</h6>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
+        @csrf
+        <button class="btn btn-sm btn-outline-primary">Qualify</button>
+      </form>
+      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block">
+        @csrf
+        <button class="btn btn-sm btn-outline-primary">Unqualify</button>
+      </form>
+    </div>
+  </div>
+
   <div class="row">
     @foreach($applications as $application)
       <div class="col-3 mb-3">
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
-              <input class="select-patient form-check-inline me-1" type="checkbox" name="email[]" value="{{ $application->getEmail() }}">
+              <input class="select-patient form-check-inline me-1" type="checkbox" name="ids[]"
+                     value="{{ $application->getId() }}">
               Select Patient
             </label>
           </div>
