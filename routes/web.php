@@ -56,16 +56,16 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
         });
     });
 
+Route::prefix('admin/login')->group(function () {
+    Route::get('/', ShowLoginPageController::class)->name('login');
+    Route::post('/', LoginController::class)->name('authenticate');
+});
+
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', DashboardController::class)->name('home');
         Route::get('submits', SubmitsDashboardController::class)->name('submits');
         Route::get('visits', VisitsDashboardController::class)->name('visits');
-    });
-
-    Route::prefix('login')->group(function () {
-        Route::get('/', ShowLoginPageController::class)->name('login');
-        Route::post('/', LoginController::class)->name('authenticate');
     });
 
     Route::prefix('blog')->name('posts.')->group(function () {
