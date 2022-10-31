@@ -54,44 +54,44 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/blog', BlogController::class)->name('blog');
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');
         });
-
-        Route::prefix('admin')->name('admin.')->group(function () {
-            Route::prefix('dashboard')->group(function () {
-                Route::get('/', DashboardController::class)->name('home');
-                Route::get('submits', SubmitsDashboardController::class)->name('submits');
-                Route::get('visits', VisitsDashboardController::class)->name('visits');
-            });
-
-            Route::prefix('login')->group(function () {
-                Route::get('/', ShowLoginPageController::class)->name('login');
-                Route::post('/', LoginController::class)->name('authenticate');
-            });
-
-            Route::prefix('blog')->name('posts.')->group(function () {
-                Route::get('/', ListPostsController::class)->name('index');
-                Route::get('create', CreatePostController::class)->name('create');
-                Route::post('/', StorePostController::class)->name('store');
-                Route::get('{post}', EditPostController::class)->name('edit');
-                Route::post('{post}', UpdatePostController::class)->name('update');
-                Route::delete('{post}', DeletePostController::class)->name('delete');
-            });
-
-            Route::prefix('notifications')->name('notifications.')->group(function () {
-                Route::get('/', ListNotificationsController::class)->name('index');
-                Route::get('create', CreateNotificationController::class)->name('create');
-                Route::post('/', StoreNotificationController::class)->name('store');
-                Route::get('{notification}', EditNotificationController::class)->name('edit');
-                Route::post('{notification}', UpdateNotificationController::class)->name('update');
-                Route::delete('{notification}', DeleteNotificationController::class)->name('delete');
-            });
-
-            Route::prefix('applications')->name('applications.')->group(function () {
-                Route::get('/', ListApplicationsController::class)->name('index');
-                Route::get('qualified', ListQualifiedApplicationsController::class)->name('qualified');
-                Route::get('unqualified', ListUnQualifiedApplicationsController::class)->name('unqualified');
-                Route::post('qualify', QualifyController::class)->name('qualify');
-                Route::post('unqualify', UnqualifyController::class)->name('unqualify');
-                Route::post('send-email', SendEmailController::class)->name('mail');
-            });
-        });
     });
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', DashboardController::class)->name('home');
+        Route::get('submits', SubmitsDashboardController::class)->name('submits');
+        Route::get('visits', VisitsDashboardController::class)->name('visits');
+    });
+
+    Route::prefix('login')->group(function () {
+        Route::get('/', ShowLoginPageController::class)->name('login');
+        Route::post('/', LoginController::class)->name('authenticate');
+    });
+
+    Route::prefix('blog')->name('posts.')->group(function () {
+        Route::get('/', ListPostsController::class)->name('index');
+        Route::get('create', CreatePostController::class)->name('create');
+        Route::post('/', StorePostController::class)->name('store');
+        Route::get('{post}', EditPostController::class)->name('edit');
+        Route::post('{post}', UpdatePostController::class)->name('update');
+        Route::delete('{post}', DeletePostController::class)->name('delete');
+    });
+
+    Route::prefix('notifications')->name('notifications.')->group(function () {
+        Route::get('/', ListNotificationsController::class)->name('index');
+        Route::get('create', CreateNotificationController::class)->name('create');
+        Route::post('/', StoreNotificationController::class)->name('store');
+        Route::get('{notification}', EditNotificationController::class)->name('edit');
+        Route::post('{notification}', UpdateNotificationController::class)->name('update');
+        Route::delete('{notification}', DeleteNotificationController::class)->name('delete');
+    });
+
+    Route::prefix('applications')->name('applications.')->group(function () {
+        Route::get('/', ListApplicationsController::class)->name('index');
+        Route::get('qualified', ListQualifiedApplicationsController::class)->name('qualified');
+        Route::get('unqualified', ListUnQualifiedApplicationsController::class)->name('unqualified');
+        Route::post('qualify', QualifyController::class)->name('qualify');
+        Route::post('unqualify', UnqualifyController::class)->name('unqualify');
+        Route::post('send-email', SendEmailController::class)->name('mail');
+    });
+});
