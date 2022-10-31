@@ -95,17 +95,17 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="firstNameInput">First Name</label>
-                  <input id="firstNameInput" type="text" class="form-control" name="first_name">
+                  <input id="firstNameInput" type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="lastNameInput">Last Name</label>
-                  <input id="lastNameInput" type="text" class="form-control" name="last_name">
+                  <input id="lastNameInput" type="text" class="form-control" name="last_name" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="genderInput">Your Gender</label>
-                  <select id="genderInput" class="form-select" name="gender">
+                  <select id="genderInput" class="form-select" name="gender" required>
                     <option value="">Select Age</option>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
@@ -117,7 +117,9 @@
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
                           onchange='this.size=5; this.blur();'
-                          id="ageInput" type="text" class="form-select" name="age">
+                          id="ageInput" type="text" class="form-select"
+                          name="age"
+                          required>
                     <option value="">Select Age</option>
                     @for($i = 16; $i <= 50; $i++)
                       <option value="{{ $i }}">{{ $i }}</option>
@@ -135,6 +137,7 @@
                           id="heightInput"
                           type="text"
                           class="form-select"
+                          required
                           name="height">
                     <option value="">Select Height</option>
                     @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
@@ -156,6 +159,7 @@
                           onchange='this.size=5; this.blur();'
                           id="weightInput"
                           type="text"
+                          required
                           class="form-select"
                           name="weight">
                     <option value="">Select Weight</option>
@@ -174,7 +178,7 @@
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="emailInput">Your Email</label>
-                  <input id="emailInput" type="text" class="form-control" name="email">
+                  <input id="emailInput" type="text" class="form-control" name="email" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="countryInput">Your Origin/Country</label>
@@ -182,7 +186,7 @@
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
                           onchange='this.size=5; this.blur();'
-                          id="countryInput" type="text" class="form-select" name="country">
+                          id="countryInput" type="text" class="form-select" name="country" required>
                     <option value="">Select Country</option>
                     @foreach(\App\Models\Country::all() as $country)
                       <option value="{{ $country->getCode() }}">{{ $country->getName() }}</option>
@@ -194,7 +198,7 @@
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="phoneInput">Phone Number <span class="text-muted"
                                                                                 style="font-size: 12px">(Whatsapp Preferred)</span></label>
-                  <input id="phoneInput" type="tel" class="form-control" name="phone_number">
+                  <input id="phoneInput" type="tel" class="form-control" name="phone_number" required>
                 </div>
 
                 <div class="form-group col-12 col-lg-6 mb-3">
