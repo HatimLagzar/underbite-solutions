@@ -5,6 +5,7 @@ namespace App\Repositories\Post;
 use App\Models\Post;
 use App\Repositories\AbstractEloquentRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostRepository extends AbstractEloquentRepository
 {
@@ -46,14 +47,15 @@ class PostRepository extends AbstractEloquentRepository
     }
 
     /**
-     * @return Post[]|Collection
+     * @param string $lang
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|Post[]
      */
-    public function getAllByCountry(int $countryId): Collection
+    public function getAllByLang(string $lang): LengthAwarePaginator
     {
         return $this->getQueryBuilder()
-                    ->where(Post::COUNTRY_ID_COLUMN, $countryId)
-                    ->orderBy(Post::CREATED_AT_COLUMN, 'DESC')
-                    ->get();
+            ->where(Post::LANG_COLUMN, $lang)
+            ->orderBy(Post::CREATED_AT_COLUMN, 'DESC')
+            ->paginate(3);
     }
 
     protected function getModelClass(): string

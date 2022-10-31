@@ -1,3 +1,6 @@
+@php
+  /** @var $posts \App\Models\Post[]|\Illuminate\Pagination\LengthAwarePaginator */
+@endphp
 @extends('client.layout.app')
 @section('title')
   Blog
@@ -17,32 +20,44 @@
 
   <section id="blog-posts">
     <div class="container">
-      @for($i = 1; $i <= 6;$i++)
+      @foreach($posts as $post)
         <div class="post-item">
           <div class="row">
             <div class="col-lg-3 col-12 mb-3">
-              <img class="img-thumbnail" src="/images/about_us.jpeg" alt="Blog post thumbnail">
+              <img class="img-thumbnail" src="{{ url('storage/posts_thumbnails/' . $post->getThumbnailFileName()) }}"
+                   alt="Blog post thumbnail">
             </div>
             <div class="col-lg col-12 right-side mb-4">
-              <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book...</p>
+              <h3>{{ $post->getTitle() }}</h3>
+              <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->getDescription()), 200) }}</p>
               <button class="btn btn-primary">Read More</button>
             </div>
           </div>
         </div>
-      @endfor
-
-        <nav aria-label="Page navigation example" class="d-flex pagination-wrapper">
-          <ul class="pagination mx-auto">
-{{--            <li class="page-item prev"><a class="page-link" href="#">Back</a></li>--}}
-            <li class="page-item"><a class="page-link active" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item next"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
+      @endforeach
+      <nav aria-label="Page navigation example" class="d-flex pagination-wrapper">
+        <ul class="pagination mx-auto">
+          @if($posts->links()->paginator->currentPage() > 1)
+            <li class="page-item next">
+              <a class="page-link"
+                 href="{{ route('pages.blog') }}?page={{$posts->links()->paginator->currentPage() - 1}}">Back</a>
+            </li>
+          @endif
+          @foreach($posts->links()->elements[0] as $link)
+            <li class="page-item">
+              <a
+                class="page-link {{ $posts->links()->paginator->currentPage() === intval(explode('=', $link)[1]) ? 'active' : '' }}"
+                href="{{ $link }}">{{ explode('=', $link)[1] }}</a>
+            </li>
+          @endforeach
+          @if($posts->links()->paginator->lastPage() > $posts->links()->paginator->currentPage())
+            <li class="page-item next">
+              <a class="page-link"
+                 href="{{ route('pages.blog') }}?page={{$posts->links()->paginator->currentPage() + 1}}">Next</a>
+            </li>
+          @endif
+        </ul>
+      </nav>
     </div>
   </section>
 @endsection

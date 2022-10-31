@@ -97,23 +97,7 @@
         </ul>
 
         <div class="languages-selector-wrapper-navbar ms-auto" style="display: none;">
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img width="20" src="/images/flags-languages/en.svg" alt="English"> English
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="flags-dropdown" id="flags-dowpdown-list">
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/en.svg" alt="English">English</a>
-              </li>
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/fr.svg" alt="French">French</a>
-              </li>
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/es.svg" alt="Spanish">Spanish</a>
-              </li>
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/it.svg" alt="Italian">Italian</a>
-              </li>
-              <li><a class="dropdown-item" href="#"><img src="/images/flags-languages/de.svg" alt="Deutsch">Deutsch</a>
-              </li>
-            </ul>
-          </div>
+          <x-flags-menu />
         </div>
       </div>
     </div>

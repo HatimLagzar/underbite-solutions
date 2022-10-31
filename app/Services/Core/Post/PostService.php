@@ -5,6 +5,7 @@ namespace App\Services\Core\Post;
 use App\Models\Post;
 use App\Repositories\Country\CountryRepository;
 use App\Repositories\Post\PostRepository;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 
@@ -64,5 +65,13 @@ class PostService
     private function hydrate(Post $post): Post
     {
         return $post;
+    }
+
+    /**
+     * @return LengthAwarePaginator|Post[]
+     */
+    public function getAllByLang(string $lang): LengthAwarePaginator
+    {
+        return $this->postRepository->getAllByLang($lang);
     }
 }

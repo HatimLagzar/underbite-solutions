@@ -55,7 +55,6 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');
         });
 
-
         Route::prefix('admin')->name('admin.')->group(function () {
             Route::prefix('dashboard')->group(function () {
                 Route::get('/', DashboardController::class)->name('home');
