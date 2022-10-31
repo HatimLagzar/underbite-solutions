@@ -5348,13 +5348,19 @@ if (!document.location.pathname.startsWith('/admin')) {
   });
 }
 function checkModalTriggerBtn() {
-  document.querySelector('#send-mail-btn').disabled = document.querySelectorAll('.select-patient:checked').length === 0;
+  var sendMailBtn = document.querySelector('#send-mail-btn');
+  if (sendMailBtn instanceof HTMLElement) {
+    sendMailBtn.disabled = document.querySelectorAll('.select-patient:checked').length === 0;
+  }
 }
 if (document.location.pathname.startsWith('/admin/applications')) {
   checkModalTriggerBtn();
   document.querySelectorAll('.select-patient').forEach(function (inputElement) {
     inputElement.addEventListener('change', function (e) {
       checkModalTriggerBtn();
+      document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(function (item) {
+        return item.remove();
+      });
       document.querySelectorAll('.select-patient:checked').forEach(function (checkedInputElement) {
         document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
         document.querySelector('#qualify-mass, #unqualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));

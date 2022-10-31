@@ -43,7 +43,10 @@ if (!document.location.pathname.startsWith('/admin')) {
 }
 
 function checkModalTriggerBtn() {
-  document.querySelector('#send-mail-btn').disabled = document.querySelectorAll('.select-patient:checked').length === 0;
+  const sendMailBtn = document.querySelector('#send-mail-btn');
+  if (sendMailBtn instanceof HTMLElement) {
+    sendMailBtn.disabled = document.querySelectorAll('.select-patient:checked').length === 0;
+  }
 }
 
 if (document.location.pathname.startsWith('/admin/applications')) {
@@ -52,6 +55,8 @@ if (document.location.pathname.startsWith('/admin/applications')) {
   document.querySelectorAll('.select-patient').forEach(inputElement => {
     inputElement.addEventListener('change', e => {
       checkModalTriggerBtn()
+
+      document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(item => item.remove());
 
       document.querySelectorAll('.select-patient:checked').forEach(checkedInputElement => {
         document.querySelector('#send-mail-form')

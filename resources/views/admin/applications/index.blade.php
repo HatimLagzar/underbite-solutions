@@ -20,13 +20,6 @@
   </div>
   @enderror
 
-  <button class="btn btn-dark btn-lg rounded-5 position-fixed d-block shadow-lg"
-          type="button"
-          id="send-mail-btn"
-          data-bs-toggle="modal" data-bs-target="#emailModal"
-          style="bottom: 25px;z-index: 12; right: 25px">
-    <i class="fa fa-paper-plane me-2"></i>Email Patients
-  </button>
   <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
