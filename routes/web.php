@@ -56,7 +56,7 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
         });
     });
 
-Route::prefix('admin/login')->group(function () {
+Route::prefix('admin/login')->name('admin.')->group(function () {
     Route::get('/', ShowLoginPageController::class)->name('login');
     Route::post('/', LoginController::class)->name('authenticate');
 });
