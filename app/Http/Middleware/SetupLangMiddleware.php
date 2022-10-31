@@ -20,7 +20,7 @@ class SetupLangMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $locale = $request->get('lang');
+        $locale = $request->segment(1);
         if ($locale === null || in_array($locale, ['en', 'fr', 'es', 'it', 'de']) === false) {
             App::setLocale('en');
 
