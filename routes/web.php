@@ -24,6 +24,8 @@ use App\Http\Controllers\Admin\Post\EditPostController;
 use App\Http\Controllers\Admin\Post\ListPostsController;
 use App\Http\Controllers\Admin\Post\StorePostController;
 use App\Http\Controllers\Admin\Post\UpdatePostController;
+use App\Http\Controllers\Admin\Settings\GetSettingsPageController;
+use App\Http\Controllers\Admin\Settings\UpdateSettingsController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Contact\ContactUsPageController;
 use App\Http\Controllers\FAQ\FAQController;
@@ -67,6 +69,9 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
         Route::get('submits', SubmitsDashboardController::class)->name('submits');
         Route::get('visits', VisitsDashboardController::class)->name('visits');
     });
+
+    Route::get('settings', GetSettingsPageController::class)->name('settings');
+    Route::post('settings', UpdateSettingsController::class)->name('update-settings');
 
     Route::prefix('blog')->name('posts.')->group(function () {
         Route::get('/', ListPostsController::class)->name('index');

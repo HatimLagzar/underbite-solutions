@@ -32,6 +32,11 @@
           <a class="nav-link" aria-current="page" href="{{ route('admin.posts.index') }}"><i class="fa fa-edit me-2 fs-5"></i>Blog</a>
         </li>
       </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('admin.settings') }}"><i class="fa fa-gear me-2 fs-5"></i>Settings</a>
+        </li>
+      </ul>
     </nav>
   </div>
 

@@ -14,6 +14,8 @@ class User extends Authenticatable
 
     public const EMAIL_COLUMN = 'email';
     public const PASSWORD_COLUMN = 'password';
+    public const NAME_COLUMN = 'name';
+    public const ID_COLUMN = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +46,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getName(): string
+    {
+        return $this->getAttribute(self::NAME_COLUMN);
+    }
+
+    public function getPassword(): string
+    {
+        return $this->getAttribute(self::PASSWORD_COLUMN);
+    }
+
+    public function getId(): int
+    {
+        return $this->getAttribute(self::ID_COLUMN);
+    }
 }
