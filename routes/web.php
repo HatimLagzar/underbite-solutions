@@ -56,7 +56,7 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
         });
     });
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', DashboardController::class)->name('home');
         Route::get('submits', SubmitsDashboardController::class)->name('submits');
