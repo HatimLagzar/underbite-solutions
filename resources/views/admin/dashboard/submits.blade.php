@@ -48,7 +48,7 @@
           <div class="card-body">
             <strong>{{ $conversion }}%</strong>
             @if (request()->has('date_filter'))
-              @if($conversion < $conversionRelative)
+              @if($conversion < $conversionRelative && $conversion > 0)
                 <p class="mb-1 text-sm text-danger">
                   - {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}%
                   ({{ number_format($conversionRelative, 2) }}%)</p>

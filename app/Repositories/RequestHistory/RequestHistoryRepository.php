@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class RequestHistoryRepository extends AbstractEloquentRepository
 {
-    public function getVisitors(?Carbon $startDate, ?Carbon $endDate): int
+    public function countVisits(?Carbon $startDate, ?Carbon $endDate): int
     {
         if ($startDate === null && $endDate === null) {
             return $this->getQueryBuilder()
@@ -263,6 +263,13 @@ class RequestHistoryRepository extends AbstractEloquentRepository
             ->groupBy(RequestHistory::COUNTRY_CODE_COLUMN)
             ->orderBy('counter', 'DESC')
             ->where(RequestHistory::TIMESTAMP_COLUMN, '>', $endDate->getTimestamp())
+            ->get();
+    }
+
+    public function getVisitsBetween(Carbon $endDate, Carbon $startDate)
+    {
+        return $this->getQueryBuilder()
+            ->whereBetween(RequestHistory::TIMESTAMP_COLUMN, [$startDate->getTimestamp(), $endDate->getTimestamp()])
             ->get();
     }
 

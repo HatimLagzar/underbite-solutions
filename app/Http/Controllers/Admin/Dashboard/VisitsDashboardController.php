@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\RequestHistory;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\RequestHistory\RequestHistoryService;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
@@ -55,8 +57,8 @@ class VisitsDashboardController extends Controller
                 $relativeDate = Carbon::now()->subtract('2 years');
             }
 
-            $visitors = $this->requestHistoryService->getVisitors($startDate, $endDate);
-            $visitorsRelative = $this->requestHistoryService->getVisitors($endDate, $relativeDate);
+            $visitors = $this->requestHistoryService->countVisits($startDate, $endDate);
+            $visitorsRelative = $this->requestHistoryService->countVisits($endDate, $relativeDate);
             $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
             $visitorsByCountry = $this->requestHistoryService->getVisitorsByCountry($startDate, $endDate);
             $visitsGroupedByCountryCode = $this->requestHistoryService->getVisitsGroupedByCountry($startDate, $endDate);
@@ -65,6 +67,46 @@ class VisitsDashboardController extends Controller
                 0,
                 7
             );
+
+            $todayVisitsStartDate = Carbon::now()->startOfDay();
+            $todayVisitsEndDate = Carbon::now()->endOfDay();
+            $todayVisitsCollection = $this->requestHistoryService->getVisitsBetween($todayVisitsEndDate, $todayVisitsStartDate);
+            $todayVisitsArr = [];
+            while ($todayVisitsStartDate->lte($todayVisitsEndDate)) {
+                $count = $todayVisitsCollection->filter(function (RequestHistory $item) use ($todayVisitsStartDate, $todayVisitsArr) {
+                    $itemCarbon = Carbon::createFromTimestamp($item->getTimestamp());
+                    return $todayVisitsStartDate->format('h A') === $itemCarbon->format('h A');
+                })->count();
+                $todayVisitsArr[$todayVisitsStartDate->format('h A')] = $count;
+                $todayVisitsStartDate->addHour();
+            }
+
+            $weekVisitsStartDate = Carbon::now()->startOfWeek();
+            $weekVisitsEndDate = Carbon::now()->endOfWeek();
+            $weekVisitsCollection = $this->requestHistoryService->getVisitsBetween($weekVisitsEndDate, $weekVisitsStartDate);
+            $weekVisitsArr = [];
+            while ($weekVisitsStartDate->lte($weekVisitsEndDate)) {
+                $count = $weekVisitsCollection->filter(function (RequestHistory $item) use ($weekVisitsStartDate, $weekVisitsArr) {
+                    $itemCarbon = Carbon::createFromTimestamp($item->getTimestamp());
+                    return $weekVisitsStartDate->format('d/m') === $itemCarbon->format('d/m');
+                })->count();
+                $weekVisitsArr[$weekVisitsStartDate->format('d/m')] = $count;
+                $weekVisitsStartDate->addDay();
+            }
+
+            $monthVisitsStartDate = Carbon::now()->startOfMonth();
+            $monthVisitsEndDate = Carbon::now()->endOfMonth();
+            $monthVisitsCollection = $this->requestHistoryService->getVisitsBetween($monthVisitsEndDate, $monthVisitsStartDate);
+            $monthVisitsArr = [];
+            while ($monthVisitsStartDate->lte($monthVisitsEndDate)) {
+                $count = $monthVisitsCollection->filter(function (RequestHistory $item) use ($monthVisitsStartDate, $monthVisitsArr) {
+                    $itemCarbon = Carbon::createFromTimestamp($item->getTimestamp());
+                    return $monthVisitsStartDate->format('d/m') === $itemCarbon->format('d/m');
+                })->count();
+                $monthVisitsArr[$monthVisitsStartDate->format('d/m')] = $count;
+                $monthVisitsStartDate->addDay();
+            }
+
 
             $conversion = $this->requestHistoryService->getConversion($startDate, $endDate);
             $conversionRelative = $this->requestHistoryService->getConversion($endDate, $relativeDate);
@@ -77,6 +119,9 @@ class VisitsDashboardController extends Controller
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
 
             return view('admin.dashboard.visits')
+                ->with('todayVisitsArr', json_encode($todayVisitsArr))
+                ->with('weekVisitsArr', json_encode($weekVisitsArr))
+                ->with('monthVisitsArr', json_encode($monthVisitsArr))
                 ->with('topUrls', $topUrls)
                 ->with('visitsGroupedByCountryCode', $visitsGroupedByCountryCode)
                 ->with('conversionFromTopCountry', $conversionFromTopCountry)

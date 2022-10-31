@@ -83,7 +83,7 @@
           <div class="card-body">
             <strong>{{ $conversion }}%</strong>
             @if (request()->has('date_filter'))
-              @if($conversion < $conversionRelative)
+              @if($conversion < $conversionRelative && $conversion > 0)
                 <p class="mb-1 text-sm text-danger">
                   - {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}%
                   ({{ number_format($conversionRelative, 2) }}%)</p>
@@ -96,7 +96,12 @@
               @endif
             @endif
             @if($conversionFromTopCountry)
-              <p class="mb-0 text-sm">{{ $conversionFromTopCountry }}</p>
+              <p class="mb-1 text-sm">{{ $conversionFromTopCountry }}</p>
+            @endif
+            @if($females < $males)
+            <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $males) }}% Males</p>
+            @else
+            <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $females) }}% Females</p>
             @endif
           </div>
         </div>

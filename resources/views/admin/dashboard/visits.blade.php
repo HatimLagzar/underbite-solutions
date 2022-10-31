@@ -55,7 +55,7 @@
           <div class="card-body">
             <strong>{{ $conversion }}%</strong>
             @if (request()->has('date_filter'))
-              @if($conversion < $conversionRelative)
+              @if($conversion < $conversionRelative && $conversion > 0)
                 <p class="mb-1 text-sm text-danger">
                   - {{ number_format(round($conversionRelative * 100 / $conversion, 2) - 100, 2) }}%
                   ({{ number_format($conversionRelative, 2) }}%)</p>
@@ -70,6 +70,66 @@
             @if($conversionFromTopCountry)
               <p class="mb-0 text-sm">{{ $conversionFromTopCountry }}</p>
             @endif
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <section id="visits-line-chart-wrapper">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active"
+                    id="today-visits-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#today-visits-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="today-visits-tab-pane"
+                    aria-selected="true">
+              Today
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="week-visits-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#week-visits-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="week-visits-tab-pane"
+                    aria-selected="false">
+              Week
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="month-visits-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#month-visits-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="month-visits-tab-pane"
+                    aria-selected="false">
+              Month
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active"
+               id="today-visits-tab-pane"
+               role="tabpanel"
+               aria-labelledby="today-visits-tab"
+               tabindex="0">
+            <canvas id="today-visits-line"></canvas>
+          </div>
+          <div class="tab-pane fade" id="week-visits-tab-pane" role="tabpanel" aria-labelledby="week-visits-tab" tabindex="0">
+            <canvas id="week-visits-line"></canvas>
+          </div>
+          <div class="tab-pane fade" id="month-visits-tab-pane" role="tabpanel" aria-labelledby="month-visits-tab" tabindex="0">
+            <canvas id="month-visits-line"></canvas>
           </div>
         </div>
       </section>
@@ -279,6 +339,53 @@
             'rgb(54,162,235)',
             'rgb(255,244,128)',
           ],
+        }]
+      },
+    });
+  </script>
+
+  <script>
+    const todayVisitsCtx = document.getElementById('today-visits-line').getContext('2d');
+    const todayVisitsCanvas = new Chart(todayVisitsCtx, {
+      type: 'line',
+      data: {
+        labels: [...Object.keys({!! $todayVisitsArr !!})],
+        datasets: [{
+          label: 'Visits',
+          data: [...Object.values({!! $todayVisitsArr !!})],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+    });
+
+    const weekVisitsCtx = document.getElementById('week-visits-line').getContext('2d');
+    const weekVisitsCanvas = new Chart(weekVisitsCtx, {
+      type: 'line',
+      data: {
+        labels: [...Object.keys({!! $weekVisitsArr !!})],
+        datasets: [{
+          label: 'Visits',
+          data: [...Object.values({!! $weekVisitsArr !!})],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+    });
+
+    const monthVisitsCtx = document.getElementById('month-visits-line').getContext('2d');
+    const monthVisitsCanvas = new Chart(monthVisitsCtx, {
+      type: 'line',
+      data: {
+        labels: [...Object.keys({!! $monthVisitsArr !!})],
+        datasets: [{
+          label: 'Visits',
+          data: [...Object.values({!! $monthVisitsArr !!})],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
         }]
       },
     });

@@ -19,9 +19,9 @@ class RequestHistoryService
         $this->countryRepository = $countryRepository;
     }
 
-    public function getVisitors(?Carbon $startDate, ?Carbon $endDate): int
+    public function countVisits(?Carbon $startDate, ?Carbon $endDate): int
     {
-        return $this->requestHistoryRepository->getVisitors($startDate, $endDate);
+        return $this->requestHistoryRepository->countVisits($startDate, $endDate);
     }
 
     public function getSubmits(?Carbon $startDate, ?Carbon $endDate): int
@@ -170,5 +170,10 @@ class RequestHistoryService
 
                 return $request;
             });
+    }
+
+    public function getVisitsBetween(Carbon $endDate, Carbon $startDate)
+    {
+        return $this->requestHistoryRepository->getVisitsBetween($endDate, $startDate);
     }
 }

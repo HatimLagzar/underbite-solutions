@@ -56,8 +56,8 @@ class SubmitsDashboardController extends Controller
                 $relativeDate = Carbon::now()->subtract('2 years');
             }
 
-            $visitors = $this->requestHistoryService->getVisitors($startDate, $endDate);
-            $visitorsRelative = $this->requestHistoryService->getVisitors($endDate, $relativeDate);
+            $visitors = $this->requestHistoryService->countVisits($startDate, $endDate);
+            $visitorsRelative = $this->requestHistoryService->countVisits($endDate, $relativeDate);
             $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
             $submitsByCountry = $this->requestHistoryService->getSubmitsByCountry($startDate, $endDate);
             $topTenCountriesWithSubmits = array_slice($this->requestHistoryService->getTopTenCountriesWithSubmits($startDate, $endDate), 0,
