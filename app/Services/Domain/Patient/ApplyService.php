@@ -6,6 +6,7 @@ use App\Mail\NotificationPatientMail;
 use App\Models\NotificationPatient;
 use App\Models\Patient;
 use App\Models\PatientImage;
+use App\Services\Core\Country\CountryService;
 use App\Services\Core\Notification\NotificationService;
 use App\Services\Core\NotificationPatient\NotificationPatientService;
 use App\Services\Core\Patient\PatientService;
@@ -20,17 +21,20 @@ class ApplyService
     private PatientImageService $patientImageService;
     private NotificationService $notificationService;
     private NotificationPatientService $notificationPatientService;
+    private CountryService $countryService;
 
     public function __construct(
         PatientService $patientService,
         PatientImageService $patientImageService,
         NotificationService $notificationService,
-        NotificationPatientService $notificationPatientService
+        NotificationPatientService $notificationPatientService,
+        CountryService $countryService
     ) {
         $this->patientService = $patientService;
         $this->patientImageService = $patientImageService;
         $this->notificationService = $notificationService;
         $this->notificationPatientService = $notificationPatientService;
+        $this->countryService = $countryService;
     }
 
     /**
@@ -159,8 +163,15 @@ class ApplyService
                 }
             }
 
-            if ($notification->getCountryCode() !== null) {
-                if ($notification->getCountryCode() !== $patient->getCountryCode()) {
+            if (count($notification->getCountryCodeArr()) > 0) {
+                if (in_array($patient->getCountryCode(), $notification->getCountryCodeArr()) === false) {
+                    continue;
+                }
+            }
+
+            if ($notification->getContinentCode() !== null) {
+                $country = $this->countryService->findByCountryCode($patient->getCountryCode());
+                if ($notification->getContinentCode() !== $country->getContinentCode()) {
                     continue;
                 }
             }

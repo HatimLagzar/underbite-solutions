@@ -90,11 +90,21 @@
 
       <div class="form-group mb-3">
         <label for="country">Country</label>
-        <select name="country" id="country" class="form-select">
+        <select name="country[]" id="country" class="form-select" multiple>
           <option value>All</option>
           @foreach(\App\Models\Country::all() as $country)
             <option
-                value="{{ $country->getCode() }}" {{ old('country') === $country->getCode() || $notification->getCountryCode() === $country->getCode() ? 'selected' : '' }}>{{ $country->getName() }}</option>
+                value="{{ $country->getCode() }}" {{ in_array($country->getCode(), $notification->getCountryCodeArr()) ? 'selected' : '' }}>{{ $country->getName() }}</option>
+          @endforeach
+        </select>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="continent">Continent</label>
+        <select name="continent" id="continent" class="form-select">
+          <option value>All</option>
+          @foreach(\App\Models\Continent::all() as $continent)
+            <option value="{{ $continent->getCode() }}" {{ $notification->getContinentCode() === $continent->getCode() ? 'selected' : '' }}>{{ $continent->getName() }}</option>
           @endforeach
         </select>
       </div>

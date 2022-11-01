@@ -25,6 +25,7 @@
       <th>Height (Cm)</th>
       <th>Weight (Kg)</th>
       <th>Country</th>
+      <th>Continent</th>
       <th>Actions</th>
     </tr>
     @foreach($notifications as $key => $notification)
@@ -35,11 +36,22 @@
         <td>{{ $notification->getMinAge() . '-' . $notification->getMaxAge() }}</td>
         <td>{{ $notification->getMinHeight() . '-' . $notification->getMaxHeight() }}</td>
         <td>{{ $notification->getMinWeight() . '-' . $notification->getMaxWeight() }}</td>
-        <td>{{ $notification->getCountryCode() }}</td>
         <td>
-          <a href="{{ route('admin.applications.index', ['min_age' => $notification->getMinAge(), 'max_age' => $notification->getMaxAge(), 'min_height' => $notification->getMinHeight(), 'max_height' => $notification->getMaxHeight(), 'min_weight' => $notification->getMinWeight(), 'max_weight' => $notification->getMaxWeight(), 'gender' => $notification->getGender(), 'country' => $notification->getCountryCode()]) }}" class="btn btn-sm btn-info"><i class="fa fa-search me-1"></i>Search</a>
-          <a href="{{ route('admin.notifications.edit', ['notification' => $notification]) }}" class="btn btn-sm btn-secondary"><i class="fa fa-pencil me-1"></i>Edit</a>
-          <form class="d-inline-block" action="{{ route('admin.notifications.delete', ['notification' => $notification]) }}" method="post">
+          <ul>
+            @foreach($notification->getCountryCodeArr() as $code)
+              <li>{{ $code }}</li>
+            @endforeach
+          </ul>
+        </td>
+        <td>{{ $notification->getContinentCode() }}</td>
+        <td>
+          <a
+            href="{{ route('admin.applications.index', ['min_age' => $notification->getMinAge(), 'max_age' => $notification->getMaxAge(), 'min_height' => $notification->getMinHeight(), 'max_height' => $notification->getMaxHeight(), 'min_weight' => $notification->getMinWeight(), 'max_weight' => $notification->getMaxWeight(), 'gender' => $notification->getGender(), 'country' => $notification->getCountryCode()]) }}"
+            class="btn btn-sm btn-info"><i class="fa fa-search me-1"></i>Search</a>
+          <a href="{{ route('admin.notifications.edit', ['notification' => $notification]) }}"
+             class="btn btn-sm btn-secondary"><i class="fa fa-pencil me-1"></i>Edit</a>
+          <form class="d-inline-block"
+                action="{{ route('admin.notifications.delete', ['notification' => $notification]) }}" method="post">
             @csrf
             @method('DELETE')
             <button class="btn btn-sm btn-danger"><i class="fa fa-trash me-1"></i> Delete</button>

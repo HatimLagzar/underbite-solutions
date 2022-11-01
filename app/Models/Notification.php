@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,6 +21,7 @@ class Notification extends Model
     public const MAX_WEIGHT_COLUMN = 'max_weight';
     public const GENDER_COLUMN = 'gender';
     public const COUNTRY_CODE_COLUMN = 'country_code';
+    public const CONTINENT_CODE_COLUMN = 'continent_code';
 
     protected $table = self::TABLE;
 
@@ -33,6 +35,7 @@ class Notification extends Model
         self::MAX_WEIGHT_COLUMN,
         self::GENDER_COLUMN,
         self::COUNTRY_CODE_COLUMN,
+        self::CONTINENT_CODE_COLUMN,
     ];
 
     public function getId(): int
@@ -83,5 +86,19 @@ class Notification extends Model
     public function getCountryCode(): ?string
     {
         return $this->getAttribute(self::COUNTRY_CODE_COLUMN);
+    }
+
+    public function getCountryCodeArr(): array
+    {
+        if (!$this->getCountryCode()) {
+            return [];
+        }
+
+        return explode(',', $this->getCountryCode());
+    }
+
+    public function getContinentCode(): ?string
+    {
+        return $this->getAttribute(self::CONTINENT_CODE_COLUMN);
     }
 }

@@ -31,4 +31,9 @@ class Country extends Model
     {
         return $this->getAttribute(self::ISO3_COLUMN);
     }
+
+    public function getContinentCode(): string
+    {
+        return $this->getAttribute(self::CONTINENT_CODE_COLUMN);
+    }
 }

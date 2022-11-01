@@ -22,15 +22,16 @@ class UpdateNotificationController extends Controller
     {
         try {
             $this->notificationService->update($notification, [
-                Notification::NAME_COLUMN         => $request->get('name'),
-                Notification::MIN_AGE_COLUMN      => $request->get('min_age'),
-                Notification::MAX_AGE_COLUMN      => $request->get('max_age'),
-                Notification::MIN_HEIGHT_COLUMN   => $request->get('min_height'),
-                Notification::MAX_HEIGHT_COLUMN   => $request->get('max_height'),
-                Notification::MIN_WEIGHT_COLUMN   => $request->get('min_weight'),
-                Notification::MAX_WEIGHT_COLUMN   => $request->get('max_weight'),
-                Notification::GENDER_COLUMN       => $request->get('gender'),
-                Notification::COUNTRY_CODE_COLUMN => $request->get('country'),
+                Notification::NAME_COLUMN           => $request->get('name'),
+                Notification::MIN_AGE_COLUMN        => $request->get('min_age'),
+                Notification::MAX_AGE_COLUMN        => $request->get('max_age'),
+                Notification::MIN_HEIGHT_COLUMN     => $request->get('min_height'),
+                Notification::MAX_HEIGHT_COLUMN     => $request->get('max_height'),
+                Notification::MIN_WEIGHT_COLUMN     => $request->get('min_weight'),
+                Notification::MAX_WEIGHT_COLUMN     => $request->get('max_weight'),
+                Notification::GENDER_COLUMN         => $request->get('gender'),
+                Notification::COUNTRY_CODE_COLUMN   => implode(',', $request->get('country')),
+                Notification::CONTINENT_CODE_COLUMN => $request->get('continent'),
             ]);
 
             return redirect()
