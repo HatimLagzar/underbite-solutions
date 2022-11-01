@@ -158,7 +158,7 @@
 
   <div class="row">
     @foreach($applications as $application)
-      <div class="col-4 mb-3">
+      <div class="col-3 mb-3">
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
