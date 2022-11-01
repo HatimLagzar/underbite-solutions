@@ -143,28 +143,29 @@
       <form action="" method="get">
         <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-light">All</a>
         <a href="{{ route('admin.applications.qualified') }}" class="btn btn-sm btn btn-primary">Qualified</a>
-        <a href="{{ route('admin.applications.unqualified') }}" class="btn btn-sm btn btn-primary">Non-Qualified</a>
+        <a href="{{ route('admin.applications.unqualified') }}" class="btn btn-sm btn btn-danger">Non-Qualified</a>
       </form>
     </div>
   </div>
 
   <div class="actions-wrapper mb-3">
     <h6>Actions</h6>
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
+    <div>
       <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
         @csrf
         <button class="btn btn-sm btn-outline-primary">Qualify</button>
       </form>
-      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block">
+      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
         @csrf
         <button class="btn btn-sm btn-outline-primary">Unqualify</button>
       </form>
+      <a href="{{ route('admin.applications.qualified') }}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat me-1"></i>Relaod</a>
     </div>
   </div>
 
   <div class="row">
     @foreach($applications as $application)
-      <div class="col-3 mb-3">
+      <div class="col-4 mb-3">
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
@@ -189,6 +190,7 @@
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify') }}" method="post"
@@ -248,6 +250,7 @@
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify') }}" method="post"
