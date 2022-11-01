@@ -8,7 +8,11 @@ window.phoneNumberInput = intlTelInput(input, {
   separateDialCode: true
 });
 var form = document.querySelector('#form-wrapper form');
+var inputs = form.querySelectorAll("input, select, textarea");
 if (form instanceof HTMLFormElement) {
+  var handleInvalidInput = function handleInvalidInput() {
+    input.classList.add("error");
+  };
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var submitBtn = form.querySelector('button');
@@ -43,6 +47,9 @@ if (form instanceof HTMLFormElement) {
       document.querySelector('#error-feedback').innerText = '';
       document.querySelector('#success-feedback').innerText = response.data.message;
       form.reset();
+      inputs.forEach(function (input) {
+        input.removeEventListener("invalid", handleInvalidInput, false);
+      });
     })["catch"](function (error) {
       submitBtn.innerHTML = 'Apply';
       submitBtn.disabled = false;
@@ -53,6 +60,9 @@ if (form instanceof HTMLFormElement) {
       }
       console.log(error);
     });
+  });
+  inputs.forEach(function (input) {
+    input.addEventListener("invalid", handleInvalidInput, false);
   });
 }
 /******/ })()

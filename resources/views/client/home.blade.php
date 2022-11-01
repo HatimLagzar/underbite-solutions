@@ -214,7 +214,7 @@
 
               <div class="row uploads">
                 <div class="col">
-                  <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*" required>
+                  <input type="file" name="front_side" id="frontSideInput" class="visually-hidden" accept="image/*" required>
                   <label for="frontSideInput" class="position-relative w-100">
                     <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
@@ -225,7 +225,7 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
-                  <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
+                  <input type="file" name="right_side" id="rightSideInput" class="visually-hidden" accept="image/*" required>
                   <label for="rightSideInput" class="position-relative w-100">
                     <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
                     <span class="bg-white add-icon-wrapper">
@@ -236,7 +236,7 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
-                  <input type="file" name="right_closed" id="rightClosedSideInput" class="d-none" accept="image/*" required>
+                  <input type="file" name="right_closed" id="rightClosedSideInput" class="visually-hidden" accept="image/*" required>
                   <label for="rightClosedSideInput" class="position-relative w-100">
                     <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
                     <span class="bg-white add-icon-wrapper">
@@ -247,7 +247,7 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_closed" id="frontClosedInput" class="d-none" accept="image/*" required>
+                  <input type="file" name="front_closed" id="frontClosedInput" class="visually-hidden" accept="image/*" required>
                   <label for="frontClosedInput" class="position-relative w-100">
                     <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
                     <span class="bg-white add-icon-wrapper">

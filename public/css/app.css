@@ -4228,7 +4228,21 @@ blockquote {
   min-height: calc(1.5em + 0.75rem + 10px);
   padding: 0.375rem 0.75rem;
 }
+.form-control:required:valid,
+.form-select:required:valid {
+  box-shadow: 0 0 0 0.15rem rgba(0, 158, 68, 0.7);
+}
+.form-control.error:invalid,
+.form-select.error:invalid {
+  box-shadow: 0 0 0 0.15rem rgba(253, 13, 13, 0.25);
+}
 
+form input[type=file]:required:valid ~ label {
+  box-shadow: 0 0 0 0.35rem rgba(0, 158, 68, 0.7);
+}
+form input[type=file].error:invalid ~ label {
+  box-shadow: 0 0 0 0.35rem rgba(253, 13, 13, 0.25);
+}
 form label {
   color: black;
   font-size: 16px;
