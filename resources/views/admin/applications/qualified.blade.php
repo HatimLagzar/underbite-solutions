@@ -7,7 +7,7 @@
   Applications
 @endsection
 @section('content')
-
+<div class="applications-page">
   @error('message')
   <div class="alert alert-danger">
     {{ $message }}
@@ -193,18 +193,20 @@
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
-            <form action="{{ route('admin.applications.unqualify') }}" method="post"
-                  class="d-inline-block">
-              @csrf
-              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
-              <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
-            </form>
-            <form action="{{ route('admin.applications.qualify') }}" method="post"
-                  class="d-inline-block">
-              @csrf
-              <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
-              <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
-            </form>
+            <div class="actions">
+              <form action="{{ route('admin.applications.unqualify') }}" method="post"
+                    class="d-inline-block">
+                @csrf
+                <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
+                <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
+              </form>
+              <form action="{{ route('admin.applications.qualify') }}" method="post"
+                    class="d-inline-block">
+                @csrf
+                <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
+                <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -273,4 +275,5 @@
       </div>
     </div>
   @endforeach
+</div>
 @endsection

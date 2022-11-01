@@ -3330,3 +3330,14 @@ blockquote {
 .filter-range-list li a:hover {
   text-decoration: underline;
 }
+
+.applications-page .card {
+  height: 100%;
+}
+.applications-page .card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+.applications-page .card .card-body .actions {
+  margin-top: auto;
+}

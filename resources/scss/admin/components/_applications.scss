@@ -1,0 +1,14 @@
+.applications-page {
+  .card {
+    height: 100%;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+
+      .actions {
+        margin-top: auto;
+      }
+    }
+  }
+}
