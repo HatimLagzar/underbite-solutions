@@ -28,7 +28,7 @@ class ListUnqualifiedApplicationsController extends Controller
                 $this->patientService->getQuery()->where(function ($query) {
                     $query->where(Patient::IS_QUALIFIED_COLUMN, false)
                         ->orWhereNull(Patient::IS_QUALIFIED_COLUMN);
-                })
+                })->latest()
             );
 
             return view('admin.applications.qualified')

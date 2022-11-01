@@ -25,7 +25,7 @@ class ListQualifiedApplicationsController extends Controller
     {
         try {
             $applications = $this->filterService->filter(
-                $this->patientService->getQuery()->where(Patient::IS_QUALIFIED_COLUMN, true)
+                $this->patientService->getQuery()->where(Patient::IS_QUALIFIED_COLUMN, true)->latest()
             );
 
             return view('admin.applications.qualified')
