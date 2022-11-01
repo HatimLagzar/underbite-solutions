@@ -157,7 +157,7 @@
 
   <div class="row">
     @foreach($applications as $application)
-      <div class="col-3 mb-3">
+      <div class="col-4 mb-3">
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
@@ -182,6 +182,7 @@
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify') }}" method="post"
@@ -241,6 +242,7 @@
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify') }}" method="post"
