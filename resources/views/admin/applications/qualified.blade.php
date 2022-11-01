@@ -65,6 +65,7 @@
   <div class="actions-wrapper mb-3">
     <h6>Actions</h6>
     <div>
+      <button id="select-all" class="btn btn-sm btn-outline-primary me-1">Select All</button>
       <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
         @csrf
         <button class="btn btn-sm btn-outline-primary">Qualify</button>

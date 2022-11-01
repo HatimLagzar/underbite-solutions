@@ -49,28 +49,48 @@ function checkModalTriggerBtn() {
   }
 }
 
+function hanldeCheckInput() {
+  checkModalTriggerBtn()
+
+  document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(item => item.remove());
+  document.querySelectorAll('#qualify-mass input[name="ids[]"]').forEach(item => item.remove());
+  document.querySelectorAll('#unqualify-mass input[name="ids[]"]').forEach(item => item.remove());
+
+  document.querySelectorAll('.select-patient:checked').forEach(checkedInputElement => {
+    document.querySelector('#send-mail-form')
+      .insertAdjacentHTML(
+        'beforeend',
+        `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+      )
+
+    document.querySelector('#qualify-mass')
+      .insertAdjacentHTML(
+        'beforeend',
+        `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+      )
+
+    document.querySelector('#unqualify-mass')
+      .insertAdjacentHTML(
+        'beforeend',
+        `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+      )
+  })
+}
+
 if (document.location.pathname.startsWith('/admin/applications')) {
   checkModalTriggerBtn()
 
   document.querySelectorAll('.select-patient').forEach(inputElement => {
-    inputElement.addEventListener('change', e => {
-      checkModalTriggerBtn()
+    inputElement.addEventListener('change', hanldeCheckInput)
+  })
 
-      document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(item => item.remove());
-
-      document.querySelectorAll('.select-patient:checked').forEach(checkedInputElement => {
-        document.querySelector('#send-mail-form')
-          .insertAdjacentHTML(
-            'beforeend',
-            `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
-          )
-
-        document.querySelector('#qualify-mass, #unqualify-mass')
-          .insertAdjacentHTML(
-            'beforeend',
-            `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
-          )
+  const selectAllBtn = document.querySelector('#select-all')
+  if (selectAllBtn instanceof HTMLElement) {
+    selectAllBtn.addEventListener('click', e => {
+      document.querySelectorAll('.select-patient').forEach(inputElement => {
+        inputElement.checked = true;
+        hanldeCheckInput();
       })
     })
-  })
+  }
 }

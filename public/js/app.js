@@ -5353,20 +5353,37 @@ function checkModalTriggerBtn() {
     sendMailBtn.disabled = document.querySelectorAll('.select-patient:checked').length === 0;
   }
 }
+function hanldeCheckInput() {
+  checkModalTriggerBtn();
+  document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(function (item) {
+    return item.remove();
+  });
+  document.querySelectorAll('#qualify-mass input[name="ids[]"]').forEach(function (item) {
+    return item.remove();
+  });
+  document.querySelectorAll('#unqualify-mass input[name="ids[]"]').forEach(function (item) {
+    return item.remove();
+  });
+  document.querySelectorAll('.select-patient:checked').forEach(function (checkedInputElement) {
+    document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+    document.querySelector('#qualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+    document.querySelector('#unqualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+  });
+}
 if (document.location.pathname.startsWith('/admin/applications')) {
   checkModalTriggerBtn();
   document.querySelectorAll('.select-patient').forEach(function (inputElement) {
-    inputElement.addEventListener('change', function (e) {
-      checkModalTriggerBtn();
-      document.querySelectorAll('#send-mail-form input[name="ids[]"]').forEach(function (item) {
-        return item.remove();
-      });
-      document.querySelectorAll('.select-patient:checked').forEach(function (checkedInputElement) {
-        document.querySelector('#send-mail-form').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
-        document.querySelector('#qualify-mass, #unqualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
+    inputElement.addEventListener('change', hanldeCheckInput);
+  });
+  var selectAllBtn = document.querySelector('#select-all');
+  if (selectAllBtn instanceof HTMLElement) {
+    selectAllBtn.addEventListener('click', function (e) {
+      document.querySelectorAll('.select-patient').forEach(function (inputElement) {
+        inputElement.checked = true;
+        hanldeCheckInput();
       });
     });
-  });
+  }
 }
 
 /***/ }),
