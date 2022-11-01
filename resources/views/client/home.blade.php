@@ -30,7 +30,7 @@
   <section id="form-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-12">
+        <div class="col-lg-5 col-12">
           <div class="d-flex flex-column justify-content-between">
             <h2 class="title text-center">{{ __('Fully sponsored by us') }}</h2>
             <p class="text-center">{{ __('For all nationalities and countries') }}</p>
@@ -87,6 +87,7 @@
             <p class="text-center mb-0">{{__('for 95% of cases')}}</p>
           </div>
         </div>
+        <div class="col-lg-1 d-lg-block d-none"></div>
         <div class="col-lg-6 col-12 apply-col" style="margin-top: -200px;">
           <div id="apply-now" class="apply-wrapper">
             <form method="POST" action="#">
