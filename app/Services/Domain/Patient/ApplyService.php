@@ -49,8 +49,9 @@ class ApplyService
         ?string $socialNetworkNote,
         string $countryId,
         UploadedFile $frontView,
-        UploadedFile $leftView,
-        UploadedFile $rightView
+        UploadedFile $rightView,
+        UploadedFile $rightClosedView,
+        UploadedFile $frontClosedView
     ): Patient {
         $existingPatient = $this->patientService->findByEmail($email);
         if ($existingPatient instanceof Patient) {
@@ -74,11 +75,14 @@ class ApplyService
         $frontViewFileName = $frontView->hashName();
         $frontView->storeAs('public/patients_images/', $frontViewFileName);
 
-        $leftViewFileName = $leftView->hashName();
-        $leftView->storeAs('public/patients_images/', $leftViewFileName);
-
         $rightViewFileName = $rightView->hashName();
         $rightView->storeAs('public/patients_images/', $rightViewFileName);
+
+        $rightClosedViewFileName = $rightClosedView->hashName();
+        $rightClosedView->storeAs('public/patients_images/', $rightViewFileName);
+
+        $frontClosedViewFileName = $frontClosedView->hashName();
+        $frontClosedView->storeAs('public/patients_images/', $frontClosedViewFileName);
 
         $this->patientImageService->create([
             PatientImage::PATIENT_ID_COLUMN => $patient->getId(),
@@ -88,14 +92,20 @@ class ApplyService
 
         $this->patientImageService->create([
             PatientImage::PATIENT_ID_COLUMN => $patient->getId(),
-            PatientImage::FILE_NAME_COLUMN  => $leftViewFileName,
-            PatientImage::POSITION_COLUMN   => PatientImage::LEFT_VIEW,
+            PatientImage::FILE_NAME_COLUMN  => $rightViewFileName,
+            PatientImage::POSITION_COLUMN   => PatientImage::RIGHT_VIEW,
         ]);
 
         $this->patientImageService->create([
             PatientImage::PATIENT_ID_COLUMN => $patient->getId(),
-            PatientImage::FILE_NAME_COLUMN  => $rightViewFileName,
-            PatientImage::POSITION_COLUMN   => PatientImage::RIGHT_VIEW,
+            PatientImage::FILE_NAME_COLUMN  => $rightClosedViewFileName,
+            PatientImage::POSITION_COLUMN   => PatientImage::RIGHT_CLOSED_VIEW,
+        ]);
+
+        $this->patientImageService->create([
+            PatientImage::PATIENT_ID_COLUMN => $patient->getId(),
+            PatientImage::FILE_NAME_COLUMN  => $frontClosedViewFileName,
+            PatientImage::POSITION_COLUMN   => PatientImage::FRONT_CLOSED_VIEW,
         ]);
 
         $this->checkNotifications($patient);
@@ -159,6 +169,8 @@ class ApplyService
                 NotificationPatient::NOTIFICATION_ID_COLUMN => $notification->getId(),
                 NotificationPatient::PATIENT_ID_COLUMN      => $patient->getId(),
             ]);
+
+            $patient->setImages($this->patientImageService->getAllByPatient($patient));
 
             Mail::to(env('MAIL_FROM_ADDRESS'))
                 ->queue(new NotificationPatientMail($notification, $patient));

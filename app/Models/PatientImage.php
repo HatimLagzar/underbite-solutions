@@ -19,6 +19,8 @@ class PatientImage extends Model
     public const FRONT_VIEW = 'FRONT';
     public const LEFT_VIEW = 'LEFT';
     public const RIGHT_VIEW = 'RIGHT';
+    public const RIGHT_CLOSED_VIEW = 'RIGHT_CLOSED';
+    public const FRONT_CLOSED_VIEW = 'FRONT_CLOSED';
 
     protected $table = self::TABLE;
 

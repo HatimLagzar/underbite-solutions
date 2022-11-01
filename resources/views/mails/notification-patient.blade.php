@@ -22,5 +22,11 @@ Here are the information of the patient:
   <li>Country: {{ $patient->getCountryCode() }}</li>
 </ul>
 
+<ul>
+  @foreach($patient->getImages() as $image)
+    <li><img src="{{ url('storage/patients_images/' . $image->getFileName()) }}"></li>
+  @endforeach
+</ul>
+
 {{ config('app.name') }}
 @endcomponent

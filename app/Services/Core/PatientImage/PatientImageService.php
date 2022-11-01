@@ -2,6 +2,7 @@
 
 namespace App\Services\Core\PatientImage;
 
+use App\Models\Patient;
 use App\Models\PatientImage;
 use App\Repositories\PatientImage\PatientImageRepository;
 
@@ -21,5 +22,10 @@ class PatientImageService
     public function create(array $attributes): PatientImage
     {
         return $this->patientImageRepository->create($attributes);
+    }
+
+    public function getAllByPatient(Patient $patient)
+    {
+        return $this->patientImageRepository->getAllByPatient($patient->getId());
     }
 }

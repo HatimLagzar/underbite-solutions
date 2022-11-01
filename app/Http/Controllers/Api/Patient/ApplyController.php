@@ -35,9 +35,10 @@ class ApplyController extends BaseController
                 $request->get('phone_code'),
                 $request->get('social_network_note'),
                 $request->get('country_id'),
-                $request->file('front_view'),
-                $request->file('left_view'),
-                $request->file('right_view'),
+                $request->file('front_side'),
+                $request->file('right_side'),
+                $request->file('right_closed'),
+                $request->file('front_closed'),
             );
 
             return $this->withSuccess([

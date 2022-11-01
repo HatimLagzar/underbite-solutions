@@ -25,9 +25,10 @@ if (form instanceof HTMLFormElement) {
     formData.set('country_id', document.querySelector('#countryInput').value);
     formData.set('phone_number', document.querySelector('#phoneInput').value);
     formData.set('phone_code', phoneNumberInput.selectedCountryData.dialCode);
-    formData.set('front_view', document.querySelector('#frontSideInput').files[0]);
-    formData.set('left_view', document.querySelector('#leftSideInput').files[0]);
-    formData.set('right_view', document.querySelector('#rightSideInput').files[0]);
+    formData.set('front_side', document.querySelector('#frontSideInput').files[0]);
+    formData.set('front_closed', document.querySelector('#frontClosedInput').files[0]);
+    formData.set('right_side', document.querySelector('#rightSideInput').files[0]);
+    formData.set('right_closed', document.querySelector('#rightClosedSideInput').files[0]);
 
     axios.post('/api/apply', formData, {
       headers: {
