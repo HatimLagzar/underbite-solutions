@@ -79,7 +79,7 @@ class ApplyService
         $rightView->storeAs('public/patients_images/', $rightViewFileName);
 
         $rightClosedViewFileName = $rightClosedView->hashName();
-        $rightClosedView->storeAs('public/patients_images/', $rightViewFileName);
+        $rightClosedView->storeAs('public/patients_images/', $rightClosedViewFileName);
 
         $frontClosedViewFileName = $frontClosedView->hashName();
         $frontClosedView->storeAs('public/patients_images/', $frontClosedViewFileName);
