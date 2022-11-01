@@ -97,7 +97,7 @@
     <div class="col-12 col-lg-8">
       <div class="card">
         <div class="card-header">
-          <h6 class="mb-0">Male Submits Per Country</h6>
+          <h6 class="mb-0">Female Submits Per Country</h6>
         </div>
         <div class="card-body">
           <table class="table table-hover">
@@ -109,7 +109,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($maleSubmitsGroupedByCountries as $key => $item)
+            @foreach($femaleSubmitsGroupedByCountries as $key => $item)
               <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $item->country->name }}</td>
@@ -141,7 +141,7 @@
     <div class="col-12 col-lg-8">
       <div class="card">
         <div class="card-header">
-          <h6 class="mb-0">Female Submits Per Country</h6>
+          <h6 class="mb-0">Male Submits Per Country</h6>
         </div>
         <div class="card-body">
           <table class="table table-hover">
@@ -153,7 +153,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($femaleSubmitsGroupedByCountries as $key => $item)
+            @foreach($maleSubmitsGroupedByCountries as $key => $item)
               <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $item->country->name }}</td>
