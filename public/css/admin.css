@@ -3341,3 +3341,14 @@ blockquote {
 .applications-page .card .card-body .actions {
   margin-top: auto;
 }
+
+.advanced-patient-search .form-group {
+  border-right: 1px solid #DDDDDD;
+  margin-right: 0.5rem;
+  padding-right: 0.5rem;
+}
+.advanced-patient-search .form-group:last-of-type {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}

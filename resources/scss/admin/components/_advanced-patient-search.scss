@@ -1,0 +1,14 @@
+.advanced-patient-search {
+  .form-group {
+    border-right: 1px solid #DDDDDD;
+    margin-right: .5rem;
+    padding-right: .5rem;
+
+
+    &:last-of-type {
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}
