@@ -246,7 +246,7 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
-                  <input type="file" name="front_closed" id="frontClosedInput" class="d-none" accept="image/*">
+                  <input type="file" name="front_closed" id="frontClosedInput" class="d-none" accept="image/*" required>
                   <label for="frontClosedInput" class="position-relative w-100">
                     <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
                     <span class="bg-white add-icon-wrapper">
@@ -259,6 +259,9 @@
               </div>
 
               <p class="text-sm text-black text-center">{{ __('Note: By sharing your information with us, you are agreeing to give us permissions to review your information, All content will remain highly confidential.') }}</p>
+
+              <p id="error-feedback" class="text-danger text-center mb-1"></p>
+              <p id="success-feedback" class="text-center text-success mb-1"></p>
 
               <button class="btn btn-primary rounded-5 mx-auto d-block">Apply</button>
             </form>

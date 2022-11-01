@@ -14,6 +14,7 @@ if (form instanceof HTMLFormElement) {
     var submitBtn = form.querySelector('button');
     if (submitBtn instanceof HTMLButtonElement) {
       submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
     }
     var formData = new FormData();
     formData.set('first_name', document.querySelector('#firstNameInput').value);
@@ -37,13 +38,16 @@ if (form instanceof HTMLFormElement) {
         'Accept': 'application/json'
       }
     }).then(function (response) {
+      submitBtn.innerHTML = 'Apply';
       submitBtn.disabled = false;
-      toastr.success(response.data.message);
+      document.querySelector('#error-feedback').innerText = '';
+      document.querySelector('#success-feedback').innerText = response.data.message;
       form.reset();
     })["catch"](function (error) {
+      submitBtn.innerHTML = 'Apply';
       submitBtn.disabled = false;
       if (error.response && error.response.status === 422) {
-        toastr.error(error.response.data.message);
+        document.querySelector('#error-feedback').innerText = error.response.data.errors ? Object.values(error.response.data.errors).join('\n') : error.response.data.message;
       } else if (error.response) {
         toastr.error(error.response.data.message);
       }

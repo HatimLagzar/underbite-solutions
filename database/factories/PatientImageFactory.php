@@ -19,8 +19,9 @@ class PatientImageFactory extends Factory
             PatientImage::PATIENT_ID_COLUMN => Patient::factory(),
             PatientImage::POSITION_COLUMN   => $this->faker->randomElement([
                 PatientImage::RIGHT_VIEW,
-                PatientImage::LEFT_VIEW,
-                PatientImage::FRONT_VIEW
+                PatientImage::RIGHT_CLOSED_VIEW,
+                PatientImage::FRONT_VIEW,
+                PatientImage::FRONT_CLOSED_VIEW
             ]),
             PatientImage::FILE_NAME_COLUMN  => $this->faker->randomElement([
                 '0hJ45iMliC0Lu9zXcjJ4E6qcskrbUP2JqLjJs99d.png',

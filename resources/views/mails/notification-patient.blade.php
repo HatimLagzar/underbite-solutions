@@ -1,3 +1,6 @@
+@php
+/** @var $patient \App\Models\Patient */
+@endphp
 @component('mail::message')
 
 # New Patient Notification
@@ -22,11 +25,14 @@ Here are the information of the patient:
   <li>Country: {{ $patient->getCountryCode() }}</li>
 </ul>
 
-<ul>
-  @foreach($patient->getImages() as $image)
-    <li><img src="{{ url('storage/patients_images/' . $image->getFileName()) }}"></li>
+<ul style="padding: 0; margin: 0 auto; display: block; text-align: center;">
+  @foreach($patient->images()->get() as $image)
+    <li style="display: inline-block; list-style-type: none; margin-right: 10px;"><img width="100" src="{{ url('storage/patients_images/' . $image->getFileName()) }}"></li>
   @endforeach
 </ul>
+
+<br>
+<br>
 
 {{ config('app.name') }}
 @endcomponent

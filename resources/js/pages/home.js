@@ -11,6 +11,7 @@ if (form instanceof HTMLFormElement) {
     const submitBtn = form.querySelector('button')
     if (submitBtn instanceof HTMLButtonElement) {
       submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i>'
     }
 
     const formData = new FormData();
@@ -30,6 +31,7 @@ if (form instanceof HTMLFormElement) {
     formData.set('right_side', document.querySelector('#rightSideInput').files[0]);
     formData.set('right_closed', document.querySelector('#rightClosedSideInput').files[0]);
 
+
     axios.post('/api/apply', formData, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -37,14 +39,17 @@ if (form instanceof HTMLFormElement) {
       },
     })
       .then(response => {
+        submitBtn.innerHTML = 'Apply'
         submitBtn.disabled = false;
-        toastr.success(response.data.message);
+        document.querySelector('#error-feedback').innerText = ''
+        document.querySelector('#success-feedback').innerText = response.data.message
         form.reset();
       })
       .catch((error) => {
+        submitBtn.innerHTML = 'Apply'
         submitBtn.disabled = false;
         if (error.response && error.response.status === 422) {
-          toastr.error(error.response.data.message);
+          document.querySelector('#error-feedback').innerText = error.response.data.errors ? Object.values(error.response.data.errors).join('\n') : error.response.data.message;
         } else if (error.response) {
           toastr.error(error.response.data.message);
         }
