@@ -11,6 +11,7 @@
     a {
       line-height: 1;
 
+      &.active,
       &:hover {
         text-decoration: underline;
       }

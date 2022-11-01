@@ -11,11 +11,11 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Visitors</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -45,11 +45,11 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Submits</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -72,11 +72,11 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Conversion</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">

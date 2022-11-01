@@ -3327,7 +3327,7 @@ blockquote {
 .filter-range-list li a {
   line-height: 1;
 }
-.filter-range-list li a:hover {
+.filter-range-list li a.active, .filter-range-list li a:hover {
   text-decoration: underline;
 }
 
