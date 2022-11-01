@@ -143,15 +143,16 @@
 
   <div class="actions-wrapper mb-3">
     <h6>Actions</h6>
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
+    <div>
       <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
         @csrf
         <button class="btn btn-sm btn-outline-primary">Qualify</button>
       </form>
-      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block">
+      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
         @csrf
         <button class="btn btn-sm btn-outline-primary">Unqualify</button>
       </form>
+      <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat me-1"></i>Relaod</a>
     </div>
   </div>
 
