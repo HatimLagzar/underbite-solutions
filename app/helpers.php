@@ -47,9 +47,9 @@ if (!function_exists('getExceptionTraceAsString')) {
 }
 
 if (!function_exists('turnCentimeterToFoot')) {
-    function turnCentimeterToFoot(int $cm): float
+    function turnCentimeterToFoot(int $cm): string
     {
-        return round($cm * 0.032808399, 1);
+        return number_format(round($cm * 0.032808399, 1), 1, '\'');
     }
 }
 

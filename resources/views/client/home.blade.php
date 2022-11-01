@@ -141,11 +141,11 @@
                           name="height">
                     <option value="">Select Height</option>
                     @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
-                      @for($i = 120; $i <= 230; $i++)
-                        <option value="{{ $i }}">{{ turnCentimeterToFoot($i) }} ft</option>
+                      @for($i = 120; $i <= 210; $i++)
+                        <option value="{{ $i }}">{{ turnCentimeterToFoot($i) }}" ft</option>
                       @endfor
                     @else
-                      @for($i = 120; $i <= 230; $i++)
+                      @for($i = 120; $i <= 210; $i++)
                         <option value="{{ $i }}">{{ $i }} cm</option>
                       @endfor
                     @endif
@@ -164,11 +164,11 @@
                           name="weight">
                     <option value="">Select Weight</option>
                     @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
-                      @for($i = 30; $i <= 250; $i++)
-                        <option value="{{ $i }}">{{ turnKilogramToLbs($i) }} lbs</option>
+                      @for($i = 30; $i <= 130; $i++)
+                        <option value="{{ $i }}">{{ turnKilogramToLbs($i) }} pound</option>
                       @endfor
                     @else
-                      @for($i = 30; $i <= 250; $i++)
+                      @for($i = 30; $i <= 130; $i++)
                         <option value="{{ $i }}">{{ $i }} Kg</option>
                       @endfor
                     @endif
