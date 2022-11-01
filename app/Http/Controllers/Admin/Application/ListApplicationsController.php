@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Application;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Domain\Patient\FilterService;
 use Illuminate\Http\Request;
@@ -23,7 +24,9 @@ class ListApplicationsController extends Controller
     public function __invoke()
     {
         try {
-            $applications = $this->filterService->filter();
+            $applications = $this->filterService->filter(
+                $this->patientService->getQuery()->whereNull(Patient::IS_QUALIFIED_COLUMN)
+            );
 
             return view('admin.applications.index')
                 ->with('applications', $applications);

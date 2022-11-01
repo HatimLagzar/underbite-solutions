@@ -156,6 +156,7 @@
     </div>
   </div>
 
+  <h2 class="mt-5 mb-3">Non-Categorized Patients</h2>
   <div class="row">
     @foreach($applications as $application)
       <div class="col-3 mb-3">
@@ -182,7 +183,7 @@
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Status: Non-Categorized</li>
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
@@ -244,7 +245,7 @@
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Status: {{ $application->isQualified() ? 'Qualified' : 'Non-Qualified' }}</li>
+              <li>Status: Non-Categorized</li>
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
