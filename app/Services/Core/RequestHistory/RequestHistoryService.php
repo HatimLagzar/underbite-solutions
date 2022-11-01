@@ -79,28 +79,39 @@ class RequestHistoryService
 
     public function getTopTenCountriesWithVisits(?Carbon $startDate, ?Carbon $endDate): array
     {
-        return $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
-            ->transform(
-                function ($item) {
-                    return $item->count();
-                }
-            )
+        $associativeArray = $this->requestHistoryRepository->getVisitorsByCountry($startDate, $endDate)
+            ->transform(fn ($item) =>  $item->count())
             ->sort()
             ->reverse()
             ->toArray();
+
+        $result = [];
+
+        foreach (array_keys($associativeArray) as $key => $countryCode) {
+            $country = $this->countryRepository->findByISO3($countryCode);
+            $result[$country ? $country->getName() : 'Unknown'] = array_values($associativeArray)[$key];
+        }
+
+        return $result;
+
     }
 
     public function getTopTenCountriesWithSubmits(?Carbon $startDate, ?Carbon $endDate): array
     {
-        return $this->requestHistoryRepository->getSubmitsByCountry($startDate, $endDate)
-            ->transform(
-                function ($item) {
-                    return $item->count();
-                }
-            )
+        $associativeArray = $this->requestHistoryRepository->getSubmitsByCountry($startDate, $endDate)
+            ->transform(fn ($item) =>  $item->count())
             ->sort()
             ->reverse()
             ->toArray();
+
+        $result = [];
+
+        foreach (array_keys($associativeArray) as $key => $countryCode) {
+            $country = $this->countryRepository->findByISO3($countryCode);
+            $result[$country ? $country->getName() : 'Unknown'] = array_values($associativeArray)[$key];
+        }
+
+        return $result;
     }
 
     public function countDektopRequests(): int

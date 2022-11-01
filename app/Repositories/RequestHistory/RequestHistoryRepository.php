@@ -2,6 +2,7 @@
 
 namespace App\Repositories\RequestHistory;
 
+use App\Models\Country;
 use App\Repositories\AbstractEloquentRepository;
 use App\Models\RequestHistory;
 use Carbon\Carbon;

@@ -122,7 +122,7 @@
             <div class="col">
               <ul class="list-group">
                 @foreach($topTenCountriesWithVisits as $key => $countryVisits)
-                  <li class="list-group-item">{{ $key }} {{ number_format($countryVisits) }}</li>
+                  <li class="list-group-item text-sm">{{ $key }} {{ number_format($countryVisits) }}</li>
                 @endforeach
               </ul>
             </div>

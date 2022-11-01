@@ -60,8 +60,11 @@ class SubmitsDashboardController extends Controller
             $visitorsRelative = $this->requestHistoryService->countVisits($endDate, $relativeDate);
             $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
             $submitsByCountry = $this->requestHistoryService->getSubmitsByCountry($startDate, $endDate);
-            $topTenCountriesWithSubmits = array_slice($this->requestHistoryService->getTopTenCountriesWithSubmits($startDate, $endDate), 0,
-                7);
+            $topTenCountriesWithSubmits = array_slice(
+                $this->requestHistoryService->getTopTenCountriesWithSubmits($startDate, $endDate),
+                0,
+                7
+            );
 
             $males = $this->patientService->getMalesCount($startDate, $endDate);
             $females = $this->patientService->getFemalesCount($startDate, $endDate);

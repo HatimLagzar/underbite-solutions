@@ -59,8 +59,11 @@ class DashboardController extends Controller
             $visitorsRelative = $this->requestHistoryService->countVisits($endDate, $relativeDate);
             $bounceRate = $this->requestHistoryService->getBounceRate($startDate, $endDate);
             $visitorsByCountry = $this->requestHistoryService->getVisitorsByCountry($startDate, $endDate);
-            $topTenCountriesWithVisits = array_slice($this->requestHistoryService->getTopTenCountriesWithVisits($startDate, $endDate), 0,
-                7);
+            $topTenCountriesWithVisits = array_slice(
+                $this->requestHistoryService->getTopTenCountriesWithVisits($startDate, $endDate),
+                0,
+                7
+            );
 
             $males = $this->patientService->getMalesCount($startDate, $endDate);
             $females = $this->patientService->getFemalesCount($startDate, $endDate);
