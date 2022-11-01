@@ -79,3 +79,17 @@ if (form instanceof HTMLFormElement) {
     input.classList.add("error");
   }
 }
+
+form.querySelectorAll('input[type=file]').forEach(inputElement => {
+  inputElement.addEventListener('change', previewUploadedImage)
+})
+
+function previewUploadedImage(e) {
+  const [file] = e.currentTarget.files;
+  const label = e.currentTarget.labels[0];
+  if (file) {
+    label.querySelector('img').src = URL.createObjectURL(file)
+  } else {
+    label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
+  }
+}
