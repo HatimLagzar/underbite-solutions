@@ -60,7 +60,6 @@
                 From {{ $submitsFromTopCountry->country->name }}
               </p>
             @endif
-            <p class="mb-0 text-sm">{{ getPercentage($males + $females, $males) }}% Males</p>
             <p class="mb-0 text-sm">{{ getPercentage($males + $females, $females) }}% Females</p>
             <a href="{{ route('admin.submits') }}" class="d-block text-end text-sm text-black">More ></a>
           </div>
