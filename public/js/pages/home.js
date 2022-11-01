@@ -4,7 +4,9 @@ var __webpack_exports__ = {};
   !*** ./resources/js/pages/home.js ***!
   \************************************/
 var input = document.querySelector("#phoneInput");
-window.phoneNumberInput = intlTelInput(input, {});
+window.phoneNumberInput = intlTelInput(input, {
+  separateDialCode: true
+});
 var form = document.querySelector('#form-wrapper form');
 if (form instanceof HTMLFormElement) {
   form.addEventListener('submit', function (e) {

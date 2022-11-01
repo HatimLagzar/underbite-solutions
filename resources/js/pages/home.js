@@ -1,5 +1,7 @@
 const input = document.querySelector("#phoneInput");
-window.phoneNumberInput = intlTelInput(input, {});
+window.phoneNumberInput = intlTelInput(input, {
+  separateDialCode: true
+});
 
 const form = document.querySelector('#form-wrapper form');
 if (form instanceof HTMLFormElement) {
