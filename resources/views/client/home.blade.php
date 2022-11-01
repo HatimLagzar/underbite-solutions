@@ -94,25 +94,25 @@
               <h3 class="text-blue border-bottom">{{ __('Denistry Care') }}</h3>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="firstNameInput">First Name</label>
+                  <label class="form-label" for="firstNameInput">First Name <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <input id="firstNameInput" type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="lastNameInput">Last Name</label>
+                  <label class="form-label" for="lastNameInput">Last Name <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <input id="lastNameInput" type="text" class="form-control" name="last_name" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="genderInput">Your Gender</label>
+                  <label class="form-label" for="genderInput">Your Gender <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <select id="genderInput" class="form-select" name="gender" required>
-                    <option value="">Select Age</option>
+                    <option value="">Select Gender</option>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="ageInput">Your Age</label>
+                  <label class="form-label" for="ageInput">Your Age <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -129,7 +129,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="heightInput">Your Height</label>
+                  <label class="form-label" for="heightInput">Your Height <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -152,7 +152,7 @@
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="weightInput">Your Weight</label>
+                  <label class="form-label" for="weightInput">Your Weight <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -177,11 +177,11 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="emailInput">Your Email</label>
-                  <input id="emailInput" type="text" class="form-control" name="email" required>
+                  <label class="form-label" for="emailInput">Your Email <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <input id="emailInput" type="email" class="form-control" name="email" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="countryInput">Your Origin/Country</label>
+                  <label class="form-label" for="countryInput">Your Origin/Country <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -196,15 +196,14 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="phoneInput">Phone Number <span class="text-muted"
-                                                                                style="font-size: 12px">(Whatsapp Preferred)</span></label>
+                  <label class="form-label" for="phoneInput">Phone Number <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
                   <input id="phoneInput" type="tel" class="form-control" name="phone_number" required>
                 </div>
 
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="socialNetworkInput">Facebook / Instagram <span class="text-muted"
                                                                                                 style="font-size: 12px">(Optional)</span></label>
-                  <input id="socialNetworkInput" type="text" class="form-control" name="social_network_note">
+                  <input id="socialNetworkInput" type="url" class="form-control" name="social_network_note">
                 </div>
               </div>
 
@@ -216,42 +215,46 @@
                 <div class="col">
                   <input type="file" name="front_side" id="frontSideInput" class="d-none" accept="image/*" required>
                   <label for="frontSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/front.svg" alt="Front View">
+                    <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Front View') }}</p>
+                  <p class="text-black text-center mt-1 mb-0">{{ __('Front View') }}</p>
+                  <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="left_side" id="leftSideInput" class="d-none" accept="image/*" required>
                   <label for="leftSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right.svg" alt="Right View">
+                    <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Right Side') }}</p>
+                  <p class="text-black text-center mt-1 mb-0">{{ __('Right Side') }}</p>
+                  <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="right_side" id="rightSideInput" class="d-none" accept="image/*" required>
                   <label for="rightSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg" alt="Right Closed">
+                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Right Closed') }}</p>
+                  <p class="text-black text-center mt-1 mb-0">{{ __('Right Closed') }}</p>
+                  <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="front_side" id="bigSmileInput" class="d-none" accept="image/*">
                   <label for="bigSmileInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg" alt="Perspective View">
+                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <p class="text-black text-center mt-1">{{ __('Front Closed') }}</p>
+                  <p class="text-black text-center mt-1 mb-0">{{ __('Front Closed') }}</p>
+                  <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
               </div>
 
