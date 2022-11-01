@@ -116,6 +116,18 @@
               Month
             </button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="year-visits-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#year-visits-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="year-visits-tab-pane"
+                    aria-selected="false">
+              Year
+            </button>
+          </li>
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active"
@@ -130,6 +142,9 @@
           </div>
           <div class="tab-pane fade" id="month-visits-tab-pane" role="tabpanel" aria-labelledby="month-visits-tab" tabindex="0">
             <canvas id="month-visits-line"></canvas>
+          </div>
+          <div class="tab-pane fade" id="year-visits-tab-pane" role="tabpanel" aria-labelledby="year-visits-tab" tabindex="0">
+            <canvas id="year-visits-line"></canvas>
           </div>
         </div>
       </section>
@@ -383,6 +398,21 @@
         datasets: [{
           label: 'Visits',
           data: [...Object.values({!! $monthVisitsArr !!})],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+    });
+
+    const yearVisitsCtx = document.getElementById('year-visits-line').getContext('2d');
+    const yearVisitsCanvas = new Chart(yearVisitsCtx, {
+      type: 'line',
+      data: {
+        labels: [...Object.keys({!! $yearVisitsArr !!})],
+        datasets: [{
+          label: 'Visits',
+          data: [...Object.values({!! $yearVisitsArr !!})],
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1

@@ -107,6 +107,19 @@ class VisitsDashboardController extends Controller
                 $monthVisitsStartDate->addDay();
             }
 
+            $yearVisitsStartDate = Carbon::now()->startOfYear();
+            $yearVisitsEndDate = Carbon::now()->endOfYear();
+            $yearVisitsCollection = $this->requestHistoryService->getVisitsBetween($yearVisitsEndDate, $yearVisitsStartDate);
+            $yearVisitsArr = [];
+            while ($yearVisitsStartDate->lte($yearVisitsEndDate)) {
+                $count = $yearVisitsCollection->filter(function (RequestHistory $item) use ($yearVisitsStartDate, $yearVisitsArr) {
+                    $itemCarbon = Carbon::createFromTimestamp($item->getTimestamp());
+                    return $yearVisitsStartDate->format('M') === $itemCarbon->format('M');
+                })->count();
+                $yearVisitsArr[$yearVisitsStartDate->format('M')] = $count;
+                $yearVisitsStartDate->addMonth();
+            }
+
 
             $conversion = $this->requestHistoryService->getConversion($startDate, $endDate);
             $conversionRelative = $this->requestHistoryService->getConversion($endDate, $relativeDate);
@@ -122,6 +135,7 @@ class VisitsDashboardController extends Controller
                 ->with('todayVisitsArr', json_encode($todayVisitsArr))
                 ->with('weekVisitsArr', json_encode($weekVisitsArr))
                 ->with('monthVisitsArr', json_encode($monthVisitsArr))
+                ->with('yearVisitsArr', json_encode($yearVisitsArr))
                 ->with('topUrls', $topUrls)
                 ->with('visitsGroupedByCountryCode', $visitsGroupedByCountryCode)
                 ->with('conversionFromTopCountry', $conversionFromTopCountry)
