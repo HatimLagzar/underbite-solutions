@@ -141,7 +141,7 @@
     <div class="col-3">
       <h5>Quick Filters</h5>
       <form action="" method="get">
-        <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-light">All</a>
+        <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-light">Others</a>
         <a href="{{ route('admin.applications.qualified') }}" class="btn btn-sm btn btn-primary">Qualified</a>
         <a href="{{ route('admin.applications.unqualified') }}" class="btn btn-sm btn btn-danger">Non-Qualified</a>
       </form>
