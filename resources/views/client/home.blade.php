@@ -73,8 +73,8 @@
                     <i class="fa fa-medkit"></i>
                   </div>
                   <div class="center">
-                    <span class="">{{__('Braces')}}</span>
                     <img src="{{ asset('images/icons/braces.svg') }}" alt="braces">
+                    <span class="mt-1">{{__('Braces')}}</span>
                   </div>
                   <div class="right">
                     <i class="fa fa-heart"></i>
@@ -83,7 +83,7 @@
                 </div>
               </div>
             </div>
-            <p class="fs-3 text-center mb-2">{{__('No Insurance Required')}}</p>
+            <p class="fs-3 text-center mt-2 mb-2">{{__('No Insurance Required')}}</p>
             <p class="text-center mb-0">{{__('for 95% of cases')}}</p>
           </div>
         </div>

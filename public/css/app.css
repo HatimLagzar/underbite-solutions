@@ -4575,7 +4575,7 @@ svg.progress-bar-svg {
 #form-wrapper #circle .bottom .center {
   position: absolute;
   left: 50%;
-  bottom: -60px;
+  bottom: -80px;
   transform: translateX(-50%);
   background-color: #0E54AE;
 }
@@ -4829,7 +4829,7 @@ svg.progress-bar-svg {
     top: -70px;
   }
   #form-wrapper #circle .bottom .center {
-    bottom: -70px;
+    bottom: -90px;
   }
   #form-wrapper #circle .top {
     top: 30px;
