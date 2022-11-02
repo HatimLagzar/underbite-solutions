@@ -14,7 +14,7 @@ class MakeCountryCodeColumnStringNotificationsTable extends Migration
     public function up()
     {
         Schema::table('notifications', function (Blueprint $table) {
-            $table->string('country_code')->nullable();
+            $table->string('country_code')->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class MakeCountryCodeColumnStringNotificationsTable extends Migration
     public function down()
     {
         Schema::table('notifications', function (Blueprint $table) {
-            $table->char('country_code', 2)->nullable();
+            $table->char('country_code', 2)->nullable()->change();
         });
     }
 }
