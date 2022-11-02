@@ -4661,10 +4661,10 @@ svg.progress-bar-svg {
 #international-program .separator-line {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   height: 300px;
-  width: 3px;
+  width: 5px;
   background-color: #fff;
 }
 #international-program img {
@@ -4673,7 +4673,7 @@ svg.progress-bar-svg {
 #international-program h2 {
   font-size: 50px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 #international-program h4 {
   font-weight: normal;
