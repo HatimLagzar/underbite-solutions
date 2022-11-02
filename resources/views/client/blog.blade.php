@@ -30,7 +30,7 @@
             <div class="col-lg col-12 right-side mb-4">
               <h3>{{ $post->getTitle() }}</h3>
               <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->getDescription()), 200) }}</p>
-              <button class="btn btn-primary">Read More</button>
+              <a href="{{ route('pages.post', ['id' => $post->getId()]) }}" class="btn btn-primary">Read More</a>
             </div>
           </div>
         </div>

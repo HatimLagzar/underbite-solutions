@@ -4949,7 +4949,7 @@ svg.progress-bar-svg {
 #blog-posts img {
   width: 100%;
 }
-#blog-posts button {
+#blog-posts .btn {
   border-radius: 50px;
   padding: 8px 40px;
   font-size: 15px;

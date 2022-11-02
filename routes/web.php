@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\Post\UpdatePostController;
 use App\Http\Controllers\Admin\Settings\GetSettingsPageController;
 use App\Http\Controllers\Admin\Settings\UpdateSettingsController;
 use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Blog\ShowBlogPostController;
 use App\Http\Controllers\Contact\ContactUsPageController;
 use App\Http\Controllers\FAQ\FAQController;
 use App\Http\Controllers\Home\HomeController;
@@ -53,7 +54,8 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/', HomeController::class)->name('home');
             Route::get('/about-us', AboutController::class)->name('about');
             Route::get('/faq', FAQController::class)->name('faq');
-            Route::get('/blog', BlogController::class)->name('blog');
+            Route::get('blog', BlogController::class)->name('blog');
+            Route::get('blog/{id}', ShowBlogPostController::class)->name('post');
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');
         });
     });
