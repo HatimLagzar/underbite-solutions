@@ -21,7 +21,7 @@
 <img style="margin-bottom: 10px;" width="230" src="{{ asset('images/mails/logo.png') }}" alt="Logo">
 
 <p>
-  Follow us on:
+  {{ __('Follow us on:') }}
   <a style="margin-right: 5px;" href="{{env('FACEBOOK_PAGE_URL', '#')}}"><img width="25"
                                                                                src="{{ asset('images/icons/facebook.png') }}"
                                                                                alt="Facebook"></a>
