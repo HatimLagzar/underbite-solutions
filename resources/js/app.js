@@ -77,6 +77,8 @@ function hanldeCheckInput() {
   })
 }
 
+let areAllSelected = false;
+
 if (document.location.pathname.startsWith('/admin/applications')) {
   checkModalTriggerBtn()
 
@@ -88,9 +90,11 @@ if (document.location.pathname.startsWith('/admin/applications')) {
   if (selectAllBtn instanceof HTMLElement) {
     selectAllBtn.addEventListener('click', e => {
       document.querySelectorAll('.select-patient').forEach(inputElement => {
-        inputElement.checked = true;
+        inputElement.checked = !areAllSelected;
         hanldeCheckInput();
       })
+
+      areAllSelected = !areAllSelected;
     })
   }
 }
