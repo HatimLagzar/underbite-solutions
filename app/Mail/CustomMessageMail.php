@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Patient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,16 +12,18 @@ class CustomMessageMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public string $message;
+    public ?string $message;
+    public Patient $patient;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(string $message)
+    public function __construct(Patient $patient, ?string $message)
     {
         $this->message = $message;
+        $this->patient = $patient;
     }
 
     /**
@@ -28,7 +31,7 @@ class CustomMessageMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): CustomMessageMail
     {
         return $this->markdown('mails.custom-message');
     }

@@ -5370,6 +5370,7 @@ function hanldeCheckInput() {
     document.querySelector('#unqualify-mass').insertAdjacentHTML('beforeend', "<input type=\"hidden\" name=\"ids[]\" value=\"".concat(checkedInputElement.value, "\" />"));
   });
 }
+var areAllSelected = false;
 if (document.location.pathname.startsWith('/admin/applications')) {
   checkModalTriggerBtn();
   document.querySelectorAll('.select-patient').forEach(function (inputElement) {
@@ -5379,9 +5380,10 @@ if (document.location.pathname.startsWith('/admin/applications')) {
   if (selectAllBtn instanceof HTMLElement) {
     selectAllBtn.addEventListener('click', function (e) {
       document.querySelectorAll('.select-patient').forEach(function (inputElement) {
-        inputElement.checked = true;
+        inputElement.checked = !areAllSelected;
         hanldeCheckInput();
       });
+      areAllSelected = !areAllSelected;
     });
   }
 }

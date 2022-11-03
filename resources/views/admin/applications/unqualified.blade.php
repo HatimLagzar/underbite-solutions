@@ -39,7 +39,7 @@
           <form id="send-mail-form" method="post" action="{{ route('admin.applications.mail') }}">
             @csrf
             <label class="form-label" for="message">Message</label>
-            <textarea name="message" id="message" cols="30" rows="10" class="form-control w-100">{{ __('Hi, Unfortunately your application has been denied.') }}</textarea>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control w-100"></textarea>
             <button class="btn btn-sm btn-primary mt-2"><i class="fa fa-paper-plane me-1"></i>Send</button>
           </form>
         </div>

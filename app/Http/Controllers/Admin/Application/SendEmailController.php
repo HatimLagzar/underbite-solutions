@@ -25,7 +25,7 @@ class SendEmailController extends Controller
     public function __invoke(SendEmailRequest $request): RedirectResponse
     {
         try {
-            $emails = [];
+            $patients = [];
             foreach ($request->get('ids') as $id) {
                 $patient = $this->patientService->findById($id);
                 if (!$patient instanceof Patient) {
@@ -34,19 +34,19 @@ class SendEmailController extends Controller
                         ->with('error', 'Patient not found!');
                 }
 
-                $emails[] = $patient->getEmail();
+                $patients[] = $patient;
             }
 
             $message = $request->get('message');
 
-            foreach ($emails as $email) {
-                Mail::to($email)
-                    ->queue(new CustomMessageMail($message));
+            foreach ($patients as $patient) {
+                Mail::to($patient->getEmail())
+                    ->queue(new CustomMessageMail($patient, $message));
             }
 
             return redirect()
-                    ->back()
-                    ->with('success', 'Message sent to ' . join(', ', $emails) . ' successfully.');
+                ->back()
+                ->with('success', 'Emails sent successfully.');
         } catch (Throwable $e) {
             Log::error('failed to send email', [
                 'error_message' => $e->getMessage(),
