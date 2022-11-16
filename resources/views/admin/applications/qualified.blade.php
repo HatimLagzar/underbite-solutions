@@ -38,7 +38,7 @@
           <form id="send-mail-form" method="post" action="{{ route('admin.applications.mail') }}">
             @csrf
             <label class="form-label" for="message">Message</label>
-            <textarea name="message" id="message" cols="30" rows="10" class="form-control w-100"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10" class="form-control w-100">Hi dear <<NAME>>,&NewLine;&NewLine;Thank you for submitting your application. We are currently receiving a high volume of applications and our processing is delayed, please wait while we review your application and get back to you with the next step. Your application number is <<APP_ID>>.&NewLine;&NewLine;While we process and review your application you can tell someone about our program who might also find it helpful.&NewLine;&NewLine;Thank you,&NewLine;&NewLine;</textarea>
             <button class="btn btn-sm btn-primary mt-2"><i class="fa fa-paper-plane me-1"></i>Send</button>
           </form>
         </div>

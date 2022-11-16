@@ -2,18 +2,17 @@
 
 # {{ __('Subject: We have received your application') }}
 
-<p>Hi dear {{ $patient->getFirstName() }},</p>
 @if(!$message)
+<p>Hi dear {{ $patient->getFirstName() }},</p>
 <p>{{ __('Thank you for submitting your application. We are currently receiving a high volume of
   applications and our processing is delayed, please wait while we review your application and get back to you with
   the next step. Your application number is') }} {{ $patient->getId() }}.</p>
 <p style="margin-bottom: 30px;">{{ __('While we process and review your application you can tell someone about our program who
   might also find it helpful.')}}</p>
-@else
-<p>{{ $message }}</p>
-@endif
-
 <p style="margin-bottom: 18px;">{{__('Thank you')}},</p>
+@else
+{!! $message !!}
+@endif
 
 <p style="margin-bottom: 0;">{{ __('Staff at UnitedOrthodontists.com') }}</p>
 <p style="margin-bottom: 15px;"><em style="font-size: 13px;">{{ __('Helping the most needy receive the care they need.') }}</em></p>

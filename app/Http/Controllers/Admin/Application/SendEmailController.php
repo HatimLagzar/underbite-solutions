@@ -37,9 +37,11 @@ class SendEmailController extends Controller
                 $patients[] = $patient;
             }
 
-            $message = $request->get('message');
-
             foreach ($patients as $patient) {
+                $message = nl2br($request->get('message'));
+                $message = str_replace('<<NAME>>', $patient->getFirstName(), $message);
+                $message = str_replace('<<APP_ID>>', $patient->getId(), $message);
+
                 Mail::to($patient->getEmail())
                     ->queue(new CustomMessageMail($patient, $message));
             }
