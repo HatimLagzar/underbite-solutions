@@ -31,7 +31,7 @@ class ListUnqualifiedApplicationsController extends Controller
                 })->latest()
             );
 
-            return view('admin.applications.qualified')
+            return view('admin.applications.unqualified')
                 ->with('applications', $applications);
         } catch (Throwable $e) {
             Log::error('failed to list qualified applications', [

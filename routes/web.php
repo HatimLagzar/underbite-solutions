@@ -96,7 +96,7 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::prefix('applications')->name('applications.')->group(function () {
         Route::get('/', ListApplicationsController::class)->name('index');
         Route::get('qualified', ListQualifiedApplicationsController::class)->name('qualified');
-        Route::get('unqualified', ListUnQualifiedApplicationsController::class)->name('unqualified');
+        Route::get('unqualified', ListUnqualifiedApplicationsController::class)->name('unqualified');
         Route::post('qualify', QualifyController::class)->name('qualify');
         Route::post('unqualify', UnqualifyController::class)->name('unqualify');
         Route::post('send-email', SendEmailController::class)->name('mail');
