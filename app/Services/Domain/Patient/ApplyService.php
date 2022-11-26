@@ -14,6 +14,7 @@ use App\Services\Core\PatientImage\PatientImageService;
 use App\Services\Domain\Patient\Exceptions\PatientAlreadyExistsException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class ApplyService
 {
@@ -74,6 +75,7 @@ class ApplyService
             Patient::PHONE_CODE_COLUMN          => $phoneCode,
             Patient::PHONE_NUMBER_COLUMN        => $phoneNumber,
             Patient::SOCIAL_NETWORK_NOTE_COLUMN => $socialNetworkNote,
+            Patient::PATIENT_NUMBER_COLUMN      => Str::random(),
         ]);
 
         $frontViewFileName = $frontView->hashName();

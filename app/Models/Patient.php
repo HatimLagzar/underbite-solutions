@@ -27,6 +27,7 @@ class Patient extends Model
     public const PHONE_NUMBER_COLUMN = 'phone_number';
     public const SOCIAL_NETWORK_NOTE_COLUMN = 'social_network_note';
     public const IS_QUALIFIED_COLUMN = 'is_qualified';
+    public const PATIENT_NUMBER_COLUMN = 'patient_number';
     public const CREATED_AT_COLUMN = 'created_at';
 
     public const MALE_GENDER = 1;
@@ -51,6 +52,7 @@ class Patient extends Model
         self::PHONE_CODE_COLUMN,
         self::PHONE_NUMBER_COLUMN,
         self::SOCIAL_NETWORK_NOTE_COLUMN,
+        self::PATIENT_NUMBER_COLUMN,
     ];
 
     /**
@@ -69,6 +71,11 @@ class Patient extends Model
     public function getEmail(): string
     {
         return $this->getAttribute(self::EMAIL_COLUMN);
+    }
+
+    public function getPatientNumber(): string
+    {
+        return $this->getAttribute(self::PATIENT_NUMBER_COLUMN);
     }
 
     public function getAge(): int

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Country;
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PatientFactory extends Factory
 {
@@ -27,6 +28,7 @@ class PatientFactory extends Factory
             Patient::PHONE_CODE_COLUMN          => $this->faker->countryCode,
             Patient::AGE_COLUMN                 => $this->faker->numberBetween(5, 130),
             Patient::SOCIAL_NETWORK_NOTE_COLUMN => $this->faker->url,
+            Patient::PATIENT_NUMBER_COLUMN      => Str::random(),
         ];
     }
 }
