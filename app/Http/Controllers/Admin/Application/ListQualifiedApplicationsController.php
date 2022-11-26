@@ -21,12 +21,19 @@ class ListQualifiedApplicationsController extends Controller
         $this->filterService = $filterService;
     }
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         try {
-            $applications = $this->filterService->filter(
-                $this->patientService->getQuery()->where(Patient::IS_QUALIFIED_COLUMN, true)->latest()
-            );
+            $query = $this->patientService->getQuery()->where(Patient::IS_QUALIFIED_COLUMN, true)->latest();
+
+            if ($request->get('search')) {
+                $query = $query->where(function ($query) use ($request) {
+                    $query->whereRaw("concat(" . Patient::FIRST_NAME_COLUMN . ", ' ', " . Patient::LAST_NAME_COLUMN . ") LIKE '%" . $request->get('search') . "%' ")
+                        ->orWhere(Patient::PATIENT_NUMBER_COLUMN, $request->get('search'));
+                });
+            }
+
+            $applications = $this->filterService->filter($query);
 
             return view('admin.applications.qualified')
                 ->with('applications', $applications);

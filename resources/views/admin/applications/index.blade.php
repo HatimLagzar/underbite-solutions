@@ -55,6 +55,8 @@
     </div>
   </div>
 
+  <x-search-box-name-or-number :route="route('admin.applications.index')" />
+
   <div class="actions-wrapper mb-3">
     <h6>Actions</h6>
     <div>
@@ -74,7 +76,7 @@
   <h2 class="mt-5 mb-3">Non-Categorized Patients</h2>
   <div class="row">
     @foreach($applications as $application)
-      <div class="col-3 mb-3">
+      <div class="col-4 mb-3">
         <div class="card shadow-sm">
           <div class="card-header">
             <label class="text-sm">
