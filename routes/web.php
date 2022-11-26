@@ -66,6 +66,8 @@ Route::prefix('admin/login')->name('admin.')->group(function () {
 });
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
+    Route::get('/', DashboardController::class);
+
     Route::prefix('dashboard')->group(function () {
         Route::get('/', DashboardController::class)->name('home');
         Route::get('submits', SubmitsDashboardController::class)->name('submits');
