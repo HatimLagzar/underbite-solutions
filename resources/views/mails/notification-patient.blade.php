@@ -17,6 +17,7 @@ We've detected a new patient who meets the criteria of the following notificatio
 
 Here are the information of the patient:
 <ul>
+  <li>Patient Number: {{ $patient->getPatientNumber() }}</li>
   <li>Name: {{ $patient->getFullName() }}</li>
   <li>Age: {{ $patient->getAge() }}</li>
   <li>Gender: {{ $patient->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>

@@ -92,6 +92,7 @@
             </button>
             <h5 class="text-center">{{ $application->getFullName() }}</h5>
             <ul class="list-unstyled">
+              <li>Patient Number: {{ $application->getPatientNumber() }}</li>
               <li>Age: {{ $application->getAge() }}</li>
               <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
               <li>Height: {{ $application->getHeight() }} cm</li>
@@ -154,6 +155,7 @@
             </div>
             <h5 class="text-center">{{ $application->getFullName() }}</h5>
             <ul class="list-unstyled">
+              <li>Patient Number: {{ $application->getPatientNumber() }}</li>
               <li>Age: {{ $application->getAge() }}</li>
               <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
               <li>Height: {{ $application->getHeight() }} cm</li>
