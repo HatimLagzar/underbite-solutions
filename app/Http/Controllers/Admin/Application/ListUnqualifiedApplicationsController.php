@@ -24,10 +24,7 @@ class ListUnqualifiedApplicationsController extends Controller
     public function __invoke(Request $request)
     {
         try {
-            $query = $this->patientService->getQuery()->where(function ($query) {
-                $query->where(Patient::IS_QUALIFIED_COLUMN, false)
-                    ->orWhereNull(Patient::IS_QUALIFIED_COLUMN);
-            })->latest();
+            $query = $this->patientService->getQuery()->where(Patient::IS_QUALIFIED_COLUMN, false)->latest();
 
             if ($request->get('search')) {
                 $query = $query->where(function ($query) use ($request) {
