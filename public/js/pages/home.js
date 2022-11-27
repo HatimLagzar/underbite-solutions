@@ -79,6 +79,13 @@ form.querySelectorAll('input[type=file]').forEach(function (inputElement) {
 });
 var webcamElement = document.getElementById('webcam-live');
 var canvasElement = document.getElementById('picture-canvas');
+if (window.innerWidth <= 425) {
+  webcamElement.width = 375;
+} else if (window.innerWidth <= 800) {
+  webcamElement.width = 500;
+} else {
+  webcamElement.width = 600;
+}
 var webcam = new Webcam["default"](webcamElement, 'user', canvasElement);
 var selectedInputId = null;
 form.querySelectorAll('.request-take-picture-btn').forEach(function (buttonElement) {
