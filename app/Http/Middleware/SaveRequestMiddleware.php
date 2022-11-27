@@ -10,6 +10,7 @@ use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Stevebauman\Location\Facades\Location;
 
 class SaveRequestMiddleware
@@ -33,7 +34,7 @@ class SaveRequestMiddleware
     public function handle(Request $request, Closure $next)
     {
         $iso3 = 'UNKNOWN';
-        if (Location::get(request()->ip())) {
+        if (App::isProduction() && Location::get(request()->ip())) {
             $countryCode = Location::get(request()->ip())->countryCode;
             $country = $this->countryService->findByCountryCode($countryCode);
             $iso3 = $country->getIso3();
