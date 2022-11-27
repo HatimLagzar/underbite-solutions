@@ -4616,8 +4616,8 @@ svg.progress-bar-svg {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 4px;
+  right: -2px;
 }
 #form-wrapper .apply-wrapper form .uploads .add-icon-wrapper i {
   color: #BA5E9C;
