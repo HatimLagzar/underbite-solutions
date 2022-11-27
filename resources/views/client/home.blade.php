@@ -450,7 +450,7 @@
   </section>
 
   <div class="modal fade" id="previewSnapshotModal" tabindex="-1" aria-labelledby="previewSnapshotModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="max-width: 700px;">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="previewSnapshotModalLabel">Take a Photo</h1>
