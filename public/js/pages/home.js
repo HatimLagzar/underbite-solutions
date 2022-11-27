@@ -81,6 +81,8 @@ var webcamElement = document.getElementById('webcam-live');
 var canvasElement = document.getElementById('picture-canvas');
 if (window.innerWidth <= 425) {
   webcamElement.width = 375;
+} else if (window.innerWidth <= 375) {
+  webcamElement.width = 300;
 } else if (window.innerWidth <= 800) {
   webcamElement.width = 500;
 } else {
