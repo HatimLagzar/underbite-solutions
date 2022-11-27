@@ -215,45 +215,101 @@
               <div class="row uploads">
                 <div class="col">
                   <input type="file" name="front_side" id="frontSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="frontSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
-                    <span class="bg-white add-icon-wrapper">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </label>
+                  <div class="dropdown" data-target="frontSideInput">
+                    <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
+                      <span class="bg-white add-icon-wrapper">
+                        <i class="fa fa-plus"></i>
+                      </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <label for="frontSideInput" class="dropdown-item position-relative w-100">
+                          <i class="fa fa-upload me-1"></i>{{__('Upload')}}
+                        </label>
+                      </li>
+                      <li>
+                        <button type="button" class="dropdown-item request-take-picture-btn">
+                          <i class="fa fa-camera me-1"></i>{{__('Take Picture')}}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                   <p class="text-black text-center mt-1 mb-0">{{ __('Front View') }}</p>
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="right_side" id="rightSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="rightSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
-                    <span class="bg-white add-icon-wrapper">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </label>
+                  <div class="dropdown" data-target="rightSideInput">
+                    <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
+                      <span class="bg-white add-icon-wrapper">
+                        <i class="fa fa-plus"></i>
+                      </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <label for="rightSideInput" class="dropdown-item position-relative w-100">
+                          <i class="fa fa-upload me-1"></i>{{__('Upload')}}
+                        </label>
+                      </li>
+                      <li>
+                        <button type="button" class="dropdown-item request-take-picture-btn">
+                          <i class="fa fa-camera me-1"></i>{{__('Take Picture')}}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                   <p class="text-black text-center mt-1 mb-0">{{ __('Right Side') }}</p>
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="right_closed" id="rightClosedSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="rightClosedSideInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
-                    <span class="bg-white add-icon-wrapper">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </label>
+                  <div class="dropdown" data-target="rightClosedSideInput">
+                    <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
+                      <span class="bg-white add-icon-wrapper">
+                        <i class="fa fa-plus"></i>
+                      </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <label for="rightClosedSideInput" class="dropdown-item position-relative w-100">
+                          <i class="fa fa-upload me-1"></i>{{__('Upload')}}
+                        </label>
+                      </li>
+                      <li>
+                        <button type="button" class="dropdown-item request-take-picture-btn">
+                          <i class="fa fa-camera me-1"></i>{{__('Take Picture')}}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                   <p class="text-black text-center mt-1 mb-0">{{ __('Right Closed') }}</p>
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col">
                   <input type="file" name="front_closed" id="frontClosedInput" class="visually-hidden" accept="image/*" required>
-                  <label for="frontClosedInput" class="position-relative w-100">
-                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
-                    <span class="bg-white add-icon-wrapper">
-                      <i class="fa fa-plus"></i>
-                    </span>
-                  </label>
+                  <div class="dropdown" data-target="frontClosedInput">
+                    <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
+                      <span class="bg-white add-icon-wrapper">
+                        <i class="fa fa-plus"></i>
+                      </span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <label for="frontClosedInput" class="dropdown-item position-relative w-100">
+                          <i class="fa fa-upload me-1"></i>{{__('Upload')}}
+                        </label>
+                      </li>
+                      <li>
+                        <button type="button" class="dropdown-item request-take-picture-btn">
+                          <i class="fa fa-camera me-1"></i>{{__('Take Picture')}}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                   <p class="text-black text-center mt-1 mb-0">{{ __('Front Closed') }}</p>
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
@@ -264,7 +320,7 @@
               <p id="error-feedback" class="text-danger text-center mb-1"></p>
               <p id="success-feedback" class="text-center text-success mb-1"></p>
 
-              <button class="btn btn-primary rounded-5 mx-auto d-block">Apply</button>
+              <button type="submit" class="btn btn-primary rounded-5 mx-auto d-block">Apply</button>
             </form>
           </div>
         </div>
@@ -392,6 +448,22 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade" id="previewSnapshotModal" tabindex="-1" aria-labelledby="previewSnapshotModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="previewSnapshotModalLabel">Take a Photo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <video id="webcam-live" autoplay playsinline width="640" height="480"></video>
+          <canvas id="picture-canvas" class="d-none"></canvas>
+          <button id="take-picture" class="btn btn-primary mx-auto d-block"><i class="fa fa-camera"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
 @push('scripts')
   <script src="{{ asset('js/pages/home.js') }}"></script>

@@ -21,7 +21,7 @@ if (form instanceof HTMLFormElement) {
   };
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var submitBtn = form.querySelector('button');
+    var submitBtn = form.querySelector('button[type=submit]');
     if (submitBtn instanceof HTMLButtonElement) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
@@ -49,6 +49,9 @@ if (form instanceof HTMLFormElement) {
       }
     }).then(function (response) {
       submitBtn.innerHTML = 'Apply';
+      $(form).find('.dropdown img').toArray().forEach(function (imgElement) {
+        imgElement.src = imgElement.getAttribute('data-src');
+      });
       submitBtn.disabled = false;
       document.querySelector('#error-feedback').innerText = '';
       document.querySelector('#success-feedback').innerText = response.data.message;
@@ -74,14 +77,49 @@ if (form instanceof HTMLFormElement) {
 form.querySelectorAll('input[type=file]').forEach(function (inputElement) {
   inputElement.addEventListener('change', previewUploadedImage);
 });
+var webcamElement = document.getElementById('webcam-live');
+var canvasElement = document.getElementById('picture-canvas');
+var webcam = new Webcam["default"](webcamElement, 'user', canvasElement);
+var selectedInputId = null;
+form.querySelectorAll('.request-take-picture-btn').forEach(function (buttonElement) {
+  buttonElement.addEventListener('click', function () {
+    initWebcam(buttonElement);
+  });
+});
+function initWebcam(buttonElement) {
+  $('#previewSnapshotModal').modal('show');
+  selectedInputId = $(buttonElement).parents('.dropdown:first').attr('data-target');
+  webcam.start().then(function () {
+    document.querySelector('#take-picture').removeEventListener('click', savePictureFromCamera);
+    document.querySelector('#take-picture').addEventListener('click', savePictureFromCamera);
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+function savePictureFromCamera() {
+  var picture = webcam.snap();
+  webcam.stop();
+  $('#previewSnapshotModal').modal('hide');
+  $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
+  fetch(picture).then(function (res) {
+    return res.blob();
+  }).then(function (blob) {
+    var pictureFile = new File([blob], 'image.png', {
+      type: blob.type
+    });
+    var dataTransfer = new DataTransfer();
+    dataTransfer.items.add(pictureFile);
+    document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
+  });
+}
 function previewUploadedImage(e) {
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),
     file = _e$currentTarget$file[0];
   var label = e.currentTarget.labels[0];
   if (file) {
-    label.querySelector('img').src = URL.createObjectURL(file);
+    $(label).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
   } else {
-    label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
+    $(label).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
   }
 }
 /******/ })()
