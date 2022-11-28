@@ -92,19 +92,7 @@ form.querySelectorAll('input[type=file]').forEach(inputElement => {
 
 const webcamElement = document.getElementById('webcam-live');
 const canvasElement = document.getElementById('picture-canvas');
-webcamElement.width = 600;
-
-if (window.innerWidth <= 800) {
-  webcamElement.width = 500;
-}
-
-if (window.innerWidth <= 425) {
-  webcamElement.width = 375;
-}
-
-if (window.innerWidth <= 375) {
-  webcamElement.width = 300;
-}
+webcamElement.width = 1200;
 
 const webcam = new Webcam.default(webcamElement, 'user', canvasElement);
 let selectedInputId = null;
@@ -130,10 +118,14 @@ function initWebcam(buttonElement) {
 }
 
 function savePictureFromCamera() {
+  webcamElement.classList.remove('mx-w-full')
+
   let picture = webcam.snap();
   webcam.stop();
 
+  webcamElement.classList.add('mx-w-full')
   $('#previewSnapshotModal').modal('hide');
+
   $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
 
   fetch(picture)

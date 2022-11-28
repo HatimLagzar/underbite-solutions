@@ -457,7 +457,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <video id="webcam-live" autoplay playsinline style="display: block; margin: 0 auto 25px;"></video>
+          <video id="webcam-live" class="mx-w-full" autoplay playsinline style="display: block; margin: 0 auto 25px;"></video>
           <canvas id="picture-canvas" class="d-none"></canvas>
           <button id="take-picture" class="btn btn-primary mx-auto d-block"><i class="fa fa-camera me-1"></i>{{__('Take Picture')}}</button>
         </div>
