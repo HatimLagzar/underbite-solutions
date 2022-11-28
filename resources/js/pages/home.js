@@ -120,36 +120,37 @@ function initWebcam(buttonElement) {
 function savePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full')
 
-  setTimeout(() => {
-    let picture = webcam.snap();
-    webcam.stop();
+  let picture = webcam.snap();
+  webcam.stop();
 
-    webcamElement.classList.add('mx-w-full')
-    $('#previewSnapshotModal').modal('hide');
+  webcamElement.classList.add('mx-w-full')
+  $('#previewSnapshotModal').modal('hide');
 
-    $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
+  $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
 
-    fetch(picture)
-      .then(res => res.blob())
-      .then(blob => {
-        const pictureFile = new File([blob], 'image.png', {
-          type: blob.type,
-        });
+  fetch(picture)
+    .then(res => res.blob())
+    .then(blob => {
+      const pictureFile = new File([blob], 'image.png', {
+        type: blob.type,
+      });
 
-        let dataTransfer = new DataTransfer();
-        dataTransfer.items.add(pictureFile)
+      let dataTransfer = new DataTransfer();
+      dataTransfer.items.add(pictureFile)
 
-        document.querySelector('input#' + selectedInputId).files = dataTransfer.files
-      })
-  }, 500);
+      document.querySelector('input#' + selectedInputId).files = dataTransfer.files
+    })
 }
 
 function previewUploadedImage(e) {
+  debugger
   const [file] = e.currentTarget.files;
   const label = e.currentTarget.labels[0];
   if (file) {
     $(label).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
+    label.querySelector('img').src = URL.createObjectURL(file);
   } else {
     $(label).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
+    label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
   }
 }

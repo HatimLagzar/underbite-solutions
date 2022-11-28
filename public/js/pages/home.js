@@ -99,32 +99,33 @@ function initWebcam(buttonElement) {
 }
 function savePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full');
-  setTimeout(function () {
-    var picture = webcam.snap();
-    webcam.stop();
-    webcamElement.classList.add('mx-w-full');
-    $('#previewSnapshotModal').modal('hide');
-    $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
-    fetch(picture).then(function (res) {
-      return res.blob();
-    }).then(function (blob) {
-      var pictureFile = new File([blob], 'image.png', {
-        type: blob.type
-      });
-      var dataTransfer = new DataTransfer();
-      dataTransfer.items.add(pictureFile);
-      document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
+  var picture = webcam.snap();
+  webcam.stop();
+  webcamElement.classList.add('mx-w-full');
+  $('#previewSnapshotModal').modal('hide');
+  $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
+  fetch(picture).then(function (res) {
+    return res.blob();
+  }).then(function (blob) {
+    var pictureFile = new File([blob], 'image.png', {
+      type: blob.type
     });
-  }, 500);
+    var dataTransfer = new DataTransfer();
+    dataTransfer.items.add(pictureFile);
+    document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
+  });
 }
 function previewUploadedImage(e) {
+  debugger;
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),
     file = _e$currentTarget$file[0];
   var label = e.currentTarget.labels[0];
   if (file) {
     $(label).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
+    label.querySelector('img').src = URL.createObjectURL(file);
   } else {
     $(label).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
+    label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
   }
 }
 /******/ })()
