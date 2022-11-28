@@ -20,9 +20,11 @@
     </div>
     <div class="container">
       <h1>{{ __('Care for your smile') }}</h1>
-      <div class="col-lg-5 col-12">
-        <p>{{ __('Your smile is one of the important things for your and we care about this, that’s why we gathered to help you fix this problem and make your life easier.') }}</p>
-        <a href="/#form-wrapper" class="btn btn-primary rounded-5 apply">{{ __('Apply & Meet Us') }}</a>
+      <div class="row">
+        <div class="col-lg-5 col-12">
+          <p>{{ __('Your smile is one of the important things for your and we care about this, that’s why we gathered to help you fix this problem and make your life easier.') }}</p>
+          <a href="/#form-wrapper" class="btn btn-primary rounded-5 apply">{{ __('Apply & Meet Us') }}</a>
+        </div>
       </div>
     </div>
   </section>

@@ -4743,6 +4743,10 @@ svg.progress-bar-svg {
   .apply-col {
     margin-top: 50px !important;
   }
+  .apply-col .add-icon-wrapper {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
   #form-wrapper {
     padding: 50px 0;
   }
@@ -4799,6 +4803,9 @@ svg.progress-bar-svg {
 @media screen and (max-width: 425px) {
   #hero {
     background-position: 90% center;
+  }
+  #hero .container {
+    left: auto;
   }
   #form-wrapper {
     padding: 50px 0;

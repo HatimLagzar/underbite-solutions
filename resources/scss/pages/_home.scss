@@ -361,6 +361,11 @@
 
   .apply-col {
     margin-top: 50px !important;
+
+    .add-icon-wrapper {
+      right: 0 !important;
+      bottom: 0 !important;
+    }
   }
 
   #form-wrapper {
@@ -437,6 +442,10 @@
 @media screen and (max-width: 425px) {
   #hero {
     background-position: 90% center;
+
+    .container {
+      left: auto;
+    }
   }
 
   #form-wrapper {
