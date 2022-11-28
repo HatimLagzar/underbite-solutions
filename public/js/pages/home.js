@@ -77,11 +77,16 @@ if (form instanceof HTMLFormElement) {
 form.querySelectorAll('input[type=file]').forEach(function (inputElement) {
   inputElement.addEventListener('change', previewUploadedImage);
 });
+var usePictureButtonElement = document.querySelector('#use-picture');
+var retakePictureButtonElement = document.querySelector('#retake-picture');
+var takePictureButtonElement = document.querySelector('#take-picture');
+var controlsElement = document.getElementById('picture-controls');
 var webcamElement = document.getElementById('webcam-live');
 var canvasElement = document.getElementById('picture-canvas');
 webcamElement.width = 1200;
 var webcam = new Webcam["default"](webcamElement, 'user', canvasElement);
 var selectedInputId = null;
+var picture = null;
 document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', function () {
   webcam.stop();
 });
@@ -94,17 +99,29 @@ function initWebcam(buttonElement) {
   $('#previewSnapshotModal').modal('show');
   selectedInputId = $(buttonElement).parents('.dropdown:first').attr('data-target');
   webcam.start().then(function () {
-    document.querySelector('#take-picture').removeEventListener('click', savePictureFromCamera);
-    document.querySelector('#take-picture').addEventListener('click', savePictureFromCamera);
+    takePictureButtonElement.removeEventListener('click', preSavePictureFromCamera);
+    takePictureButtonElement.addEventListener('click', preSavePictureFromCamera);
   })["catch"](function (err) {
     console.log(err);
   });
 }
-function savePictureFromCamera() {
+function preSavePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full');
-  var picture = webcam.snap();
-  webcam.stop();
+  picture = webcam.snap();
   webcamElement.classList.add('mx-w-full');
+  webcamElement.classList.add('d-none');
+  canvasElement.classList.remove('d-none');
+  canvasElement.classList.add('mx-w-full');
+  controlsElement.classList.remove('d-none');
+  controlsElement.classList.add('d-flex');
+  takePictureButtonElement.classList.add('d-none');
+  usePictureButtonElement.removeEventListener('click', savePicture);
+  usePictureButtonElement.addEventListener('click', savePicture);
+  retakePictureButtonElement.removeEventListener('click', reTakePicture);
+  retakePictureButtonElement.addEventListener('click', reTakePicture);
+}
+function savePicture() {
+  webcam.stop();
   $('#previewSnapshotModal').modal('hide');
   $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
   fetch(picture).then(function (res) {
@@ -116,7 +133,16 @@ function savePictureFromCamera() {
     var dataTransfer = new DataTransfer();
     dataTransfer.items.add(pictureFile);
     document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
+    reTakePicture();
   });
+}
+function reTakePicture() {
+  webcamElement.classList.remove('d-none');
+  canvasElement.classList.add('d-none');
+  canvasElement.classList.remove('mx-w-full');
+  controlsElement.classList.add('d-none');
+  controlsElement.classList.remove('d-flex');
+  takePictureButtonElement.classList.remove('d-none');
 }
 function previewUploadedImage(e) {
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),

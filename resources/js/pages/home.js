@@ -90,12 +90,17 @@ form.querySelectorAll('input[type=file]').forEach(inputElement => {
   inputElement.addEventListener('change', previewUploadedImage)
 })
 
+const usePictureButtonElement = document.querySelector('#use-picture');
+const retakePictureButtonElement = document.querySelector('#retake-picture');
+const takePictureButtonElement = document.querySelector('#take-picture');
+const controlsElement = document.getElementById('picture-controls');
 const webcamElement = document.getElementById('webcam-live');
 const canvasElement = document.getElementById('picture-canvas');
 webcamElement.width = 1200;
 
 const webcam = new Webcam.default(webcamElement, 'user', canvasElement);
 let selectedInputId = null;
+let picture = null;
 
 document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', () => {
   webcam.stop();
@@ -113,21 +118,37 @@ function initWebcam(buttonElement) {
 
   webcam.start()
     .then(() => {
-      document.querySelector('#take-picture').removeEventListener('click', savePictureFromCamera)
-      document.querySelector('#take-picture').addEventListener('click', savePictureFromCamera)
+      takePictureButtonElement.removeEventListener('click', preSavePictureFromCamera)
+      takePictureButtonElement.addEventListener('click', preSavePictureFromCamera)
     })
     .catch(err => {
       console.log(err);
     });
 }
 
-function savePictureFromCamera() {
+function preSavePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full')
 
-  let picture = webcam.snap();
-  webcam.stop();
+  picture = webcam.snap();
 
-  webcamElement.classList.add('mx-w-full')
+  webcamElement.classList.add('mx-w-full');
+  webcamElement.classList.add('d-none');
+  canvasElement.classList.remove('d-none');
+  canvasElement.classList.add('mx-w-full');
+  controlsElement.classList.remove('d-none');
+  controlsElement.classList.add('d-flex');
+
+  takePictureButtonElement.classList.add('d-none');
+
+  usePictureButtonElement.removeEventListener('click', savePicture)
+  usePictureButtonElement.addEventListener('click', savePicture)
+
+  retakePictureButtonElement.removeEventListener('click', reTakePicture)
+  retakePictureButtonElement.addEventListener('click', reTakePicture)
+}
+
+function savePicture() {
+  webcam.stop();
   $('#previewSnapshotModal').modal('hide');
 
   $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
@@ -143,7 +164,18 @@ function savePictureFromCamera() {
       dataTransfer.items.add(pictureFile)
 
       document.querySelector('input#' + selectedInputId).files = dataTransfer.files
+
+      reTakePicture()
     })
+}
+
+function reTakePicture() {
+  webcamElement.classList.remove('d-none');
+  canvasElement.classList.add('d-none');
+  canvasElement.classList.remove('mx-w-full');
+  controlsElement.classList.add('d-none');
+  controlsElement.classList.remove('d-flex');
+  takePictureButtonElement.classList.remove('d-none');
 }
 
 function previewUploadedImage(e) {
