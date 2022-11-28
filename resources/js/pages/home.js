@@ -97,6 +97,10 @@ webcamElement.width = 1200;
 const webcam = new Webcam.default(webcamElement, 'user', canvasElement);
 let selectedInputId = null;
 
+document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', () => {
+  webcam.stop();
+})
+
 form.querySelectorAll('.request-take-picture-btn').forEach(buttonElement => {
   buttonElement.addEventListener('click', () => {
     initWebcam(buttonElement);

@@ -82,6 +82,9 @@ var canvasElement = document.getElementById('picture-canvas');
 webcamElement.width = 1200;
 var webcam = new Webcam["default"](webcamElement, 'user', canvasElement);
 var selectedInputId = null;
+document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', function () {
+  webcam.stop();
+});
 form.querySelectorAll('.request-take-picture-btn').forEach(function (buttonElement) {
   buttonElement.addEventListener('click', function () {
     initWebcam(buttonElement);
