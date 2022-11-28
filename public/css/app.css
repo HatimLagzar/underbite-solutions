@@ -5036,3 +5036,10 @@ svg.progress-bar-svg {
     padding: 0;
   }
 }
+.mx-w-full {
+  max-width: 100%;
+}
+
+.mx-w-none {
+  max-width: none;
+}
