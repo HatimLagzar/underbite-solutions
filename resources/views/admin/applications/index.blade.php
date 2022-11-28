@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-9">
+    <div class="col-12">
       <x-advanced-patient-search />
     </div>
     <div class="col-3">

@@ -119,11 +119,12 @@ function previewUploadedImage(e) {
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),
     file = _e$currentTarget$file[0];
   var label = e.currentTarget.labels[0];
+  var labelDropdown = e.currentTarget.labels[1];
   if (file) {
-    $(label).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
+    $(labelDropdown).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
     label.querySelector('img').src = URL.createObjectURL(file);
   } else {
-    $(label).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
+    $(labelDropdown).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
     label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
   }
 }

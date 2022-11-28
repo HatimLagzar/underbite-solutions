@@ -145,11 +145,12 @@ function savePictureFromCamera() {
 function previewUploadedImage(e) {
   const [file] = e.currentTarget.files;
   const label = e.currentTarget.labels[0];
+  const labelDropdown = e.currentTarget.labels[1];
   if (file) {
-    $(label).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
+    $(labelDropdown).parents('.dropdown:first').find('img').attr('src', URL.createObjectURL(file));
     label.querySelector('img').src = URL.createObjectURL(file);
   } else {
-    $(label).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
+    $(labelDropdown).parents('.dropdown:first').find('img').attr('src', $(label).parents('.dropdown:first').find('img').attr('data-src'));
     label.querySelector('img').src = label.querySelector('img').getAttribute('data-src');
   }
 }
