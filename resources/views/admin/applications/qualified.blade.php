@@ -108,7 +108,8 @@
               <li>Height: {{ $application->getHeight() }} cm</li>
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
-              <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+              <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+              <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
               <li>Status: Qualified</li>
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
@@ -171,7 +172,8 @@
               <li>Height: {{ $application->getHeight() }} cm</li>
               <li>Weight: {{ $application->getWeight() }} Kg</li>
               <li>Country: {{ $application->getCountry()->getName() }}</li>
-              <li>Contact: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+              <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+              <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
               <li>Status: Qualified</li>
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>

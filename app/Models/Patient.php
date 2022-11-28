@@ -73,6 +73,16 @@ class Patient extends Model
         return $this->getAttribute(self::EMAIL_COLUMN);
     }
 
+    public function getPhoneNumber(): string
+    {
+        return $this->getAttribute(self::PHONE_NUMBER_COLUMN);
+    }
+
+    public function getFullPhoneNumberFormat(): string
+    {
+        return str_contains($this->getPhoneNumber(), '+') ? $this->getPhoneNumber() : '+' . $this->getPhoneCode() . $this->getPhoneNumber();
+    }
+
     public function getPatientNumber(): string
     {
         return $this->getAttribute(self::PATIENT_NUMBER_COLUMN);
@@ -173,5 +183,10 @@ class Patient extends Model
     public function images(): HasMany
     {
         return $this->hasMany(PatientImage::class, PatientImage::PATIENT_ID_COLUMN, self::ID_COLUMN);
+    }
+
+    public function getPhoneCode(): string
+    {
+        return $this->getAttribute(self::PHONE_CODE_COLUMN);
     }
 }
