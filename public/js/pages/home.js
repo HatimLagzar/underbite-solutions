@@ -79,14 +79,15 @@ form.querySelectorAll('input[type=file]').forEach(function (inputElement) {
 });
 var webcamElement = document.getElementById('webcam-live');
 var canvasElement = document.getElementById('picture-canvas');
+webcamElement.width = 600;
 if (window.innerWidth <= 425) {
   webcamElement.width = 375;
-} else if (window.innerWidth <= 375) {
+}
+if (window.innerWidth <= 375) {
   webcamElement.width = 300;
-} else if (window.innerWidth <= 800) {
+}
+if (window.innerWidth <= 800) {
   webcamElement.width = 500;
-} else {
-  webcamElement.width = 600;
 }
 var webcam = new Webcam["default"](webcamElement, 'user', canvasElement);
 var selectedInputId = null;
