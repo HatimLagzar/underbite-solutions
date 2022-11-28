@@ -215,13 +215,13 @@
               <div class="row uploads">
                 <div class="col-6 col-sm-3">
                   <input type="file" name="front_side" id="frontSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="frontSideInput" class="position-relative w-100 d-block d-sm-none">
+                  <label for="frontSideInput" class="position-relative w-100 d-block d-lg-none">
                     <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <div class="dropdown d-sm-block d-none" data-target="frontSideInput">
+                  <div class="dropdown d-lg-block d-none" data-target="frontSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
                       <span class="bg-white add-icon-wrapper">
@@ -246,13 +246,13 @@
                 </div>
                 <div class="col-6 col-sm-3">
                   <input type="file" name="right_side" id="rightSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="rightSideInput" class="position-relative w-100 d-block d-sm-none">
+                  <label for="rightSideInput" class="position-relative w-100 d-block d-lg-none">
                     <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <div class="dropdown d-sm-block d-none" data-target="rightSideInput">
+                  <div class="dropdown d-lg-block d-none" data-target="rightSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
                       <span class="bg-white add-icon-wrapper">
@@ -277,13 +277,13 @@
                 </div>
                 <div class="col-6 col-sm-3">
                   <input type="file" name="right_closed" id="rightClosedSideInput" class="visually-hidden" accept="image/*" required>
-                  <label for="rightClosedSideInput" class="position-relative w-100 d-block d-sm-none">
+                  <label for="rightClosedSideInput" class="position-relative w-100 d-block d-lg-none">
                     <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <div class="dropdown d-sm-block d-none" data-target="rightClosedSideInput">
+                  <div class="dropdown d-lg-block d-none" data-target="rightClosedSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
                       <span class="bg-white add-icon-wrapper">
@@ -308,13 +308,13 @@
                 </div>
                 <div class="col-6 col-sm-3">
                   <input type="file" name="front_closed" id="frontClosedInput" class="visually-hidden" accept="image/*" required>
-                  <label for="frontClosedInput" class="position-relative w-100 d-block d-sm-none">
+                  <label for="frontClosedInput" class="position-relative w-100 d-block d-lg-none">
                     <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
-                  <div class="dropdown d-sm-block d-none" data-target="frontClosedInput">
+                  <div class="dropdown d-lg-block d-none" data-target="frontClosedInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
                       <span class="bg-white add-icon-wrapper">

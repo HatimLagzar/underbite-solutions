@@ -116,7 +116,6 @@ function savePictureFromCamera() {
   });
 }
 function previewUploadedImage(e) {
-  debugger;
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),
     file = _e$currentTarget$file[0];
   var label = e.currentTarget.labels[0];

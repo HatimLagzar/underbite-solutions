@@ -143,7 +143,6 @@ function savePictureFromCamera() {
 }
 
 function previewUploadedImage(e) {
-  debugger
   const [file] = e.currentTarget.files;
   const label = e.currentTarget.labels[0];
   if (file) {
