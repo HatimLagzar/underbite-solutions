@@ -99,21 +99,23 @@ function initWebcam(buttonElement) {
 }
 function savePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full');
-  var picture = webcam.snap();
-  webcam.stop();
-  webcamElement.classList.add('mx-w-full');
-  $('#previewSnapshotModal').modal('hide');
-  $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
-  fetch(picture).then(function (res) {
-    return res.blob();
-  }).then(function (blob) {
-    var pictureFile = new File([blob], 'image.png', {
-      type: blob.type
+  setTimeout(function () {
+    var picture = webcam.snap();
+    webcam.stop();
+    webcamElement.classList.add('mx-w-full');
+    $('#previewSnapshotModal').modal('hide');
+    $(".dropdown[data-target=\"".concat(selectedInputId, "\"] img")).attr('src', picture);
+    fetch(picture).then(function (res) {
+      return res.blob();
+    }).then(function (blob) {
+      var pictureFile = new File([blob], 'image.png', {
+        type: blob.type
+      });
+      var dataTransfer = new DataTransfer();
+      dataTransfer.items.add(pictureFile);
+      document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
     });
-    var dataTransfer = new DataTransfer();
-    dataTransfer.items.add(pictureFile);
-    document.querySelector('input#' + selectedInputId).files = dataTransfer.files;
-  });
+  }, 500);
 }
 function previewUploadedImage(e) {
   var _e$currentTarget$file = _slicedToArray(e.currentTarget.files, 1),

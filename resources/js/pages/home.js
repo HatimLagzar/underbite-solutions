@@ -120,26 +120,28 @@ function initWebcam(buttonElement) {
 function savePictureFromCamera() {
   webcamElement.classList.remove('mx-w-full')
 
-  let picture = webcam.snap();
-  webcam.stop();
+  setTimeout(() => {
+    let picture = webcam.snap();
+    webcam.stop();
 
-  webcamElement.classList.add('mx-w-full')
-  $('#previewSnapshotModal').modal('hide');
+    webcamElement.classList.add('mx-w-full')
+    $('#previewSnapshotModal').modal('hide');
 
-  $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
+    $(`.dropdown[data-target="${selectedInputId}"] img`).attr('src', picture);
 
-  fetch(picture)
-    .then(res => res.blob())
-    .then(blob => {
-      const pictureFile = new File([blob], 'image.png', {
-        type: blob.type,
-      });
+    fetch(picture)
+      .then(res => res.blob())
+      .then(blob => {
+        const pictureFile = new File([blob], 'image.png', {
+          type: blob.type,
+        });
 
-      let dataTransfer = new DataTransfer();
-      dataTransfer.items.add(pictureFile)
+        let dataTransfer = new DataTransfer();
+        dataTransfer.items.add(pictureFile)
 
-      document.querySelector('input#' + selectedInputId).files = dataTransfer.files
-    })
+        document.querySelector('input#' + selectedInputId).files = dataTransfer.files
+      })
+  }, 500);
 }
 
 function previewUploadedImage(e) {
