@@ -4873,6 +4873,11 @@ svg.progress-bar-svg {
     padding: 40px 20px;
   }
 }
+#picture-controls button {
+  padding: 0.75rem 2.5rem;
+  border: none;
+}
+
 #about-us {
   width: 100%;
   background-color: #0E54AE;

@@ -104,6 +104,7 @@ let picture = null;
 
 document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', () => {
   webcam.stop();
+  reTakePicture()
 })
 
 form.querySelectorAll('.request-take-picture-btn').forEach(buttonElement => {

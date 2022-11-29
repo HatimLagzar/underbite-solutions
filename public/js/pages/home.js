@@ -89,6 +89,7 @@ var selectedInputId = null;
 var picture = null;
 document.querySelector('#previewSnapshotModal').addEventListener('hide.bs.modal', function () {
   webcam.stop();
+  reTakePicture();
 });
 form.querySelectorAll('.request-take-picture-btn').forEach(function (buttonElement) {
   buttonElement.addEventListener('click', function () {

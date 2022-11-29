@@ -485,10 +485,10 @@
         <div class="modal-body">
           <h4 class="text-center">{{__('Please make sure you are your area is well lite before taking a picture, good lighting is essential for clear photos.')}}</h4>
           <video id="webcam-live" class="mx-w-full" autoplay playsinline style="display: block; margin: 0 auto 25px;"></video>
-          <canvas id="picture-canvas" class="d-none"></canvas>
+          <canvas id="picture-canvas" class="d-none" style="margin: 0 auto 19px;"></canvas>
           <div id="picture-controls" class="d-none justify-content-center">
-            <button id="retake-picture" class="btn btn-danger d-block btn-sm"><i class="fa fa-repeat me-1"></i>{{__('Retake')}}</button>
-            <button id="use-picture" class="btn btn-info btn-sm d-block ms-2"><i class="fa fa-check me-1"></i>{{__('Use')}}</button>
+            <button id="retake-picture" class="btn btn-danger d-block"><i class="fa fa-repeat me-1"></i>{{__('Retake')}}</button>
+            <button id="use-picture" class="btn btn-info d-block ms-2"><i class="fa fa-check me-1"></i>{{__('Use')}}</button>
           </div>
           <button id="take-picture" class="btn btn-primary mx-auto d-block"><i class="fa fa-camera me-1"></i>{{__('Take Picture')}}</button>
         </div>
