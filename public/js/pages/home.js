@@ -99,6 +99,8 @@ form.querySelectorAll('.request-take-picture-btn').forEach(function (buttonEleme
 function initWebcam(buttonElement) {
   $('#previewSnapshotModal').modal('show');
   selectedInputId = $(buttonElement).parents('.dropdown:first').attr('data-target');
+  var text = $('input#' + selectedInputId).attr('data-text');
+  $('button#take-picture').html('<i class="fa fa-camera me-2"></i>Take Picture - ' + text);
   webcam.start().then(function () {
     takePictureButtonElement.removeEventListener('click', preSavePictureFromCamera);
     takePictureButtonElement.addEventListener('click', preSavePictureFromCamera);
