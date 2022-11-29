@@ -50,7 +50,7 @@ class AddPatientNumberToOldPatientsCommand extends Command
                 $patients->each(function (Patient $patient) {
                     if (!$patient->getPatientNumber()) {
                         $this->patientService->update($patient, [
-                            Patient::PATIENT_NUMBER_COLUMN => Str::upper(Str::random())
+                            Patient::PATIENT_NUMBER_COLUMN => rand(10000000, 99999999)
                         ]);
                     }
                 });

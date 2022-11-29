@@ -28,7 +28,7 @@ class PatientFactory extends Factory
             Patient::PHONE_CODE_COLUMN          => $this->faker->countryCode,
             Patient::AGE_COLUMN                 => $this->faker->numberBetween(5, 130),
             Patient::SOCIAL_NETWORK_NOTE_COLUMN => $this->faker->url,
-            Patient::PATIENT_NUMBER_COLUMN      => Str::random(),
+            Patient::PATIENT_NUMBER_COLUMN      => rand(10000000, 99999999),
         ];
     }
 }

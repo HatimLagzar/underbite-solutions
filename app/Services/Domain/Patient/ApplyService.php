@@ -75,7 +75,7 @@ class ApplyService
             Patient::PHONE_CODE_COLUMN          => $phoneCode,
             Patient::PHONE_NUMBER_COLUMN        => $phoneNumber,
             Patient::SOCIAL_NETWORK_NOTE_COLUMN => $socialNetworkNote,
-            Patient::PATIENT_NUMBER_COLUMN      => Str::random(),
+            Patient::PATIENT_NUMBER_COLUMN      => rand(10000000, 99999999),
         ]);
 
         $frontViewFileName = $frontView->hashName();
