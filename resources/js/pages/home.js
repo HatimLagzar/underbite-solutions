@@ -118,7 +118,7 @@ function initWebcam(buttonElement) {
   selectedInputId = $(buttonElement).parents('.dropdown:first').attr('data-target')
 
   const text = $('input#' + selectedInputId).attr('data-text')
-  $('button#take-picture').html('<i class="fa fa-camera me-2"></i>Take Picture - ' + text)
+  $('#previewSnapshotModalLabel').text('Take Picture - ' + text)
 
   webcam.start()
     .then(() => {
