@@ -483,7 +483,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h5 class="text-center">{{__('Please make sure you are your area is well lite before taking a picture, good lighting is essential for clear photos.')}}</h5>
+          <h6 class="text-center text-white bg-danger rounded-2 p-2 mb-3">{{__('Please make sure you are your area is well lite before taking a picture, good lighting is essential for clear photos.')}}</h6>
           <video id="webcam-live" class="mx-w-full" autoplay playsinline style="display: block; margin: 0 auto 25px;"></video>
           <canvas id="picture-canvas" class="d-none" style="margin: 0 auto 19px;"></canvas>
           <div id="picture-controls" class="d-none justify-content-center">
