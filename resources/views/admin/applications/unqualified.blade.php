@@ -49,39 +49,47 @@
       </div>
     </div>
   </div>
-  <div class="row mb-3">
-    <div class="col-9">
+
+  <div class="row mb-4">
+    <div class="col-12">
       <x-advanced-patient-search />
     </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-4">
+      <div class="actions-wrapper">
+        <span>Actions:</span>
+        <div style="display: inline-block">
+          <button id="select-all" class="btn btn-sm btn-outline-primary me-1">Select All</button>
+          <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
+            @csrf
+            <button class="btn btn-sm btn-outline-primary">Qualify</button>
+          </form>
+          <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
+            @csrf
+            <button class="btn btn-sm btn-outline-primary">Unqualify</button>
+          </form>
+          <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat me-1"></i>Relaod</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <x-search-box-name-or-number :route="route('admin.applications.unqualified')" />
+    </div>
+
     <div class="col-3">
-      <h5>Quick Filters</h5>
-      <form action="" method="get">
-        <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-light">Others</a>
+      <span>Patients:</span>
+      <form action="" method="get" style="display: inline-block">
+        {{--        <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-light">Others</a>--}}
         <a href="{{ route('admin.applications.qualified') }}" class="btn btn-sm btn btn-primary">Qualified</a>
         <a href="{{ route('admin.applications.unqualified') }}" class="btn btn-sm btn btn-danger">Non-Qualified</a>
       </form>
     </div>
   </div>
 
-  <x-search-box-name-or-number :route="route('admin.applications.unqualified')" />
-
-  <div class="actions-wrapper mb-3">
-    <h6>Actions</h6>
-    <div>
-      <button id="select-all" class="btn btn-sm btn-outline-primary me-1">Select All</button>
-      <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
-        @csrf
-        <button class="btn btn-sm btn-outline-primary">Qualify</button>
-      </form>
-      <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
-        @csrf
-        <button class="btn btn-sm btn-outline-primary">Unqualify</button>
-      </form>
-      <a href="{{ route('admin.applications.unqualified') }}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat me-1"></i>Relaod</a>
-    </div>
-  </div>
-
-  <h2 class="mt-5 mb-3">Non-Qualified Patients</h2>
+  <h2 class="mb-3 mt-5 text-center">Non-Qualified Patients</h2>
   <div class="row">
     @foreach($applications as $application)
       <div class="col-4 mb-3">
