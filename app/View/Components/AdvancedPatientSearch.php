@@ -6,16 +6,13 @@ use Illuminate\View\Component;
 
 class AdvancedPatientSearch extends Component
 {
-    private string $title;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $title)
+    public function __construct()
     {
-        $this->title = $title;
     }
 
     /**
@@ -25,7 +22,6 @@ class AdvancedPatientSearch extends Component
      */
     public function render()
     {
-        return view('components.advanced-patient-search')
-            ->with('title', $this->title);
+        return view('components.advanced-patient-search');
     }
 }

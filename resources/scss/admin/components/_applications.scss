@@ -1,4 +1,6 @@
 .applications-page {
+  margin-top: -40px !important;
+
   .card {
     height: 100%;
 
@@ -7,8 +9,11 @@
       flex-direction: column;
 
       .modal-button-images {
-        height: 330px;
-        border: 2px solid black;
+        img {
+          height: 250px;
+          width: auto !important;
+          border: 2px solid black;
+        }
         overflow: hidden;
       }
 

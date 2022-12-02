@@ -52,7 +52,11 @@
 
   <div class="row mb-4">
     <div class="col-12">
-      <x-advanced-patient-search title="Non-Qualified" />
+      <h1 class="fs-6 rounded-2 border p-2 text-center fw-bold" style="background-color: #aeaeae;">Non-Qualified</h1>
+    </div>
+
+    <div class="col-12">
+      <x-advanced-patient-search />
     </div>
   </div>
 
@@ -91,7 +95,7 @@
 
   <div class="row">
     @foreach($applications as $application)
-      <div class="col-4 mb-3">
+      <div class="col-3 mb-3">
         <div class="card shadow-sm">
           <div class="card-header py-1">
             <label class="text-sm">
