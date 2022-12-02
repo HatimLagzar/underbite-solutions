@@ -3343,10 +3343,13 @@ blockquote {
   flex-direction: column;
 }
 .applications-page .card .card-body .modal-button-images {
+  width: 100% !important;
+  height: 200px;
   overflow: hidden;
-}
-.applications-page .card .card-body .modal-button-images img {
-  height: 180px;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .applications-page .card .card-body .actions {
   margin-top: auto;

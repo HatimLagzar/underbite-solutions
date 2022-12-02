@@ -9,10 +9,16 @@
       flex-direction: column;
 
       .modal-button-images {
-        img {
-          height: 180px;
-        }
+        width: 100% !important;
+        height: 200px;
         overflow: hidden;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        img {
+        }
       }
 
       .actions {
