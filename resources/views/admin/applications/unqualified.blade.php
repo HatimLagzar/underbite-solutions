@@ -104,40 +104,42 @@
               Select Patient
             </label>
           </div>
-          <div class="card-body">
+          <div class="card-body p-0">
             <button type="button" class="btn p-0 d-block mx-auto mb-2 modal-button-images" data-bs-toggle="modal"
                     data-bs-target="#application-{{$application->getId()}}">
               <img class="img-fluid"
                    src="{{ url('storage/patients_images/' . $application->getImages()->first()->getFileName()) }}"
                    alt="">
             </button>
-            <h5 class="text-center">{{ $application->getFullName() }}</h5>
-            <ul class="list-unstyled">
-              <li>Patient Number: {{ $application->getPatientNumber() }}</li>
-              <li>Age: {{ $application->getAge() }}</li>
-              <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
-              <li>Height: {{ $application->getHeight() }} cm</li>
-              <li>Weight: {{ $application->getWeight() }} Kg</li>
-              <li>Country: {{ $application->getCountry()->getName() }}</li>
-              <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
-              <li>Status: Non-qualified</li>
-              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
-            </ul>
+            <div class="p-3">
+              <h5 class="text-center">{{ $application->getFullName() }}</h5>
+              <ul class="list-unstyled">
+                <li>Patient Number: {{ $application->getPatientNumber() }}</li>
+                <li>Age: {{ $application->getAge() }}</li>
+                <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
+                <li>Height: {{ $application->getHeight() }} cm</li>
+                <li>Weight: {{ $application->getWeight() }} Kg</li>
+                <li>Country: {{ $application->getCountry()->getName() }}</li>
+                <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+                <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
+                <li>Status: Non-qualified</li>
+                <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
+              </ul>
 
-            <div class="actions">
-              <form action="{{ route('admin.applications.unqualify') }}" method="post"
-                    class="d-inline-block">
-                @csrf
-                <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
-                <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
-              </form>
-              <form action="{{ route('admin.applications.qualify') }}" method="post"
-                    class="d-inline-block">
-                @csrf
-                <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
-                <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
-              </form>
+              <div class="actions">
+                <form action="{{ route('admin.applications.unqualify') }}" method="post"
+                      class="d-inline-block">
+                  @csrf
+                  <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
+                  <button class="btn btn-sm btn-danger"><i class="fa fa-close me-1"></i>Non-Qualify</button>
+                </form>
+                <form action="{{ route('admin.applications.qualify') }}" method="post"
+                      class="d-inline-block">
+                  @csrf
+                  <input type="hidden" name="ids[]" value="{{ $application->getId() }}">
+                  <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
