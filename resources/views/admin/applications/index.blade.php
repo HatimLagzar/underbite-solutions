@@ -43,7 +43,7 @@
   </div>
   <div class="row mb-4">
     <div class="col-12">
-      <x-advanced-patient-search />
+      <x-advanced-patient-search title="Applications" />
     </div>
   </div>
 
@@ -80,7 +80,6 @@
     </div>
   </div>
 
-  <h2 class="mb-3 mt-5 text-center">Non-Categorized Patients</h2>
   <div class="row">
     @foreach($applications as $application)
       <div class="col-4 mb-3">

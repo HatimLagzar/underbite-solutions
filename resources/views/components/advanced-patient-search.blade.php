@@ -1,6 +1,6 @@
 <div class="card advanced-patient-search">
-    <div class="card-header">
-        Advanced Filters
+    <div class="card-header text-center">
+        {{ $title }}
     </div>
     <div class="card-body">
         <form action="" class="">
