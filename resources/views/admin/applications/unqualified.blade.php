@@ -122,7 +122,6 @@
                 <li>Country: {{ $application->getCountry()->getName() }}</li>
                 <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
                 <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
-                <li>Status: Non-qualified</li>
                 <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
               </ul>
 
@@ -187,7 +186,6 @@
               <li>Country: {{ $application->getCountry()->getName() }}</li>
               <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
-              <li>Status: Non-qualified</li>
               <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
