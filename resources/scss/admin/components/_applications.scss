@@ -12,9 +12,12 @@
         width: 100% !important;
         outline: 2px solid black;
         outline-offset: -2px;
+        height: 200px;
+        overflow: hidden;
 
         img {
-          height: 220px;
+          height: auto;
+          max-height: 100%;
         }
       }
 
