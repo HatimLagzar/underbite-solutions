@@ -52,7 +52,7 @@
 
   <div class="row mb-4">
     <div class="col-12">
-      <x-advanced-patient-search title="Non-Qualified Patients" />
+      <x-advanced-patient-search title="Non-Qualified" />
     </div>
   </div>
 
