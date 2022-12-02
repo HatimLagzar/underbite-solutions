@@ -92,7 +92,7 @@
             </label>
           </div>
           <div class="card-body">
-            <button type="button" class="btn p-0 d-block mx-auto mb-2" data-bs-toggle="modal"
+            <button type="button" class="btn p-0 d-block mx-auto mb-2 modal-button-images" data-bs-toggle="modal"
                     data-bs-target="#application-{{$application->getId()}}">
               <img class="img-fluid w-100"
                    src="{{ url('storage/patients_images/' . $application->getImages()->first()->getFileName()) }}"
