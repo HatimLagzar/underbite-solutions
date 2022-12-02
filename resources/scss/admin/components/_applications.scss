@@ -10,14 +10,10 @@
 
       .modal-button-images {
         width: 100% !important;
-        height: 200px;
-        overflow: hidden;
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        background-color: black;
 
         img {
+          height: 200px;
         }
       }
 

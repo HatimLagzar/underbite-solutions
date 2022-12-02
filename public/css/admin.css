@@ -3344,12 +3344,10 @@ blockquote {
 }
 .applications-page .card .card-body .modal-button-images {
   width: 100% !important;
+  background-color: black;
+}
+.applications-page .card .card-body .modal-button-images img {
   height: 200px;
-  overflow: hidden;
-  display: flex !important;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 .applications-page .card .card-body .actions {
   margin-top: auto;
