@@ -3346,9 +3346,7 @@ blockquote {
   overflow: hidden;
 }
 .applications-page .card .card-body .modal-button-images img {
-  height: 250px;
-  width: auto !important;
-  border: 2px solid black;
+  height: 180px;
 }
 .applications-page .card .card-body .actions {
   margin-top: auto;
