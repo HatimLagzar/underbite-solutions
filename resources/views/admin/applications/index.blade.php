@@ -101,7 +101,7 @@
                    src="{{ url('storage/patients_images/' . $application->getImages()->first()->getFileName()) }}"
                    alt="">
             </button>
-            <div class="p-3">
+            <div class="px-3">
               <h5 class="text-center">{{ $application->getFullName() }}</h5>
               <ul class="list-unstyled">
                 <li>Patient Number: {{ $application->getPatientNumber() }}</li>
