@@ -21,10 +21,10 @@ class ApplyRequest extends FormRequest
             'phone_number'        => ['required', 'string', 'max:30'],
             'social_network_note' => ['nullable', 'string', 'max:255'],
             'country_id'          => ['required', 'string', 'size:2'],
-            'front_side'          => ['required', 'image', 'max:100000'],
-            'front_closed'        => ['required', 'image', 'max:100000'],
-            'right_side'          => ['required', 'image', 'max:100000'],
-            'right_closed'        => ['required', 'image', 'max:100000'],
+            'front_side'          => ['required', 'image', 'max:20000'],
+            'front_closed'        => ['required', 'image', 'max:20000'],
+            'right_side'          => ['required', 'image', 'max:20000'],
+            'right_closed'        => ['required', 'image', 'max:20000'],
         ];
     }
 }
