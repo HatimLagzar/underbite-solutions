@@ -3344,6 +3344,8 @@ blockquote {
 }
 .applications-page .card .card-body .modal-button-images {
   width: 100% !important;
+  outline: 2px solid black;
+  outline-offset: -2px;
 }
 .applications-page .card .card-body .modal-button-images img {
   height: 220px;
