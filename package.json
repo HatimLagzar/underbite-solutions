@@ -25,6 +25,7 @@
         "jquery": "^3.6.1",
         "query": "^0.2.0",
         "sass-loader": "^13.1.0",
+        "select2": "^4.1.0-rc.0",
         "toastr": "^2.1.4",
         "webcam-easy": "^1.0.5"
     }

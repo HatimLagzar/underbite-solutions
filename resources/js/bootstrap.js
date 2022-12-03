@@ -1,12 +1,14 @@
 window._ = require('lodash');
 
+window.jQuery = window.$ = require('jquery')
+
 require('bootstrap')
+
+require('select2')
 
 window.intlTelInput = require('intl-tel-input')
 
 window.toastr = require('toastr');
-
-window.jQuery = window.$ = require('jquery')
 
 window.Webcam = require('webcam-easy');
 

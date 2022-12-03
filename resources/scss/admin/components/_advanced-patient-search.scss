@@ -1,4 +1,14 @@
 .advanced-patient-search {
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  select[multiple] {
+    max-width: 150px;
+  }
+
   .form-group {
     border-right: 1px solid #DDDDDD;
     margin-right: .5rem;

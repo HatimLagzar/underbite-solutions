@@ -97,4 +97,13 @@ if (document.location.pathname.startsWith('/admin/applications')) {
       areAllSelected = !areAllSelected;
     })
   }
+
+  document.querySelectorAll('select[multiple]').forEach(elem => {
+    elem.size = 3
+  })
+
+  $('.selectpicker').select2({
+    placeholder: 'Select an option',
+    closeOnSelect: false
+  });
 }
