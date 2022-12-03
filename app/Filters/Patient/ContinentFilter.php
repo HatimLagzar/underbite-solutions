@@ -18,7 +18,7 @@ class ContinentFilter
 
     public function handle($request, Closure $next)
     {
-        if (request()->has('continent') === false || empty(request()->get('continent'))) {
+        if (request()->has('continent') === false || empty(request()->get('continent')) || request()->get('continent')[0] === null) {
             return $next($request);
         }
 

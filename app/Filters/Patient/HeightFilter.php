@@ -9,7 +9,7 @@ class HeightFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->has('height') === false || empty(request()->get('height'))) {
+        if (request()->has('height') === false || empty(request()->get('height')) || request()->get('height')[0] === null) {
             return $next($request);
         }
 

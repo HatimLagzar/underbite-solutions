@@ -9,7 +9,7 @@ class CountryFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->has('country') === false || empty(request()->get('country'))) {
+        if (request()->has('country') === false || empty(request()->get('country')) || request()->get('country')[0] === null) {
             return $next($request);
         }
 

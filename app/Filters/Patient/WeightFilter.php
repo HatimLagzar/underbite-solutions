@@ -9,7 +9,7 @@ class WeightFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->has('weight') === false || empty(request()->get('weight'))) {
+        if (request()->has('weight') === false || empty(request()->get('weight')) || request()->get('weight')[0] === null) {
             return $next($request);
         }
 

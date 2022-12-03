@@ -9,7 +9,7 @@ class AgeFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->has('age') === false || empty(request()->get('age'))) {
+        if (request()->has('age') === false || empty(request()->get('age')) || request()->get('age')[0] === null) {
             return $next($request);
         }
 
