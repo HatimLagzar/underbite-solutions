@@ -43,7 +43,7 @@
   </div>
   <div class="row mb-4">
     <div class="col-12">
-      <h1 class="fs-6 rounded-2 border p-2 text-center fw-bold" style="background-color: #aeaeae;">Applications</h1>
+      <h1 class="rounded-2 border p-2 text-center fw-bold" style="background-color: #aeaeae;font-size: 18px;">Applications</h1>
     </div>
     <div class="col-12">
       <x-advanced-patient-search />

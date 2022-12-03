@@ -1,4 +1,12 @@
 .advanced-patient-search {
+  background-color: #f5f5f5;
+
+  label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+
   select[multiple] {
     display: none;
   }

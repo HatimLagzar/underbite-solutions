@@ -1,6 +1,7 @@
 <div class="card advanced-patient-search">
     <div class="card-body">
         <form action="" class="">
+            <h2 class="fs-6 me-3 fw-bold">Filters:</h2>
             <div class="form-group d-inline-block">
                 <label for="age">Age</label>
                 <select name="age[]" id="age" class="selectpicker form-select form-select-sm w-auto" multiple>
