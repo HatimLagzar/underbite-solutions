@@ -3362,6 +3362,9 @@ blockquote {
   position: absolute;
   z-index: 10000;
   width: 150px;
+  max-height: 200px;
+  overflow-y: scroll;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
 }
 .advanced-patient-search ul.hide {
   display: none;
