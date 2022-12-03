@@ -2,45 +2,33 @@
     <div class="card-body">
         <form action="" class="">
             <div class="form-group d-inline-block">
-                <h6>Age</h6>
-                <label class="text-sm">
-                    From <input name="min_age" type="number" min="0" max="200"
-                                class="form-control form-control-sm w-auto d-inline-block"
-                                value="{{ request()->get('min_age') }}">
-                </label>
-                <label class="text-sm">
-                    To <input name="max_age" type="number" min="0" max="200"
-                              class="form-control form-control-sm w-auto d-inline-block"
-                              value="{{ request()->get('max_age') }}">
-                </label>
+                <label for="age">Age</label>
+                <select name="age[]" id="age" class="form-select form-select-sm w-auto" style="max-width: 150px;" multiple>
+                    <option value>Select Age</option>
+                    @foreach(\App\Models\Patient::AVAILABLE_AGES as $stringRange => $arrayHeight)
+                        <option value="{{ $stringRange }}">{{ $stringRange }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group d-inline-block">
-                <h6>Height (cm)</h6>
-                <label class="text-sm">
-                    From <input name="min_height" type="number" min="0" max="300"
-                                class="form-control form-control-sm w-auto d-inline-block"
-                                value="{{ request()->get('min_height') }}">
-                </label>
-                <label class="text-sm">
-                    To <input name="max_height" type="number" min="0" max="300"
-                              class="form-control form-control-sm w-auto d-inline-block"
-                              value="{{ request()->get('max_height') }}">
-                </label>
+                <label for="height">Height</label>
+                <select name="height[]" id="height" class="form-select form-select-sm w-auto" style="max-width: 150px;" multiple>
+                    <option value>Select Height</option>
+                    @foreach(\App\Models\Patient::AVAILABLE_HEIGHTS as $stringRange => $array)
+                        <option value="{{ $stringRange }}">{{ $stringRange }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group d-inline-block">
-                <h6>Weight (kg)</h6>
-                <label class="text-sm">
-                    From <input name="min_weight" type="number" min="0" max="300"
-                                class="form-control form-control-sm w-auto d-inline-block"
-                                value="{{ request()->get('min_weight') }}">
-                </label>
-                <label class="text-sm">
-                    To <input name="max_weight" type="number" min="0" max="300"
-                              class="form-control form-control-sm w-auto d-inline-block"
-                              value="{{ request()->get('max_weight') }}">
-                </label>
+                <label for="weight">Weight</label>
+                <select name="weight[]" id="weight" class="form-select form-select-sm w-auto" style="max-width: 150px;" multiple>
+                    <option value>Select Weight</option>
+                    @foreach(\App\Models\Patient::AVAILABLE_WEIGHTS as $stringRange => $array)
+                        <option value="{{ $stringRange }}">{{ $stringRange }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group d-inline-block">
@@ -53,7 +41,7 @@
             </div>
             <div class="form-group d-inline-block">
                 <label for="country" class="form-label d-block">Country</label>
-                <select name="country" id="country" class="form-select form-select-sm" style="max-width: 100px;">
+                <select name="country[]" id="country" class="form-select form-select-sm" style="max-width: 100px;" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Country::all() as $country)
                         <option
@@ -63,7 +51,7 @@
             </div>
             <div class="form-group d-inline-block">
                 <label for="continent" class="form-label">Continent</label>
-                <select name="continent" id="continent" class="form-select form-select-sm" style="max-width: 100px;">
+                <select name="continent[]" id="continent" class="form-select form-select-sm" style="max-width: 100px;" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Continent::all() as $continent)
                         <option

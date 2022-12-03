@@ -9,13 +9,24 @@ class CountryFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->get('country') === null) {
+        if (request()->has('country') === false || empty(request()->get('country'))) {
             return $next($request);
         }
 
-        return $next($request)->where(
-            sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
-            intval(request()->get('country'))
-        );
+        return $next($request)->where(function ($builder) {
+            foreach (request()->get('country') as $key => $countryCode) {
+                if ($key === 0) {
+                    $builder->where(
+                        sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
+                        $countryCode
+                    );
+                } else {
+                    $builder->orWhere(
+                        sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
+                        $countryCode
+                    );
+                }
+            }
+        });
     }
 }

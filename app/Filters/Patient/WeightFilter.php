@@ -9,26 +9,39 @@ class WeightFilter
 {
     public function handle($request, Closure $next)
     {
-        if (request()->get('min_weight') === null && request()->get('max_weight') === null) {
+        if (request()->has('weight') === false || empty(request()->get('weight'))) {
             return $next($request);
         }
 
         $query = $next($request);
 
-        if (request()->get('min_weight') !== null) {
-            $query = $query->where(
-                sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                '>=',
-                intval(request()->get('min_weight'))
-            );
-        }
-
-        if (request()->get('max_weight') !== null) {
-            $query = $query->where(
-                sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                '<=',
-                intval(request()->get('max_weight'))
-            );
+        foreach (request()->get('weight') as $key => $weight) {
+            $range = Patient::AVAILABLE_WEIGHTS[$weight];
+            if ($key === 0) {
+                $query = $query->where(function ($builder) use ($range) {
+                    $builder->where(
+                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                        '>=',
+                        $range[0]
+                    )->where(
+                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                        '<=',
+                        $range[1]
+                    );
+                });
+            } else {
+                $query = $query->orWhere(function ($builder) use ($range) {
+                    $builder->where(
+                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                        '>=',
+                        $range[0]
+                    )->where(
+                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                        '<=',
+                        $range[1]
+                    );
+                });
+            }
         }
 
         return $query;

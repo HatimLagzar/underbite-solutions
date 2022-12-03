@@ -18,16 +18,27 @@ class ContinentFilter
 
     public function handle($request, Closure $next)
     {
-        if (request()->get('continent') === null) {
+        if (request()->has('continent') === false || empty(request()->get('continent'))) {
             return $next($request);
         }
 
-        $countriesByContinent = $this->countryService->getAllByContinent(request()->get('continent'));
-        $countriesIds = $countriesByContinent->transform(fn (Country $country) => $country->getCode());
+        return $next($request)->where(function ($builder) {
+            foreach (request()->get('continent') as $key => $continentId) {
+                $countriesByContinent = $this->countryService->getAllByContinent($continentId);
+                $countriesIds = $countriesByContinent->transform(fn (Country $country) => $country->getCode());
 
-        return $next($request)->whereIn(
-            sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
-            $countriesIds
-        );
+                if ($key === 0) {
+                    $builder->whereIn(
+                        sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
+                        $countriesIds
+                    );
+                } else {
+                    $builder->orWhereIn(
+                        sprintf('%s.%s', Patient::TABLE, Patient::COUNTRY_CODE_COLUMN),
+                        $countriesIds
+                    );
+                }
+            }
+        });
     }
 }
