@@ -406,7 +406,7 @@
         </div>
       </div>
     </div>
-    <img src="{{ asset('images/world_tour.svg') }}" alt="">
+    <img src="{{ asset('images/world_tour.svg') }}" alt="" loading="lazy">
   </section>
 
   <section id="our-dental-service">
