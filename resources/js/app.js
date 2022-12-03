@@ -105,7 +105,7 @@ function initMultipleSelectBoxes() {
   document.querySelectorAll("select[multiple]").forEach((elem) => {
     elem.insertAdjacentHTML('afterend', `
   <div class="dropdown">
-    <button type="button" class="form-select form-select-sm w-auto">Select an option</button>
+    <button type="button" class="form-select form-select-sm w-auto">Open</button>
     <ul class="hide list-group"></ul>
   </div>
   `)
