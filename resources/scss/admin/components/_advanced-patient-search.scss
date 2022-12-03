@@ -1,8 +1,40 @@
 .advanced-patient-search {
+  select[multiple] {
+    display: none;
+  }
+
+  ul.list-group {
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+  }
+
+  ul.hide {
+    display: none;
+  }
+
+  ul.show {
+    display: block;
+  }
+
+  ul {
+    max-width: 150px;
+  }
+
+  ul li {
+    padding: 5px 8px !important;
+    font-size: 0.875rem;
+  }
+
+  ul li.selected {
+    background-color: blue;
+    color: white;
+  }
+
   form {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
 
   select[multiple] {

@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group d-inline-block">
-                <label for="country" class="form-label d-block">Country</label>
+                <label for="country">Country</label>
                 <select name="country[]" id="country" class="selectpicker" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Country::all() as $country)
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="form-group d-inline-block">
-                <label for="continent" class="form-label">Continent</label>
+                <label for="continent">Continent</label>
                 <select name="continent[]" id="continent" class="selectpicker" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Continent::all() as $continent)
@@ -52,7 +52,7 @@
                 </select>
             </div>
             <div class="form-group d-inline-block">
-                <label for="gender" class="form-label">Gender</label>
+                <label for="gender">Gender</label>
                 <select name="gender" id="gender" class="form-select form-select-sm w-auto" style="max-width: 100px;">
                     <option value>All</option>
                     <option value="1" {{ request()->get('gender') === '1' ? 'selected' : '' }}>Male</option>

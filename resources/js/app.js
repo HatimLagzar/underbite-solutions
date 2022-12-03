@@ -98,12 +98,82 @@ if (document.location.pathname.startsWith('/admin/applications')) {
     })
   }
 
-  document.querySelectorAll('select[multiple]').forEach(elem => {
-    // elem.size = 1
-  })
+  initMultipleSelectBoxes()
+}
 
-  $('.selectpicker').select2({
-    placeholder: 'Select an option',
-    closeOnSelect: false
+function initMultipleSelectBoxes() {
+  document.querySelectorAll("select[multiple]").forEach((elem) => {
+    elem.insertAdjacentHTML('afterend', `
+  <div class="dropdown">
+    <button type="button" class="form-select form-select-sm w-auto">Select an option</button>
+    <ul class="hide list-group"></ul>
+  </div>
+  `)
+    let options = [];
+    elem.querySelectorAll("option").forEach((option) => {
+      options[option.value] = option.innerText;
+      elem.nextElementSibling
+        .querySelector("ul")
+        .insertAdjacentHTML(
+          "beforeend",
+          `<li class="list-group-item list-group-item-action" data-value="${option.value}">${option.innerText}</li>`
+        );
+    });
+
+    elem.nextElementSibling.querySelectorAll("ul li").forEach((liElem) => {
+      liElem.addEventListener("click", (e) => {
+        const value = e.currentTarget.getAttribute("data-value");
+
+        if (elem.querySelector('option[value="' + value + '"]').selected) {
+          e.currentTarget.classList.remove("active");
+        } else {
+          e.currentTarget.classList.add("active");
+        }
+
+        elem.querySelector(
+          'option[value="' + value + '"]'
+        ).selected = !elem.querySelector('option[value="' + value + '"]')
+          .selected;
+      });
+    });
   });
+
+  document.querySelectorAll(".dropdown button").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      if (
+        e.currentTarget.getAttribute("data-open") === "false" ||
+        !e.currentTarget.getAttribute("data-open")
+      ) {
+        showMenu(e.currentTarget);
+
+        return;
+      }
+
+      hideMenu(e.currentTarget);
+    });
+  });
+
+  window.addEventListener("click", (e) => {
+    if (!e.target.closest(".dropdown")) {
+      const openMenusButtons = document.querySelectorAll(
+        '.dropdown button[data-open="true"]'
+      );
+
+      openMenusButtons.forEach((buttonElement) => {
+        hideMenu(buttonElement);
+      });
+    }
+  });
+
+  function hideMenu(buttonElement) {
+    buttonElement.setAttribute("data-open", "false");
+    buttonElement.nextElementSibling.classList.remove("show");
+    buttonElement.nextElementSibling.classList.add("hide");
+  }
+
+  function showMenu(buttonElement) {
+    buttonElement.nextElementSibling.classList.add("show");
+    buttonElement.nextElementSibling.classList.remove("hide");
+    buttonElement.setAttribute("data-open", "true");
+  }
 }

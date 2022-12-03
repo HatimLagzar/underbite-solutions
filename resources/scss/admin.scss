@@ -1,7 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "font-awesome";
 @import "~toastr/toastr";
-@import "select2/dist/css/select2.min.css";
 
 @import "variables";
 @import "typography";
@@ -10,8 +9,3 @@
 @import "admin/components/dashboard";
 @import "admin/components/applications";
 @import "admin/components/advanced-patient-search";
-
-.select2 {
-  max-width: 150px !important;
-  display: block;
-}
