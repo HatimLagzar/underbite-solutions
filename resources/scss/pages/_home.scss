@@ -255,15 +255,20 @@
 
 #international-program {
   width: 100%;
-  padding: 100px 0;
+  padding: 100px 0 0;
   background: $blue;
   color: white;
   position: relative;
 
+  & > img {
+    width: 100%;
+    max-width: none !important;
+  }
+
   .separator-line {
     position: absolute;
     left: 50%;
-    top: 55%;
+    top: 40%;
     transform: translate(-50%, -50%);
     height: 300px;
     width: 4px;
