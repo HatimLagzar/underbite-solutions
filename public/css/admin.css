@@ -3361,7 +3361,7 @@ blockquote {
 .advanced-patient-search ul.list-group {
   position: absolute;
   z-index: 10000;
-  width: 100%;
+  width: 150px;
 }
 .advanced-patient-search ul.hide {
   display: none;
