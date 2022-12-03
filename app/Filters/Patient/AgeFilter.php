@@ -13,37 +13,35 @@ class AgeFilter
             return $next($request);
         }
 
-        $query = $next($request);
-
-        foreach (request()->get('age') as $key => $age) {
-            $range = Patient::AVAILABLE_AGES[$age];
-            if ($key === 0) {
-                $query = $query->where(function ($builder) use ($range) {
-                    $builder->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
-                        '>=',
-                        $range[0]
-                    )->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
-                        '<=',
-                        $range[1]
-                    );
-                });
-            } else {
-                $query = $query->orWhere(function ($builder) use ($range) {
-                    $builder->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
-                        '>=',
-                        $range[0]
-                    )->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
-                        '<=',
-                        $range[1]
-                    );
-                });
+        return $next($request)->where(function ($builder1) {
+            foreach (request()->get('age') as $key => $age) {
+                $range = Patient::AVAILABLE_AGES[$age];
+                if ($key === 0) {
+                    $builder1->where(function ($builder) use ($range) {
+                        $builder->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
+                            '>=',
+                            $range[0]
+                        )->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
+                            '<=',
+                            $range[1]
+                        );
+                    });
+                } else {
+                    $builder1->orWhere(function ($builder) use ($range) {
+                        $builder->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
+                            '>=',
+                            $range[0]
+                        )->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::AGE_COLUMN),
+                            '<=',
+                            $range[1]
+                        );
+                    });
+                }
             }
-        }
-
-        return $query;
+        });
     }
 }

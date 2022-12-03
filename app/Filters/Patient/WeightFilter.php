@@ -13,37 +13,35 @@ class WeightFilter
             return $next($request);
         }
 
-        $query = $next($request);
-
-        foreach (request()->get('weight') as $key => $weight) {
-            $range = Patient::AVAILABLE_WEIGHTS[$weight];
-            if ($key === 0) {
-                $query = $query->where(function ($builder) use ($range) {
-                    $builder->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                        '>=',
-                        $range[0]
-                    )->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                        '<=',
-                        $range[1]
-                    );
-                });
-            } else {
-                $query = $query->orWhere(function ($builder) use ($range) {
-                    $builder->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                        '>=',
-                        $range[0]
-                    )->where(
-                        sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
-                        '<=',
-                        $range[1]
-                    );
-                });
+        return $next($request)->where(function ($builder1) {
+            foreach (request()->get('weight') as $key => $weight) {
+                $range = Patient::AVAILABLE_WEIGHTS[$weight];
+                if ($key === 0) {
+                    $builder1->where(function ($builder) use ($range) {
+                        $builder->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                            '>=',
+                            $range[0]
+                        )->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                            '<=',
+                            $range[1]
+                        );
+                    });
+                } else {
+                    $builder1->orWhere(function ($builder) use ($range) {
+                        $builder->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                            '>=',
+                            $range[0]
+                        )->where(
+                            sprintf('%s.%s', Patient::TABLE, Patient::WEIGHT_COLUMN),
+                            '<=',
+                            $range[1]
+                        );
+                    });
+                }
             }
-        }
-
-        return $query;
+        });
     }
 }
