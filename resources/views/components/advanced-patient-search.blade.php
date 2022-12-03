@@ -3,7 +3,7 @@
         <form action="" class="">
             <div class="form-group d-inline-block">
                 <label for="age">Age</label>
-                <select name="age[]" id="age" class="form-select form-select-sm w-auto" multiple>
+                <select name="age[]" id="age" class="selectpicker form-select form-select-sm w-auto" multiple>
                     <option value>Select Age</option>
                     @foreach(\App\Models\Patient::AVAILABLE_AGES as $stringRange => $arrayHeight)
                         <option value="{{ $stringRange }}" {{ request('age') && in_array($stringRange, request('age')) ? 'selected' : '' }}>{{ $stringRange }}</option>
@@ -13,7 +13,7 @@
 
             <div class="form-group d-inline-block">
                 <label for="height">Height</label>
-                <select name="height[]" id="height" class="form-select form-select-sm w-auto" multiple>
+                <select name="height[]" id="height" class="selectpicker" multiple>
                     <option value>Select Height</option>
                     @foreach(\App\Models\Patient::AVAILABLE_HEIGHTS as $stringRange => $array)
                         <option value="{{ $stringRange }}" {{ request('height') && in_array($stringRange, request('height')) ? 'selected' : '' }}>{{ $stringRange }}</option>
@@ -23,7 +23,7 @@
 
             <div class="form-group d-inline-block">
                 <label for="weight">Weight</label>
-                <select name="weight[]" id="weight" class="form-select form-select-sm w-auto" multiple>
+                <select name="weight[]" id="weight" class="selectpicker" multiple>
                     <option value>Select Weight</option>
                     @foreach(\App\Models\Patient::AVAILABLE_WEIGHTS as $stringRange => $array)
                         <option value="{{ $stringRange }}" {{ request('weight') && in_array($stringRange, request('weight')) ? 'selected' : '' }}>{{ $stringRange }}</option>
@@ -33,7 +33,7 @@
 
             <div class="form-group d-inline-block">
                 <label for="country" class="form-label d-block">Country</label>
-                <select name="country[]" id="country" class="form-select form-select-sm w-auto" multiple>
+                <select name="country[]" id="country" class="selectpicker" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Country::all() as $country)
                         <option
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group d-inline-block">
                 <label for="continent" class="form-label">Continent</label>
-                <select name="continent[]" id="continent" class="form-select form-select-sm w-auto" multiple>
+                <select name="continent[]" id="continent" class="selectpicker" multiple>
                     <option value>All</option>
                     @foreach(\App\Models\Continent::all() as $continent)
                         <option

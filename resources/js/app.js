@@ -99,11 +99,11 @@ if (document.location.pathname.startsWith('/admin/applications')) {
   }
 
   document.querySelectorAll('select[multiple]').forEach(elem => {
-    elem.size = 1
+    // elem.size = 1
   })
 
-  // $('.selectpicker').select2({
-  //   placeholder: 'Select an option',
-  //   closeOnSelect: false
-  // });
+  $('.selectpicker').select2({
+    placeholder: 'Select an option',
+    closeOnSelect: false
+  });
 }
