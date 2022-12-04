@@ -65,10 +65,6 @@
         <span>Actions:</span>
         <div style="display: inline-block">
           <button id="select-all" class="btn btn-sm btn-outline-primary me-1">Select All</button>
-          <form id="qualify-mass" method="POST" action="{{ route('admin.applications.qualify') }}" class="d-inline-block me-1">
-            @csrf
-            <button class="btn btn-sm btn-outline-primary">Qualify</button>
-          </form>
           <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
             @csrf
             <button class="btn btn-sm btn-outline-primary">Unqualify</button>

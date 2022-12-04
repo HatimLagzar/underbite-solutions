@@ -41,8 +41,7 @@ class UnqualifyController extends Controller
             }
 
             return redirect()
-                ->back()
-                ->with('success', 'Patient marked as non-qualified successfully.');
+                ->back();
         } catch (Throwable $e) {
             Log::error('failed to unqualify', [
                 'error_message' => $e->getMessage(),

@@ -40,8 +40,7 @@ class QualifyController extends Controller
             }
 
             return redirect()
-                ->back()
-                ->with('success', 'Patient marked as qualified successfully.');
+                ->back();
         } catch (Throwable $e) {
             Log::error('failed to qualify', [
                 'error_message' => $e->getMessage(),

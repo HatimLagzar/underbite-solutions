@@ -70,10 +70,6 @@
             @csrf
             <button class="btn btn-sm btn-outline-primary">Qualify</button>
           </form>
-          <form id="unqualify-mass" method="POST" action="{{ route('admin.applications.unqualify') }}" class="d-inline-block me-1">
-            @csrf
-            <button class="btn btn-sm btn-outline-primary">Unqualify</button>
-          </form>
           <a href="{{ route('admin.applications.index') }}" class="btn btn-sm btn-secondary"><i class="fa fa-repeat me-1"></i>Relaod</a>
         </div>
       </div>
