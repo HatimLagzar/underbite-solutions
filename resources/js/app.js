@@ -102,42 +102,66 @@ if (document.location.pathname.startsWith('/admin/applications')) {
 }
 
 function initMultipleSelectBoxes() {
-  document.querySelectorAll("select[multiple]").forEach((elem) => {
-    elem.insertAdjacentHTML('afterend', `
-  <div class="dropdown">
-    <button type="button" class="form-select form-select-sm w-auto">Open</button>
-    <ul class="hide list-group"></ul>
-  </div>
-  `)
-    let options = [];
-    elem.querySelectorAll("option").forEach((option) => {
-      options[option.value] = option.innerText;
-      elem.nextElementSibling
-        .querySelector("ul")
-        .insertAdjacentHTML(
-          "beforeend",
-          `<li class="list-group-item list-group-item-action" data-value="${option.value}">${option.innerText}</li>`
-        );
-    });
+  document.querySelectorAll("select[multiple]").forEach((selectElement) => {
+    buildDropDown(selectElement);
 
-    elem.nextElementSibling.querySelectorAll("ul li").forEach((liElem) => {
-      liElem.addEventListener("click", (e) => {
-        const value = e.currentTarget.getAttribute("data-value");
+    buildChoices(selectElement);
 
-        if (elem.querySelector('option[value="' + value + '"]').selected) {
-          e.currentTarget.classList.remove("active");
-        } else {
-          e.currentTarget.classList.add("active");
-        }
+    eventsBindingOnSearch(selectElement)
 
-        elem.querySelector(
-          'option[value="' + value + '"]'
-        ).selected = !elem.querySelector('option[value="' + value + '"]')
-          .selected;
-      });
-    });
+    eventsBindingSelectChoice(selectElement);
   });
 
+  eventBindingOpenMenu();
+
+  eventsBindingEscapeChoicesMenu();
+}
+
+function buildDropDown(selectElement) {
+  selectElement.insertAdjacentHTML(
+    "afterend",
+    `<div class="dropdown">
+      <button type="button" class="form-select form-select-sm w-auto">Open</button>
+      <ul class="hide list-group">
+        <li class="list-group-item list-group-item-action input">
+          <input class="form-control form-control-sm" type="text" placeholder="Search" />
+        </li>
+      </ul>
+    </div>`
+  );
+}
+
+function buildChoices(selectElement) {
+  selectElement.querySelectorAll("option").forEach((option) => {
+    selectElement.nextElementSibling
+      .querySelector("ul")
+      .insertAdjacentHTML(
+        "beforeend",
+        `<li class="list-group-item list-group-item-action ${option.selected ? 'active' : ''}" data-value="${option.value}">${option.innerText}</li>`
+      );
+  });
+}
+
+function eventsBindingSelectChoice(selectElement) {
+  selectElement.nextElementSibling.querySelectorAll("ul li").forEach((liElem) => {
+    liElem.addEventListener("click", (e) => {
+      const value = e.currentTarget.getAttribute("data-value");
+
+      if (selectElement.querySelector('option[value="' + value + '"]').selected) {
+        e.currentTarget.classList.remove("active");
+      } else {
+        e.currentTarget.classList.add("active");
+      }
+
+      selectElement.querySelector(
+        'option[value="' + value + '"]'
+      ).selected = !selectElement.querySelector('option[value="' + value + '"]')
+        .selected;
+    });
+  });
+}
+
+function eventBindingOpenMenu() {
   document.querySelectorAll(".dropdown button").forEach((button) => {
     button.addEventListener("click", (e) => {
       if (
@@ -152,7 +176,36 @@ function initMultipleSelectBoxes() {
       hideMenu(e.currentTarget);
     });
   });
+}
 
+function eventsBindingOnSearch(selectElement) {
+  selectElement.nextElementSibling
+    .querySelector("ul input")
+    .addEventListener("input", (e) => {
+      selectElement.nextElementSibling.querySelectorAll("ul li").forEach((item) => {
+        if (!item.className.includes("input")) {
+          item.remove();
+        }
+      });
+
+      selectElement.querySelectorAll("option").forEach((option) => {
+        if (!option.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+          return;
+        }
+
+        selectElement.nextElementSibling
+          .querySelector("ul")
+          .insertAdjacentHTML(
+            "beforeend",
+            `<li class="list-group-item list-group-item-action ${option.selected ? 'active' : ''}" data-value="${option.value}">${option.innerText}</li>`
+          );
+      });
+
+      eventsBindingSelectChoice(selectElement)
+    });
+}
+
+function eventsBindingEscapeChoicesMenu() {
   window.addEventListener("click", (e) => {
     if (!e.target.closest(".dropdown")) {
       const openMenusButtons = document.querySelectorAll(
@@ -164,16 +217,16 @@ function initMultipleSelectBoxes() {
       });
     }
   });
+}
 
-  function hideMenu(buttonElement) {
-    buttonElement.setAttribute("data-open", "false");
-    buttonElement.nextElementSibling.classList.remove("show");
-    buttonElement.nextElementSibling.classList.add("hide");
-  }
+function hideMenu(buttonElement) {
+  buttonElement.setAttribute("data-open", "false");
+  buttonElement.nextElementSibling.classList.remove("show");
+  buttonElement.nextElementSibling.classList.add("hide");
+}
 
-  function showMenu(buttonElement) {
-    buttonElement.nextElementSibling.classList.add("show");
-    buttonElement.nextElementSibling.classList.remove("hide");
-    buttonElement.setAttribute("data-open", "true");
-  }
+function showMenu(buttonElement) {
+  buttonElement.nextElementSibling.classList.add("show");
+  buttonElement.nextElementSibling.classList.remove("hide");
+  buttonElement.setAttribute("data-open", "true");
 }
