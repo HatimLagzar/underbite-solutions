@@ -123,7 +123,7 @@ function buildDropDown(selectElement) {
     `<div class="dropdown">
       <button type="button" class="form-select form-select-sm w-auto">Open</button>
       <ul class="hide list-group">
-        <li class="list-group-item list-group-item-action input">
+        <li class="list-group-item input">
           <input class="form-control form-control-sm" type="text" placeholder="Search" />
         </li>
       </ul>
