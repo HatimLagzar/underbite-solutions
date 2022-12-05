@@ -157,6 +157,29 @@ function eventsBindingSelectChoice(selectElement) {
         'option[value="' + value + '"]'
       ).selected = !selectElement.querySelector('option[value="' + value + '"]')
         .selected;
+
+      const selectedChoices = $(selectElement).find('option:selected')
+      if (selectedChoices.length > 0) {
+        selectElement.nextElementSibling
+          .querySelector('button.form-select')
+          .classList
+          .add('border-3')
+
+        selectElement.nextElementSibling
+          .querySelector('button.form-select')
+          .classList
+          .add('border-success')
+      } else {
+        selectElement.nextElementSibling
+          .querySelector('button.form-select')
+          .classList
+          .remove('border-3')
+
+        selectElement.nextElementSibling
+          .querySelector('button.form-select')
+          .classList
+          .remove('border-success')
+      }
     });
   });
 }
