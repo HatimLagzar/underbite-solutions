@@ -33,6 +33,7 @@ use App\Http\Controllers\Contact\ContactUsPageController;
 use App\Http\Controllers\Disclaimer\DisclaimerController;
 use App\Http\Controllers\FAQ\FAQController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Terms\TermsController;
 use App\Http\Middleware\SaveRequestMiddleware;
 use App\Http\Middleware\SetDefaultLangForUrlsMiddleware;
 use App\Http\Middleware\SetupLangMiddleware;
@@ -58,6 +59,7 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/faq', FAQController::class)->name('faq');
             Route::get('accessibility', AccessibilityController::class)->name('accessibility');
             Route::get('disclaimer', DisclaimerController::class)->name('disclaimer');
+            Route::get('terms-and-conditions', TermsController::class)->name('terms');
             Route::get('blog', BlogController::class)->name('blog');
             Route::get('blog/{id}', ShowBlogPostController::class)->name('post');
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');

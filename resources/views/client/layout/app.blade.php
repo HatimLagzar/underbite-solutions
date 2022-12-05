@@ -174,7 +174,7 @@
               <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a>
             </li>
             <li>
-              <a href="#">{{__('Terms and Conditions')}}</a>
+              <a href="{{ route('pages.terms') }}">{{__('Terms and Conditions')}}</a>
             </li>
             <li>
               <a href="#">{{__('Privacy Policy')}}</a>
