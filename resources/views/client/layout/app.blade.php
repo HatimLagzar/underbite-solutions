@@ -168,7 +168,7 @@
         <div class="col-12 col-md-6">
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#">{{__('Accessibility')}}</a>
+              <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a>
             </li>
             <li>
               <a href="#">{{__('Disclaimer')}}</a>

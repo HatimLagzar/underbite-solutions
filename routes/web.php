@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Accessibility\AccessibilityController;
 use App\Http\Controllers\Admin\Application\ListApplicationsController;
 use App\Http\Controllers\Admin\Application\ListQualifiedApplicationsController;
 use App\Http\Controllers\Admin\Application\ListUnqualifiedApplicationsController;
@@ -54,6 +55,7 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/', HomeController::class)->name('home');
             Route::get('/about-us', AboutController::class)->name('about');
             Route::get('/faq', FAQController::class)->name('faq');
+            Route::get('/accessibility', AccessibilityController::class)->name('accessibility');
             Route::get('blog', BlogController::class)->name('blog');
             Route::get('blog/{id}', ShowBlogPostController::class)->name('post');
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');
