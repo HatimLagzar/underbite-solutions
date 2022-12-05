@@ -147,6 +147,24 @@ function eventsBindingSelectChoice(selectElement) {
     liElem.addEventListener("click", (e) => {
       const value = e.currentTarget.getAttribute("data-value");
 
+      if (!value) {
+        $(selectElement).find('option:selected').toArray().forEach(item => {
+          item.selected = false;
+        })
+
+        selectElement.nextElementSibling.querySelectorAll('li.active').forEach(item => {
+          item.classList.remove('active')
+        })
+      } else {
+        $(selectElement).find('option[value=""]').toArray().forEach(item => {
+          item.selected = false;
+        })
+
+        selectElement.nextElementSibling.querySelectorAll('li[data-value=""]').forEach(item => {
+          item.classList.remove('active')
+        })
+      }
+
       if (selectElement.querySelector('option[value="' + value + '"]').selected) {
         e.currentTarget.classList.remove("active");
       } else {
