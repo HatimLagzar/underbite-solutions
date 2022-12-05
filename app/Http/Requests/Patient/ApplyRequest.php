@@ -18,7 +18,7 @@ class ApplyRequest extends FormRequest
             'age'                 => ['required', 'integer', 'max:150'],
             'weight'              => ['required', 'integer', 'max:500'],
             'height'              => ['required', 'integer', 'max:300'],
-            'phone_number'        => ['required', 'string', 'max:30'],
+            'phone_number'        => ['required', 'regex:/^[\+\(\s.\-\/\d\)]{5,30}$/', 'max:30'],
             'social_network_note' => ['nullable', 'string', 'max:255'],
             'country_id'          => ['required', 'string', 'size:2'],
             'front_side'          => ['required', 'image', 'max:20000'],
