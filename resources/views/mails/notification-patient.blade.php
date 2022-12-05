@@ -7,23 +7,23 @@
 
 We've detected a new patient who meets the criteria of the following notification:
 <ul>
-  <li>Name: {{ $notification->getName() }}</li>
-  <li>Gender: {{ $notification->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
-  <li>Age: {{ $notification->getMinAge() . '-' . $notification->getMaxAge() }}</li>
-  <li>Height: {{ $notification->getMinHeight() . '-' . $notification->getMaxHeight() }} Cm</li>
-  <li>Weight: {{ $notification->getMinWeight() . '-' . $notification->getMaxWeight() }} Kg</li>
-  <li>Country: {{ $notification->getCountryCode() }}</li>
+  <li><strong>Name</strong>: {{ $notification->getName() }}</li>
+  <li><strong>Gender</strong>: {{ $notification->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
+  <li><strong>Age</strong>: {{ $notification->getMinAge() . '-' . $notification->getMaxAge() }}</li>
+  <li><strong>Height</strong>: {{ $notification->getMinHeight() . '-' . $notification->getMaxHeight() }} Cm</li>
+  <li><strong>Weight</strong>: {{ $notification->getMinWeight() . '-' . $notification->getMaxWeight() }} Kg</li>
+  <li><strong>Country</strong>: {{ $notification->getCountryCode() }}</li>
 </ul>
 
 Here are the information of the patient:
 <ul>
-  <li>Patient Number: {{ $patient->getPatientNumber() }}</li>
-  <li>Name: {{ $patient->getFullName() }}</li>
-  <li>Age: {{ $patient->getAge() }}</li>
-  <li>Gender: {{ $patient->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
-  <li>Height: {{ $patient->getHeight() }} Cm</li>
-  <li>Weight: {{ $patient->getWeight() }} Kg</li>
-  <li>Country: {{ $patient->getCountryCode() }}</li>
+  <li><strong>Patient Number</strong>: {{ $patient->getPatientNumber() }}</li>
+  <li><strong>Name</strong>: {{ $patient->getFullName() }}</li>
+  <li><strong>Age</strong>: {{ $patient->getAge() }}</li>
+  <li><strong>Gender</strong>: {{ $patient->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
+  <li><strong>Height</strong>: {{ $patient->getHeight() }} Cm</li>
+  <li><strong>Weight</strong>: {{ $patient->getWeight() }} Kg</li>
+  <li><strong>Country</strong>: {{ $patient->getCountryCode() }}</li>
 </ul>
 
 <ul style="padding: 0; margin: 0 auto; display: block; text-align: center;">

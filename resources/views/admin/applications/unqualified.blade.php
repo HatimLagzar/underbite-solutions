@@ -52,7 +52,7 @@
 
   <div class="row mb-4">
     <div class="col-12">
-      <h1 class="fs-6 rounded-2 border p-2 text-center fw-bold" style="background-color: #aeaeae;">Non-Qualified</h1>
+      <h1 class="rounded-2 border p-2 text-center fw-bold" style="background-color: #aeaeae;font-size: 18px;">Non-Qualified</h1>
     </div>
 
     <div class="col-12">
@@ -110,15 +110,15 @@
             <div class="px-3 py-2">
               <h5 class="text-center">{{ $application->getFullName() }}</h5>
               <ul class="list-unstyled">
-                <li>Patient Number: {{ $application->getPatientNumber() }}</li>
-                <li>Age: {{ $application->getAge() }}</li>
-                <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
-                <li>Height: {{ $application->getHeight() }} cm</li>
-                <li>Weight: {{ $application->getWeight() }} Kg</li>
-                <li>Country: {{ $application->getCountry()->getName() }}</li>
-                <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-                <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
-                <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
+                <li><strong>Patient Number</strong>: {{ $application->getPatientNumber() }}</li>
+                <li><strong>Age</strong>: {{ $application->getAge() }}</li>
+                <li><strong>Gender</strong>: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
+                <li><strong>Height</strong>: {{ $application->getHeight() }} cm</li>
+                <li><strong>Weight</strong>: {{ $application->getWeight() }} Kg</li>
+                <li><strong>Country</strong>: {{ $application->getCountry()->getName() }}</li>
+                <li><strong>Email</strong>: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+                <li><strong>Phone</strong>: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
+                <li><strong>Submitted At</strong>: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
               </ul>
 
               <div class="actions">
@@ -174,15 +174,15 @@
             </div>
             <h5 class="text-center">{{ $application->getFullName() }}</h5>
             <ul class="list-unstyled">
-              <li>Patient Number: {{ $application->getPatientNumber() }}</li>
-              <li>Age: {{ $application->getAge() }}</li>
-              <li>Gender: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
-              <li>Height: {{ $application->getHeight() }} cm</li>
-              <li>Weight: {{ $application->getWeight() }} Kg</li>
-              <li>Country: {{ $application->getCountry()->getName() }}</li>
-              <li>Email: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
-              <li>Phone: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
-              <li>Submitted At: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
+              <li><strong>Patient Number</strong>: {{ $application->getPatientNumber() }}</li>
+              <li><strong>Age</strong>: {{ $application->getAge() }}</li>
+              <li><strong>Gender</strong>: {{ $application->getGender() === \App\Models\Patient::MALE_GENDER ? 'Male' : 'Female' }}</li>
+              <li><strong>Height</strong>: {{ $application->getHeight() }} cm</li>
+              <li><strong>Weight</strong>: {{ $application->getWeight() }} Kg</li>
+              <li><strong>Country</strong>: {{ $application->getCountry()->getName() }}</li>
+              <li><strong>Email</strong>: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
+              <li><strong>Phone</strong>: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
+              <li><strong>Submitted At</strong>: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 
             <form action="{{ route('admin.applications.unqualify') }}" method="post"
