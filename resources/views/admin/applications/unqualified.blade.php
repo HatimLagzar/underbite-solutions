@@ -147,8 +147,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
+            <div></div>
             <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $application->getFullName() }}</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div id="carousel-application-{{ $application->getId() }}" class="carousel slide mb-3"
