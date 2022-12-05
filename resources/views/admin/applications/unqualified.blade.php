@@ -173,7 +173,6 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-            <h5 class="text-center">{{ $application->getFullName() }}</h5>
             <ul class="list-unstyled">
               <li><strong>Patient Number</strong>: {{ $application->getPatientNumber() }}</li>
               <li><strong>Age</strong>: {{ $application->getAge() }}</li>
