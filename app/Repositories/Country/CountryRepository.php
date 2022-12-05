@@ -14,6 +14,7 @@ class CountryRepository extends AbstractEloquentRepository
     public function getAll(): Collection
     {
         return $this->getQueryBuilder()
+                    ->orderBy(Country::NAME_COLUMN, 'ASC')
                     ->get();
     }
 
