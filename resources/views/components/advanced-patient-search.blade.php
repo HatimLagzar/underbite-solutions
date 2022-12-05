@@ -32,7 +32,7 @@
             <div class="form-group d-inline-block">
                 <label for="country">Country</label>
                 <select name="country[]" id="country" class="selectpicker" multiple>
-                    @foreach(\App\Models\Country::all() as $country)
+                    @foreach(\App\Models\Country::orderBy(\App\Models\Country::NAME_COLUMN, 'ASC')->get() as $country)
                         <option
                           value="{{ $country->getCode() }}" {{ request('country') && in_array($country->getCode(), request('country')) ? 'selected' : '' }}>{{ $country->getName() }}</option>
                     @endforeach
