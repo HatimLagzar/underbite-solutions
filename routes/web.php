@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\Settings\UpdateSettingsController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Blog\ShowBlogPostController;
 use App\Http\Controllers\Contact\ContactUsPageController;
+use App\Http\Controllers\Disclaimer\DisclaimerController;
 use App\Http\Controllers\FAQ\FAQController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Middleware\SaveRequestMiddleware;
@@ -55,7 +56,8 @@ Route::prefix('{locale?}')->where(['locale' => 'en|fr|de|es|it'])
             Route::get('/', HomeController::class)->name('home');
             Route::get('/about-us', AboutController::class)->name('about');
             Route::get('/faq', FAQController::class)->name('faq');
-            Route::get('/accessibility', AccessibilityController::class)->name('accessibility');
+            Route::get('accessibility', AccessibilityController::class)->name('accessibility');
+            Route::get('disclaimer', DisclaimerController::class)->name('disclaimer');
             Route::get('blog', BlogController::class)->name('blog');
             Route::get('blog/{id}', ShowBlogPostController::class)->name('post');
             Route::get('/contact-us', ContactUsPageController::class)->name('contact-us');

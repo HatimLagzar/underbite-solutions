@@ -4969,6 +4969,25 @@ svg.progress-bar-svg {
   margin-bottom: 15px;
 }
 
+.strip {
+  background-color: #0E54AE;
+  color: white;
+  padding: 100px 0;
+}
+.strip h2 {
+  margin-bottom: 10px;
+}
+
+#disclaimer {
+  padding: 100px 0;
+}
+#disclaimer h2 {
+  margin-bottom: 25px;
+}
+#disclaimer ul li {
+  margin-bottom: 15px;
+}
+
 #blog-header {
   background-color: #0E54AE;
   color: white;

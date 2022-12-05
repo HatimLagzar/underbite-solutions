@@ -171,7 +171,7 @@
               <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a>
             </li>
             <li>
-              <a href="#">{{__('Disclaimer')}}</a>
+              <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a>
             </li>
             <li>
               <a href="#">{{__('Terms and Conditions')}}</a>
