@@ -189,7 +189,7 @@ function eventsBindingOnSearch(selectElement) {
       });
 
       selectElement.querySelectorAll("option").forEach((option) => {
-        if (!option.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+        if (!option.innerText.toLowerCase().startsWith(e.target.value.toLowerCase())) {
           return;
         }
 
