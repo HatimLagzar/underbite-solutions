@@ -9,7 +9,7 @@
         <div class="col-lg-7">
           <h3 class="fw-light mb-1">{{__('Dental Surgery')}}</h3>
           <h2 class="fw-semibold">{{__('Accessibility')}}</h2>
-          <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}</p>
+          <p>{{__('Amet nisl purus in mollis nunc sed id semper. Tincidunt ornare massa eget egestas purus viverra accumsan in. Sit amet justo donec enim. Sem fringilla ut morbi tincidunt augue interdum velit euismod in. Ridiculus mus mauris vitae ultricies leo integer malesuada.')}}</p>
         </div>
       </div>
     </div>
