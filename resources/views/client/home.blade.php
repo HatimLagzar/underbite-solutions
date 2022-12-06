@@ -191,7 +191,7 @@
                           onchange='this.size=5; this.blur();'
                           id="countryInput" type="text" class="form-select" name="country" required>
                     <option value="">Select Country</option>
-                    @foreach(\App\Models\Country::all() as $country)
+                    @foreach(\App\Models\Country::orderBy(\App\Models\Country::NAME_COLUMN, 'ASC')->get() as $country)
                       <option value="{{ $country->getCode() }}">{{ $country->getName() }}</option>
                     @endforeach
                   </select>
