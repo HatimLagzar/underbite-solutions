@@ -63,17 +63,23 @@ function hanldeCheckInput() {
         `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
       )
 
-    document.querySelector('#qualify-mass')
-      .insertAdjacentHTML(
-        'beforeend',
-        `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
-      )
+    const qualifyMass = document.querySelector('#qualify-mass')
+    if (qualifyMass) {
+      document.querySelector('#qualify-mass')
+        .insertAdjacentHTML(
+          'beforeend',
+          `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+        )
+    }
 
-    document.querySelector('#unqualify-mass')
-      .insertAdjacentHTML(
-        'beforeend',
-        `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
-      )
+    const unqualifyMass = document.querySelector('#unqualify-mass')
+    if (unqualifyMass) {
+      document.querySelector('#unqualify-mass')
+        .insertAdjacentHTML(
+          'beforeend',
+          `<input type="hidden" name="ids[]" value="${checkedInputElement.value}" />`
+        )
+    }
   })
 }
 
@@ -89,10 +95,12 @@ if (document.location.pathname.startsWith('/admin/applications')) {
   const selectAllBtn = document.querySelector('#select-all')
   if (selectAllBtn instanceof HTMLElement) {
     selectAllBtn.addEventListener('click', e => {
-      document.querySelectorAll('.select-patient').forEach(inputElement => {
-        inputElement.checked = !areAllSelected;
-        hanldeCheckInput();
-      })
+      console.log(document.querySelectorAll('.select-patient'))
+      document.querySelectorAll('.select-patient')
+        .forEach(inputElement => {
+          inputElement.checked = !areAllSelected;
+          hanldeCheckInput();
+        })
 
       areAllSelected = !areAllSelected;
     })
