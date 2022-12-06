@@ -152,7 +152,7 @@
               <div class="carousel-inner">
                 @foreach($application->getImages() as $key => $image)
                   <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                    <img src="{{ url('storage/patients_images/' . $image->getFileName()) }}" class="d-block w-auto"
+                    <img src="{{ url('storage/patients_images/' . $image->getFileName()) }}" class="d-block w-auto mx-auto"
                          style="height: 350px"
                          loading="lazy"
                          alt="...">
