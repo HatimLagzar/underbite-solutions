@@ -99,6 +99,7 @@
                     data-bs-target="#application-{{$application->getId()}}">
               <img class="img-fluid"
                    src="{{ url('storage/patients_images/' . $application->getImages()->first()->getFileName()) }}"
+                   loading="lazy"
                    alt="">
             </button>
             <div class="px-3 py-2">
@@ -151,7 +152,9 @@
               <div class="carousel-inner">
                 @foreach($application->getImages() as $key => $image)
                   <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                    <img src="{{ url('storage/patients_images/' . $image->getFileName()) }}" class="d-block w-100"
+                    <img src="{{ url('storage/patients_images/' . $image->getFileName()) }}" class="d-block w-auto"
+                         style="height: 350px"
+                         loading="lazy"
                          alt="...">
                   </div>
                 @endforeach
