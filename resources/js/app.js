@@ -180,8 +180,8 @@ function eventsBindingSelectChoice(selectElement) {
       if (selectedChoices.length > 0) {
         selectElement.nextElementSibling
           .querySelector('button.form-select')
-          .classList
-          .add('border-3')
+          .style
+          .borderWidth = '3px';
 
         selectElement.nextElementSibling
           .querySelector('button.form-select')
@@ -190,8 +190,8 @@ function eventsBindingSelectChoice(selectElement) {
       } else {
         selectElement.nextElementSibling
           .querySelector('button.form-select')
-          .classList
-          .remove('border-3')
+          .style
+          .borderWidth = '1px';
 
         selectElement.nextElementSibling
           .querySelector('button.form-select')
