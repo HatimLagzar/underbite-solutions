@@ -23,7 +23,7 @@
   <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header py-1">
+        <div class="modal-header py-0">
           <h1 class="modal-title fs-5" id="emailModalLabel">Send Email to Selected Patients</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -141,7 +141,7 @@
          aria-labelledby="application-{{$application->getId()}}-label" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header py-1">
+          <div class="modal-header py-0">
             <div></div>
             <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $application->getFullName() }}</h1>
             <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
