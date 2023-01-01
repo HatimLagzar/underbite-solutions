@@ -185,6 +185,7 @@
               <li><strong>Country</strong>: {{ $application->getCountry()->getName() }}</li>
               <li><strong>Email</strong>: <a href="mailto:{{ $application->getEmail() }}">{{ $application->getEmail() }}</a></li>
               <li><strong>Phone</strong>: <a href="tel:{{ $application->getFullPhoneNumberFormat() }}">{{ $application->getFullPhoneNumberFormat() }}</a></li>
+              <li><strong>Source</strong>: {{ isset(\App\Models\Patient::SOURCES[$application->getSource()]) ? \App\Models\Patient::SOURCES[$application->getSource()] : 'Unknown' }}</li>
               <li><strong>Submitted At</strong>: {{ $application->getCreatedAt()->format('m/d/Y h:i A') }}</li>
             </ul>
 

@@ -37,7 +37,6 @@ class PatientFactory extends Factory
                 'BLOG_POST',
                 'CONFERENCE',
                 'FRIEND',
-                'WORD_OF_MOUTH',
             ]),
             Patient::PATIENT_NUMBER_COLUMN          => rand(10000000, 99999999),
         ];

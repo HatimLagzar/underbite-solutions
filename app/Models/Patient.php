@@ -33,6 +33,17 @@ class Patient extends Model
     public const MALE_GENDER = 1;
     public const FEMALE_GENDER = 2;
 
+    public const SOURCES = [
+        'SEARCH_ENGINE' => 'Search Engine',
+        'FACEBOOK'      => 'Facebook',
+        'INSTAGRAM'     => 'Instagram',
+        'YOUTUBE'       => 'YouTube',
+        'TIKTOK'        => 'TikTok',
+        'BLOG_POST'     => 'Blog Post',
+        'CONFERENCE'    => 'Conference',
+        'FRIEND'        => 'Friend',
+    ];
+
     public const AVAILABLE_HEIGHTS = [
         "120-130" => [120, 130],
         "130-140" => [130, 140],
@@ -115,6 +126,11 @@ class Patient extends Model
     public function getPhoneNumber(): string
     {
         return $this->getAttribute(self::PHONE_NUMBER_COLUMN);
+    }
+
+    public function getSource(): ?string
+    {
+        return $this->getAttribute(self::HEARING_ABOUT_US_SOURCE_COLUMN);
     }
 
     public function getFullPhoneNumberFormat(): string

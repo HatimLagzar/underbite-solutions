@@ -234,7 +234,6 @@
                     <option value="BLOG_POST">Blog Post</option>
                     <option value="CONFERENCE">Conference</option>
                     <option value="FRIEND">From a friend, family member, or coworker</option>
-                    <option value="WORD_OF_MOUTH">Word of mouth</option>
                   </select>
                 </div>
               </div>
