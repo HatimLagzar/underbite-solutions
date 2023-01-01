@@ -201,9 +201,6 @@
               <button class="btn btn-sm btn-primary"><i class="fa fa-check me-1"></i>Qualify</button>
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
         </div>
       </div>
     </div>
