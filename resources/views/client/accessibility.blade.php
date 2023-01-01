@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  Accessibility
+  {{__('Accessibility')}}
 @endsection
 @section('content')
   <section class="strip">

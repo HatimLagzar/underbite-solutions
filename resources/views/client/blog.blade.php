@@ -3,7 +3,7 @@
 @endphp
 @extends('client.layout.app')
 @section('title')
-  Blog
+  {{__('Blog')}}
 @endsection
 @section('content')
   <section id="blog-header">

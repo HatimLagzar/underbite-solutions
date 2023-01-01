@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  Home
+  {{__('Home')}}
 @endsection
 @section('content')
   <section id="hero">
@@ -97,28 +97,33 @@
               <h3 class="text-blue border-bottom">{{ __('Denistry Care') }}</h3>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="firstNameInput">First Name <small class="text-muted"
-                                                                                   style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="firstNameInput">{{__('First Name')}} <small class="text-muted"
+                                                                                             style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <input id="firstNameInput" type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="lastNameInput">Last Name <small class="text-muted"
-                                                                                 style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="lastNameInput">{{__('Last Name')}} <small class="text-muted"
+                                                                                           style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <input id="lastNameInput" type="text" class="form-control" name="last_name" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="genderInput">Your Gender <small class="text-muted"
-                                                                                 style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="genderInput">{{__('Your Gender')}} <small class="text-muted"
+                                                                                           style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <select id="genderInput" class="form-select" name="gender" required>
-                    <option value="">Select Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
+                    <option value="">{{__('Select Gender')}}</option>
+                    <option value="1">{{__('Male')}}</option>
+                    <option value="2">{{__('Female')}}</option>
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="ageInput">Your Age <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="ageInput">{{__('Your Age')}} <small class="text-muted"
+                                                                                     style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -126,7 +131,7 @@
                           id="ageInput" type="text" class="form-select"
                           name="age"
                           required>
-                    <option value="">Select Age</option>
+                    <option value="">{{__('Select Age')}}</option>
                     @for($i = 16; $i <= 50; $i++)
                       <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
@@ -135,8 +140,9 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="heightInput">Your Height <small class="text-muted"
-                                                                                 style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="heightInput">{{__('Your Height')}} <small class="text-muted"
+                                                                                           style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -146,7 +152,7 @@
                           class="form-select"
                           required
                           name="height">
-                    <option value="">Select Height</option>
+                    <option value="">{{__('Select Height')}}</option>
                     @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
                       @for($i = 120; $i <= 210; $i++)
                         <option value="{{ $i }}">{{ turnCentimeterToFoot($i) }}" ft</option>
@@ -159,8 +165,9 @@
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="weightInput">Your Weight <small class="text-muted"
-                                                                                 style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="weightInput">{{__('Your Weight')}} <small class="text-muted"
+                                                                                           style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -170,7 +177,7 @@
                           required
                           class="form-select"
                           name="weight">
-                    <option value="">Select Weight</option>
+                    <option value="">{{__('Select Weight')}}</option>
                     @if($countryCode && in_array($countryCode, ['US', 'LR', 'MM']))
                       @for($i = 30; $i <= 130; $i++)
                         <option value="{{ $i }}">{{ turnKilogramToLbs($i) }} pound</option>
@@ -185,19 +192,20 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="emailInput">Your Email <small class="text-muted"
-                                                                               style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="emailInput">{{__('Your Email')}} <small class="text-muted"
+                                                                                         style="font-size: 12px;">({{__('Required')}}
+                      )</small></label>
                   <input id="emailInput" type="email" class="form-control" name="email" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="countryInput">Your Origin/Country <small class="text-muted"
-                                                                                          style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="countryInput">{{__('Your Origin/Country')}} <small class="text-muted"
+                                                                                                    style="font-size: 12px;">({{__('Required')}})</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
                           onchange='this.size=5; this.blur();'
                           id="countryInput" type="text" class="form-select" name="country" required>
-                    <option value="">Select Country</option>
+                    <option value="">{{__('Select Country')}}</option>
                     @foreach(\App\Models\Country::orderBy(\App\Models\Country::NAME_COLUMN, 'ASC')->get() as $country)
                       <option value="{{ $country->getCode() }}">{{ $country->getName() }}</option>
                     @endforeach
@@ -206,14 +214,14 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="phoneInput">Phone Number <small class="text-muted"
-                                                                                 style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="phoneInput">{{__('Phone Number')}} <small class="text-muted"
+                                                                                 style="font-size: 12px;">({{__('Required')}})</small></label>
                   <input id="phoneInput" type="tel" class="form-control" name="phone_number" required>
                 </div>
 
                 <div class="form-group col-12 col-lg-6 mb-3">
                   <label class="form-label" for="sourceInput">
-                    Where did you hear abour us?
+                    {{__('Where did you hear abour us?')}}
                   </label>
                   <select
                     onfocus='this.size=5;'
@@ -225,15 +233,15 @@
                     name="hearing_about_us_source"
                     required
                   >
-                    <option value="">Select Option</option>
-                    <option value="SEARCH_ENGINE">Search Engine (Google, Yahoo, Bing...)</option>
-                    <option value="FACEBOOK">Facebook</option>
-                    <option value="INSTAGRAM">Instagram</option>
-                    <option value="YOUTUBE">YouTube</option>
-                    <option value="TIKTOK">TikTok</option>
-                    <option value="BLOG_POST">Blog Post</option>
-                    <option value="CONFERENCE">Conference</option>
-                    <option value="FRIEND">From a friend, family member, or coworker</option>
+                    <option value="">{{__('Select Option')}}</option>
+                    <option value="SEARCH_ENGINE">{{__('Search Engine (Google, Yahoo, Bing...)')}}</option>
+                    <option value="FACEBOOK">{{__('Facebook')}}</option>
+                    <option value="INSTAGRAM">{{__('Instagram')}}</option>
+                    <option value="YOUTUBE">{{__('YouTube')}}</option>
+                    <option value="TIKTOK">{{__('TikTok')}}</option>
+                    <option value="BLOG_POST">{{__('Blog Post')}}</option>
+                    <option value="CONFERENCE">{{__('Conference')}}</option>
+                    <option value="FRIEND">{{__('From a friend, family member, or coworker')}}</option>
                   </select>
                 </div>
               </div>
@@ -388,7 +396,7 @@
               <p id="error-feedback" class="text-danger text-center mb-1"></p>
               <p id="success-feedback" class="text-center text-success mb-1"></p>
 
-              <button type="submit" class="btn btn-primary rounded-5 mx-auto d-block">Apply</button>
+              <button type="submit" class="btn btn-primary rounded-5 mx-auto d-block">{{__('Apply')}}</button>
             </form>
           </div>
         </div>
@@ -445,7 +453,8 @@
         </div>
       </div>
 
-      <p class="mb-0 mt-0 text-center mx-auto" style="width: 60%;">{{__('Get the chance to visit your favorite country and get the treatment you need. Or if you are unable to travel we will fund your treatment with a local orthodontist.')}}</p>
+      <p class="mb-0 mt-0 text-center mx-auto"
+         style="width: 60%;">{{__('Get the chance to visit your favorite country and get the treatment you need. Or if you are unable to travel we will fund your treatment with a local orthodontist.')}}</p>
     </div>
     <img src="{{ asset('images/world_tour.svg') }}" alt="" loading="lazy">
   </section>
@@ -523,7 +532,7 @@
     <div class="modal-dialog" style="max-width: 700px;">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="previewSnapshotModalLabel">Take a Photo</h1>
+          <h1 class="modal-title fs-5" id="previewSnapshotModalLabel">{{__('Take a Photo')}}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

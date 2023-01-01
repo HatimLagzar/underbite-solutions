@@ -32,19 +32,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="{{ route('pages.home') }}" class="nav-link">Home</a>
+          <a href="{{ route('pages.home') }}" class="nav-link">{{__('Home')}}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pages.about') }}" class="nav-link">About Us</a>
+          <a href="{{ route('pages.about') }}" class="nav-link">{{__('About Us')}}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pages.faq') }}" class="nav-link">FAQ</a>
+          <a href="{{ route('pages.faq') }}" class="nav-link">{{__('FAQ')}}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pages.blog') }}" class="nav-link">Blog</a>
+          <a href="{{ route('pages.blog') }}" class="nav-link">{{__('Blog')}}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pages.contact-us') }}" class="nav-link">Contact Us</a>
+          <a href="{{ route('pages.contact-us') }}" class="nav-link">{{__('Contact Us')}}</a>
         </li>
         <x-flags-menu />
       </ul>
@@ -75,24 +75,23 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a href="{{ route('pages.home') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.home' ? 'active' : '' }}">Home</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.home' ? 'active' : '' }}">{{__('Home')}}</a>
           </li>
           <li class="nav-item">
             <a href="{{ route('pages.about') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.about' ? 'active' : '' }}">About Us</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.about' ? 'active' : '' }}">{{__('About Us')}}</a>
           </li>
           <li class="nav-item">
             <a href="{{ route('pages.faq') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.faq' ? 'active' : '' }}">FAQ</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.faq' ? 'active' : '' }}">{{__('FAQ')}}</a>
           </li>
           <li class="nav-item">
             <a href="{{ route('pages.blog') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.blog' ? 'active' : '' }}">Blog</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.blog' ? 'active' : '' }}">{{__('Blog')}}</a>
           </li>
           <li class="nav-item">
             <a href="{{ route('pages.contact-us') }}"
-               class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">Contact
-              Us</a>
+               class="nav-link {{ request()->route()->getName() === 'pages.contact-us' ? 'active' : '' }}">{{__('Contact Us')}}</a>
           </li>
         </ul>
 
@@ -162,7 +161,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 mb-lg-0 mb-3">
-          <p>All rights reserved &copy; {{ date('Y') }}</p>
+          <p>{{__('All rights reserved')}} &copy; {{ date('Y') }}</p>
         </div>
         <div class="col-12 col-md-6">
           <ul class="list-unstyled mb-0">

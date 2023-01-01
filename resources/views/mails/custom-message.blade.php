@@ -3,7 +3,7 @@
 # {{ __('Subject: We have received your application') }}
 
 @if(!$message)
-<p>Hi dear {{ $patient->getFirstName() }},</p>
+<p>{{__('Hi dear')}} {{ $patient->getFirstName() }},</p>
 <p>{{ __('Thank you for submitting your application. We are currently receiving a high volume of
   applications and our processing is delayed, please wait while we review your application and get back to you with
   the next step. Your application number is') }} {{ $patient->getPatientNumber() }}.</p>

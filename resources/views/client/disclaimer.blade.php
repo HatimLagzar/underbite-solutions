@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  Disclaimer
+  {{__('Disclaimer')}}
 @endsection
 @section('content')
   <section class="strip">

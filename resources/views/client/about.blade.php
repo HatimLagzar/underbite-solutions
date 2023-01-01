@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  About Us
+  {{__('About Us')}}
 @endsection
 @section('content')
   <section id="about-us">

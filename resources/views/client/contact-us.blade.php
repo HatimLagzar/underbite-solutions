@@ -1,6 +1,6 @@
 @extends('client.layout.app')
 @section('title')
-  Contact Us
+  {{__('Contact Us')}}
 @endsection
 @section('content')
   <section id="contact-us-header">
@@ -24,32 +24,32 @@
             <h1 class="mb-3">{{ __('Get in touch with us') }}</h1>
             <div class="row">
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="firstNameInput">First Name</label>
+                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>
                 <input id="firstNameInput" type="text" class="form-control">
               </div>
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="lastNameInput">Last Name</label>
+                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>
                 <input id="lastNameInput" type="text" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="subjectInput">Subject</label>
+                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>
                 <input id="subjectInput" type="text" class="form-control">
               </div>
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="emailAddress">Email Address</label>
+                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>
                 <input id="emailAddress" type="email" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-12 mb-3">
-                <label class="form-label" for="messageInput">Message</label>
+                <label class="form-label" for="messageInput">{{__('Message')}}</label>
                 <textarea id="messageInput" type="text" class="form-control"></textarea>
               </div>
             </div>
 
-            <button class="btn btn-primary rounded-5 d-block">Send</button>
+            <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
           </form>
         </div>
       </div>
