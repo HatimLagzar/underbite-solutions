@@ -9,7 +9,7 @@
         <div class="col-lg-7">
           <h3 class="fw-light mb-1">{{__('Dental Surgery')}}</h3>
           <h2 class="fw-semibold">{{__('Contact us')}}</h2>
-          <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}</p>
+          <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area)...')}}</p>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
   <section id="our-dental-service">
     <h3 class="text-center text-pink fw-light mb-1">{{__('Our Dental Service')}}</h3>
     <h2 class="text-center fw-semibold">{{__('Professionals')}}</h2>
-    <p class="text-center text-muted w-50 mx-auto mb-5">{{ __('Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through  revolutionary catalysts for change. Seamlessly underwhelm optimal testing processes. ') }}</p>
+    <p class="text-center text-muted w-50 mx-auto mb-5">{{ __('Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through  revolutionary catalysts for change. Seamlessly underwhelm optimal testing processes....') }}</p>
 
     <div class="container">
       <div class="row px-lg-5">

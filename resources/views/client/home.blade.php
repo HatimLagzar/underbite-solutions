@@ -420,7 +420,7 @@
           <figure>
             <img class="w-100" src="/images/img-service.jpeg" alt="Image Service">
             <figcaption
-              class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br><small class="text-sm">(Underbite or double jaw)</small>') !!}</figcaption>
+              class="text-center text-pink fs-5 mt-2">{!! __("Class 3 malocclusion<br><small class='text-sm'>(Underbite or double jaw)</small>") !!}</figcaption>
           </figure>
         </div>
       </div>
