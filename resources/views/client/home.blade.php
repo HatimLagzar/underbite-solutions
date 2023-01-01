@@ -97,17 +97,20 @@
               <h3 class="text-blue border-bottom">{{ __('Denistry Care') }}</h3>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="firstNameInput">First Name <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="firstNameInput">First Name <small class="text-muted"
+                                                                                   style="font-size: 12px;">(Required)</small></label>
                   <input id="firstNameInput" type="text" class="form-control" name="first_name" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="lastNameInput">Last Name <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="lastNameInput">Last Name <small class="text-muted"
+                                                                                 style="font-size: 12px;">(Required)</small></label>
                   <input id="lastNameInput" type="text" class="form-control" name="last_name" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="genderInput">Your Gender <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="genderInput">Your Gender <small class="text-muted"
+                                                                                 style="font-size: 12px;">(Required)</small></label>
                   <select id="genderInput" class="form-select" name="gender" required>
                     <option value="">Select Gender</option>
                     <option value="1">Male</option>
@@ -132,7 +135,8 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="heightInput">Your Height <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="heightInput">Your Height <small class="text-muted"
+                                                                                 style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -155,7 +159,8 @@
                   </select>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="weightInput">Your Weight <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="weightInput">Your Weight <small class="text-muted"
+                                                                                 style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -180,11 +185,13 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="emailInput">Your Email <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="emailInput">Your Email <small class="text-muted"
+                                                                               style="font-size: 12px;">(Required)</small></label>
                   <input id="emailInput" type="email" class="form-control" name="email" required>
                 </div>
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="countryInput">Your Origin/Country <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="countryInput">Your Origin/Country <small class="text-muted"
+                                                                                          style="font-size: 12px;">(Required)</small></label>
                   <select onfocus='this.size=5;'
                           onblur='this.size=5;'
                           onfocusout='this.size=null;'
@@ -199,33 +206,59 @@
               </div>
               <div class="row">
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="phoneInput">Phone Number <small class="text-muted" style="font-size: 12px;">(Required)</small></label>
+                  <label class="form-label" for="phoneInput">Phone Number <small class="text-muted"
+                                                                                 style="font-size: 12px;">(Required)</small></label>
                   <input id="phoneInput" type="tel" class="form-control" name="phone_number" required>
                 </div>
 
                 <div class="form-group col-12 col-lg-6 mb-3">
-                  <label class="form-label" for="socialNetworkInput">Facebook / Instagram <span class="text-muted"
-                                                                                                style="font-size: 12px">(Optional)</span></label>
-                  <input id="socialNetworkInput" type="url" class="form-control" name="social_network_note">
+                  <label class="form-label" for="sourceInput">
+                    Where did you hear abour us?
+                  </label>
+                  <select
+                    onfocus='this.size=5;'
+                    onblur='this.size=5;'
+                    onfocusout='this.size=null;'
+                    onchange='this.size=5; this.blur();'
+                    id="sourceInput"
+                    class="form-select"
+                    name="hearing_about_us_source"
+                    required
+                  >
+                    <option value="">Select Option</option>
+                    <option value="SEARCH_ENGINE">Search Engine (Google, Yahoo, Bing...)</option>
+                    <option value="FACEBOOK">Facebook</option>
+                    <option value="INSTAGRAM">Instagram</option>
+                    <option value="YOUTUBE">YouTube</option>
+                    <option value="TIKTOK">TikTok</option>
+                    <option value="BLOG_POST">Blog Post</option>
+                    <option value="CONFERENCE">Conference</option>
+                    <option value="FRIEND">From a friend, family member, or coworker</option>
+                    <option value="WORD_OF_MOUTH">Word of mouth</option>
+                  </select>
                 </div>
               </div>
 
 
               <h4 class="text-center mb-0 mt-4">{{__('Upload photos of your underbite')}}</h4>
-              <p class="text-danger text-center">{{ __('Please make sure your teeth are fully visible in all photos') }}</p>
+              <p
+                class="text-danger text-center">{{ __('Please make sure your teeth are fully visible in all photos') }}</p>
 
               <div class="row uploads">
                 <div class="col-6 col-sm-3">
-                  <input type="file" name="front_side" id="frontSideInput" data-text="{{__('Front View')}}" class="visually-hidden" accept="image/*" required>
+                  <input type="file" name="front_side" id="frontSideInput" data-text="{{__('Front View')}}"
+                         class="visually-hidden" accept="image/*" required>
                   <label for="frontSideInput" class="position-relative w-100 d-block d-lg-none">
-                    <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
+                    <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg"
+                         alt="Front View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
                   <div class="dropdown d-lg-block d-none" data-target="frontSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg" alt="Front View">
+                      <img class="d-block mx-auto" src="/images/icons/front.svg" data-src="/images/icons/front.svg"
+                           alt="Front View">
                       <span class="bg-white add-icon-wrapper">
                         <i class="fa fa-plus"></i>
                       </span>
@@ -247,16 +280,19 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col-6 col-sm-3">
-                  <input type="file" name="right_side" id="rightSideInput" data-text="{{__('Right View')}}" class="visually-hidden" accept="image/*" required>
+                  <input type="file" name="right_side" id="rightSideInput" data-text="{{__('Right View')}}"
+                         class="visually-hidden" accept="image/*" required>
                   <label for="rightSideInput" class="position-relative w-100 d-block d-lg-none">
-                    <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
+                    <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg"
+                         alt="Right View">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
                   <div class="dropdown d-lg-block d-none" data-target="rightSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg" alt="Right View">
+                      <img class="d-block mx-auto" src="/images/icons/right.svg" data-src="/images/icons/right.svg"
+                           alt="Right View">
                       <span class="bg-white add-icon-wrapper">
                         <i class="fa fa-plus"></i>
                       </span>
@@ -278,16 +314,19 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col-6 col-sm-3">
-                  <input type="file" name="right_closed" id="rightClosedSideInput" data-text="{{__('Right View Closed')}}" class="visually-hidden" accept="image/*" required>
+                  <input type="file" name="right_closed" id="rightClosedSideInput"
+                         data-text="{{__('Right View Closed')}}" class="visually-hidden" accept="image/*" required>
                   <label for="rightClosedSideInput" class="position-relative w-100 d-block d-lg-none">
-                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
+                    <img class="d-block mx-auto" src="/images/icons/right-closed.svg"
+                         data-src="/images/icons/right-closed.svg" alt="Right Closed">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
                   <div class="dropdown d-lg-block d-none" data-target="rightClosedSideInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img class="d-block mx-auto" src="/images/icons/right-closed.svg" data-src="/images/icons/right-closed.svg" alt="Right Closed">
+                      <img class="d-block mx-auto" src="/images/icons/right-closed.svg"
+                           data-src="/images/icons/right-closed.svg" alt="Right Closed">
                       <span class="bg-white add-icon-wrapper">
                         <i class="fa fa-plus"></i>
                       </span>
@@ -309,16 +348,19 @@
                   <small class="text-muted text-danger text-center d-block mb-3">{{ __('(required)') }}</small>
                 </div>
                 <div class="col-6 col-sm-3">
-                  <input type="file" name="front_closed" id="frontClosedInput" data-text="{{__('Front View Closed')}}" class="visually-hidden" accept="image/*" required>
+                  <input type="file" name="front_closed" id="frontClosedInput" data-text="{{__('Front View Closed')}}"
+                         class="visually-hidden" accept="image/*" required>
                   <label for="frontClosedInput" class="position-relative w-100 d-block d-lg-none">
-                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="{{__('Front View Closed')}}">
+                    <img class="d-block mx-auto" src="/images/icons/front-closed.svg"
+                         data-src="/images/icons/front-closed.svg" alt="{{__('Front View Closed')}}">
                     <span class="bg-white add-icon-wrapper">
                       <i class="fa fa-plus"></i>
                     </span>
                   </label>
                   <div class="dropdown d-lg-block d-none" data-target="frontClosedInput">
                     <button class="p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img class="d-block mx-auto" src="/images/icons/front-closed.svg" data-src="/images/icons/front-closed.svg" alt="Perspective View">
+                      <img class="d-block mx-auto" src="/images/icons/front-closed.svg"
+                           data-src="/images/icons/front-closed.svg" alt="Perspective View">
                       <span class="bg-white add-icon-wrapper">
                         <i class="fa fa-plus"></i>
                       </span>
@@ -341,7 +383,8 @@
                 </div>
               </div>
 
-              <p class="text-sm text-black text-center">{{ __('Note: By sharing your information with us, you are agreeing to give us permissions to review your information, All content will remain highly confidential.') }}</p>
+              <p
+                class="text-sm text-black text-center">{{ __('Note: By sharing your information with us, you are agreeing to give us permissions to review your information, All content will remain highly confidential.') }}</p>
 
               <p id="error-feedback" class="text-danger text-center mb-1"></p>
               <p id="success-feedback" class="text-center text-success mb-1"></p>
@@ -370,7 +413,7 @@
           <figure>
             <img class="w-100" src="/images/img-service.jpeg" alt="Image Service">
             <figcaption
-                class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br><small class="text-sm">(Underbite or double jaw)</small>') !!}</figcaption>
+              class="text-center text-pink fs-5 mt-2">{!! __('Class 3 malocclusion<br><small class="text-sm">(Underbite or double jaw)</small>') !!}</figcaption>
           </figure>
         </div>
       </div>
@@ -385,11 +428,13 @@
         <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries from all countries accepted')}}</h4>
           <img class="mx-auto d-block mt-2 mb-4" src="/images/world.png" alt="World Map">
-          <p class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
+          <p
+            class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
         </div>
         <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries We Operate In')}}</h4>
-          <p class="text-center">{{ __('Get the chance of visit your favorite country and get the treatment you need.') }}</p>
+          <p
+            class="text-center">{{ __('Get the chance of visit your favorite country and get the treatment you need.') }}</p>
           <ul>
             <li><img src="/images/flags/usa.png" alt="USA"></li>
             <li><img src="/images/flags/united-kingdom.png" alt="UK"></li>
@@ -402,7 +447,8 @@
             <li><img src="/images/flags/south-korea.png" alt="south korea"></li>
             <li><img src="/images/flags/russia.png" alt="russia"></li>
           </ul>
-          <p class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
+          <p
+            class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
         </div>
       </div>
     </div>
@@ -412,7 +458,8 @@
   <section id="our-dental-service">
     <h3 class="text-center text-pink fw-light mb-1">{{__('Our Dental Service')}}</h3>
     <h2 class="text-center fw-semibold">{{__('Professionals')}}</h2>
-    <p class="text-center text-muted w-50 mx-auto mb-5">{{ __('Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through  revolutionary catalysts for change. Seamlessly underwhelm optimal testing processes. ') }}</p>
+    <p
+      class="text-center text-muted w-50 mx-auto mb-5">{{ __('Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through  revolutionary catalysts for change. Seamlessly underwhelm optimal testing processes. ') }}</p>
 
     <div class="container">
       <div class="row px-lg-5">
@@ -476,7 +523,8 @@
     </div>
   </section>
 
-  <div class="modal fade" id="previewSnapshotModal" tabindex="-1" aria-labelledby="previewSnapshotModalLabel" aria-hidden="true">
+  <div class="modal fade" id="previewSnapshotModal" tabindex="-1" aria-labelledby="previewSnapshotModalLabel"
+       aria-hidden="true">
     <div class="modal-dialog" style="max-width: 700px;">
       <div class="modal-content">
         <div class="modal-header">
@@ -484,14 +532,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h6 class="text-center text-white bg-danger rounded-2 p-2 mb-3">{{__('Please make sure you are your area is well lite before taking a picture, good lighting is essential for clear photos.')}}</h6>
-          <video id="webcam-live" class="mx-w-full" autoplay playsinline style="display: block; margin: 0 auto 25px;"></video>
+          <h6
+            class="text-center text-white bg-danger rounded-2 p-2 mb-3">{{__('Please make sure you are your area is well lite before taking a picture, good lighting is essential for clear photos.')}}</h6>
+          <video id="webcam-live" class="mx-w-full" autoplay playsinline
+                 style="display: block; margin: 0 auto 25px;"></video>
           <canvas id="picture-canvas" class="d-none" style="margin: 0 auto 19px;"></canvas>
           <div id="picture-controls" class="d-none justify-content-center">
-            <button id="retake-picture" class="btn btn-danger d-block"><i class="fa fa-repeat me-1"></i>{{__('Retake')}}</button>
-            <button id="use-picture" class="btn btn-info d-block ms-2"><i class="fa fa-check me-1"></i>{{__('Use')}}</button>
+            <button id="retake-picture" class="btn btn-danger d-block"><i class="fa fa-repeat me-1"></i>{{__('Retake')}}
+            </button>
+            <button id="use-picture" class="btn btn-info d-block ms-2"><i class="fa fa-check me-1"></i>{{__('Use')}}
+            </button>
           </div>
-          <button id="take-picture" class="btn btn-primary mx-auto d-block"><i class="fa fa-camera me-1"></i>{{__('Take Picture')}}</button>
+          <button id="take-picture" class="btn btn-primary mx-auto d-block"><i
+              class="fa fa-camera me-1"></i>{{__('Take Picture')}}</button>
         </div>
       </div>
     </div>

@@ -17,18 +17,29 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
-            Patient::FIRST_NAME_COLUMN          => $this->faker->firstName,
-            Patient::LAST_NAME_COLUMN           => $this->faker->lastName,
-            Patient::EMAIL_COLUMN               => $this->faker->email,
-            Patient::GENDER_COLUMN              => $this->faker->numberBetween(Patient::MALE_GENDER, Patient::FEMALE_GENDER),
-            Patient::HEIGHT_COLUMN              => $this->faker->numberBetween(50, 250),
-            Patient::WEIGHT_COLUMN              => $this->faker->numberBetween(30, 300),
-            Patient::COUNTRY_CODE_COLUMN        => Country::all()->random()->getCode(),
-            Patient::PHONE_NUMBER_COLUMN        => $this->faker->phoneNumber,
-            Patient::PHONE_CODE_COLUMN          => $this->faker->countryCode,
-            Patient::AGE_COLUMN                 => $this->faker->numberBetween(5, 130),
-            Patient::SOCIAL_NETWORK_NOTE_COLUMN => $this->faker->url,
-            Patient::PATIENT_NUMBER_COLUMN      => rand(10000000, 99999999),
+            Patient::FIRST_NAME_COLUMN              => $this->faker->firstName,
+            Patient::LAST_NAME_COLUMN               => $this->faker->lastName,
+            Patient::EMAIL_COLUMN                   => $this->faker->email,
+            Patient::GENDER_COLUMN                  => $this->faker->numberBetween(Patient::MALE_GENDER,
+                Patient::FEMALE_GENDER),
+            Patient::HEIGHT_COLUMN                  => $this->faker->numberBetween(50, 250),
+            Patient::WEIGHT_COLUMN                  => $this->faker->numberBetween(30, 300),
+            Patient::COUNTRY_CODE_COLUMN            => Country::all()->random()->getCode(),
+            Patient::PHONE_NUMBER_COLUMN            => $this->faker->phoneNumber,
+            Patient::PHONE_CODE_COLUMN              => $this->faker->countryCode,
+            Patient::AGE_COLUMN                     => $this->faker->numberBetween(5, 130),
+            Patient::HEARING_ABOUT_US_SOURCE_COLUMN => $this->faker->randomElement([
+                'SEARCH_ENGINE',
+                'FACEBOOK',
+                'INSTAGRAM',
+                'YOUTUBE',
+                'TIKTOK',
+                'BLOG_POST',
+                'CONFERENCE',
+                'FRIEND',
+                'WORD_OF_MOUTH',
+            ]),
+            Patient::PATIENT_NUMBER_COLUMN          => rand(10000000, 99999999),
         ];
     }
 }

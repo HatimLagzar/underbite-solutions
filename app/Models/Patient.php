@@ -25,7 +25,7 @@ class Patient extends Model
     public const COUNTRY_CODE_COLUMN = 'country_code';
     public const PHONE_CODE_COLUMN = 'phone_code';
     public const PHONE_NUMBER_COLUMN = 'phone_number';
-    public const SOCIAL_NETWORK_NOTE_COLUMN = 'social_network_note';
+    public const HEARING_ABOUT_US_SOURCE_COLUMN = 'hearing_about_us_source';
     public const IS_QUALIFIED_COLUMN = 'is_qualified';
     public const PATIENT_NUMBER_COLUMN = 'patient_number';
     public const CREATED_AT_COLUMN = 'created_at';
@@ -90,7 +90,7 @@ class Patient extends Model
         self::COUNTRY_CODE_COLUMN,
         self::PHONE_CODE_COLUMN,
         self::PHONE_NUMBER_COLUMN,
-        self::SOCIAL_NETWORK_NOTE_COLUMN,
+        self::HEARING_ABOUT_US_SOURCE_COLUMN,
         self::PATIENT_NUMBER_COLUMN,
     ];
 

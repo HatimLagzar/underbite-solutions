@@ -24,7 +24,7 @@ if (form instanceof HTMLFormElement) {
     formData.set('height', document.querySelector('#heightInput').value);
     formData.set('weight', document.querySelector('#weightInput').value);
     formData.set('gender', document.querySelector('#genderInput').value);
-    formData.set('social_network_note', document.querySelector('#socialNetworkInput').value);
+    formData.set('hearing_about_us_source', document.querySelector('#sourceInput').value);
     formData.set('country_id', document.querySelector('#countryInput').value);
     formData.set('phone_number', document.querySelector('#phoneInput').value);
     formData.set('phone_code', phoneNumberInput.selectedCountryData.dialCode);

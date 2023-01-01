@@ -33,7 +33,7 @@ class ApplyController extends BaseController
                 $request->get('weight'),
                 $request->get('phone_number'),
                 $request->get('phone_code'),
-                $request->get('social_network_note'),
+                $request->get('hearing_about_us_source'),
                 $request->get('country_id'),
                 $request->file('front_side'),
                 $request->file('right_side'),

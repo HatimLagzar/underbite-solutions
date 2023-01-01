@@ -51,7 +51,7 @@ class ApplyService
         int $weight,
         string $phoneNumber,
         int $phoneCode,
-        ?string $socialNetworkNote,
+        string $hearingAboutUsSource,
         string $countryId,
         UploadedFile $frontView,
         UploadedFile $rightView,
@@ -64,18 +64,18 @@ class ApplyService
         }
 
         $patient = $this->patientService->create([
-            Patient::FIRST_NAME_COLUMN          => $firstName,
-            Patient::LAST_NAME_COLUMN           => $lastName,
-            Patient::GENDER_COLUMN              => $gender,
-            Patient::EMAIL_COLUMN               => $email,
-            Patient::AGE_COLUMN                 => $age,
-            Patient::HEIGHT_COLUMN              => $height,
-            Patient::WEIGHT_COLUMN              => $weight,
-            Patient::COUNTRY_CODE_COLUMN        => $countryId,
-            Patient::PHONE_CODE_COLUMN          => $phoneCode,
-            Patient::PHONE_NUMBER_COLUMN        => $phoneNumber,
-            Patient::SOCIAL_NETWORK_NOTE_COLUMN => $socialNetworkNote,
-            Patient::PATIENT_NUMBER_COLUMN      => rand(10000000, 99999999),
+            Patient::FIRST_NAME_COLUMN              => $firstName,
+            Patient::LAST_NAME_COLUMN               => $lastName,
+            Patient::GENDER_COLUMN                  => $gender,
+            Patient::EMAIL_COLUMN                   => $email,
+            Patient::AGE_COLUMN                     => $age,
+            Patient::HEIGHT_COLUMN                  => $height,
+            Patient::WEIGHT_COLUMN                  => $weight,
+            Patient::COUNTRY_CODE_COLUMN            => $countryId,
+            Patient::PHONE_CODE_COLUMN              => $phoneCode,
+            Patient::PHONE_NUMBER_COLUMN            => $phoneNumber,
+            Patient::HEARING_ABOUT_US_SOURCE_COLUMN => $hearingAboutUsSource,
+            Patient::PATIENT_NUMBER_COLUMN          => rand(10000000, 99999999),
         ]);
 
         $frontViewFileName = $frontView->hashName();
