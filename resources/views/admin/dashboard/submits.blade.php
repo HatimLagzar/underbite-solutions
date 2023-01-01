@@ -21,7 +21,8 @@
           </div>
           <div class="card-body">
             <strong>{{ number_format($submits) }} Submits</strong>
-            @if($submitsFromTopCountry)
+            <p class="mb-0 text-sm">{{ getPercentage($submits, $sourcesNumbers[0]) }}% From {{ $sourcesNames[0] }}</p>
+          @if($submitsFromTopCountry)
               <p class="mb-1 text-sm">
                 {{ getPercentage($submits, $submitsFromTopCountry->counter) }}%
                 ({{ number_format($submitsFromTopCountry->counter) }})
@@ -69,7 +70,7 @@
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-12">
+    <div class="col-lg-8 col-12">
       <div class="card">
         <div class="card-header">
           <h6 class="mb-0">Submits Repartition</h6>
@@ -87,6 +88,16 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="mb-0">Sources</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="source-canvas"></canvas>
         </div>
       </div>
     </div>
@@ -282,6 +293,27 @@
             'rgb(255,128,128)',
             'rgb(156,162,169)',
             'rgb(45,99,157)',
+          ],
+        }]
+      },
+    });
+
+    const ctxSources = document.getElementById('source-canvas').getContext('2d');
+    const sourcesCanvas = new Chart(ctxSources, {
+      type: 'doughnut',
+      data: {
+        labels: @json($sourcesNames),
+        datasets: [{
+          data: @json($sourcesNumbers),
+          backgroundColor: [
+            'rgb(45,99,157)',
+            'rgb(54,162,235)',
+            'rgb(255,244,128)',
+            'rgb(50,70,128)',
+            'rgb(0,0,0)',
+            'rgb(255,30,128)',
+            'rgb(0,255,10)',
+            'rgb(10,20,128)',
           ],
         }]
       },

@@ -11,17 +11,29 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Visitors</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}"
+                  href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}"
+                  href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}"
+                  href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}"
+                  href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}"
+                  href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
             <strong>{{ number_format($visitors) }} Visits</strong>
             @if (request()->has('date_filter'))
-              @if($visitors < $visitorsRelative)
+              @if ($visitorsRelative === 0)
+
+              @elseif($visitors < $visitorsRelative)
                 <p class="mb-1 text-sm text-danger">
                   - {{ number_format(round($visitorsRelative * 100 / $visitors, 2) - 100, 2) }}%
                   ({{ number_format($visitorsRelative) }} Visits)</p>
@@ -31,7 +43,8 @@
                   ({{ number_format($visitorsRelative) }} Visits)</p>
               @endif
             @endif
-            <p class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }}
+            <p
+              class="mb-0 text-sm">{{ number_format($topTenCountriesWithVisits[array_key_first($topTenCountriesWithVisits)]) }}
               From {{ array_key_first($topTenCountriesWithVisits) }}</p>
             <p class="mb-0 text-sm">{{ number_format($bounceRate, 2) }}% Bounce Rate</p>
             <a href="{{ route('admin.visits') }}" class="d-block text-end text-sm text-black">More ></a>
@@ -45,18 +58,31 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Submits</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}"
+                  href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}"
+                  href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}"
+                  href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}"
+                  href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}"
+                  href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
             <strong>{{ number_format($submits) }} Submits</strong>
+            <p class="mb-0 text-sm">{{ getPercentage($submits, $sourcesNumbers[0]) }}% ({{ number_format($sourcesNumbers[0]) }})
+              From {{ $sourcesNames[0] }}</p>
             @if($submitsFromTopCountry)
-              <p class="mb-1 text-sm">
-                {{ getPercentage($submits, $submitsFromTopCountry->counter) }}% ({{ number_format($submitsFromTopCountry->counter) }})
+              <p class="mb-0 text-sm">
+                {{ getPercentage($submits, $submitsFromTopCountry->counter) }}%
+                ({{ number_format($submitsFromTopCountry->counter) }})
                 From {{ $submitsFromTopCountry->country->name }}
               </p>
             @endif
@@ -72,11 +98,21 @@
           <div class="card-header d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Conversion</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
-              <li class="d-inline-block"><a class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}" href="{{ route('admin.home') }}">All</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}" href="?date_filter=today">Today</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}" href="?date_filter=week">Week</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}" href="?date_filter=month">Month</a></li>
-              <li class="d-inline-block"><a class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}" href="?date_filter=year">Year</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ !request()->has('date_filter') && \Illuminate\Support\Facades\Route::current()->getName() === 'admin.home' ? 'active' : '' }}"
+                  href="{{ route('admin.home') }}">All</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'today' ? 'active' : '' }}"
+                  href="?date_filter=today">Today</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'week' ? 'active' : '' }}"
+                  href="?date_filter=week">Week</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'month' ? 'active' : '' }}"
+                  href="?date_filter=month">Month</a></li>
+              <li class="d-inline-block"><a
+                  class="text-sm nav-link {{ request()->get('date_filter') === 'year' ? 'active' : '' }}"
+                  href="?date_filter=year">Year</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -98,9 +134,10 @@
               <p class="mb-1 text-sm">{{ $conversionFromTopCountry }}</p>
             @endif
             @if($females < $males)
-            <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $males) }}% Males</p>
+              <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $males) }}% Males</p>
             @else
-            <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $females) }}% Females</p>
+              <p class="mb-1 text-sm">Most converting gender: {{ getPercentage($males + $females, $females) }}%
+                Females</p>
             @endif
           </div>
         </div>
@@ -206,23 +243,23 @@
               <label class="form-label" for="from-url">From Page:</label>
               <select name="from_url" id="from-url" class="form-select" onchange="this.form.submit()">
                 <option
-                    {{ request()->get('from_url') === route('pages.home') ? 'selected' : ''}} value="{{ route('pages.home') }}">
+                  {{ request()->get('from_url') === route('pages.home') ? 'selected' : ''}} value="{{ route('pages.home') }}">
                   Home
                 </option>
                 <option
-                    {{ request()->get('from_url') === route('pages.about') ? 'selected' : ''}} value="{{ route('pages.about') }}">
+                  {{ request()->get('from_url') === route('pages.about') ? 'selected' : ''}} value="{{ route('pages.about') }}">
                   About Us
                 </option>
                 <option
-                    {{ request()->get('from_url') === route('pages.faq') ? 'selected' : ''}} value="{{ route('pages.faq') }}">
+                  {{ request()->get('from_url') === route('pages.faq') ? 'selected' : ''}} value="{{ route('pages.faq') }}">
                   FAQ
                 </option>
                 <option
-                    {{ request()->get('from_url') === route('pages.contact-us') ? 'selected' : ''}} value="{{ route('pages.contact-us') }}">
+                  {{ request()->get('from_url') === route('pages.contact-us') ? 'selected' : ''}} value="{{ route('pages.contact-us') }}">
                   Contact Us
                 </option>
                 <option
-                    {{ request()->get('from_url') === route('pages.blog') ? 'selected' : ''}} value="{{ route('pages.blog') }}">
+                  {{ request()->get('from_url') === route('pages.blog') ? 'selected' : ''}} value="{{ route('pages.blog') }}">
                   Blog
                 </option>
               </select>
@@ -249,6 +286,16 @@
         </div>
       </div>
     </div>
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="mb-0">Sources</h6>
+        </div>
+        <div class="card-body">
+          <canvas id="source-canvas"></canvas>
+        </div>
+      </div>
+    </div>
   </div>
 @endsection
 @section('scripts')
@@ -269,22 +316,24 @@
     // We need to colorize every country based on "numberOfWhatever"
     // colors should be uniq for every value.
     // For this purpose we create palette(using min/max series-value)
-    var onlyValues = series.map(function(obj){ return obj[1]; });
+    var onlyValues = series.map(function (obj) {
+      return obj[1];
+    });
     var minValue = Math.min.apply(null, onlyValues),
       maxValue = Math.max.apply(null, onlyValues);
 
     // create color palette function
     // color can be whatever you wish
     var paletteScale = d3.scale.linear()
-      .domain([minValue,maxValue])
-      .range(["#EFEFFF","#02386F"]); // blue color
+      .domain([minValue, maxValue])
+      .range(["#EFEFFF", "#02386F"]); // blue color
 
     // fill dataset in appropriate format
-    series.forEach(function(item){ //
+    series.forEach(function (item) { //
       // item example value ["USA", 70]
       var iso = item[0],
         value = item[1];
-      dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
+      dataset[iso] = {numberOfThings: value, fillColor: paletteScale(value)};
     });
 
     // render map
@@ -292,21 +341,23 @@
       element: document.getElementById('map-container'),
       // projection: 'mercator', // big world map
       // countries don't listed in dataset will be painted with this color
-      fills: { defaultFill: '#F5F5F5' },
+      fills: {defaultFill: '#F5F5F5'},
       data: dataset,
       geographyConfig: {
         borderColor: '#DEDEDE',
         highlightBorderWidth: 2,
         // don't change color on mouse hover
-        highlightFillColor: function(geo) {
+        highlightFillColor: function (geo) {
           return geo['fillColor'] || '#F5F5F5';
         },
         // only change border
         highlightBorderColor: '#B7B7B7',
         // show desired information in tooltip
-        popupTemplate: function(geo, data) {
+        popupTemplate: function (geo, data) {
           // don't show tooltip if country don't present in dataset
-          if (!data) { return ; }
+          if (!data) {
+            return;
+          }
           // tooltip content
           return ['<div class="hoverinfo">',
             '<strong>', geo.properties.name, '</strong>',
@@ -347,6 +398,27 @@
             'rgb(45,99,157)',
             'rgb(54,162,235)',
             'rgb(255,244,128)',
+          ],
+        }]
+      },
+    });
+
+    const ctxSources = document.getElementById('source-canvas').getContext('2d');
+    const sourcesCanvas = new Chart(ctxSources, {
+      type: 'doughnut',
+      data: {
+        labels: @json($sourcesNames),
+        datasets: [{
+          data: @json($sourcesNumbers),
+          backgroundColor: [
+            'rgb(45,99,157)',
+            'rgb(54,162,235)',
+            'rgb(255,244,128)',
+            'rgb(50,70,128)',
+            'rgb(0,0,0)',
+            'rgb(255,30,128)',
+            'rgb(0,255,10)',
+            'rgb(10,20,128)',
           ],
         }]
       },

@@ -134,4 +134,9 @@ class PatientService
     {
         return $this->patientRepository->countAgeAbove($number);
     }
+
+    public function getPatientsGroupedBySource(?Carbon $startDate, ?Carbon $endDate)
+    {
+        return $this->patientRepository->getPatientsGroupedBySource($startDate, $endDate);
+    }
 }

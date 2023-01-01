@@ -141,6 +141,30 @@ class PatientRepository extends AbstractEloquentRepository
             ->count();
     }
 
+    public function getPatientsGroupedBySource(?Carbon $startDate, ?Carbon $endDate)
+    {
+        if ($endDate === null) {
+            return $this->getQueryBuilder()
+                ->select([
+                    Patient::HEARING_ABOUT_US_SOURCE_COLUMN,
+                    DB::raw(sprintf('count(%s) as counter', Patient::HEARING_ABOUT_US_SOURCE_COLUMN)),
+                ])
+                ->groupBy(Patient::HEARING_ABOUT_US_SOURCE_COLUMN)
+                ->orderBy('counter', 'DESC')
+                ->get();
+        }
+
+        return $this->getQueryBuilder()
+            ->select([
+                Patient::HEARING_ABOUT_US_SOURCE_COLUMN,
+                DB::raw(sprintf('count(%s) as counter', Patient::HEARING_ABOUT_US_SOURCE_COLUMN)),
+            ])
+            ->whereDate(Patient::CREATED_AT_COLUMN, '>', $endDate)
+            ->groupBy(Patient::HEARING_ABOUT_US_SOURCE_COLUMN)
+            ->orderBy('counter', 'DESC')
+            ->get();
+    }
+
     protected function getModelClass(): string
     {
         return Patient::class;

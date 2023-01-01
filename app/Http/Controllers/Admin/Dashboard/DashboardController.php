@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Patient;
 use App\Services\Core\Patient\PatientService;
 use App\Services\Core\RequestHistory\RequestHistoryService;
 use Carbon\Carbon;
@@ -65,6 +66,10 @@ class DashboardController extends Controller
                 7
             );
 
+            $sources = $this->patientService->getPatientsGroupedBySource($startDate, $endDate);
+            $sourcesNames = $sources->map(fn ($item) => isset(Patient::SOURCES[$item->getSource()]) ? Patient::SOURCES[$item->getSource()] : 'Unknown')->toArray();
+            $sourcesNumbers = $sources->map(fn ($item) => $item->counter)->toArray();
+
             $males = $this->patientService->getMalesCount($startDate, $endDate);
             $females = $this->patientService->getFemalesCount($startDate, $endDate);
 
@@ -101,6 +106,8 @@ class DashboardController extends Controller
                 ->with('conversionRelative', $conversionRelative)
                 ->with('submits', $submits)
                 ->with('visitorsRelative', $visitorsRelative)
+                ->with('sourcesNames', $sourcesNames)
+                ->with('sourcesNumbers', $sourcesNumbers)
                 ->with('visitors', $visitors);
         } catch (Throwable $e) {
             dd($e);

@@ -66,6 +66,10 @@ class SubmitsDashboardController extends Controller
                 7
             );
 
+            $sources = $this->patientService->getPatientsGroupedBySource($startDate, $endDate);
+            $sourcesNames = $sources->map(fn ($item) => isset(Patient::SOURCES[$item->getSource()]) ? Patient::SOURCES[$item->getSource()] : 'Unknown')->toArray();
+            $sourcesNumbers = $sources->map(fn ($item) => $item->counter)->toArray();
+
             $males = $this->patientService->getMalesCount($startDate, $endDate);
             $females = $this->patientService->getFemalesCount($startDate, $endDate);
 
@@ -112,6 +116,8 @@ class SubmitsDashboardController extends Controller
                 ->with('conversion', $conversion)
                 ->with('conversionRelative', $conversionRelative)
                 ->with('submits', $submits)
+                ->with('sourcesNames', $sourcesNames)
+                ->with('sourcesNumbers', $sourcesNumbers)
                 ->with('visitorsRelative', $visitorsRelative)
                 ->with('visitors', $visitors);
         } catch (Throwable $e) {
