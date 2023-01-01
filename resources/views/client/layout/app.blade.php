@@ -108,18 +108,17 @@
   <section class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-12 mb-5">
-          <h4>Denti<span class="text-pink">Care</span></h4>
-          <div class="separator"></div>
-          <p>{{ __('A team of dentists working ot ensure you receive the best treatment.') }}</p>
-          <ul>
-            <li><i class="fa fa-phone"></i> <a href="tel:+1(415)-205-5550">+1(415)-205-5550</a></li>
-            <li><i class="fa fa-envelope"></i> <a href="mailto:denticare@contact.com">denticare@contact.com</a></li>
-            <li><i class="fa fa-globe"></i> <a href="https://www.denticare.com">https://www.denticare.com</a></li>
-          </ul>
-        </div>
         <div class="col-lg-3 col-12 mb-5">
-          <h4>{{__('About')}}</h4>
+          <img class="img-fluid" src="{{ asset('images/underbite.jpeg') }}" alt="Logo">
+        </div>
+        <div class="col-lg-4 col-12 mb-5 d-flex">
+          <div class="d-flex flex-column align-items-center justify-content-center">
+            <em class="text-center">{{__('We are here to insure you receive all necessary services for the treatment of your')}}</em>
+            <a href="/#form-wrapper" class="btn btn-primary text-white py-2 px-4 mt-3 mx-auto btn-sm">{{__('Apply Here')}}</a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-12 mb-5">
+          <h4>Denti<span class="text-pink">Care</span></h4>
           <div class="separator"></div>
           <ul>
             <li><a href="#">{{__('Our Dental Team')}}</a></li>
@@ -129,7 +128,7 @@
             <li><a href="#">{{__('Clients')}}</a></li>
           </ul>
         </div>
-        <div class="col social-networks-col">
+        <div class="col-lg-3 col-12 social-networks-col">
           <h4>{{__('Social Networks')}}</h4>
           <div class="separator"></div>
           <p>{{__('Visit DentiCare on these social links and connect with us. Make sure you follow use on our accounts for regular updates.')}}</p>
