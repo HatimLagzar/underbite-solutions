@@ -4666,7 +4666,7 @@ svg.progress-bar-svg {
 #international-program .separator-line {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 43%;
   transform: translate(-50%, -50%);
   height: 300px;
   width: 4px;
@@ -4890,8 +4890,8 @@ svg.progress-bar-svg {
   padding: 100px 0;
   background-image: url(/images/img-service.jpeg);
   background-repeat: no-repeat;
-  background-position: 110% center;
-  background-size: 45%;
+  background-position: 115% center;
+  background-size: 48%;
 }
 #about-us h2 {
   margin-bottom: 10px;

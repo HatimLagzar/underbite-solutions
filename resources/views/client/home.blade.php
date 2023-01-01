@@ -427,13 +427,9 @@
         <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries from all countries accepted')}}</h4>
           <img class="mx-auto d-block mt-2 mb-4" src="/images/world.png" alt="World Map">
-          <p
-            class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
         </div>
         <div class="col-12 col-lg-6">
           <h4 class="text-center">{{__('Countries We Operate In')}}</h4>
-          <p
-            class="text-center">{{ __('Get the chance of visit your favorite country and get the treatment you need.') }}</p>
           <ul>
             <li><img src="/images/flags/usa.png" alt="USA"></li>
             <li><img src="/images/flags/united-kingdom.png" alt="UK"></li>
@@ -446,10 +442,10 @@
             <li><img src="/images/flags/south-korea.png" alt="south korea"></li>
             <li><img src="/images/flags/russia.png" alt="russia"></li>
           </ul>
-          <p
-            class="text-center">{{__('Or, we will fund your treatment with a local orthodontist if you are unable to travel')}}</p>
         </div>
       </div>
+
+      <p class="mb-0 mt-0 text-center mx-auto" style="width: 60%;">{{__('Get the chance to visit your favorite country and get the treatment you need. Or if you are unable to travel we will fund your treatment with a local orthodontist.')}}</p>
     </div>
     <img src="{{ asset('images/world_tour.svg') }}" alt="" loading="lazy">
   </section>
