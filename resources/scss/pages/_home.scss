@@ -321,6 +321,10 @@
   width: 100%;
   padding: 100px 0;
 
+  .row {
+    padding: 0 10rem;
+  }
+
   .item {
     position: relative;
 
@@ -344,7 +348,7 @@
   }
 
   img {
-    width: 90px;
+    width: 80px;
     display: block;
     margin: 0 auto 10px;
   }
@@ -424,6 +428,10 @@
   #our-dental-service {
     padding: 50px 0;
 
+    .row {
+      padding: 0;
+    }
+
     p {
       width: 100% !important;
     }
@@ -434,7 +442,7 @@
     }
 
     img {
-      width: 70px;
+      width: 60px;
       margin-bottom: 0;
     }
 

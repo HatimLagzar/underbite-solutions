@@ -4710,6 +4710,9 @@ svg.progress-bar-svg {
   width: 100%;
   padding: 100px 0;
 }
+#our-dental-service .row {
+  padding: 0 10rem;
+}
 #our-dental-service .item {
   position: relative;
 }
@@ -4729,7 +4732,7 @@ svg.progress-bar-svg {
   margin-bottom: 15px;
 }
 #our-dental-service img {
-  width: 90px;
+  width: 80px;
   display: block;
   margin: 0 auto 10px;
 }
@@ -4790,6 +4793,9 @@ svg.progress-bar-svg {
   #our-dental-service {
     padding: 50px 0;
   }
+  #our-dental-service .row {
+    padding: 0;
+  }
   #our-dental-service p {
     width: 100% !important;
   }
@@ -4798,7 +4804,7 @@ svg.progress-bar-svg {
     margin-bottom: 20px;
   }
   #our-dental-service img {
-    width: 70px;
+    width: 60px;
     margin-bottom: 0;
   }
   #our-dental-service p:last-of-type {
