@@ -453,7 +453,7 @@
         </div>
       </div>
 
-      <p class="mb-0 mt-0 text-center mx-auto"
+      <p class="mb-0 mt-0 text-center mx-auto motivation-text"
          style="width: 60%;">{{__('Get the chance to visit your favorite country and get the treatment you need. Or if you are unable to travel we will fund your treatment with a local orthodontist.')}}</p>
     </div>
     <img src="{{ asset('images/world_tour.svg') }}" alt="" loading="lazy">

@@ -4654,7 +4654,7 @@ svg.progress-bar-svg {
 
 #international-program {
   width: 100%;
-  padding: 100px 0 0;
+  padding: 40px 0 0;
   background: #0E54AE;
   color: white;
   position: relative;
@@ -4666,9 +4666,9 @@ svg.progress-bar-svg {
 #international-program .separator-line {
   position: absolute;
   left: 50%;
-  top: 43%;
+  top: 37%;
   transform: translate(-50%, -50%);
-  height: 300px;
+  height: 250px;
   width: 4px;
   background-color: #fff;
 }
@@ -4676,9 +4676,9 @@ svg.progress-bar-svg {
   max-width: 360px;
 }
 #international-program h2 {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 500;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 #international-program h4 {
   font-weight: normal;
@@ -4775,7 +4775,7 @@ svg.progress-bar-svg {
     padding: 20px 0px;
   }
   #international-program {
-    padding: 50px 0;
+    padding: 50px 0 0;
   }
   #international-program .separator-line {
     display: none;
@@ -4786,6 +4786,10 @@ svg.progress-bar-svg {
   }
   #international-program p {
     padding: 0 45px;
+  }
+  #international-program .motivation-text {
+    width: 100% !important;
+    margin-bottom: 15px !important;
   }
   #international-program img {
     width: 100%;

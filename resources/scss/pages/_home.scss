@@ -255,7 +255,7 @@
 
 #international-program {
   width: 100%;
-  padding: 100px 0 0;
+  padding: 40px 0 0;
   background: $blue;
   color: white;
   position: relative;
@@ -268,9 +268,9 @@
   .separator-line {
     position: absolute;
     left: 50%;
-    top: 43%;
+    top: 37%;
     transform: translate(-50%, -50%);
-    height: 300px;
+    height: 250px;
     width: 4px;
     background-color: #fff;
   }
@@ -280,9 +280,9 @@
   }
 
   h2 {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   h4 {
@@ -405,7 +405,7 @@
   }
 
   #international-program {
-    padding: 50px 0;
+    padding: 50px 0 0;
 
     .separator-line {
       display: none;
@@ -418,6 +418,11 @@
 
     p {
       padding: 0 45px;
+    }
+
+    .motivation-text {
+      width: 100% !important;
+      margin-bottom: 15px !important;
     }
 
     img {
