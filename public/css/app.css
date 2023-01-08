@@ -4450,6 +4450,11 @@ svg.progress-bar-svg {
   text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+  #footer .footer-logo {
+    width: 100%;
+  }
+}
 #hero {
   height: 600px;
   overflow: hidden;
@@ -4886,6 +4891,9 @@ svg.progress-bar-svg {
   }
   #form-wrapper .apply-wrapper {
     padding: 40px 20px;
+  }
+  #international-program ul li img {
+    width: 60px;
   }
 }
 #picture-controls button {

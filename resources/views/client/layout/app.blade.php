@@ -105,12 +105,12 @@
 @yield('content')
 <footer id="footer">
   <section class="footer">
-    <div class="">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-3 col-12 p-0">
-          <img class="img-fluid" src="{{ asset('images/underbite.jpeg') }}" alt="Logo">
+        <div class="col-lg-3 col-sm-6 col-12 p-0">
+          <img class="footer-logo img-fluid" src="{{ asset('images/underbite.jpeg') }}" alt="Logo">
         </div>
-        <div class="col-lg-4 col-12 d-flex py-5">
+        <div class="col-lg-4 col-sm-6 col-12 d-flex py-5">
           <div class="d-flex flex-column align-items-center justify-content-center">
             <em class="text-center">{{__('We are here to insure you receive all necessary services for the treatment of your')}}</em>
             <a href="/#form-wrapper" class="btn btn-primary text-white py-2 px-4 mt-3 mx-auto btn-sm">{{__('Apply Here')}}</a>
