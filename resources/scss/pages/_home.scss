@@ -477,6 +477,15 @@
       padding: 50px 0 40px;
     }
 
+    .travel-area {
+      max-width: 130px !important;
+
+      .travel-text span {
+        width: 100% !important;
+        //margin: 0 !important;
+      }
+    }
+
     .travel-text {
       line-height: normal !important;
       text-align: center !important;
@@ -567,5 +576,14 @@
   button {
     padding: .75rem 2.5rem;
     border: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #form-wrapper {
+    .travel-area,
+    .bottom .right{
+      transform: translateX(0) !important;
+    }
   }
 }

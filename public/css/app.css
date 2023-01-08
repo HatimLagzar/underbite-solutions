@@ -4836,6 +4836,12 @@ svg.progress-bar-svg {
   #form-wrapper .circle-wrapper {
     padding: 50px 0 40px;
   }
+  #form-wrapper .travel-area {
+    max-width: 130px !important;
+  }
+  #form-wrapper .travel-area .travel-text span {
+    width: 100% !important;
+  }
   #form-wrapper .travel-text {
     line-height: normal !important;
     text-align: center !important;
@@ -4901,6 +4907,12 @@ svg.progress-bar-svg {
   border: none;
 }
 
+@media screen and (max-width: 320px) {
+  #form-wrapper .travel-area,
+#form-wrapper .bottom .right {
+    transform: translateX(0) !important;
+  }
+}
 #about-us {
   width: 100%;
   background-color: #0E54AE;
