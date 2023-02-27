@@ -1,0 +1,42 @@
+#about-us {
+  width: 100%;
+  background-color: $blue;
+  color: white;
+  padding: 100px 0;
+  background-image: url(/images/img-service.jpeg);
+  background-repeat: no-repeat;
+  background-position: 115% center;
+  background-size: 48%;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+#proud-members {
+  padding: 100px 0;
+
+  h3 {
+    span {
+      font-size: 40px;
+    }
+  }
+
+  img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #about-us {
+    background-image: none;
+  }
+
+  #proud-members {
+    img {
+      width: 100%;
+    }
+  }
+}

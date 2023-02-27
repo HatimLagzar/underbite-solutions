@@ -1,0 +1,137 @@
+select {
+    width: 200px; /* set the width of the select element */
+}
+
+select option {
+    width: 100%; /* set the width of the options to 100% of the select element's width */
+    box-sizing: border-box; /* include padding and border in the width */
+}
+
+.footer-text-sm {
+    font-size: 18px;
+}
+
+#about-us {
+
+    background-size: 49%;
+}
+.footer-left{
+    padding-left: 15rem;
+}
+.break-line{
+    content: ' ';
+    line-height: 0;
+    width: 100%;
+    background: #bc74a5;
+    box-sizing: border-box;
+}
+.wrapper {
+    width: 60%;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.containerr {
+    background-color: white;
+
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 0 rgb(0,0,0,0.25);
+    margin: 20px 0;
+}
+
+.question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 20px 80px 20px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question::after {
+    content: "\002B";
+    font-size: 2.2rem;
+    position: absolute;
+    right: 20px;
+    transition: 0.2s;
+}
+
+.question.active::after {
+    transform: rotate(45deg);
+}
+
+.answercont {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.answer {
+    padding: 0 20px 20px;
+    line-height: 1.5rem;
+}
+
+.question.active + .answercont {
+}
+
+@media screen and (max-width: 790px){
+    html {
+        font-size: 14px;
+    }
+    .wrapper {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .custom-separator-line {
+        display: block;
+        margin: auto;
+    }
+
+    .footer-text-center {
+
+        text-align: center !important;
+    }
+
+    #footer .copyright a {
+        font-size: 11px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .text-center-sm {
+        text-align: center;
+    }
+    .footer-left{
+        padding-left: 0 !important;
+    }
+
+
+}
+
+
+/*@media only screen and (min-width: 600px) {*/
+/*    .image-footer {*/
+/*        !*max-width: 328px !important;*!*/
+/*        padding: 0.25rem;*/
+/*        background-color: #fff;*/
+/*        border: 1px solid var(--bs-border-color);*/
+/*        border-radius: 0.375rem;*/
+/*        max-width: 132%;*/
+/*        height: auto;*/
+/*    }*/
+
+/*}*/
+
+
+
+
+

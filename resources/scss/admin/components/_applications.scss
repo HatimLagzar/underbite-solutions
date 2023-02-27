@@ -1,0 +1,29 @@
+.applications-page {
+  margin-top: -48px !important;
+
+  .card {
+    height: 100%;
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+
+      .modal-button-images {
+        width: 100% !important;
+        //outline: 2px solid black;
+        //outline-offset: -2px;
+        height: 220px;
+        overflow: hidden;
+
+        img {
+          height: auto;
+          max-height: 100%;
+        }
+      }
+
+      .actions {
+        margin-top: auto;
+      }
+    }
+  }
+}

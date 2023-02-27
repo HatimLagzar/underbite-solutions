@@ -1,0 +1,20 @@
+.filter-range-list {
+  li {
+    border-right: 1px solid #888;
+    padding-right: 5px;
+
+    &:last-of-type {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    a {
+      line-height: 1;
+
+      &.active,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

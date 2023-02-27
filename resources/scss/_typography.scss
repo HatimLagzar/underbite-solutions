@@ -1,0 +1,29 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.text-blue {
+  color: $blue;
+}
+
+.text-pink {
+  color: #BA5E9C;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+blockquote {
+  display: block;
+  margin: 0;
+  font-size: 1.563em;
+  font-style: normal;
+  line-height: 1.5;
+  position: relative;
+  text-align: center;
+  padding: 0 1.25em;
+  font-weight: 400;
+  color: #000;
+}
