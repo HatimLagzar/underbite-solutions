@@ -9,7 +9,7 @@
         <div class="col">
             <section id="visitors">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="card-header  text-bg-secondary  text-bg-secondary d-flex justify-content-between align-items-center">
                         <h6 class="mb-0">Visitors</h6>
                         <ul class="list-unstyled mb-0 filter-range-list">
                             <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.visits') }}">All</a>
@@ -47,7 +47,7 @@
         <div class="col">
             <section id="conversion">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="card-header  text-bg-secondary  text-bg-secondary d-flex justify-content-between align-items-center">
                         <h6 class="mb-0">Conversion</h6>
                         <ul class="list-unstyled mb-0 filter-range-list">
                             <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.visits') }}">All</a>
@@ -145,15 +145,18 @@
                          role="tabpanel"
                          aria-labelledby="today-visits-tab"
                          tabindex="0">
-                        <canvas id="today-visits-line"></canvas>
+{{--                        <canvas id="today-visits-line"></canvas>--}}
+                        <div id="today-visits-line"></div>
                     </div>
                     <div class="tab-pane fade" id="week-visits-tab-pane" role="tabpanel"
                          aria-labelledby="week-visits-tab" tabindex="0">
-                        <canvas id="week-visits-line"></canvas>
+{{--                        <canvas id="week-visits-line"></canvas>--}}
+                        <div id="week-visits-line"></div>
                     </div>
                     <div class="tab-pane fade" id="month-visits-tab-pane" role="tabpanel"
                          aria-labelledby="month-visits-tab" tabindex="0">
-                        <canvas id="month-visits-line"></canvas>
+{{--                        <canvas id="month-visits-line"></canvas>--}}
+                        <div id="month-visits-line"></div>
                     </div>
                     <div class="tab-pane fade" id="year-visits-tab-pane" role="tabpanel"
                          aria-labelledby="year-visits-tab" tabindex="0">
@@ -169,7 +172,7 @@
     <div class="row mt-3">
         <div class="col-12 col-lg-8">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  text-bg-secondary ">
                     <h6 class="mb-0">Visitors Repartition</h6>
                 </div>
                 <div class="card-body">
@@ -190,7 +193,7 @@
         </div>
         <div class="col-12 col-lg-4">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  text-bg-secondary ">
                     <h6 class="mb-0">Devices</h6>
                 </div>
                 <div class="card-body">
@@ -203,7 +206,7 @@
     <div class="row mt-3">
         <div class="col-12 col-lg-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  text-bg-secondary ">
                     <h6 class="mb-0">Visits grouped by countries</h6>
                 </div>
                 <div class="card-body">
@@ -230,7 +233,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  text-bg-secondary ">
                     <h6 class="mb-0">Top Navigation Flows</h6>
                 </div>
                 <div class="card-body">
@@ -376,50 +379,50 @@
     </script>
 
     <script>
-        const todayVisitsCtx = document.getElementById('today-visits-line').getContext('2d');
-        const todayVisitsCanvas = new Chart(todayVisitsCtx, {
-            type: 'line',
-            data: {
-                labels: [...Object.keys({!! $todayVisitsArr !!})],
-                datasets: [{
-                    label: 'Visits',
-                    data: [...Object.values({!! $todayVisitsArr !!})],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-        });
+        {{--const todayVisitsCtx = document.getElementById('today-visits-line').getContext('2d');--}}
+        {{--const todayVisitsCanvas = new Chart(todayVisitsCtx, {--}}
+        {{--    type: 'line',--}}
+        {{--    data: {--}}
+        {{--        labels: [...Object.keys({!! $todayVisitsArr !!})],--}}
+        {{--        datasets: [{--}}
+        {{--            label: 'Visits',--}}
+        {{--            data: [...Object.values({!! $todayVisitsArr !!})],--}}
+        {{--            fill: false,--}}
+        {{--            borderColor: 'rgb(75, 192, 192)',--}}
+        {{--            tension: 0.1--}}
+        {{--        }]--}}
+        {{--    },--}}
+        {{--});--}}
 
-        const weekVisitsCtx = document.getElementById('week-visits-line').getContext('2d');
-        const weekVisitsCanvas = new Chart(weekVisitsCtx, {
-            type: 'line',
-            data: {
-                labels: [...Object.keys({!! $weekVisitsArr !!})],
-                datasets: [{
-                    label: 'Visits',
-                    data: [...Object.values({!! $weekVisitsArr !!})],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-        });
+        {{--const weekVisitsCtx = document.getElementById('week-visits-line').getContext('2d');--}}
+        {{--const weekVisitsCanvas = new Chart(weekVisitsCtx, {--}}
+        {{--    type: 'line',--}}
+        {{--    data: {--}}
+        {{--        labels: [...Object.keys({!! $weekVisitsArr !!})],--}}
+        {{--        datasets: [{--}}
+        {{--            label: 'Visits',--}}
+        {{--            data: [...Object.values({!! $weekVisitsArr !!})],--}}
+        {{--            fill: false,--}}
+        {{--            borderColor: 'rgb(75, 192, 192)',--}}
+        {{--            tension: 0.1--}}
+        {{--        }]--}}
+        {{--    },--}}
+        {{--});--}}
 
-        const monthVisitsCtx = document.getElementById('month-visits-line').getContext('2d');
-        const monthVisitsCanvas = new Chart(monthVisitsCtx, {
-            type: 'line',
-            data: {
-                labels: [...Object.keys({!! $monthVisitsArr !!})],
-                datasets: [{
-                    label: 'Visits',
-                    data: [...Object.values({!! $monthVisitsArr !!})],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-        });
+        {{--const monthVisitsCtx = document.getElementById('month-visits-line').getContext('2d');--}}
+        {{--const monthVisitsCanvas = new Chart(monthVisitsCtx, {--}}
+        {{--    type: 'line',--}}
+        {{--    data: {--}}
+        {{--        labels: [...Object.keys({!! $monthVisitsArr !!})],--}}
+        {{--        datasets: [{--}}
+        {{--            label: 'Visits',--}}
+        {{--            data: [...Object.values({!! $monthVisitsArr !!})],--}}
+        {{--            fill: false,--}}
+        {{--            borderColor: 'rgb(75, 192, 192)',--}}
+        {{--            tension: 0.1--}}
+        {{--        }]--}}
+        {{--    },--}}
+        {{--});--}}
 
         // const yearVisitsCtx = document.getElementById('year-visits-line').getContext('2d');
         {{--const yearVisitsCanvas = new Chart(yearVisitsCtx, {--}}
@@ -435,6 +438,101 @@
         {{--    }]--}}
         {{--  },--}}
         {{--});--}}
+        var todayVisitsCanvas = {
+            chart: {
+                type: 'line'
+            },
+            theme: {
+                palette: 'palette1' // upto palette10
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            series: [{
+                name: 'visits',
+                data: [...Object.values({!! $todayVisitsArr !!})]
+            }],
+            xaxis: {
+                categories: [...Object.keys({!! $todayVisitsArr !!})]
+            }
+        }
+
+        var chart3 = new ApexCharts(document.querySelector("#today-visits-line"), todayVisitsCanvas);
+
+        chart3.render();
+        var weekVisitsCanvas = {
+            chart: {
+                type: 'line'
+            },
+            theme: {
+                palette: 'palette1' // upto palette10
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            series: [{
+                name: 'visits',
+                data: [...Object.values({!! $weekVisitsArr !!})]
+            }],
+            xaxis: {
+                categories: [...Object.keys({!! $weekVisitsArr !!})]
+            }
+        }
+
+        var chart2 = new ApexCharts(document.querySelector("#week-visits-line"), weekVisitsCanvas);
+
+        chart2.render();
+
+
+        var monthVisitsCanvas = {
+            chart: {
+                type: 'line'
+            },
+            theme: {
+                palette: 'palette1' // upto palette10
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
+            series: [{
+                name: 'visits',
+                data: [...Object.values({!! $monthVisitsArr !!})]
+            }],
+            xaxis: {
+                categories: [...Object.keys({!! $monthVisitsArr !!})]
+            }
+        }
+
+        var chart1 = new ApexCharts(document.querySelector("#month-visits-line"), monthVisitsCanvas);
+
+        chart1.render();
 
         var yearVisitsCanvas = {
             chart: {
