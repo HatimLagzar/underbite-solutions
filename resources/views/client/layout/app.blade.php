@@ -159,34 +159,34 @@
                 </div>
                 <div class="col-md-6  col-sm-12 text-center-sm footer-left" >
 
-                        <span  class="footer-text-sm">
+                        <span  class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a> |
                         </span>
-                        <span class="footer-text-sm">
+                        <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a> |
                         </span>
-                        <span class="footer-text-sm">
+                        <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.terms') }}">{{__('Terms and Conditions')}}</a> |
                         </span>
-                        <span class="footer-text-sm">
+                        <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.privacy-policy') }}">{{__('Privacy Policy')}}</a>
                         </span>
-{{--                    <ul class="list-unstyled mb-0">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a>--}}
-{{--                        </li>--}}
+                    <ul class="mobile-device-hidden list-unstyled mb-0 ">
+                        <li>
+                            <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a>
+                        </li>
 
 
-{{--                        <li>--}}
-{{--                            <a href="{{ route('pages.terms') }}">{{__('Terms and Conditions')}}</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{ route('pages.privacy-policy') }}">{{__('Privacy Policy')}}</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                        <li>
+                            <a href="{{ route('pages.terms') }}">{{__('Terms and Conditions')}}</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('pages.privacy-policy') }}">{{__('Privacy Policy')}}</a>
+                        </li>
+                    </ul>
 
                 </div>
             </div>

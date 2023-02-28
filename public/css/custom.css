@@ -15,9 +15,9 @@ select option {
 
     background-size: 49%;
 }
-.footer-left{
-    padding-left: 15rem;
-}
+/*.footer-left{*/
+/*    padding-left: 15rem;*/
+/*}*/
 .underline {
     position: relative; /* create a positioning context */
     font-size: 3rem;
@@ -119,6 +119,10 @@ h1 {
     }
     .footer-left{
         padding-left: 0 !important;
+    }
+
+    .mobile-device-hidden{
+        display: none !important;
     }
 
 
