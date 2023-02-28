@@ -443,6 +443,18 @@
             theme: {
                 palette: 'palette1' // upto palette10
             },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
+            },
             series: [{
                 name: 'visits',
                 data: [...Object.values({!! $yearVisitsArr !!})]

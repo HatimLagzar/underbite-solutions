@@ -18,12 +18,19 @@ select option {
 .footer-left{
     padding-left: 15rem;
 }
-.break-line{
-    content: ' ';
-    line-height: 0;
-    width: 100%;
-    background: #bc74a5;
-    box-sizing: border-box;
+.underline {
+    position: relative; /* create a positioning context */
+    font-size: 3rem;
+}
+
+.underline::after {
+    content: ""; /* create an empty content */
+    position: absolute; /* position the underline relative to the span */
+    left: 19%; /* position the underline at the middle of the span */
+    bottom: -0.15em; /* adjust the distance of the underline from the text */
+    width: 47%; /* set the width of the underline */
+    border-bottom:  3px solid #ba5e9c; /* add a blue underline */
+    font-size: 1px;
 }
 .wrapper {
     width: 60%;

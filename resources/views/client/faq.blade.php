@@ -7,7 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    <h3 style="font-size: 3rem;" class="fw-semibold">{{__('FAQ')}}</h3>
+{{--                    <h3 style="font-size: 3rem;" class="fw-semibold">{{__('FAQ')}}</h3>--}}
+                    <h3  class="fw-semibold"><span class="underline">{{__('FAQ')}}</span></h3>
+
                     <div class="break-line"></div>
 
                     <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}} <br> {{__('a message through the')}}
