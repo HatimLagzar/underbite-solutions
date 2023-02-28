@@ -77,7 +77,9 @@ h1 {
     overflow: hidden;
     transition: 0.3s;
 }
-
+.text-header-contact-us{
+    font-size: 35px
+}
 .answer {
     padding: 0 20px 20px;
     line-height: 1.5rem;
@@ -123,6 +125,17 @@ h1 {
 
     .mobile-device-hidden{
         display: none !important;
+    }
+
+    .text-header-contact-us{
+        font-size: 29px
+    }
+    .text-p-header-contact-us{
+        font-size: 10px
+    }
+
+    .mb-sm-card-left-contact{
+        margin-bottom: 3rem;
     }
 
 
