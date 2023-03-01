@@ -3,26 +3,54 @@
     {{__('Contact Us')}}
 @endsection
 @section('content')
-{{--    <section id="contact-us-header">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-7">--}}
-{{--                    <h3 class="fw-light mb-1">{{__('Dental Surgery')}}</h3>--}}
-{{--                    <h2 class="fw-semibold">{{__('Contact us')}}</h2>--}}
-{{--                    <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area)...')}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
 
-    <div class="container">
+
+    <div class="container mt-container-contact" >
         <section >
             <div class="container">
-{{--                <h1 class="m-5 text-center">{{ __('Get in touch with us') }} <span class="text-pink">Care</span></h1>--}}
                 <h1  class="mx-5 mt-5 text-center text-blue text-header-contact-us">Contact <span class="text-pink text-header-contact-us" style="font-size: 35px" >DentiCare</span></h1>
                 <p class="text-center mb-5 text-p-header-contact-us">Globally incubate standards compliant channels before scalable. Quickly <br> disseminate superior deliverables whereas web-enabled applications.</p>
                 <div class="row">
-                    <div class="col-lg-3 mb-sm-card-left-contact hv-100">
+                    <div class="col-lg-9 order-sm-1 order-md-2 mb-2 col-12 hv-100">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="contact-us-form" action="#" method="post">
+
+                                    <div class="row">
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            {{--                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>--}}
+                                            <input id="firstNameInput" placeholder="{{__('First Name')}}" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            {{--                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>--}}
+                                            <input id="lastNameInput" placeholder="{{__('Last Name')}}" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            {{--                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>--}}
+                                            <input id="emailAddress" placeholder="{{__('Email Address')}}" type="email" class="form-control">
+                                        </div>
+                                        <div class="form-group col-12 col-lg-6 mb-3">
+                                            {{--                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>--}}
+                                            <input id="subjectInput" placeholder="{{__('app_number')}}" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 mb-3">
+                                            {{--                <label class="form-label" for="messageInput">{{__('Message')}}</label>--}}
+                                            <textarea id="messageInput" placeholder="{{__('Message')}}" type="text" rows="8" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3  order-sm-2 order-md-1 mb-sm-card-left-contact hv-100">
                         <div class="card">
                             <div class="card-body">
                                 <div >
@@ -46,44 +74,7 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-9 col-12 hv-100">
-                        <div class="card">
-                            <div class="card-body">
-                                <form id="contact-us-form" action="#" method="post">
 
-                                    <div class="row">
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            {{--                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>--}}
-                                            <input id="firstNameInput" placeholder="{{__('First Name')}}" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            {{--                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>--}}
-                                            <input id="lastNameInput" placeholder="{{__('Last Name')}}" type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            {{--                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>--}}
-                                            <input id="subjectInput" placeholder="{{__('Subject')}}" type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group col-12 col-lg-6 mb-3">
-                                            {{--                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>--}}
-                                            <input id="emailAddress" placeholder="{{__('Email Address')}}" type="email" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-12 mb-3">
-                                            {{--                <label class="form-label" for="messageInput">{{__('Message')}}</label>--}}
-                                            <textarea id="messageInput" placeholder="{{__('Message')}}" type="text" rows="8" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

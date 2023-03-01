@@ -10,7 +10,9 @@ select option {
 .footer-text-sm {
     font-size: 18px;
 }
-
+.mt-container-contact{
+    margin-top: 7rem;
+}
 #about-us {
 
     background-size: 49%;
@@ -137,23 +139,11 @@ h1 {
     .mb-sm-card-left-contact{
         margin-bottom: 3rem;
     }
-
+    .mt-container-contact{
+        margin-top: 6rem;
+    }
 
 }
-
-
-/*@media only screen and (min-width: 600px) {*/
-/*    .image-footer {*/
-/*        !*max-width: 328px !important;*!*/
-/*        padding: 0.25rem;*/
-/*        background-color: #fff;*/
-/*        border: 1px solid var(--bs-border-color);*/
-/*        border-radius: 0.375rem;*/
-/*        max-width: 132%;*/
-/*        height: auto;*/
-/*    }*/
-
-/*}*/
 
 
 
