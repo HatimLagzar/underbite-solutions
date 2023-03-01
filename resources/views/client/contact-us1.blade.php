@@ -57,7 +57,7 @@
                                     <div class="d-flex justify-content-center">
                                         <span><i class="fa fa-map-marker fa-3x "  aria-hidden="true" style="color: #ddb0ce"></i></span>
                                     </div>
-                                    <h3 class="text-center my-2 " style="color: #47525d;">Our Locations</h3>
+                                    <h3 class="text-center my-2 " style="color: #7b8187;;">Our Locations</h3>
                                     <ul class="list-unstyled mt-3" >
                                         <li class="text-center py-2"><strong>UAE - Dubai</strong></li>
                                         <li class="text-center py-2"><strong>Germany - Munich</strong> </li>
