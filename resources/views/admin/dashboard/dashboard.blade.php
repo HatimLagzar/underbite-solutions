@@ -154,7 +154,8 @@
         <div class="card-body">
           <div class="row">
             <div class="col-8">
-              <div id="map-container"  class="justify-content-center" style="position: relative; width: 100%; height: 100%!important;"></div>
+                <div id="regions_div"  class="justify-content-center" style="position: relative; width: 100%; height: 100%!important;"></div>
+{{--              <div id="map-container"  class="justify-content-center" style="position: relative; width: 100%; height: 100%!important;"></div>--}}
             </div>
             <div class="col">
               <ul class="list-group">
@@ -302,71 +303,105 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.all.min.js"></script>
-  <script>
-    // example data from server
-    var series = @json($visitorsByCountry);
-    console.log(series)
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript">
+      var series = @json($visitorsByCountry);
+      // let d= ['Country', 'Popularity'];
+      // let obj = JSON.parse(series);
+      // let arr = Object.values(series);
+      var onlyValues = series.map(function (obj) {
+          let second=obj[0].slice(0, -1)
+          // let val =  second[0] + second[1].toLowerCase(); // concatenate the first character and the second character in lowercase
 
 
-    // Datamaps expect data in format:
-    // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},
-    //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }
-    var dataset = {};
+          return [second, obj[1]];
 
-    // We need to colorize every country based on "numberOfWhatever"
-    // colors should be uniq for every value.
-    // For this purpose we create palette(using min/max series-value)
-    var onlyValues = series.map(function (obj) {
-      return obj[1];
-    });
-    var minValue = Math.min.apply(null, onlyValues),
-      maxValue = Math.max.apply(null, onlyValues);
+      });
+      let arr = Object.values(onlyValues)
+      arr.unshift( ['Country', 'Count: '],['AGR',230])
 
-    // create color palette function
-    // color can be whatever you wish
-    var paletteScale = d3.scale.linear()
-      .domain([minValue, maxValue])
-      .range(["#EFEFFF", "#02386F"]); // blue color
+      console.log(arr)
+      google.charts.load('current', {
+          'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
 
-    // fill dataset in appropriate format
-    series.forEach(function (item) { //
-      // item example value ["USA", 70]
-      var iso = item[0],
-        value = item[1];
-      dataset[iso] = {numberOfThings: value, fillColor: paletteScale(value)};
-    });
+      function drawRegionsMap() {
+          var data = google.visualization.arrayToDataTable(arr);
 
-    // render map
-    new Datamap({
-      element: document.getElementById('map-container'),
-      // projection: 'mercator', // big world map
-      // countries don't listed in dataset will be painted with this color
-      fills: {defaultFill: '#F5F5F5'},
-      data: dataset,
-      geographyConfig: {
-        borderColor: '#DEDEDE',
-        highlightBorderWidth: 2,
-        // don't change color on mouse hover
-        highlightFillColor: function (geo) {
-          return geo['fillColor'] || '#F5F5F5';
-        },
-        // only change border
-        highlightBorderColor: '#B7B7B7',
-        // show desired information in tooltip
-        popupTemplate: function (geo, data) {
-          // don't show tooltip if country don't present in dataset
-          if (!data) {
-            return;
-          }
-          // tooltip content
-          return ['<div class="hoverinfo">',
-            '<strong>', geo.properties.name, '</strong>',
-            '<br>Count: <strong>', data.numberOfThings, '</strong>',
-            '</div>'].join('');
-        }
+          var options = {};
+
+          var map = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+          map.draw(data, options);
       }
-    });
   </script>
+{{--  <script>--}}
+{{--    // example data from server--}}
+{{--    var series = @json($visitorsByCountry);--}}
+{{--    console.log(series)--}}
+
+
+{{--    // Datamaps expect data in format:--}}
+{{--    // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},--}}
+{{--    //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }--}}
+{{--    var dataset = {};--}}
+
+{{--    // We need to colorize every country based on "numberOfWhatever"--}}
+{{--    // colors should be uniq for every value.--}}
+{{--    // For this purpose we create palette(using min/max series-value)--}}
+{{--    var onlyValues = series.map(function (obj) {--}}
+{{--      return obj[1];--}}
+{{--    });--}}
+{{--    var minValue = Math.min.apply(null, onlyValues),--}}
+{{--      maxValue = Math.max.apply(null, onlyValues);--}}
+
+{{--    // create color palette function--}}
+{{--    // color can be whatever you wish--}}
+{{--    var paletteScale = d3.scale.linear()--}}
+{{--      .domain([minValue, maxValue])--}}
+{{--      .range(["#EFEFFF", "#02386F"]); // blue color--}}
+
+{{--    // fill dataset in appropriate format--}}
+{{--    series.forEach(function (item) { //--}}
+{{--      // item example value ["USA", 70]--}}
+{{--      var iso = item[0],--}}
+{{--        value = item[1];--}}
+{{--      dataset[iso] = {numberOfThings: value, fillColor: paletteScale(value)};--}}
+{{--    });--}}
+{{--console.log(dataset)--}}
+{{--    // render map--}}
+{{--    new Datamap({--}}
+{{--      element: document.getElementById('map-container'),--}}
+{{--      // projection: 'mercator', // big world map--}}
+{{--      // countries don't listed in dataset will be painted with this color--}}
+{{--      fills: {defaultFill: '#F5F5F5'},--}}
+{{--      data: dataset,--}}
+{{--      geographyConfig: {--}}
+{{--        borderColor: '#DEDEDE',--}}
+{{--        highlightBorderWidth: 2,--}}
+{{--        // don't change color on mouse hover--}}
+{{--        highlightFillColor: function (geo) {--}}
+{{--          return geo['fillColor'] || '#F5F5F5';--}}
+{{--        },--}}
+{{--        // only change border--}}
+{{--        highlightBorderColor: '#B7B7B7',--}}
+{{--        // show desired information in tooltip--}}
+{{--        popupTemplate: function (geo, data) {--}}
+{{--          // don't show tooltip if country don't present in dataset--}}
+{{--          if (!data) {--}}
+{{--            return;--}}
+{{--          }--}}
+{{--          // tooltip content--}}
+{{--          return ['<div class="hoverinfo">',--}}
+{{--            '<strong>', geo.properties.name, '</strong>',--}}
+{{--            '<br>Count: <strong>', data.numberOfThings, '</strong>',--}}
+{{--            '</div>'].join('');--}}
+{{--        }--}}
+{{--      }--}}
+{{--    });--}}
+{{--  </script>--}}
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
           integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="

@@ -314,7 +314,7 @@
         // color can be whatever you wish
         var paletteScale = d3.scale.linear()
             .domain([minValue, maxValue])
-            .range(["#EFEFFF", "#02386F"]); // blue color
+            .range(["#a9f399", "#0b3a01"]); // blue color
 
         // fill dataset in appropriate format
         series.forEach(function (item) { //

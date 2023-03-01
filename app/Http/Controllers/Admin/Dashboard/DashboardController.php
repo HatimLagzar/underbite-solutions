@@ -110,7 +110,7 @@ class DashboardController extends Controller
                 ->with('sourcesNumbers', $sourcesNumbers)
                 ->with('visitors', $visitors);
         } catch (Throwable $e) {
-            dd($e);
+
             Log::error('failed to show dashboard page', [
                 'error_message' => $e->getMessage(),
             ]);
