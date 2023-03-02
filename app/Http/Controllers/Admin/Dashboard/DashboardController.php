@@ -88,7 +88,6 @@ class DashboardController extends Controller
             $recentApplications = $this->patientService->getRecentApplications(6);
 
             $topUrls = $this->requestHistoryService->getTopUrlsFromUrl($request->get('from_url') ?: route('pages.home'));
-
             return view('admin.dashboard.dashboard')
                 ->with('topUrls', $topUrls)
                 ->with('submitsFromTopCountry', $submitsFromTopCountry)

@@ -7,13 +7,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-{{--                    <h3 style="font-size: 3rem;" class="fw-semibold">{{__('FAQ')}}</h3>--}}
-                    <h3  class="fw-semibold"><span class="underline">{{__('FAQ')}}</span></h3>
+                    {{--                    <h3 style="font-size: 3rem;" class="fw-semibold">{{__('FAQ')}}</h3>--}}
+                    <h3 class="fw-semibold"><span class="underline">{{__('FAQ')}}</span></h3>
 
                     <div class="break-line"></div>
 
-                    <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}} <br> {{__('a message through the')}}
-                        {{__('a message through the')}}<a style="text-decoration: none; color: #b0dae3;" href="{{route('pages.contact-us')}}">{{__('contact us')}}</a> {{('page.')}}</p>
+                    <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}
+                        <br> {{__('a message through the')}}
+                        {{__('a message through the')}}<a style="text-decoration: none; color: #b0dae3;"
+                                                          href="{{route('pages.contact-us')}}">{{__('contact us')}}</a> {{('page.')}}
+                    </p>
                 </div>
             </div>
         </div>
@@ -24,7 +27,7 @@
             <h3 class="text-pink fw-light mb-1">{{__('Frequently Asked Questions')}}</h3>
             <h2 class="fw-semibold text-blue">{{__('Questions')}}</h2>
             <div class="wrapper">
-
+                {{--Faq1--}}
                 <div class="containerr">
                     <div class="question">
                         {{__('Why is visiting the dentist so important?')}}
@@ -38,7 +41,9 @@
                         </div>
                     </div>
                 </div>
+                {{-- end Faq1--}}
 
+                {{--Faq2--}}
                 <div class="containerr">
                     <div class="question">
                         {{__('My teeth feel fine. Do I still need to see a dentist?')}}
@@ -51,7 +56,9 @@
                         </div>
                     </div>
                 </div>
+                {{-- end Faq2--}}
 
+                {{--Faq3--}}
                 <div class="containerr">
                     <div class="question">
                         {{__('What should I look for when choosing the right dentist for me?')}}
@@ -64,7 +71,9 @@
                         </div>
                     </div>
                 </div>
+                {{--end Faq3--}}
 
+                {{--Faq4--}}
                 <div class="containerr">
                     <div class="question">
                         {{__('How can I take care of my teeth between dental checkups?')}}
@@ -76,7 +85,9 @@
                         </div>
                     </div>
                 </div>
+                {{--end Faq4--}}
 
+                {{--Faq5--}}
                 <div class="containerr">
                     <div class="question">
                         {{__('At what age should I start taking my child to see the dentist?')}}
@@ -88,6 +99,8 @@
                         </div>
                     </div>
                 </div>
+                {{--end Faq5--}}
+
 
             </div>
 

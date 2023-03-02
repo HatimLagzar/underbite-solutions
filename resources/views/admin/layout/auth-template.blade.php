@@ -26,7 +26,7 @@
           <a class="nav-link" aria-current="page" href="{{ route('admin.applications.index') }}"><i class="fa fa-users me-2 fs-5"></i>Applications</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ route('admin.notifications.index') }}"><i class="fa fa-bell me-2 fs-5"></i>Notifications</a>
+          <a class="nav-link" aria-current="page" href="{{ route('admin.notifications.index') }}"><i class="fa fa-bell me-1 fs-5"></i>Notifications</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{ route('admin.posts.index') }}"><i class="fa fa-edit me-2 fs-5"></i>Blog</a>
