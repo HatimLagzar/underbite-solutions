@@ -21,8 +21,8 @@
   @enderror
 
   <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+    <div class="modal-dialog " >
+      <div class="modal-content" style="min-height: 100%;">
         <div class="modal-header py-0">
           <h1 class="modal-title fs-5" id="emailModalLabel">Send Email to Selected Patients</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -87,7 +87,7 @@
     @foreach($applications as $application)
       <div class="col-3 px-1 mb-3">
         <div class="card shadow-sm">
-          <div class="card-header py-1">
+          <div class="card-header  text-bg-secondary  py-1">
             <label class="text-sm">
               <input class="select-patient form-check-inline me-1" type="checkbox" name="ids[]"
                      value="{{ $application->getId() }}">
@@ -137,10 +137,10 @@
     @endforeach
   </div>
   @foreach($applications as $application)
-    <div class="modal fade" id="application-{{$application->getId()}}" tabindex="-1"
+    <div class="modal fade" id="application-{{$application->getId()}}" tabindex="-1" style="--bs-modal-margin: 0.1rem; --bs-modal-width:663px;"
          aria-labelledby="application-{{$application->getId()}}-label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal-dialog" style="height: 100% !important">
+        <div class="modal-content" style="min-height: 100vh;" >
           <div class="modal-header py-0">
             <div></div>
             <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $application->getFullName() }}</h1>

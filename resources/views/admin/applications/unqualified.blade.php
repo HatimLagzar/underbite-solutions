@@ -93,7 +93,7 @@
     @foreach($applications as $application)
       <div class="col-3 px-1 mb-3">
         <div class="card shadow-sm">
-          <div class="card-header py-1">
+          <div class="card-header  text-bg-secondary py-1">
             <label class="text-sm">
               <input class="select-patient form-check-inline me-1" type="checkbox" name="ids[]"
                      value="{{ $application->getId() }}">

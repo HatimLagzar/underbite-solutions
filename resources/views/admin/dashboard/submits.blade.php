@@ -9,7 +9,7 @@
     <div class="col">
       <section id="submits">
         <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
+          <div class="card-header  text-bg-secondary d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Submits</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
               <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.submits') }}">All</a></li>
@@ -36,7 +36,7 @@
     <div class="col">
       <section id="conversion">
         <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
+          <div class="card-header  text-bg-secondary d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Conversion</h6>
             <ul class="list-unstyled mb-0 filter-range-list">
               <li class="d-inline-block"><a class="text-sm nav-link" href="{{ route('admin.submits') }}">All</a></li>
@@ -72,7 +72,7 @@
   <div class="row mt-3">
     <div class="col-lg-8 col-12">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Submits Repartition</h6>
         </div>
         <div class="card-body">
@@ -93,7 +93,7 @@
     </div>
     <div class="col-12 col-lg-4">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Sources</h6>
         </div>
         <div class="card-body">
@@ -107,7 +107,7 @@
   <div class="row mt-3">
     <div class="col-12 col-lg-8">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Female Submits Per Country</h6>
         </div>
         <div class="card-body">
@@ -134,7 +134,7 @@
     </div>
     <div class="col-12 col-lg-4">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Gender Ratio</h6>
         </div>
         <div class="card-body">
@@ -151,7 +151,7 @@
   <div class="row mt-3">
     <div class="col-12 col-lg-8">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Male Submits Per Country</h6>
         </div>
         <div class="card-body">
@@ -178,7 +178,7 @@
     </div>
     <div class="col-12 col-lg-4">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  text-bg-secondary">
           <h6 class="mb-0">Ages Ratio</h6>
         </div>
         <div class="card-body">

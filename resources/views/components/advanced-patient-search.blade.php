@@ -14,7 +14,7 @@
 
             <div class="form-group d-inline-block">
                 <label for="height">Height</label>
-                <select name="height[]" id="height" class="selectpicker" multiple>
+                <select name="height[]" id="height" class="selectpicker"  multiple>
                     <option value="">All</option>
                 @foreach(\App\Models\Patient::AVAILABLE_HEIGHTS as $stringRange => $array)
                         <option value="{{ $stringRange }}" {{ request('height') && in_array($stringRange, request('height')) ? 'selected' : '' }}>{{ $stringRange }}</option>

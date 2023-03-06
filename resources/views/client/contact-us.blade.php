@@ -21,35 +21,36 @@
         <div class="col-6"></div>
         <div class="col-lg-6 col-12">
           <form id="contact-us-form" action="#" method="post">
-            <h1 class="mb-3">{{ __('Get in touch with us') }}</h1>
+            <h1 class="mb-3 text-center">{{ __('Get in touch with us') }}</h1>
             <div class="row">
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>
-                <input id="firstNameInput" type="text" class="form-control">
+{{--                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>--}}
+                <input id="firstNameInput" placeholder="{{__('First Name')}}" type="text" class="form-control">
               </div>
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>
-                <input id="lastNameInput" type="text" class="form-control">
+{{--                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>--}}
+                <input id="lastNameInput" placeholder="{{__('Last Name')}}" type="text" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>
-                <input id="subjectInput" type="text" class="form-control">
+{{--                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>--}}
+                <input id="subjectInput" placeholder="{{__('Subject')}}" type="text" class="form-control">
               </div>
               <div class="form-group col-12 col-lg-6 mb-3">
-                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>
-                <input id="emailAddress" type="email" class="form-control">
+{{--                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>--}}
+                <input id="emailAddress" placeholder="{{__('Email Address')}}" type="email" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="form-group col-12 mb-3">
-                <label class="form-label" for="messageInput">{{__('Message')}}</label>
-                <textarea id="messageInput" type="text" class="form-control"></textarea>
+{{--                <label class="form-label" for="messageInput">{{__('Message')}}</label>--}}
+                <textarea id="messageInput" placeholder="{{__('Message')}}" type="text" rows="4" class="form-control"></textarea>
               </div>
             </div>
-
-            <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+              <div class="d-flex justify-content-center align-items-center">
+                  <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+              </div>
           </form>
         </div>
       </div>

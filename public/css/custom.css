@@ -1,0 +1,151 @@
+select {
+    width: 200px; /* set the width of the select element */
+}
+
+select option {
+    width: 100%; /* set the width of the options to 100% of the select element's width */
+    box-sizing: border-box; /* include padding and border in the width */
+}
+
+.footer-text-sm {
+    font-size: 18px;
+}
+.mt-container-contact{
+    margin-top: 7rem;
+}
+#about-us {
+
+    background-size: 49%;
+}
+/*.footer-left{*/
+/*    padding-left: 15rem;*/
+/*}*/
+.underline {
+    position: relative; /* create a positioning context */
+    font-size: 3rem;
+}
+
+.underline::after {
+    content: ""; /* create an empty content */
+    position: absolute; /* position the underline relative to the span */
+    left: 19%; /* position the underline at the middle of the span */
+    bottom: -0.15em; /* adjust the distance of the underline from the text */
+    width: 47%; /* set the width of the underline */
+    border-bottom:  3px solid #ba5e9c; /* add a blue underline */
+    font-size: 1px;
+}
+.wrapper {
+    width: 60%;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.containerr {
+    background-color: white;
+
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 0 rgb(0,0,0,0.25);
+    margin: 20px 0;
+}
+
+.question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 20px 80px 20px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question::after {
+    content: "\002B";
+    font-size: 2.2rem;
+    position: absolute;
+    right: 20px;
+    transition: 0.2s;
+}
+
+.question.active::after {
+    transform: rotate(45deg);
+}
+
+.answercont {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.text-header-contact-us{
+    font-size: 35px
+}
+.answer {
+    padding: 0 20px 20px;
+    line-height: 1.5rem;
+}
+
+.question.active + .answercont {
+}
+
+@media screen and (max-width: 790px){
+    html {
+        font-size: 14px;
+    }
+    .wrapper {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .custom-separator-line {
+        display: block;
+        margin: auto;
+    }
+
+    .footer-text-center {
+
+        text-align: center !important;
+    }
+
+    #footer .copyright a {
+        font-size: 11px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .text-center-sm {
+        text-align: center;
+    }
+    .footer-left{
+        padding-left: 0 !important;
+    }
+
+    .mobile-device-hidden{
+        display: none !important;
+    }
+
+    .text-header-contact-us{
+        font-size: 29px
+    }
+    .text-p-header-contact-us{
+        font-size: 10px
+    }
+
+    .mb-sm-card-left-contact{
+        margin-bottom: 3rem;
+    }
+    .mt-container-contact{
+        margin-top: 6rem;
+    }
+
+}
+
+
+
+
+
