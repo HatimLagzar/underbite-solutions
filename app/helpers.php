@@ -70,3 +70,27 @@ if (!function_exists('getPercentage')) {
         return 0;
     }
 }
+
+if (!function_exists('split_paragraph')) {
+    function split_paragraph($paragraph, $smaller_font_size_ratio = 0.8, $second_half_max_length = 50) {
+        // minimize the paragraph
+        $paragraph = substr($paragraph, 0, 120);
+
+        $words = explode(' ', $paragraph);
+        $half = round(count($words) / 2);
+
+        $first_half = implode(' ', array_slice($words, 0, $half));
+        $second_half = implode(' ', array_slice($words, $half));
+
+        $second_half = substr($second_half, 0, $second_half_max_length);
+
+        $first_half_length = strlen($first_half);
+        $second_half_length = strlen($second_half);
+
+        $font_size_ratio = $second_half_length / $first_half_length * $smaller_font_size_ratio;
+
+        $output = "$first_half" . "<br><span >$second_half ...</span>";
+
+        return $output;
+    }
+}
