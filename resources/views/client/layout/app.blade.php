@@ -106,25 +106,35 @@
     </nav>
 </header>
 @yield('content')
-<footer id="footer">
-    <section class="footer">
-        <div class="container-fluid">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-2  col-md-6 m-5 mt-0 col-12 p-0 ml-5">
-                    <div class="d-flex justify-content-center">
-                        <img style=" max-width: 132%;" class="footer-logo m-lg-5 img-fluid  image-footer " src="{{ asset('images/underbite.jpeg') }}" alt="Logo">
+<footer id="footer" >
+    <section class="footer"  >
+        <div class="container-fluid ">
+            <div class="row  mb-sm-2">
+                <div class="col-lg-4  col-md-4   col-sm-12 p-0 ">
 
-                    </div>
+                        <div class="d-flex flex-column align-items-start">
+                            <img class="footer-logo img-fluid float-start"
+                                 src="{{ asset('images/underbite1.jpeg') }}"
+                                 alt="Logo"
+                                 style="max-height: 255px; width: 110%;">
+
+                        </div>
+
                 </div>
-                <div class="col-lg-5  col-sm-6 col-md-6   d-flex py-lg-5 text-center ">
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                        <em class="text-center">{{__('We are here to insure you receive all necessary services for the treatment of your')}}</em>
-                        <a href="/#form-wrapper"
-                           class="btn btn-primary text-white py-2 px-4 mt-3 mx-auto btn-sm">{{__('Apply Here')}}</a>
+                <div class="col-lg-3 col-md-3  col-sm-12    text-center">
+                    <div class="d-flex flex-column align-items-center mt-4">
+                        <em class="text-center pt-5">{{__('We are here to insure you receive all necessary services for the treatment of your')}}</em>
+                        <div class="d-flex justify-content-center">
+                            <a href="/#form-wrapper"
+                               class="btn btn-primary text-white py-2 px-4 mt-3 mx-auto btn-sm">{{__('Apply Here')}}</a>
+
+                        </div>
                     </div>
+
+
                 </div>
-                <div class="col-lg-2 ml-lg-5 mt-lg-5 col-md-6 col-12 pt-5 mb-3 text-center-sm ">
-                    <h4>Denti<span class="text-pink">Care</span></h4>
+                <div class="col-lg-2  col-md-2 col-sm-12  text-center-sm ">
+                    <h4 class="pt-4">Denti<span class="text-pink">Care</span></h4>
                     <div class="separator custom-separator-line"></div>
                     <ul>
                         <li><a href="#">{{__('Our Dental Team')}}</a></li>
@@ -133,22 +143,79 @@
                         <li><a href="#">{{__('Our Dental Services')}}</a></li>
                         <li><a href="#">{{__('Clients')}}</a></li>
                     </ul>
-                    <div class="social-networks-col mt-3">
-                        <ul>
-                            <li class="d-inline-block">
-                                <a href="#">
-                                    <img src="/images/icons/facebook.png" alt="Facebook">
-                                </a>
-                            </li>
-                            <li class="d-inline-block">
-                                <a href="#">
+
+                </div>
+                <div class="col-lg-2   col-md-2 col-sm-12  text-center ">
+                    <div class="d-flex flex-column align-items-center mt-5">
+                        <h5 class="py-2 "><span>Join the community!</span></h5>
+
+
+                        <div class="social-networks-col d-flex  justify-content-center  mb-4">
+
+                            <span class="d-inline-block m-1">
+                                  <img src="/images/icons/facebook.png" alt="Facebook">
+                            </span>
+                            <span class="d-inline-block m-1">
                                     <img src="/images/icons/instagram.png" alt="twitter">
-                                </a>
-                            </li>
-                        </ul>
+                            </span>
+
+                        </div>
+
                     </div>
                 </div>
+
+
             </div>
+            {{--            <div class="row d-flex justify-content-center">--}}
+            {{--                <div class="col-md-3 m-5 mt-0 col-12 p-0 ml-5">--}}
+            {{--                    <div class="d-flex justify-content-center">--}}
+            {{--                        <img style=" max-width: 132%;" class="footer-logo m-lg-5 img-fluid  image-footer "--}}
+            {{--                             src="{{ asset('images/underbite.jpeg') }}" alt="Logo">--}}
+
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--                <div class=" col-md-3   d-flex py-lg-5 text-center">--}}
+            {{--                    <div class="d-flex flex-column align-items-center justify-content-center">--}}
+            {{--                        <em class="text-center">{{__('We are here to insure you receive all necessary services for the treatment of your')}}</em>--}}
+            {{--                        <a href="/#form-wrapper"--}}
+            {{--                           class="btn btn-primary text-white py-2 px-4 mt-3 mx-auto btn-sm">{{__('Apply Here')}}</a>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--                <div class="  col-md-2   mt-4 py-lg-5 text-center-sm  ">--}}
+            {{--                    <h4>Denti<span class="text-pink">Care</span></h4>--}}
+            {{--                    <div class="separator custom-separator-line"></div>--}}
+            {{--                    <ul>--}}
+            {{--                        <li><a href="#">{{__('Our Dental Team')}}</a></li>--}}
+            {{--                        <li><a href="#">{{__('Pricing & Pricelist')}}</a></li>--}}
+            {{--                        <li><a href="#">{{__('Our Solutions')}}</a></li>--}}
+            {{--                        <li><a href="#">{{__('Our Dental Services')}}</a></li>--}}
+            {{--                        <li><a href="#">{{__('Clients')}}</a></li>--}}
+            {{--                    </ul>--}}
+
+            {{--                </div>--}}
+            {{--                <div class="col-md-2 mt-4 py-lg-5 text-center-sm  ">--}}
+            {{--                    <h5><span>Join the community!</span></h5>--}}
+            {{--                    <div class="social-networks-col mt-4 ">--}}
+
+
+            {{--                        <ul>--}}
+            {{--                            <li class="d-inline-block">--}}
+            {{--                                <a href="#">--}}
+            {{--                                    <img src="/images/icons/facebook.png" alt="Facebook">--}}
+            {{--                                </a>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="d-inline-block">--}}
+            {{--                                <a href="#">--}}
+            {{--                                    <img src="/images/icons/instagram.png" alt="twitter">--}}
+            {{--                                </a>--}}
+            {{--                            </li>--}}
+            {{--                        </ul>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+
+
+            {{--            </div>--}}
+
         </div>
     </section>
     <section class="copyright">
@@ -157,18 +224,18 @@
                 <div class="col-md-6  col-sm-12 text-center-sm">
                     <p>{{__('All rights reserved')}} &copy; {{ date('Y') }}</p>
                 </div>
-                <div class="col-md-6  col-sm-12 text-center-sm footer-left" >
+                <div class="col-md-6  col-sm-12 text-center-sm footer-left">
 
-                        <span  class="footer-text-sm d-sm-none">
+                        <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.accessibility') }}">{{__('Accessibility')}}</a> |
                         </span>
-                        <span class="footer-text-sm d-sm-none">
+                    <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.disclaimer') }}">{{__('Disclaimer')}}</a> |
                         </span>
-                        <span class="footer-text-sm d-sm-none">
+                    <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.terms') }}">{{__('Terms and Conditions')}}</a> |
                         </span>
-                        <span class="footer-text-sm d-sm-none">
+                    <span class="footer-text-sm d-sm-none">
                             <a href="{{ route('pages.privacy-policy') }}">{{__('Privacy Policy')}}</a>
                         </span>
                     <ul class="mobile-device-hidden list-unstyled mb-0 ">

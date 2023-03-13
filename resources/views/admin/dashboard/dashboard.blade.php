@@ -157,9 +157,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
-                            <div id="regions_div" class="justify-content-center"
-                                 style="position: relative; max-width: 700px; height: 100%!important;"></div>
-                            {{--              <div id="map-container"  class="justify-content-center" style="position: relative; width: 100%; height: 100%!important;"></div>--}}
+                            <div id="regions_div" class="justify-content-center " style="position: relative; max-width: 700px; height: 100%!important;"></div>
                         </div>
                         <div class="col">
                             <ul class="list-group">
@@ -340,11 +338,11 @@
             };
 
             var map = new google.visualization.GeoChart(document.getElementById('regions_div'));
-            $(window).resize(function () {
-                map.draw(data, options);
-
-            })
-            // map.draw(data, options);
+            // $(window).resize(function () {
+            //     map.draw(data, options);
+            //
+            // })
+            map.draw(data, options);
         }
     </script>
     {{--  <script>--}}
