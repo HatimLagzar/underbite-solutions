@@ -6,11 +6,10 @@
     {{__('Blog')}}
 @endsection
 @section('content')
-    <section id="blog-header">
+    <section id="blog-header" style="padding-top: 41px;padding-bottom: 45px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    <h3 class="fw-light mb-1">{{__('Dental Surgery')}}</h3>
                     <h2 class="fw-semibold">{{__('Blog Posts')}}</h2>
                     <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area)..')}}</p>
                 </div>
@@ -18,7 +17,7 @@
         </div>
     </section>
 
-    <section id="blog-posts">
+    <section id="blog-posts" >
         <div class="container">
             @foreach($posts as $post)
                 <div class="post-item">

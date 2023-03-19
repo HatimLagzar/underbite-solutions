@@ -48,9 +48,13 @@
                 <textarea id="messageInput" placeholder="{{__('Message')}}" type="text" rows="4" class="form-control"></textarea>
               </div>
             </div>
-              <div class="d-flex justify-content-center align-items-center">
-                  <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+            <div class="row">
+              <div class="form-group col-12 mb-3">
+                  <div class="d-flex justify-content-center align-items-center">
+                      <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+                  </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

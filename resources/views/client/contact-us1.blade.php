@@ -19,22 +19,22 @@
                                     <div class="row">
                                         <div class="form-group col-12 col-lg-6 mb-3">
                                             {{--                <label class="form-label" for="firstNameInput">{{__('First Name')}}</label>--}}
-                                            <input id="firstNameInput" placeholder="{{__('First Name')}}" type="text" class="form-control">
+                                            <input id="firstNameInput" placeholder="{{__('First Name')}} (required)" type="text" class="form-control">
                                         </div>
                                         <div class="form-group col-12 col-lg-6 mb-3">
                                             {{--                <label class="form-label" for="lastNameInput">{{__('Last Name')}}</label>--}}
-                                            <input id="lastNameInput" placeholder="{{__('Last Name')}}" type="text" class="form-control">
+                                            <input id="lastNameInput" placeholder="{{__('Last Name')}} (required)" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="form-group col-12 col-lg-6 mb-3">
                                             {{--                <label class="form-label" for="emailAddress">{{__('Email Address')}}</label>--}}
-                                            <input id="emailAddress" placeholder="{{__('Email Address')}}" type="email" class="form-control">
+                                            <input id="emailAddress" placeholder="{{__('Email Address')}} (required)" type="email" class="form-control">
                                         </div>
                                         <div class="form-group col-12 col-lg-6 mb-3">
                                             {{--                <label class="form-label" for="subjectInput">{{__('Subject')}}</label>--}}
-                                            <input id="subjectInput" placeholder="{{__('app_number')}}" type="text" class="form-control">
+                                            <input id="subjectInput" placeholder="{{__('app_number')}} (optional)" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -43,9 +43,11 @@
                                             <textarea id="messageInput" placeholder="{{__('Message')}}" type="text" rows="8" class="form-control"></textarea>
                                         </div>
                                     </div>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
-                                    </div>
+                                  
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <button class="btn btn-primary rounded-5 d-block">{{__('Send')}}</button>
+                                            </div>
+                                       
                                 </form>
                             </div>
                         </div>

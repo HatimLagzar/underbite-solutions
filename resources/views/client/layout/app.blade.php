@@ -109,8 +109,8 @@
 <footer id="footer" >
     <section class="footer"  >
         <div class="container-fluid ">
-            <div class="row  mb-sm-2">
-                <div class="col-lg-4  col-md-4   col-sm-12 p-0 ">
+            <div class="row">
+                <div class="col-lg-5  col-md-5   col-sm-12 p-0 ">
 
                         <div class="d-flex flex-column align-items-start">
                             <img class="footer-logo img-fluid float-start"
@@ -133,7 +133,7 @@
 
 
                 </div>
-                <div class="col-lg-2  col-md-2 col-sm-12  text-center-sm ">
+                <div class="col-lg-2  col-md-2 col-sm-12 mt-3  mr-lg-3 text-center-sm ">
                     <h4 class="pt-4">Denti<span class="text-pink">Care</span></h4>
                     <div class="separator custom-separator-line"></div>
                     <ul>
@@ -147,7 +147,7 @@
                 </div>
                 <div class="col-lg-2   col-md-2 col-sm-12  text-center ">
                     <div class="d-flex flex-column align-items-center mt-5">
-                        <h5 class="py-2 "><span>Join the community!</span></h5>
+                        <h5 class="py-4 text-wrap "><span>Join the community!</span></h5>
 
 
                         <div class="social-networks-col d-flex  justify-content-center  mb-4">

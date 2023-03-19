@@ -77,9 +77,9 @@
                     </div>
                     <div class="card-body">
                         <strong>{{ number_format($submits) }} Submits</strong>
-                        <p class="mb-0 text-sm">{{ getPercentage($submits, key_exists(0, $sourcesNumbers) ? $sourcesNumbers[0] : '0') }}%
-                            ({{ number_format(key_exists(0, $sourcesNumbers) ? $sourcesNumbers[0] : '0') }})
-                            From {{ key_exists(0, $sourcesNumbers) ? $sourcesNumbers[0] : 'Unknown' }}</p>
+                        <p class="mb-0 text-sm">{{ getPercentage($submits, $sourcesNumbers[0]) }}%
+                            ({{ number_format($sourcesNumbers[0]) }})
+                            From {{ $sourcesNames[0] }}</p>
                         @if($submitsFromTopCountry)
                             <p class="mb-0 text-sm">
                                 {{ getPercentage($submits, $submitsFromTopCountry->counter) }}%
