@@ -12,10 +12,10 @@
 
                     <div class="break-line"></div>
 
-                    <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}
-                        <br> {{__('a message through the')}}
-                        {{__('a message through the')}}<a style="text-decoration: none; color: #b0dae3;"
-                                                          href="{{route('pages.contact-us')}}">{{__('contact us')}}</a> {{('page.')}}
+                    <p>{{__('faq page description paragraph goes here.')}}
+                        <br>
+                      {{__('Second line before link')}}
+                        <a style="text-decoration: none; color: #b0dae3;" href="{{route('pages.contact-us')}}">{{__('contact us')}}</a> {{('after the link again.')}}
                     </p>
                 </div>
             </div>
@@ -30,14 +30,12 @@
                 {{--Faq1--}}
                 <div class="containerr">
                     <div class="question">
-                        {{__('Why is visiting the dentist so important?')}}
+                        {{__('First question')}}
 
                     </div>
                     <div class="answercont">
                         <div class="answer">
-                            <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area)).')}}</p>
-                            <p>{{__('To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root..')}}</p>
-
+                            <p>{{__('First question answer')}}</p>
                         </div>
                     </div>
                 </div>
@@ -46,13 +44,11 @@
                 {{--Faq2--}}
                 <div class="containerr">
                     <div class="question">
-                        {{__('My teeth feel fine. Do I still need to see a dentist?')}}
-
+                        {{__('Second question')}}
                     </div>
                     <div class="answercont">
                         <div class="answer">
-                            <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area))).')}}</p>
-                            <p>{{__('To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root .')}}</p>
+                          <p>{{__('Second question answer')}}</p>
                         </div>
                     </div>
                 </div>
@@ -61,13 +57,11 @@
                 {{--Faq3--}}
                 <div class="containerr">
                     <div class="question">
-                        {{__('What should I look for when choosing the right dentist for me?')}}
-
+                        {{__('Third question')}}
                     </div>
                     <div class="answercont">
                         <div class="answer">
-                            <p>{{__('Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}</p>
-                            <p>{{__('q4.To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root.')}}</p>
+                          <p>{{__('Third question answer')}}</p>
                         </div>
                     </div>
                 </div>
@@ -76,12 +70,11 @@
                 {{--Faq4--}}
                 <div class="containerr">
                     <div class="question">
-                        {{__('How can I take care of my teeth between dental checkups?')}}
+                        {{__('Fourth question')}}
                     </div>
                     <div class="answercont">
                         <div class="answer">
-                            <p>{{__('q5.Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}</p>
-                            <p>{{__('a5.To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root.')}}</p>
+                          <p>{{__('Fourth question answer')}}</p>
                         </div>
                     </div>
                 </div>
@@ -90,22 +83,18 @@
                 {{--Faq5--}}
                 <div class="containerr">
                     <div class="question">
-                        {{__('At what age should I start taking my child to see the dentist?')}}
+                      {{__('Fifth question')}}
                     </div>
                     <div class="answercont">
                         <div class="answer">
-                            <p>{{__('q5.Dental surgery is a part of dentistry, which is a branch of medicine dealing with teeth, gums, and the mouth. This covers the oral mucosa and the dentition as well as all related tissues and structures (like the jaw and facial or maxillofacial area).')}}</p>
-                            <p>{{__('a5.To the general public, dentistry and dental surgery are mostly associated with fixing teeth. However, dental medicine isn’t only about fixing your teeth but also covers other aspects of craniofacial complex root.')}}</p>
+                          <p>{{__('Fifth question answer')}}</p>
                         </div>
                     </div>
                 </div>
                 {{--end Faq5--}}
-
-
             </div>
-
-
         </div>
+
         {{--                <div class="container">--}}
         {{--                    <h3 class="text-pink fw-light mb-1">{{__('Frequently Asked Questions')}}</h3>--}}
         {{--                    <h2 class="fw-semibold text-blue">{{__('Questions')}}</h2>--}}
