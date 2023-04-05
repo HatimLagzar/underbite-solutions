@@ -8,8 +8,8 @@
     <div class="container mt-container-contact" >
         <section >
             <div class="container">
-                <h1  class="mx-5 mt-5 text-center text-blue text-header-contact-us">Contact <span class="text-pink text-header-contact-us" style="font-size: 35px" >DentiCare</span></h1>
-                <p class="text-center mb-5 text-p-header-contact-us">Globally incubate standards compliant channels before scalable. Quickly <br> disseminate superior deliverables whereas web-enabled applications.</p>
+                <h1  class="mx-5 mt-5 text-center text-blue text-header-contact-us">{{__('Contact')}} <span class="text-pink text-header-contact-us" style="font-size: 35px" >DentiCare</span></h1>
+                <p class="text-center mb-5 text-p-header-contact-us">{!! __('Globally incubate standards compliant channels before scalable. Quickly <br> disseminate superior deliverables whereas web-enabled applications.') !!}</p>
                 <div class="row">
                     <div class="col-lg-9 order-sm-1 order-md-2 mb-2 col-12 hv-100">
                         <div class="card">
@@ -59,7 +59,7 @@
                                     <div class="d-flex justify-content-center">
                                         <span><i class="fa fa-map-marker fa-3x "  aria-hidden="true" style="color: #ddb0ce"></i></span>
                                     </div>
-                                    <h3 class="text-center my-2 " style="color: #7b8187;;">Our Locations</h3>
+                                    <h3 class="text-center my-2 " style="color: #7b8187;;">{{ __('Our Locations') }}</h3>
                                     <ul class="list-unstyled mt-3" >
                                         <li class="text-center py-2"><strong>UAE - Dubai</strong></li>
                                         <li class="text-center py-2"><strong>Germany - Munich</strong> </li>
@@ -70,7 +70,7 @@
                                         <li class="text-center py-2"><strong>Korea - Soul</strong></li>
 
                                     </ul>
-                                    <p class="text-center"><small style="font-weight: 300;font-size: 12px">someone will be in touch with you from one of our offices</small></p>
+                                    <p class="text-center"><small style="font-weight: 300;font-size: 12px">{{__('someone will be in touch with you from one of our offices')}}</small></p>
                                 </div>
                             </div>
                         </div>
