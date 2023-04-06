@@ -92,6 +92,66 @@
                     </div>
                 </div>
                 {{--end Faq5--}}
+                {{--Faq5--}}
+                <div class="containerr">
+                    <div class="question">
+                      {{__('Sixth question')}}
+                    </div>
+                    <div class="answercont">
+                        <div class="answer">
+                          <p>{{__('Sixth question answer')}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{--end Faq5--}}
+                {{--Faq5--}}
+                <div class="containerr">
+                    <div class="question">
+                      {{__('Seventh question')}}
+                    </div>
+                    <div class="answercont">
+                        <div class="answer">
+                          <p>{{__('Seventh question answer')}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{--end Faq5--}}
+                {{--Faq5--}}
+                <div class="containerr">
+                    <div class="question">
+                      {{__('Eighth question')}}
+                    </div>
+                    <div class="answercont">
+                        <div class="answer">
+                          <p>{{__('Eighth question answer')}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{--end Faq5--}}
+                {{--Faq5--}}
+                <div class="containerr">
+                    <div class="question">
+                      {{__('Ninth question')}}
+                    </div>
+                    <div class="answercont">
+                        <div class="answer">
+                          <p>{{__('Ninth question answer')}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{--end Faq5--}}
+                {{--Faq5--}}
+                <div class="containerr">
+                    <div class="question">
+                          {{__('Tenth question')}}
+                    </div>
+                    <div class="answercont">
+                        <div class="answer">
+                          <p>{{__('Tenth question answer')}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{--end Faq5--}}
             </div>
         </div>
 
